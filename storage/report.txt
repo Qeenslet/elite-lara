@@ -1,0 +1,1424 @@
+IC_1805_Sector ZO-H_c10-7 G4 V T_H-M 0,81
+Phroea_Phoe RT-O_d7-36 G0 V T_H-M 0,84 
+Phroea_Phoe RT-O_d7-36 G0 V T_H-M 1,11 
+Phroea_Phoe RT-O_d7-36 G0 V T_H-M 1,57  
+blu_thua uy-s_d3-48 K4 V T_H-M 0,51  
+blu_thua uy-s_d3-48 K4 V WW 1,12
+blu_thua uy-s_d3-91 F4 V T_H-M 1,62
+blu_thua uy-s_d3-91 F4 V T_H-M Ò 2,19 
+Oochoss CH-J_d10-17 K3 V T_H-M 0,86 
+Oochoss CH-J_d10-17 K3 V T_H-M 1,08 
+Oochoss CH-J_d10-17 K3 V T_H-M 1,41 
+blu_thua uy-s_d3-73 G1 V T_H-M 0,85
+blu_thua uy-s_d3-73 G1 V T_WW 1,21
+blu_thua qs-u_d2-5 F1 VI T_H-M 1,72
+blu_thua ig-y_d26 F7 V T_H-M 1,63
+blu_thua ll-y_c13 G9 V T_H-M 0,75
+ngc_6281_sector eg-y_d76 G2 V T_H-M 0,95
+ngc_6281_sector eg-y_d76 G2 V T_H-M 1,37
+praea_euq kt-z_d13-35 G8 V T_H-M 1,27
+praea_euq bh-d_d12-57 K6 V T_H-M 0,58
+praea_euq bh-d_d12-15 F1 VI E_L 2,73
+praea_euq uf-f_d11-24 G0 V T_H-M 0,96 
+praea_euq uf-f_d11-24 G0 V T_H-M 1,31
+praea_euq uf-f_d11-14 G2 V T_H-M 1,06 
+m7_sector up-n_c7-1 G9 V T_H-M 0,75  
+m7_sector up-n_c7-1 G9 V T_WW 1,05 
+m7_sector ks-t_d3-6 G1 V T_H-M 1,34 
+m7_sector ks-t_d3-6 G1 V T_WW 1,76 
+m7_sector ks-t_d3-67 G2 V T_WW 1,5 
+m7_sector ks-t_d3-67 G2 V T_WW 2,13 
+m7_sector gm-v_d2-53 G1 V T_H-M 1,03
+m7_sector hs-s_c4-13 G4 V E_L 0,77 
+m7_sector hs-s_c4-13 G4 V T_WW 1,0
+HIP 87588  N T_H-M 2,79 
+HIP 87588  N WW 3,94 
+HIP 87588  N T_RW  3,94
+col_359_sector kc-l_d8-47 G5 V T_WW 1,35
+HIP 88828 W5 I T_H-M 1,83  
+HIP 88828 W5 I T_H-M 2,72 
+scutum_dark_region dl-y_d12 G0 V T_H-M 0,85 
+scutum_dark_region dl-y_d12 G0 V T_H-M 1,12 
+Hypheerld IZ-M_d8-231 G2 V T_H-M 1,08 
+Hypheerld IZ-M_d8-231 G2 V WW 1,8 
+Gludgoea VP-G_d10-154 F6 V T_WW 2,15 
+Gludgoea VP-G_d10-154 F6 V T_WW 2,77 
+Gludgoea VP-G_d10-154 K5 V WW 2,13 
+Gludgoea QK-N_c20-68 K2 V T_WW 0,79 
+Gludgoea YP-G_d10-196 F1 VI T_WW   1,7 
+Gludgoea YP-G_d10-304 K9 V T_H-M 0,86 
+byeia_thaa ra-f_b56-0 M5 V E_L 0,11
+byeia_thaa ra-f_b56-0 M5 V AW 0,33
+bleae_eurk tq-d_c2 K5 V T_H-M 0,71	
+bleae_eurk tq-d_c2 K5 V	AW 1,3 
+Gludgoea LD-I_c23-62 G8 V T_H-M 0,69 
+Gludgoea LD-I_c23-62 G8 V T_WW 0,92 
+Gludgoea LD-I_c23-62 G8 V WW 1,25
+Gludgoea LD-I_c23-62 G8 V WW 1,66 
+Gludgoea MD-I_c23-57 K2 V T_WW 0,51 
+Gludgoea MD-I_c23-57 K2 V T_H-M 0,75 
+HIP 64721 K9 V AW 1,86 
+HIP 64721 K9 V AW 2,43 
+Preston's_star A2 V T_H-M 3,09 
+Preston's_star A2 V E_L 5,12 
+Wregoe HW-Y_c28-2 G7 V T_H-M 0,67 
+Wregoe HW-Y_c28-2 G7 V T_WW 0,89 
+Wregoe HW-Y_c28-2 G7 V T_H-M 1,09 
+Gludgoea FW-E_d11-91 A8 VI T_H-M 2,82 
+Gludgoea FW-E_d11-91 A8 VI 	WW 4,97 
+Gludgoea FW-E_d11-91 A8 VI AW 8,78 
+Wregoe CI-A_d14-32 F2 V T_WW 2,42 
+Gludgoea ND-I_c23-5 G9 V T_H-M 0,74 
+Gludgoea ND-I_c23-5 G9 V T_H-M 1,28 
+Wregoe AA-B_c28-2 M7 V T_H-M 0,22 
+HIP 67481 A2 IV T_H-M 5,15 
+Wregoe WR-A_d14-28 G0 V T_H-M 0,94 
+Wregoe WR-A_d14-28 G0 V T_H-M 1,65 
+Wregoe SB-B_d14-16 G5 V T_H-M 1,71 
+Wregoe SB-B_d14-16 G5 V T_H-M 2,03 
+HIP 67132 G5 V T_H-M 1,08 
+HIP 67132 G5 V T_H-M 1,80 
+Gludgoea KC-D_d12-26 F2 V T_H-M 2,34 
+Gludgoea KC-D_d12-26 F2 V T_H-M 3,35 
+Gludgoea QI-B_d13-60 F7 VI T_H-M 1,59 
+Gludgoea QN-Z_c27-38 G1 V T_H-M 1,02 
+Gludgoea QN-Z_c27-38 G1 V WW bin 1,374 
+Gludgoea QN-Z_c27-38 G1 V T_H-M bin 1,374 
+Hegeia AA-A_d24 N WW 3,89 
+Hegeia HG-Y_d171 N WW bin 6,22
+Hegeia HG-Y_d171 N T_H-M bin 6,22
+Hegeia DK-Q_c5-7 K3 V T_H-M 0,64 
+Hegeia DK-Q_c5-7 K3 V T_H-M 0,84 
+Hegeia LG-X_d1-14 F0 V T_H-M 2,82 
+SYNUEFAI ZM-Q_d6-26 F7 V T_H-M  1,30 
+SYNUEFAI ZM-Q_d6-26 F7 V T_H-M  1,65 
+SYNUEFAI ZM-Q_d6-26 F7 V T_WW  2,34 
+PLAA_EURK CZ-S_d3-28 G3 V T_H-M  1  
+PLAA_EURK CZ-S_d3-28 G3 V T_H-M  1  
+PLAA_EURK CZ-S_d3-28 G3 V T_H-M  1,38 
+PLAA_EURK QR-W_d1-16 F5 V T_H-M  2,35 
+PLAA_EURK QR-W_d1-16 F5 V T_WW  2,77 
+PLAA_EURK QR-W_d1-16 F5 V WW  4,07 
+PLAA_EURK JQ-Y_d18 A9 V T_H-M  1,88 
+PLAA_EURK JQ-Y_d18 A9 V T_H-M  2,26 
+PLAA_EURK JQ-Y_d18 A9 V T_H-M  3,46 
+bleae_eurk dq-w_d2-4 A5 VI T_H-M 2,81
+bleae_eurk dq-w_d2-4 A5 VI T_H-M 3,45
+bleae_eurk dq-w_d2-4 A5 VI T_WW 3,45
+bleae_eurk dq-w_d2-4 A5 VI T_WW bin 4,7
+bleae_eurk dq-w_d2-4 A5 VI T_WW bin 4,7
+bleae_eurk dq-w_d2-4 A5 VI WW 5,84
+bleae_eurk to-h_b14-0  M3 V T_WW 0,19
+bleae_eurk wg-k_d9-2 A9 V T_H-M 2,94
+bleae_eurk wg-k_d9-2 A9 V T_H-M 4,36
+bleae_eurk ls-k_b40-0 M3 V T_H-M 0,18
+traikea ho-d_b44-0 M6 V T_WW 0,14 
+Hegeia NB-X_d1-28 A5 VI T_H-M 3,05 
+Hegeia NB-X_d1-28 A5 VI T_H-M 3,79 
+Hegeia NB-X_d1-28 A5 VI TR  3,79 
+Hegeia PL-N_c7-0 K5 V T_H-M 0,55 
+Hegeia PL-N_c7-0 K5 V T_H-M 0,73 
+Hegeia PL-N_c7-0 K5 V WW 1,03 
+Hegeia UR-L_c8-5 K4 V T-HM 0,53 
+Hegeia UR-L_c8-5 K4 V T-HM bin 0,7 
+Hegeia UR-L_c8-5 K4 V T_WW bin 0,7 
+Hegeia EE-I_c10-4 K5 V WW 0,73 
+Hegeia EE-I_c10-4 K5 V AW 1,33 
+Hegeia OA-G_c11-2 K9 V WW 0,69 
+Ploi_Thua BY-Q_c18-1 G4 V T_H-M 0,77 
+Ploi_Thua SP-G_d10-30 F9 V T_H-M 1,26 
+Ploi_Thua SP-G_d10-30 F9 V T_WW 1,86 
+traikea py-g_d11-4 F5 V T_H-M 1,42
+traikea py-g_d11-4 F5 V  T_H-M 1,75
+traikea py-g_d11-4 F5 V T_WW bin 2,62
+traikea py-g_d11-4 F5 V T_WW bin 2,62
+traikea qe-f_d12-5 A8 VI T_H-M 2,0
+traikea qe-f_d12-5 A8 VI T_H-M 2,76
+traikea qe-f_d12-5 A8 VI T_WW 3,62
+traikea qe-f_d12-5 A8 VI WW 8,65
+byaa_euq tp-w_d2-12 A6 VI T_WW 3,85
+byoi_euq db-j_c11-1 K2 V T_WW 0,64
+byoi_euq db-j_c11-1 K2 V T_WW 0,81
+byoi_euq on-r_d5-8 A7 V T_H-M 3,42
+byoi_euq on-r_d5-8 A7 V WW 5,946
+byoi_euq qt-p_d6-1 A4 VI T_H-M 4,06 
+byoi_euq qt-p_d6-1 A4 VI WW 5,88
+byoi_euq mz-b_c15-2 K8 V T_WW 0,38 
+Ploi_Thua AC-D_d12-29 A9 V T_H-M 2,30 
+Ploi_Thua AC-D_d12-29 A9 V T_H-M 3,09 
+Phaa_Ain LO-Z_d13-5 F3 VI T_H-M 1,51 
+Phaa_Ain LO-Z_d13-5 F3 VI T_WW 2,12 
+Outopps JL-Y_c2 G4 V T_H-M 0,86 
+Outopps JL-Y_c2 G4 V T_WW 1,13 
+Outopps JL-Y_c2 G4 V T_H-M 1,47 
+Outopps HG-Y_d10 F3 V T_H-M 1,71 
+Outopps HG-Y_d10 F3 V T_WW 2,36 
+Outopps HG-Y_d10 F3 V T_WW bin 2,85 
+Outopps HG-Y_d10 F3 V  T_H-M bin 2,85 
+NGC_1545_Sector BQ-Y_d8 F0 V T_H-M 3,57 
+Outopps KX-L_d7-16  A4 VI T_H-M 3,28 
+Outopps KX-L_d7-16  A4 VI T_WW bin 4,32 
+Outopps KX-L_d7-16  A4 VI WW bin 4,32 
+Outopps KX-L_d7-16  A4 VI WW 5,92 
+Outopps KX-L_d7-7 F3 V T_H-M 1,88 
+Outopps KX-L_d7-7 F3 V T_H-M bin 2,82 
+Outopps KX-L_d7-7 F3 V T_WW bin 2,82 
+IC_289_Sector EL-Y_d6 F6 V T_H-M 1,29 
+IC_289_Sector EL-Y_d6 F6 V T_WW 2,03 
+Outopps KT-Z_d13-6 F4 VI T_H-M 1,47 
+Wredguia CF-A_d13 M7 V WW 0,29 
+Synuefe gx-j_c25-19 TTS0 V T_H-M 0,35
+Synuefe gx-j_c25-19 TTS0 V WW 0,42
+Synuefe gx-j_c25-19 TTS0 V WW 0,55 
+Wredguia KG-X_c1-3 K3 V WW 1,35 
+Wredguia HL-Y_d7 F4 V T_H-M 1,74 
+Wredguia HL-Y_d7 F4 V T_WW 2,19 
+Wredguia GQ-Y_d13 F0 V T_H-M bin 1,89 
+Wredguia GQ-Y_d13 F0 V T_H-M bin  1,89 
+Wredguia GQ-Y_d13 F0 V T_WW 2,59 
+Wredguia GQ-Y_d13 F0 V WW 4,49 
+Wredguia GQ-Y_d5 F4 V T_H-M 1,89 
+Wredguia GQ-Y_d5 F4 V T_H-M 2,22 
+Wredguia GQ-Y_d5 F4 V  WW 3,36 
+Wredguia GQ-Y_d17 G6 V T_H-M 1,72 
+Wredguia UX-T_c3-0 K2 V T_H-M 0,59 
+Wredguia LW-W_d1-1 G1 V WW 1,82 
+Wredguia LW-W_d1-5 F4 V T_WW bin 2,02 
+Wredguia LW-W_d1-5 F4 V T_H-M bin 2,02 
+Wredguia LW-W_d1-5 F4 V T_WW 2,72 
+Wredguia SC-V_d2-20 F8 V T_H-M 1,8 
+Wredguia TC-V_d2-16 F1 V T_H-M 2,54 
+Wredguia CUW-M_c7-0 G4 V T_H-M 1,07 
+byoi_euq wx-u_c18-3 K5 V T_H-M 0,63
+byoi_euq fr-d_b44-0 M5 V T_H-M 0,14 
+byoi_euq fr-d_b44-0 M5 V AW 0,54à
+byoi_euq gc-c_b45-0 M4 V WW 0,18
+byoi_euq cy-g_d11-1 F8 V T_H-M 1,15
+byoi_euq cy-g_d11-1 F8 V T_WW 1,47
+byoi_euq cy-g_d11-1 F8 V WW 2,66
+Byaa_eurk vd-k_b54-0 M4 V T_H-M 0,2
+Byaa_eurk dj-b_c29-1 K5 V T_WW 0,64
+lysood ui-b_b4-0 M4 V T_H-M bin 0,16
+lysood ui-b_b4-0 M4 V T_H-M bin 0,16
+lysood ui-b_b4-0 M4 V T_WW 0,25
+lysood ui-b_b4-0 M4 V T_WW 0,29
+lysood tt-z_b4-0 M9 VI T_H-M 0,06
+lysood hm-i_b14-0 M4 V WW 0,25
+lysood zk-x_e1-1_b9 V WW 10,59
+thraikuae nh-t_d4-0 F0 V T_H-M 2,13
+thraikuae nh-t_d4-0 F0 V WW 3,07
+thraikuae nh-t_d4-0 F0 V WW 4,85
+thraikuae nh-t_d4-0 M2 V T_H-M 0,4
+thraikuae nh-t_d4-0 M2 V WW 0,55
+thraikuae nh-t_d4-0 G4 V T_H-M 0,99
+thraikuae nh-t_d4-0 G4 V WW 2,49 
+Wredguia BY-K_c8-2 K2 V T_H-M 0,61 
+Wredguia GV-P_d5-24 G7 V T_H-M 0,76 
+Wredguia GV-P_d5-24 G7 V T_WW 1,12 
+Wredguia GV-P_d5-12 G6 V T_H-M 0,81 
+Wredguia GV-P_d5-12 G6 V T_H-M 1,33 
+Wredguia LB-O_d6-11 F7 V T_H-M 1,19  
+Wredguia LB-O_d6-11 F7 V T_WW 1,46 
+Wredguia LB-O_d6-11 F7 V T_H-M 1,96 
+Wredguia LB-O_d6-21 G0 V T_H-M 0,71 
+Wredguia LB-O_d6-21 G0 V T_H-M 0,99 
+Wredguia WC-C_c13-4 K6 V T_H-M 0,5 
+Wredguia WC-C_c13-4 K6 V T_H-M 0,68 
+Wredguia BJ-A_c14-3 G9 V T_H-M 1,07 
+Wredguia BJ-A_c14-2 G7 V T_H-M bin 1,31 
+Wredguia BJ-A_c14-2 G7 V T_H-M bin 1,31 
+thraikuae pn-r_d5-10 N T_H-M bin 5,48
+thraikuae pn-r_d5-10 N T_H-M bin 5,48
+thraikuae pn-r_d5-10 N AW 10,23
+thraikuae gw-p_b37-0 M7 V WW 0,17
+thraikuae gw-p_b37-0 M7 V AW 0,25
+thraikuae ds-i_d10-9 G1 V T_H-M 1,28
+thraikuae je-f_d12-10 N  T_H-M 5,85
+thraikuae je-f_d12-10 N  T_H-M 6,98
+thraikuae je-f_d12-10 N   T_H-M 10,41
+thraikuae of-d_d13-7 A9 V T_H-M 2,34
+thraikuae of-d_d13-7 A9 V T_WW  3,13
+thraikuae mf-d_d58-0 M5 V E_L  0,13
+Prieleae av-w_d2-1 A8 V WW  4,46
+Prieleae ia-a_c16-0 K7 V T_H-M 0,35
+Prieleae ia-a_c16-0 K7 V T_H-M 0,47
+Prieleae SA-M_d8-13 A6 VI T_H-M 2,98
+Prieleae SA-M_d8-13 A6 VI T_WW 3,88
+Prieleae SA-M_d8-13 A6 VI E_L 5,0
+Prieleae SA-M_d8-13 M0 V T_H-M 0,29
+Prieleae SA-M_d8-13 M0 V T_H-M 0,37
+Prieleae SA-M_d8-13 M0 V T_H-M 0,5
+Prieleae wd-t_b35-0 M3 V  WW 0,21
+Prieleae wd-t_b35-0 M3 V  WW 0,31
+Prieleae wd-t_b35-0 M9 VI  WW 0,07
+Prielo qt-g_d11-9 G5 V T_H-M 1,00
+Prielo qt-g_d11-9 G5 V E_L 1,73
+Prielo qq-g_c26-0 K0 V T_H-M 0,8
+Prielo qq-g_c26-0 M2 V T_H-M bin 0,22
+Prielo qq-g_c26-0 M2 V T_H-M 0,29
+Col_285_Sector WE-Z_d55 F2 VI T_H-M 1,52 
+Col_285_Sector WE-Z_d55 F2 VI T_H-M 2,45 
+Col_285_Sector WE-Z_d55 F2 VI T_WW 2,45 
+Col_285_Sector WE-Z_d46 G9 V T_H-M 0,99 
+Synuefai JI-Q_d6-13 F1 VI T_H-M 1,9 
+Synuefai JI-Q_d6-13 F1 VI T_H-M 2,47 
+Stock_2_Sector KM-W_d1-16 K0 V T_H-M 0,69 
+Stock_2_Sector KM-W_d1-16 K0 V T_WW 1,23 
+Stock_2_Sector JM-W_d1-25 F5 V T_H-M 1,21 
+Stock_2_Sector JM-W_d1-25 F5 V T_WW 2,26 
+Stock_2_Sector JM-W_d1-25 F5 V WW 3,70 
+Stock_2_Sector FG-Y_d35 G3 V T_H-M 1,10 
+Stock_2_Sector FG-Y_d35 G3 V T_H-M 1,38 
+Stock_2_Sector FG-Y_d35 G3 V WW 2,54 
+Stock_2_Sector EG-Y_d13 A6 VI T_H-M 2,46 
+Stock_2_Sector EG-Y_d13 A6 VI T_H-M 4,21 
+Synuefai UP-V_d3-24 G1 V T_H-M 1,19 
+Synuefai NO-X_d2-30 F4 V T_H-M 1,60 
+Synuefai NO-X_d2-30 F4 V T_H-M 2,14 
+Synuefai NO-X_d2-30 F4 V T_H-M 2,92 
+Synuefai CY-U_c5-2 K9 V T_WW 0,45 
+Synuefai CY-U_c5-2 K9 V T_H-M 0,67 
+Synuefai AR-C_d22 A9 V T_H-M 2,39 
+Synuefai AR-C_d22 A9 V T_H-M 3,38 
+Synuefai ZQ-C_d11 F5 V T_H-M 1,79 
+Synuefai ZQ-C_d11 F5 V T_WW 2,65 
+Oochoss NT-F_d12-7 F6 V T_H-M 1,58 
+Oochoss NT-F_d12-7 F6 V T_WW 2,08 
+Oochoss NT-F_d12-7 F6 V T_H-M 2,67 
+Oochoss NT-F_d12-5  A6 VI T_WW 4,63 
+Oochoss CH-J_d10-17 K2 V T_H-M 0,86 
+Oochoss CH-J_d10-17 K2 V T_H-M 1,08 
+Oochoss CH-J_d10-17 K2 V T_H-M 1,41 
+Oochoss FC-S_d5-7 A5 VI T_H-M 4,31 
+Oochoss FC-S_d5-7 A5 VI WW 7,41 
+Oochoss ZV-T_d4-13 F5 V T_H-M 1,94 
+Oochoss ZV-T_d4-13 F5 V T_H-M 2,54 
+Oochoss VP-V_d3-0 A6 V T_H-M 3,38 
+Oochoss VP-V_d3-0 A6 V T_WW 4,98 
+Oochoss KZ-S_c6-0 K7 V T_H-M 0,63 
+Oochoss TT-U_b8-0 M3 V T_H-M 0,17 
+Oochoss TT-U_b8-0 M3 V T_WW 0,25 
+Oochoss TT-U_b8-0 M3 V T_H-M 0,15 
+Oochoss HS-A_d1-10 F6 V T_H-M 1,57 
+Oochoss HS-A_d1-10 F6 V WW 3,78 
+Oochoss FW-I_b1-0 M4 V T_H-M 0,23 
+Oochoss FW-I_b1-0 M4 V T_H-M 0,31 
+Sleguae QZ-D_d13-1 F2 V T_H-M 1,67 
+Sleguae QZ-D_d13-1 F2 V T_H-M 2,48 
+Sleguae FN-H_d11-0 F0 VI T_H-M 1,83 
+Sleguae FN-H_d11-0 F0 VI T_H-M 3,22 
+Sleguae HU-Z_c16-12 K5 V T_H-M 0,40 
+Sleguae HU-Z_c16-12 K5 V E_L 0,50 
+Sleguae HU-Z_c16-12 K5 V T_WW 0,73 
+Sleguae HI-Z_d1-43 F0 VI T_H-M 1,81 
+Sleguae XV-C_d83 F3 V T_H-M 1,73 
+Sleguae XV-C_d83 F3 V T_WW 2,50 
+Phaa_Ain PC-D_d12-217 F5 V T_H-M 1,25 
+IC_1805_Sector RO-G_c11-24 G7 V T_H-M 0,68 
+IC_1805_Sector RO-G_c11-24 G7 V T_H-M 0,95 
+IC_1805_Sector WE-Q_d5-112 F4 VI T_H-M 1,23 
+IC_1805_Sector RO-G_c11-24 G7 V T_H-M 2,20 
+IC_1805_Sector LI-I_c10-21 K6 V T_H-M 0,37 
+IC_1805_Sector LI-I_c10-21 K6 V T_H-M 0,47 
+IC_1805_Sector LI-I_c10-21 K6 V T_H-M 0,59 
+Hypoae_Ain NB-B_c27-18 K1 V T_H-M 0,60 
+Hypoae_Ain XN-G_c24-4 K6 V T_WW 0,51 
+Hypoae_Ain YI-G_c24-16 K8 V T_H-M 0,46 
+Hypoae_Ain YI-G_c24-16 K8 V WW 0,83 
+Prielo in-l_b53-0 M8 V E_L 0,07 
+Gehae KW-E_d11-7 F1 VI T_H-M 2,50 
+Gehae KW-E_d11-7 F1 VI WW 3,53 
+Gehae KW-E_d11-7 K6 V T_H-M 0,51 
+Gehae KW-E_d11-7 K6 V T_H-M 0,78 
+Gehae KW-E_d11-7 K6 V WW 0,94  
+Ellaic ox-b_d7 F8 V T_H-M 0,99 
+Ellaic ox-b_d7 F8 V T_H-M bin 1,39
+Ellaic pd-a_d1-14 F4 V T_H-M 1,47
+Ellaic pd-a_d1-14 F4 V T_H-M 1,91
+Ellaic pd-a_d1-14 F4 V T_H-M bin 2,57
+Ellaic pd-a_d1-14 F4 V T_WW bin 2,57
+Ellaic pd-a_d1-14 F4 V WW 3,53
+Ellaic pd-a_d1-14 G4 V WW 1,75
+20_Monocerotis  K0 III T_H-M 5,18 
+20_Monocerotis  K0 III T_H-M 6,35 
+20_Monocerotis  K0 III E_L 9,21 
+Wregoe YB-K_c22-13 M4 V T_WW 0,27 
+Wregoe YB-K_c22-13 M4 V WW 0,90 
+HIP 50254 G8 III  T_H-M 5,21 
+Wregoe RT-Z_d13-106 F7 V T_H-M 1,42 
+Wregoe RT-Z_d13-36 F6 V T_H-M 1,68 
+Wregoe RT-Z_d13-36 F6 V WW 2,85 
+Wregoe ST-Z_d13-64 F3 V T_WW 2,05 
+Wregoe TT-Z_d13-62 G2 V  T_H-M bin  1,03 
+Wregoe TT-Z_d13-62 G2 V  T_H-M bin 1,03 
+Praea_Euq MF-A_d68 F6 V T_H-M 2,07 
+Pro_Eurl CL-Y_d76 F4 V T_H-M 1,35 
+Pro_Eurl CL-Y_d76 F4 V T_WW 1,97 
+Pro_Eurl CL-Y_d76 F8 V T_H-M 1,27 
+Pro_Eurl CL-Y_d76 F8 V T_WW 1,60 
+NGC_3532_Sector AG-W_c2-0 G8 V T_H-M bin  0,78 
+NGC_3532_Sector AG-W_c2-0 G8 V T_H-M bin  0,78 
+NGC_3532_Sector AG-W_c2-0 G8 V WW 1,01 
+NGC_3532_Sector AG-W_c2-0 G8 V WW 1,48 
+Blaa_Eoq RU-V_d3-17 A6 VI T_H-M 3,05 
+Blaa_Eoq RU-V_d3-17 A6 VI T_H-M 3,05 
+Blaa_Eoq RU-V_d3-17 A6 VI TWW 3,9 
+Blaa_Eoq RU-V_d3-17 A6 VI EW 3,9 
+Blaa_Eoq RU-V_d3-17 A6 VI WW 5,4  
+NGC_3532_Sector YZ-Y_d63 F5 V T_H-M bin  1,50 
+NGC_3532_Sector YZ-Y_d63 F5 V T_H-M bin  1,50 
+NGC_3532_Sector YZ-Y_d63 F5 V T_H-M 2,32 
+NGC_3532_Sector YZ-Y_d63 A7 VI T_H-M 3,63 
+Ellaic tq-r_c6-0 M0 V T_H-M 0,27
+Ellaic tq-r_c6-0 M0 V E_L 0,36
+Ellaic tq-r_c6-0 M0 V T_H-M bin 0,48
+Ellaic dp-k_c10-1 M8 V T_H-M 0,13
+Ellaic dp-k_c10-1 M8 V AW 0,25
+Ellaic dp-k_c10-1 M8 V AW 0,3
+NGC_3532_Sector HR-V_d2-39 F2 V T_H-M 1,96 
+NGC_3532_Sector HR-V_d2-39 F2 V T_H-M 2,53 
+Pro_Eurl QC-V_d2-30 A6 VI T_H-M 2,38 
+Pro_Eurl QC-V_d2-30 A6 VI T_H-M 3,08 
+Pro_Eurl FK-R_d4-18 F8 V T_H-M 1,47 
+Pro_Eurl FK-R_d4-18 F8 V T_WW 1,99 
+Ellaiwsy vo-p_d6-6 A9 VI WW 2,67
+Ellaiwsy vo-p_d6-6 A9 VI WW 7,23
+Ellaiwsy xu-n_d7-14 F4 V T_H-M bin 0,92 
+Pro_Eurl GK-R_d4-47 F8 V T_WW 1,58 
+Ellaiwsy ja-u_b34-0 L1 V T_WW 0,07
+Ellaiwsy mz-t_c18-4 M2 V T_H-M 0,2
+Ellaiwsy mz-t_c18-4 M2 V T_WW 0,3
+Ellaiwsy vg-q_c20-0 K7 V T_H-M 0,47
+Ellaiwsy st-r_e4-6 A1 VI T_H-M 9,08
+Ellaiwsy ai-o_c21-6  K2 V WW 0,96
+Ellaiwsy pe-g_d11-0 G9 V WW 1,42  
+Ellaiwsy pe-g_d11-0 G9 V WW 2,58 
+Ellaiwsy rz-f_d11-6 F4 V T_H-M 2,41
+Ellaiwsy jc-a_b44-2 M2 V T_H-M 0,19 
+Sifeae YA-O_d6-25 F3 V T_H-M 1,52 
+Sifeae YA-O_d6-25 F3 V T_WW 2,01 
+Sifeae YA-O_d6-25 F3 V T_H-M bin 2,78 
+Sifeae YA-O_d6-25 F3 V T_H-M bin 2,78 
+Sifeae YA-O_d6-25 F3 V WW 3,66 
+Ellaiwsy lz-l_c22-3 M2 V WW 0,45
+Col_240_Sector TJ-Q_d5-54 F9 V T_H-M 0,96 
+Col_240_Sector TJ-Q_d5-54 F9 V T_H-M 1,19 
+Col_240_Sector TJ-Q_d5-54 F9 V T_H-M 1,19 
+Col_240_Sector TJ-Q_d5-54 F9 V T_H-M 1,72 
+Col_240_Sector TJ-Q_d5-54 F9 V AW 4 
+Ellaic zm-a_d14-31 A6 VI WW 5,04
+Ellaic ba-b_c28-2 K3 V T_H-M 0,67
+Ellaic ba-b_c28-2 K8 V WW 0,86
+Ellaic be-f_b54-0 M3 V WW 0,33
+Sifeae JY-I_d9-2 F5 V T_H-M 1,29 
+Sifeae JY-I_d9-2 F5 V T_H-M 1,66 
+Sifeae JY-I_d9-2 F5 V Earth-Like bin 2,05 
+Sifeae JY-I_d9-2 F5 V T_WW bin 2,05 
+Sifeae JY-I_d9-2 F5 V AW 4,74 
+Sifeae OE-H_d10-24 F9 VI T_H-M 0,83 
+Sifeae OE-H_d10-24 F9 VI T_H-M 1,38 
+sifeae OE-H_d10-32 A9 V T_H-M 2,77 
+sifeae OE-H_d10-32 A9 V T_H-M 3,63 
+Sifeae WW-K_b50-0 M1 V T_H-M 0,18 
+Sifeae WW-K_b50-0 M1 V T_H-M 0,26 
+Ellaic op-n_b49-2 M1 V T_H-M 0,17
+Ellaic op-n_b49-2 M1 V T_H-M 0,24
+Ellaic op-n_b49-2 M1 V WW 0,33
+Ellaic op-n_b49-2 M1 V WW 0,61
+Ellaic zf-e_c12-20 M7 V T_WW 0,17 
+NGC_4463_Sector MP-J_c11-2 K5 V T_H-M 0,41 
+NGC_4463_Sector V-G_c13-5 G2 V T_H-M 0,82 
+NGC_4463_Sector V-G_c13-5 G2 V T_H-M 1,05 
+NGC_4463_Sector V-G_c13-5 G2 V T_WW 1,36 
+IC_2944_Sector WE-Y_d1-26 A7 V T_H-M 2,48 
+IC_2944_Sector WE-Y_d1-26 A7 V T_H-M 2,48 
+IC_2944_Sector WE-Y_d1-26 A7 V T_H-M 3,14 
+IC_2944_Sector WE-Y_d1-26 A7 V TWW 4,64  
+Ellaic yu-u_c4-6 K4 V T_WW 0,59
+NGC_4463_Sector EO-C_c15-2 T_WW 1,12 
+Phyluwyg EB-M_c8-3 G7 V E_L bin 0,98 
+Phyluwyg EB-M_c8-3 G7 V T_H-M bin 0,98 
+Phyluwyg EB-M_c8-3 G7 V  T_H-M 1,35 
+Ellaic yk-m_b12-0 M5 V T_H-M 0,16
+Ellaic im-t_d4-6 F7 VI T_H-M 1,01
+Ellaic im-t_d4-6 F7 VI T_H-M 1,38
+Ellaic im-t_d4-6 F7 VI T_WW bin 1,95
+Ellaic im-t_d4-6 F7 VI WW 3,38
+Ellaic cw-h_c12-1 K7 V T_WW 0,58
+NGC_4609_Sector FS-R_d5-11 M2 V T_H-M 0,30 
+NGC_4609_Sector FS-R_d5-11 M2 V T_WW 0,42 
+NGC_4609_Sector FS-R_d5-11 M2 V T_H-M 0,62 
+NGC_4609_Sector TR-F_c13-2 K1 V T_H-M 0,59 
+Ellaic ah-h_b29-0 M5 V E_L 0,13
+Ellaic vy-e_c13-0 M8 IV T_H-M 0,09
+Ellaic vy-e_c13-0 M8 IV T_WW 0,13
+Ellaic hq-o_d6-19 F6 V T_H-M 1,21
+Ellaic hq-o_d6-19 F6 V T_H-M 1,77
+Ellaic hq-o_d6-19 F6 V WW 4,05
+Ellaic it-e_b27-2 M4 V T_H-M 0,13
+Ellaic it-e_b27-2 M4 V T_H-M 0,16
+Ellaic it-e_b27-2 M4 V T_WW 0,22
+Ellaid jz-e_c12-95 M1 V T_WW 0,3
+Prielu gd-g_c12-0 K0 V T_H-M 0,99
+Prielu gd-g_c12-0 K0 V WW 1,47
+Prielu bm-v_b47-0 M0 V T_H-M 0,22
+Prielu gd-g_c12-0 K0 V WW 0,4
+Ellaid ki-s_d4-8 F6 V T_H-M 1,53
+Prieleae se-f_d12-10 F5 V T_H-M 1,51
+Prieleae cc-o_c22-0 G5 V T_H-M 0,8
+Prieleae cc-o_c22-0 G5 V T_H-M 1,05
+Prieleae fe-c_b45-0 M3 V WW 0,28
+Prielu tf-e_d12-30 F4 V T_WW 2,2
+Prielu tf-e_d12-30 F4 V T_H-M 2,84
+Prielu gd-g_c12-0 K0 V T_H-M 0,99
+Prielu gd-g_c12-0 K0 V WW 1,47
+Prielu nq-v_b19-0 M3 V WW 0,3
+Thraikuae lw-c_b58-0 M1 V WW 0,26
+Phyluwyg QN-J_d9-8 F0 V T_H-M 3,02 
+Phylurn IQ-R_c19-1 G2 V T_H-M 0,93 
+Phylurn IQ-R_c19-1 G2 V T_WW 1,22 
+Dryeejaea EB-A_c2 G8 V T_H-M 1,25 
+Prua_Phoe GK-G_c27-336 K3 V T_H-M 0,45
+Prua_Phoe GT-O_b53-95 M3 V WW 0,19
+Eodgorph TD-V_c5-2 K6 V WW 0,51 
+Eodgorph TD-V_c5-2 K4 V T_H-M 0,47 
+Eodgorph XD-K_d8-1995 k1V T_H-M 0,75
+Eodgorph XD-K_d8-1995 k1V E_L 1,42
+Eodgorph QD-G_b16-1 M7 V WW 0,13
+Eodgorph CK-V_b8-O M5 V T_H-M 0,11
+Crookoa CF-R_d4-5016 F5 V T_H-M 1,53
+Crookoa CF-R_d4-5016 F5 V T_H-M 2,07
+Crookoa CF-R_d4-5016 F5 V T_H-M 2,80
+Crookoa CF-R_d4-5016 F9 VI T_H-M 0,89
+Crookoa CF-R_d4-5016 F9 VI T_H-M 1,15
+Crookoa CF-R_d4-5016 F9 VI T_H-M 1,54
+Crookoa CF-R_d4-3068 M2 V E_L 0,35
+Crookoa CF-R_d4-6894 F3 V T_H-M  bin 2,00
+Crookoa CF-R_d4-6894 F3 V T_H-M bin 2,00
+Crookoa CF-R_d4-6894 F3 V WW 2,72
+Crookoa CF-R_d4-6894 F3 V WW 3,77
+Crookoa CF-R_d4-6894 K2 V T_H-M 0,71
+Crookoa NK-I_c9-265 K1 V T_H-M 0,94
+Crookoa NK-I_c9-265 K1 V T_H-M 1,28
+Crookoa NK-I_c9-265 K9 V T_H-M 0,51
+Crookoa NK-I_c9-265 K9 V T_H-M 0,72
+Crookoa NK-I_c9-265 K9 V T_H-M 0,92
+Crookoa CF-R_d4-6545 G1 V T_H-M 0,90
+Crookoa CF-R_d4-6545 G1 V WW 1,29
+Crookoa QQ-G_c10-315 G6 V T_H-M 0,75
+Crookoa QQ-G_c10-315 G6 V T_H-M 0,93 
+Phylurn V-E_d12-2 F5 VI T_H-M 1,17 
+Phylurn V-E_d12-2 F5 VI T_H-M 1,59 
+Phylurn V-E_d12-2 F5 VI T_H-M 2,13 
+Phylurn AH-C_d13-2 M1 V T_H-M 0,38 
+Phylurn AH-C_d13-2 M1 V T_WW bin 0,62 
+Phylurn AH-C_d13-2 M1 V T_WW bin 0,62 
+Phylurn BH-C_d13-0 A9 VI T_H-M 1,59 
+Phylurn BH-C_d13-0 A9 VI T_H-M 2,11 
+Phylurn BH-C_d13-0 A9 VI T_H-M 2,87 
+Byoi_Thae MQ-X_c1-1 G4 V T_H-M 0,95 
+Tyriedgoea II-K_d8-12 F9 VI T_H-M 0,91
+Tyriedgoea II-K_d8-12 F9 VI EW 1,33  
+Byoi_Thae FV-P_d5-11 A5 V T_H-M bin 3,90 
+Byoi_Thae FV-P_d5-11 A5 V T_H-M bin 3,90 
+Byoi_Thae FV-P_d5-11 A5 V T_H-M 5,75 
+Byoi_Thae NI-M_b49-2 M3 V WW 0,22 
+Byoi_Thae VJ-F_c25-9 K6 V T_WW 0,54 
+Byoi_Thae FR-B_c27-1 K4 V T_WW 0,33 
+Blau_Eur TA-A_b1-3 M4 V T_H-M 0,15 
+Blau_Eur TA-A_b1-3 M4 V T_WW 0,21 
+Blau_Eur TA-A_b1-3 Y4 V T_H-M 0,04 
+Blau_Eur TA-A_b1-3 Y4 V T_H-M 0,07 
+Blau_Eur FR-Y_c26 K0 V T_H-M 0,54 
+Blau_Eur FR-Y_c26 K0 V T_H-M 0,65 
+Blau_Eur FR-Y_c26 K0 V T_WW 0,99 
+Blo_Eur EG-Y_d128 F3 VI T_H-M 1,70 
+Blo_Eur EG-Y_d100 F4 V T_H-M 1,92 
+Blo_Eur EG-Y_d100 F4 V T_H-M 2,50 
+Blo_Eur EG-Y_d100 F4 V WW 3,40 
+Blo_Eur PS-U_c2-54 K0 V T_H-M 0,62 
+Blo_Eur PS-U_c2-54 K0 V T_H-M 0,94 
+Blau_Eur MS-U_d2-96 F9 V T_H-M 1,16 
+Blau_Eur MS-U_d2-96 F9 V T_H-M 1,93 
+Blau_Eur MS-U_d2-96 F9 V AW 3,52 
+Blau_Eur AT-U_d2-193 G0 V T_H-M 1,14 
+Blau_Eur AT-U_d2-193 G0 V WW 1,81 
+Blau_Eur YS-U_d2-157 A9 V T_H-M 3,07 
+Blau_Eur YS-U_d2-94 F3 V T_H-M bin 1,36 
+Blau_Eur YS-U_d2-94 F3 V T_H-M bin 1,36 
+Blau_Eur YS-U_d2-94 F3 V T_H-M 1,69 
+Blau_Eur YS-U_d2-94 F3 V T_H-M 2,49 
+Blau_Eur YS-U_d2-94 F3 V WW 3,16 
+Blau_Eur BL-I_b9-5 M4 V T_H-M 0,15 
+Blau_Eur BL-I_b9-5 M4 V T_H-M bin 0,19 
+Blau_Eur BL-I_b9-5 M4 V T_H-M bin 0,19 
+Blau_Eur RM-W_d1-229 G4 V T_H-M 0,79 
+Blau_Eur RM-W_d1-229 G4 V T_H-M 1,11 
+Blau_Eur QM-W_d1-92 F9 V T_H-M 0,93 
+Blau_Eur QM-W_d1-92 F9 V T_H-M 1,17 
+Blau_Eur QM-W_d1-92 F9 V T_H-M 1,68 
+Blau_Eur MR-W_d1-122 F8 VI T_H-M 2,44 
+Blau_Eur MR-W_d1-122 F8 VI WW 5,32 
+Thraikuae ot-l_c10-0 K5 V T_WW 0,71
+Thraikuae so-l_c10-1 K0 V T_H-M 0,62
+Thraikuae pi-n_c9-1 K3 V  T_WW 0,81
+Thraikuae pi-n_c9-1 K3 V T_H-M 1,36
+Thraikuae km-t_d4-6 F3 VI T_H-M 1,84 
+Blo_Eurl ZD-S_d4-23 A5 V T_H-M 3,24 
+Blo_Eurl ZD-S_d4-23 A5 V WW bin 6,02 
+Blo_Eurl ZD-S_d4-23 A5 V WW bin 6,02 
+Blo_Eurl BN-P_b21-0 M1 V T_H-M 0,19 
+Blo_Eurl BN-P_b21-0 M1 V T_H-M 0,25 
+Blo_Eurl BN-P_b21-0 M1 V T_H-M 0,31 
+Blo_Eurl BN-P_b21-0 M2 V T_H-M 0,17 
+Blo_Eurl DQ-O_d6-36 F6 V T_H-M 1,47 
+Blo_Eurl DW-M_d7-4 F3 V T_H-M 1,75 
+Blo_Eurl DW-M_d7-4 F3 V T_WW 2,62 
+Blo_Eurl GC-K_b38-0 M4 V WW 0,14 
+Blo_Eurl GC-K_b38-0 M4 V WW 0,25 
+Blo_Eurl TS-E_b42-1 M5 V T_H-M 0,24 
+Blo_Eurl TS-E_b42-1 M5 V T_H-M 0,33 
+Blo_Eurl CD-I_d10-33 A9 V T_H-M 3,23 
+Blo_Eurl CD-I_d10-16 F6 V T_H-M 1,13 
+Blo_Eurl CD-I_d10-16 F6 V T_H-M 1,48 
+Blo_Eurl CD-I_d10-16 F6 V T_H-M 1,92 
+Blo_Eurl YW-J_d9-9 F1 V T_H-M bin 1,98 
+Blo_Eurl YW-J_d9-9 F1 V T_H-M bin 1,98 
+Blo_Eurl YW-J_d9-9 F1 V T_WW 3,39 
+Blo_Eurl XD-N_b37-0 M3 V T_H-M 0,11 
+Blo_Eurl YG-L_d8-37 G3 V T_WW 1,15 
+Blo_Eurl UA-N_d7-3 F0 V T_H-M bin 2,18 
+Blo_Eurl UA-N_d7-3 F0 V T_H-M bin 2,18 
+Blo_Eurl UA-N_d7-3 F0 V T_H-M 2,97 
+Smoje LS-B_d13-29 G3 V T_H-M 0,90 
+Smoje LS-B_d13-29 G3 V T_H-M 1,15 
+Smoje SL-O_c20-0 G7 V T_H-M 1,21 
+Smoje RY-I_d9-24 G6 V T_H-M 1,04 
+Smoje RY-I_d9-24 G6 V T_H-M 1,04 
+Smoje JX-R_c18-3 G8 V T_H-M 0,69 
+Smoje NS-K_d8-20 A9 VI T_WW 4,2 
+Smoje IM-M_d7-12 A7 VI T_H-M 2,21 
+Smoje IM-M_d7-12 A7 VI T_H-M 2,85 
+Smoje IM-M_d7-12 A7 VI T_H-M 3,91 
+Smoje ZZ-P_d5-1 G2 V WW 2,33 
+Smoje YZ-F_c11-4 T_WW 0,69  
+Smoje VT-R_d4-13 A7 V T_H-M 2,96 
+Smoje VT-R_d4-13 A7 V T_WW 3,90 
+Smoje EG-T_b18-0 M3 V WW 0,16 
+Smoje KW-W_d1-23 A6 V T_WW 4,84 
+Smoje BK-Z_c1 K2 V T_H-M 0,49 
+Smoje BK-Z_c1 K2 V T_WW 0,73 
+Phylucs OM-Y_c28-1 G5 V T_WW 1,10 
+Blu_Thua DV-Y_b43-0 M1 V T_H-M 0,25 
+Blu_Thua ZJ-H_d10-11 G2 V T_H-M 1,03 
+Blu_Thua SN-C_b42-0 M5 V T_H-M 0,21 
+Blu_Thua UD-J_d9-5 F0 V T_H-M 2,23 
+Blu_Thua UD-J_d9-5 F0 V T_WW 3,35 
+Blu_Thua YY-R_d4-2 F9 V T_WW 1,77 
+Blu_Thua YY-R_d4-22 A7 V T_H-M 2,49 
+Blu_Thua YY-R_d4-22 A7 V T_H-M 3,36 
+Blu_Thua YY-R_d4-22 A7 V T_WW 4,40 
+Blu_Thua YY-R_d4-22 A7 V Ww 6,07 
+Praea_Euq DN-G_c25-2 K5 V T_WW bin 0,55 
+Praea_Euq DN-G_c25-2 K5 V T_H-M bin 0,55 
+Praea_Euq DN-G_c25-2 K5 V WW 0,97 
+Praea_Euq AC-I_c24-6 G3 V T_H-M 0,84 
+Praea_Euq AC-I_c24-6 G3 V T_H-M 1,18 
+Praea_Euq AC-I_c24-6 G3 V WW 1,58 
+Praea_Euq XP-F_d11-22 A7 V T_H-M 2,11 
+Praea_Euq XP-F_d11-22 A7 V T_H-M 2,93 
+Praea_Euq XP-F_d11-22 A7 V T_WW 3,51 
+lysood lk-k_c10-0 K5 V WW 0,53
+lysood uo-n_b24-0 M0 V WW 0,27
+lysood uo-n_b24-0 M0 V WW 0,39
+lysood vr-v_b6-0 M4 V WW 0,22 
+lysood ma-e c0 M0 V T_H-M 0,25
+lysood ma-e c0 M0 V T_WW 0,36
+byaa_eurk jw-e_b57-0 M5 V AW 0,38
+byoi_euq us-t_c19-0 K3 V T_H-M 0,52
+byoi_euq us-t_c19-0 K3 V WW 0,9
+byoi_euq ld-q_d6-4 N T_H-M 5,53
+byoi_euq gr-t_d4-4 F0 VI T_H-M 2,49
+byoi_euq rw-o_b25-0 M6 V WW 0,09 
+Praea_Euq RJ-H_d10-11 F3 V T_H-M 1,84 
+Praea_Euq ZW-Q_c19-0 K2 V T_H-M 0,95 
+Praea_Euq IX-K_d8-16 F4 V T_H-M 2,38 
+Praea_Euq IX-K_d8-16 F4 V WW 3,53 
+Praea_Euq UH-M_b36-1 M0 V T_H-M 0,26 
+Praea_Euq UH-M_b36-1 M0 V T_WW 0,36 
+Praea_Euq UH-M_b36-1 M5 V T_WW 0,11 
+Praea_Euq LS-K_d8-17 A9 V T_H-M 3,13 
+Praea_Euq WJ-R_d4-34 F7 VI T_H-M 1,35 
+Praea_Euq WJ-R_d4-34 F7 VI WW 2,13 
+Pru_Eurl SN-E_b55-0 M6 V WW 0,10 
+Pru_Eurl SN-E_b55-0 M6 V TWW 0,14  
+Praea_Euq QH-L_b8-1 M7 V T_H-M 0,10 
+Praea_Euq QH-L_b8-1 M7 V T_H-M 0,13 
+Praea_Euq GL-Y_d105 F3 VI T_H-M 2,00 
+byoi_euq gr-t_d4-4 F0 VI T_H-M 2,49
+byoi_euq zt-y_d1-0 A9 V T_H-M 3,18
+byoi_euq nq-z_c2-0 G4 V T_H-M bin 0,8
+byoi_euq nq-z_c2-0 G4 V T_WW 1,06
+byoi_euq nq-z_c2-0 G4 V AW 2,5
+byoi_euq nq-z_c2-1 K4 V T_H-M 0,63 
+byoi_euq am-c_d5 F9 V T_H-M 0,95
+byoi_euq am-c_d5 F9 V T_WW 1,54
+byaa_euq bd-f c0 K3 V WW 1,52 
+traikea wg-c_c29-1 M5 V WW 0,19
+traikea lv-b_d14-10 A7 V T_H-M 3,78
+traikea oq-b_d14-10 A8 VI T_H-M 2,72 
+traikea ie-f_d12-0 F3 V T_H-M 1,6
+traikea ie-f_d12-0 F3 V T_H-M 2,42
+traikea ie-f_d12-0 F3 V WW 4,23
+traikea cc-k_d9-8  F6 V  T_H-M 1,57
+traikea cc-k_d9-8  F6 V  T_H-M 2,04
+traikea vp-n_d7-5  F2 V T_H-M 2,19
+traikea vp-n_d7-5  F2 V T_H-M 2,92
+traikea vp-n_d7-5  F2 V WW 3,78 
+bleae_eurk gi-r_d5-2 A7 V T_WW bin 3,8 
+HIP 46658 F3 IV T_H-M 2,09 
+HIP 46658 F3 IV T_WW 2,91 
+HIP 46658 F3 IV WW 4,11 
+HIP 46658 F3 IV AW 5,43 
+Wregoe TA-D_c26-19 G6 V T_H-M 0,81 
+Wregoe TA-D_c26-19 G6 V T_H-M 1,06 
+Wregoe TA-D_c26-19 G6 V T_WW 1,47 
+NGC_4463_Sector ZA-V_d3-7 F3 VI T_H-M tri 1,14 
+NGC_4463_Sector ZA-V_d3-7 F3 VI T_H-M tri 1,14 
+NGC_4463_Sector ZA-V_d3-7 F3 VI T_H-M tri 1,14 
+NGC_4463_Sector ZA-V_d3-7 F3 VI T_H-M 1,54 
+NGC_4463_Sector ZA-V_d3-7 F3 VI E_L 2,11 
+NGC_4463_Sector ZA-V_d3-7 F3 VI WW 3,72 
+NGC_4609_Sector XC-E_c14-2 G6 V E_L 0,78 
+NGC_4609_Sector XC-E_c14-2 G6 V WW 1,31 
+Blau_Eur AT-U_d2-15 A6 V T_H-M 2,66 
+Blau_Eur AT-U_d2-15 A6 V T_H-M 3,54 
+Blau_Eur AT-U_d2-15 A6 V E_L 4,55 
+Blu_Thua PM-V_d2-14 A9 VI T_H-M 2,15 
+Blu_Thua PM-V_d2-14 A9 VI E_L 2,91 
+Praea_Euq ZU-P_d5-61 A8 VI E_L 4,58 
+Praea_Euq ZU-P_d5-61 M1 V WW 1,01 
+Col_285_Sector GD-I_c10-17 K5 V WW 1,15 
+Synuefai ZJ-G_c27-21 K0 V T_H-M 0,38 
+Synuefai CA-L_b55-0 M3 V T_H-M 0,16 
+Synuefai QI-J_c25-5 G5 V T_H-M 0,82 
+Synuefai JU-D_d13-3 F4 V T_H-M 2,28 
+Synuefai JU-D_d13-11 F1 VI T_H-M 1,74 
+Synuefai JU-D_d13-11 F1 VI T_WW 2,18 
+Synuefai EO-F_d12-43  F9 V T_H-M 1,00 
+Synuefai EO-F_d12-43  F9 V T_H-M 1,86 
+Synuefai DO-F_d12-6 A9 VI T_H-M 2,33 
+Synuefai DO-F_d12-6 A9 VI WW 4,10 
+Synuefai DO-F_d12-1 G0 V T_H-M 1,39 
+Plaa_Eurk DV-U_b46-0 M0 V T_H-M bin 0,22 
+Plaa_Eurk DV-U_b46-0 M0 V T_H-M bin 0,22 
+Plaa_Eurk DV-U_b46-0 M0 V T_H-M 0,38  
+Plaa_Eurk SZ-F_d11-9 F2 V T_H-M 1,47 
+Plaa_Eurk SZ-F_d11-9 F2 V T_H-M 2,07 
+Synuefai DJ-F_d12-8 G9 V T_H-M 0,56 
+Synuefai DJ-F_d12-8 G9 V T_H-M 0,91 
+Synuefai HZ-E_d12-8 F1 VI T_H-M 1,86 
+Synuefai HZ-E_d12-8 F1 VI T_RW  2,76  
+Synuefai HZ-E_d12-8 F1 VI HM 2,76  
+Plaa_Eurk VL-R_c19-1 K0 V T_H-M 0,87 
+Synuefai OE-G_d11-5 F2 V T_H-M  2,34 
+Synuefai OE-G_d11-5 F2 V  T_WW  2,86 
+Plaa_Eurk OU-U_c17-0 K0 V T_H-M 0,79 
+Synuefai JD-I_d10-6 G0 V T_H-M 1,12 
+Synuefai LO-G_d11-15 G7 V T_WW 0,93 
+Pro_Eur OR-W_b17-1 M3 V TWW 0,22 
+Pro_Eur OR-W_b17-1 M3 V WW 0,28 
+Pro_Eur OR-W_b17-1 M3 V WW 0,38 
+HIP 113032 G0 V T_H-M 1,39 
+HIP 113032 G0 V T_H-M 1,74 
+Synuefai ZS-T_c19-7 K4 V T_H-M 0,66 
+Synuefai ZS-T_c19-7 K4 V WW 1,12 
+Synuefai UR-V_c18-5 K2 V WW 1,26 
+Synuefai JK-Z_c16-4 G9 V T_H-M 0,79 
+Synuefai JK-Z_c16-4 G9 V T_H-M 1,08 
+Synuefai ZP-G_b30-1 M3 V T_H-M 0,24 
+Synuefai KI-Q_d6-50 A0 V WW 5,24 
+Synuefai WB-F_c14-3 K7 V T_WW 0,51 
+Synuefai WB-F_c14-3 K8 V AW 1,24  
+Synuefai FH-S_d5-28 F0 V T_H-M 1,92 
+Synuefai FH-S_d5-28 F0 V T_H-M bin 2,60 
+Synuefai FH-S_d5-28 F0 V T_H-M bin 2,60 
+Synuefai FH-S_d5-28 F0 V HM bin 3,37
+Synuefai FH-S_d5-28 F0 V WW bin 3,37 
+Synuefai FH-S_d5-28 F0 V T_WW bin 3,37 
+Synuefai FH-S_d5-35 A9 V T_H-M 2,00 
+Synuefai JN-Q_d6-6 A6 VI T_H-M 2,11 
+Synuefai JN-Q_d6-6 A6 VI T_H-M 2,51 
+Synuefai JN-Q_d6-6 A6 VI WW 6,12 
+Synuefai YG-F_c14-14 K7 V T_H-M 0,36 
+Synuefai YG-F_c14-14 K7 V T_H-M 0,46 
+Col_285_Sector HC-U_c3-5 K3 V T_WW 0,57 
+Plaa_Eurk DZ-I_b25-0 M5 V WW 0,15 
+IC_1396_Sector CP-J_b12-0 M1 V T_H-M bin 0,29 
+IC_1396_Sector CP-J_b12-0 M1 V T_H-M bin 0,29 
+IC_1396_Sector CP-J_b12-0 M1 V WW 0,42 
+Synuefe OU-M_d8-30 F5 V T_H-M 1,41
+Synuefe OU-M_d8-30 F5 V T_H-M 1,78
+Synuefe OU-M_d8-30 F5 V T_H-M 2,42
+Synuefe OU-M_d8-61 A8 VI T_H-M 2,78 
+Synuefe KO-O_d7-8 T9 V WW 0,14 
+Synuefe IT-O_d7-52 A5 VI T_H-M 3,37
+Synuefe IT-O_d7-52 A5 VI E_L 5,61
+Synuefe IT-O_d7-52 K2 V T_H-M 0,66
+Synuefe IT-O_d7-52 K2 V T_WW 0,92
+Synuefe IT-O_d7-52 K2 V T_H-M 1,2
+Synuefe IT-O_d7-52 K2 V T_H-M 1,49
+Synuefe VN-B_c16-18 G8 V T_H-M 0,84 
+Synuefe VN-B_c16-18 G8 V T_H-M 0,84 
+BD-08 1218 G8 IV WW 3,42
+HR 2039 A0 V T_H-M 5,67
+HR 2039 A0 V T_RW 5,67
+HIP 27517 K4 V T_H-M 0,62
+HIP 27517 K4 V WW 1,58
+HIP 30244 F7 V T_H-M 1,44
+HIP 30244 F7 V T_H-M 1,92
+HIP 30478 F6 V T_H-M 1,21
+HIP 30478 F6 V T_H-M 1,65
+HIP 38542 F3 IV T_H-M 3,65
+HIP 38542 F6 VI T_H-M 1,83
+HIP 38542 F6 VI T_H-M 2,4
+HIP 38542 F6 VI T_WW 3,67
+Synuefe OU-M_d8-32 A9 VI T_WW 3,59
+Chih_Zha M4 V T_WW 0,16
+Zeta_Aquilae A1 V WW 7,49
+Jurawadbad K7 V T_WW 0,39
+Perauni K0 V T_H-M 0,7
+Perauni K0 V T_H-M 0,98
+60_Herculis A3 V AW 15,48
+Parakara G4 V T_H-M 1,12 
+Parakara G4 V T_H-M 1,47
+Ross 732 M0 V T_WW 0,16
+IC_1396_Sector BA-Y_d1-5 F5 V T_H-M 1,65 
+IC_1396_Sector BA-Y_d1-5 F5 V T_H-M 2,28 
+IC_1396_Sector BA-Y_d1-5 F5 V T_H-M bin 1,28 
+IC_1396_Sector BA-Y_d1-5 F5 V T_H-M bin 1,28 
+Chamaeleon_Sector EL-Y_d61 G8 V T_H-M 0,94
+Chamaeleon_Sector EL-Y_d61 G8 V T_H-M 1,29
+Chamaeleon_Sector HW-W_c1-9 K6 V T_WW 0,66
+Col_285_Sector KM-L_c8-13 K2 V T_WW 1,04
+Col_285_Sector KW-M_c7-23 K7 V T_H-M 0,46
+Col_285_Sector KW-M_c7-23 K7 V T_WW 0,62
+Col_285_Sector LS-P_b20-0 M5 V T_H-M 0,21
+Col_285_Sector RN-T_d3-84 F8 V T_H-M 1,79
+Col_285_Sector RN-T_d3-84 F8 V T_H-M 2,3
+Col_285_Sector RN-T_d3-84 K0 V T_H-M 1,02
+Col_285_Sector RN-T_d3-84 K0 V T_WW 1,44
+Col_285_Sector RN-T_d3-84 K0 V T_H-M 1,88
+Col_285_Sector RY-H_c10-6 M1 V T_H-M 0,26
+Col_285_Sector RY-H_c10-6 M1 V WW 0,45
+Col_285_Sector SN-Y_b15-8 M6 V T_H-M 0,08
+Herculis_Sector QD-T_b3-4 M3 V WW 0,17
+Herculis_Sector QD-T_b3-4 M3 V T_WW 0,28 
+Plaa_Eurk JS-S_c4-0 K6 V T_H-M 0,41 
+Plaa_Eurk JS-S_c4-0 K6 V T_H-M 0,76 
+Plaa_Eurk AV-Y_d12 G2 V T_H-M 1,0 
+Outorst CS-B_d13-10 A9 VI T_H-M 1,95 
+Outorst CS-B_d13-10 A9 VI WW 2,47 
+Outorst CS-B_d13-10 A9 VI WW 4,8 
+Outorst YY-E_c25-0 TTS3 V T_H-M 0,54 
+Outorst YY-E_c25-0 TTS3 V T_H-M 0,64 
+Outorst YY-E_c25-0 TTS3 V WW 0,87 
+HD 93648 A2 V T_H-M 2,01
+HD 93648 A2 V T_WW 2,74
+HD 93648 A2 V WW 6,9
+HIP 31021 G3 V T_H-M 1,08
+HIP 31021 G3 V T_H-M 1,63
+HIP 33766 F6 V T_H-M 1,76
+HIP 33766 F6 V AW 8,53
+HIP 37257 K1 IV T_H-M 2,39
+HIP 37257 K1 IV WW 7,68
+HIP 39307 F4 V T_H-M 1,49
+HIP 39307 F4 V  T_WW 2,06
+HIP 42584 A3 IV T_H-M 4,18
+HIP 52131 A4 V WW 7,93
+HIP 54980 G8 V E_L 0,64
+HIP 54980 G8 V T_H-M 0,82
+IC_2602_Sector GW-W_d1-132 A9 VI T_H-M 1,8
+IC_2602_Sector GW-W_d1-132 A9 VI T_H-M 2,48
+IC_2602_Sector GW-W_d1-132 A9 VI T_WW 3
+IC_2602_Sector GW-W_d1-132 A9 VI T_RW  3
+pru_euq bl-x_d1-19 G3 V T_H-M 1,03
+pru_euq ol-h_b12-1 M2 V WW 0,17
+pru_euq bw-v_d2-12 F4 VI AW 3,74
+sifi om-u_d3-1 A8 V  T_WW 3,8
+sifi om-u_d3-1 A8 V  WW 5,06
+sifi om-u_d3-10 A7 VI WW 3,56
+sifi hg-x_e1-0_b0 V T_H-M 15,67
+sifi et-p_b23-0 M3 V WW 0,23
+sifi cn-f_c13-0 K5 V T_H-M 0,5
+sifi uw-f_c13-0 K0 V T_H-M 0,71 
+sifi rf-m_d8-3  F6 V T_H-M 1,11
+sifi rf-m_d8-3  F6 V T_H-M 1,39
+sifi rf-m_d8-3  F6 V T_H-M 1,87
+sifi rh-v_b34-0 M4 V WW 0,13
+sifi rh-v_b34-0 M4 V WW 0,23
+sifi jw-w_c17-0 K1 V T_H-M 0,72
+sifi sl-k_d9-6  F8 V T_H-M 1,16
+sifi sl-k_d9-6  F8 V WW 1,69 
+Outordy VT-Z_d13-10 A8 VI T_RW 2,2 
+Outordy VT-Z_d13-10 A8 VI WW  2,82 
+Outordy VT-Z_d13-10 A8 VI WW  4,15 
+Wredgaei AL-A_c1 K6 V WW 0,56 
+Musca_Dark_Region HR-W_c1-7 K2 V T_H-M 0,41
+Musca_Dark_Region HR-W_c1-7 K2 V T_H-M 0,75
+Musca_Dark_Region HR-W_c1-28 G6 V T_H-M 0,82
+Musca_Dark_Region HR-W_c1-28 G6 V T_WW 1,11
+Synuefe AB-M_c24-21 G4 V T_H-M 0,77
+Synuefe AB-M_c24-21 G4 V T_H-M 1,5
+Synuefe CP-Z_c16-3 K2 V T_H-M 0,66
+Synuefe CP-Z_c16-3 K2 V T_H-M 0,81
+Synuefe DT-F_d12-58 F6 V T_H-M 1,53
+Synuefe DT-F_d12-58 F6 V T_H-M 1,93
+Synuefe DT-F_d12-88 F4 VI T_H-M 2,44
+Synuefe GX-J_c25-27 K6 V WW 0,43
+Synuefe JE-E_d13-41 G0 V T_H-M 0,89
+Synuefe LX-J_c25-11 K2 V T_WW 0,78
+Synuefe LZ-D_d13-99 F4 V T_H-M 1,4
+Synuefe NZ-D_d13-37 F3 V T_WW 2,06
+Synuefe NZ-D_d13-37 F3 V T_WW 2,82
+Synuefe OU-D_d13-5 F4 V T_H-M 1,37
+Synuefe OU-D_d13-5 F4 V T_H-M 1,97
+Synuefe OU-D_d13-5 F4 V WW 3,33
+Synuefe TE-P_c22-4 M0 V T_H-M 0,21
+Synuefe TK-M_d8-31 F9 V T_H-M 1,15
+Synuefe TK-M_d8-31 F9 V T_H-M 1,15
+Synuefe TK-M_d8-31 F9 V T_H-M 1,15
+Synuefe TK-M_d8-31 F9 V T_H-M 1,52
+Synuefe TK-M_d8-31 F9 V WW 2,72
+Synuefe RP-M_d8-11 F8 V T_H-M 1,78
+Synuefe ZA-S_b51-4 K9 V T_WW 0,34 
+Wredgaei NF-A d-15 F8 V T_H-M  1,35 
+Wredgaei NF-A d-15 F8 V T_H-M  1,88 
+Wredgaei MF-A_d1-1 F9 VI WW  1,28 
+Wredgaei KK-A_d9 G0 V T_H-M  1,0 
+Wredgaei KK-A_d9 G0 V WW  3,68 
+Wredgaei FY-T_c3-0 G9 V WW  1,5 
+IC_1396_Sector RT-Y_c1-0 K3 V T_H-M 0,52 
+IC_1396_Sector RT-Y_c1-0 K3 V T_H-M 0,71 
+IC_1396_Sector RT-Y_c1-0 K3 V T_H-M 0,98 
+IC_1396_Sector ZA-V_c3-1 K4 V T_H-M bin 0,76 
+IC_1396_Sector ZA-V_c3-1 K4 V T_H-M bin 0,76 
+Wredgaei YD-T_d3-14 A5 V T_WW 4,27 
+Wredgaei YD-T_d3-14 A5 V WW 5,55 
+Wredgaei YD-T_d3-12 A7 V T_H-M 3,73 
+Wredgaei YD-T_d3-12 A7 V T_WW 5,07 
+Wredgaei YD-T_d3-12 A7 V T_WW 6,83 
+Wredgaei YD-T_d3-12 A7 V WW 8,86 
+Wredgaei YD-T_d3-12 G4 V T_H-M 1,63 
+Wredgaei YD-T_d3-12 G4 V T_WW 2,1 
+IC_1396_Sector EN-R_c5-1 K1 V WW 0,99 
+Synuefe FZ-A_c16-8 K3 V T_H-M 0,46
+Synuefe IU-A_c16-6 K9 V T_H-M 0,28
+Synuefe IU-A_c16-6 K9 V E_L 0,4
+Synuefe JI-Q_d6-55 A6 VI T_WW 4,02 
+Synuefe KF-Z_c16-0 K1 V T_H-M 0,53
+Synuefe KF-Z_c16-0 K1 V T_H-M 0,72
+Synuefe KI-Q_d6-32 A5 VI T_H-M 2,65
+Synuefe KI-Q_d6-32 A5 VI T_H-M 3,22
+Synuefe KI-Q_d6-32 A5 VI E_L 4,47
+Synuefe KI-Q_d6-63 F8 V T_H-M 1,95
+Synuefe KI-Q_d6-63 F8 V WW 3,3
+Synuefe NJ-O_d7-4 A8 V T_H-M 2,25
+Synuefe NJ-O_d7-4 A8 V T_H-M bin 2,84
+Synuefe NJ-O_d7-4 A8 V T_WW bin 2,84
+Synuefe NJ-O_d7-4 A8 V T_WW 4,32
+Synuefe NJ-O_d7-53 A4 VI T_WW 3,93
+Synuefe RP-M_d8-51 A9 VI WW 4 
+Wregoe BT-E_b26-1 M6 V T_H-M 0,12 
+Wregoe BT-E_b26-1 M6 V T_H-M 0,16 
+Wregoe UO-R_d4-33 G8 V T_H-M 0,77 
+Wregoe UO-R_d4-33 G8 V T_WW 1,09 
+Wregoe UO-R_d4-33 G8 V T_H-M 1,28 
+Synuefe KI-Q_d6-18 A6 V T_H-M 2,45
+Synuefe KI-Q_d6-18 A6 V T_H-M 3,18
+Synuefe KI-Q_d6-18 A6 V T_H-M 4,04
+Synuefe ZM-D_c15-13 K0 V T_WW 1,07
+Vela_Dark_Region HW-W_c1-3 K2 V T_H-M 0,77
+Vela_Dark_Region HW-W_c1-3 K2 V WW 1,03
+Praea_Euq OA-A_d2 F7 V T_WW 1,86
+Praea_Euq LN-W_c1-37 G3 V T_H-M 0,71
+Praea_Euq LN-W_c1-37 G3 V T_H-M 0,84
+Praea_Euq LN-W_c1-37 G3 V T_H-M 1,24 
+pru_eurk ce-k_c24-0 G9 V T_H-M 0,89
+pru_eurk ce-k_c24-0 G9 V T_H-M bin 1,22
+pru_eurk ce-k_c24-0 G9 V T_H-M 1,67
+pru_eurk oz-e_d12-4 F3 V T_H-M 1,36
+pru_eurk oz-e_d12-4 F3 V T_H-M 1,78
+pru_eurk oz-e_d12-4 F3 V T_H-M 2,59
+pru_eurk cl-g_c26-0 K6 V T_WW 0,53
+pru_eurk of-d_d13-2 F9 V T_H-M 1,57
+pru_eurk dm-e_c27-0 K2 V T_H-M 0,72
+pru_eurk dm-e_c27-0 K2 V T_H-M 0,93
+pru_eurk dm-e_c27-0 K2 V WW 1,37
+sifou lo-c_c28-0 M0 V WW 0,42 
+Wregoe WI-T_d3-23 A6 V T_H-M 3,06 
+Wregoe SB-N_c7-6 K1 V T_H-M 0,40 
+Wregoe SB-N_c7-6 K1 V T_WW 0,72 
+Wregoe SB-N_c7-6 K1 V WW 0,96 
+Praea_Euq MT-U_c2-20 K0 V WW 0,73 
+Praea_Euq SF-R_c4-5 G4 V T_H-M 0,9
+Praea_Euq SF-R_c4-5 G4 V T_WW 1,23
+Praea_Euq SF-R_c4-5 G4 V T_H-M 1,51
+Praea_Euq SF-R_c4-5  K5 V T_H-M 0,56
+Praea_Euq UM-W_d1-59 A9 V  WW 3,13
+Praea_Euq UM-W_d1-59 A9 V T_RW 3,13
+Praea_Euq XS-U_d2-10 A6 VI T_H-M 2,65 
+Praea_Euq XS-U_d2-62 A8 V T_RW 2,43
+Praea_Euq XS-U_d2-62 A8 V T_WW 3,21
+Praea_Euq XS-U_d2-95 A8 VI T_H-M 2,36
+Praea_Euq XS-U_d2-129 A5 V T_H-M 2,43
+Swoilz KI-V_c5-5 K2 V T_H-M 0,47
+Swoilz KI-V_c5-5 K2 V T_H-M 0,66
+Swoilz KI-V_c5-5 K2 V AW 2,01
+Swoilz KW-C_d67 G8 V T_H-M 0,81
+Swoilz KW-C_d67 G8 V T_WW 1,21 
+sifou jf-b_b58-0 M0 V WW 0,36
+bleae_thaa kn-b_d4 A5 VI T_H-M 2,67
+bleae_thaa kn-b_d4 A5 VI T_WW 4,77
+bleae_thaa kn-b_d4 A5 VI WW 6,21
+bleae_thaa ny-z_d9 A9 V WW 5,74
+bleae_thaa re-y_d1-5 A9 V T_H-M 3,34
+bleae_thaa re-y_d1-8 A6 V T_H-M 3,14
+bleae_thaa re-y_d1-8 A6 V T_WW 4,2 
+bleae_thaa re-y_d1-8 A6 V AW 10,44
+bleae_thaa qe-y_d1-7 A9 V T_H-M 2,54
+bleae_thaa qe-y_d1-7 A9 V T_WW 3,22 
+HIP 63112 K9 V T_H-M 0,61
+HIP 63112 K9 V AW 2,05
+HIP 63534 K2 III WW 10,92
+HIP 63534 K2 III T_RW 10,92
+Praea_Euq WS-U_d2-39 A8 V T_H-M 2,66
+Praea_Euq WS-U_d2-103 A6 VI T_H-M 2,27
+Praea_Euq WS-U_d2-103 A6 VI T_H-M 3,51
+Praea_Euq WS-U_d2-104 A7 VI T_WW 2,96
+Praea_Euq WS-U_d2-108 A4 VI T_H-M 2,72
+Swoilz SO-X_d2-23 A6 VI T_H-M 2,27
+Swoilz SO-X_d2-23 A6 VI T_H-M 2,79
+Swoilz SO-X_d2-23 A6 VI T_H-M 3,72
+Swoilz SO-X_d2-45 A9 VI T_H-M 1,9 
+Swoilz SO-X_d2-45 A9 VI T_H-M 3,45 
+chraufao ff-y_d1-4 A9 VI T_H-M 2,08
+chraufao ck-y_d1-2 A0 V T_H-M 2,46 
+chraufao ck-y_d1-2 A0 V T_H-M 3,22
+chraufao ck-y_d1-3 A8 VI WW 4,99 
+chraufao ck-y_d1-3 A8 VI WW 5,82
+chraufao hq-w_d2-0 A8 V  T_H-M 2,68
+chraufao hq-w_d2-0 A8 V T_H-M 4,53
+chraufao hq-w_d2-2 F4 VI  T_H-M 1,46
+chraufao hq-w_d2-2 F4 VI T_H-M 2,02
+bleae_thaa sp-w_d2-6 F7 V T_H-M 2,84
+bleae_thaa sp-w_d2-6 F7 V T_WW 3,92
+bleae_thaa sp-w_d2-6 F7 V WW 4,85
+bleae_thaa no-y_d1-6 A8 V T_H-M 2,83 
+bleae_thaa no-y_d1-6 A8 V T_H-M 3,38 
+bleae_thaa no-y_d1-6 A8 V AW 8,44 
+Wregoe SH-V_d2-8 A6 VI T_H-M 2,34 
+Wregoe SH-V_d2-8 A6 VI T_H-M 3,17 
+HIP 64286 A9 III WW 9,05
+Praea_Euq SW-N_c6-4 G4 V T_H-M 0,86
+Praea_Euq SW-N_c6-4 G4 V T_WW 1,1
+Praea_Euq SW-N_c6-4 G4 V WW 1,49
+Praea_Euq SW-N_c6-10 G7 V T_H-M 0,79
+Praea_Euq VS-U_d2-19 A6 VI T_H-M 4,03
+Praea_Euq VS-U_d2-19 A6 VI T_RW 4,03
+Praea_Euq VS-U_d2-25 F1 VI T_H-M 1,88
+Praea_Euq VS-U_d2-25 F1 VI T_H-M 2,59
+Praea_Euq WR-N_c6-31 K1 V T_H-M 0,52
+Praea_Euq WR-N_c6-31 K1 V T_WW 0,95
+Praea_Euq WS-U_d2-101 G7 V T_H-M 0,88
+Praea_Euq WS-U_d2-101 G7 V E_L 1,19
+Praea_Euq WS-U_d2-101 G7 V T_H-M 1,54
+Praea_Euq WS-U_d2-101 G7 V WW 2,07
+Praea_Euq WS-U_d2-142 A8 VI T_H-M 1,83
+Praea_Euq WS-U_d2-142 A8 VI T_H-M 3,36 
+bleae thaa by-w_c3-0 K3 V T_H-M 0,51 
+Praea_Euq US-U_d2-9 A9 VI E_L 2,93
+Praea_Euq US-U_d2-99 A8 V T_WW 3,43
+Praea_Euq US-U_d2-99 A8 V T_H-M 3,43
+Praea_Euq US-U_d2-111 A7 VI T_H-M 2,83
+Praea_Euq US-U_d2-111 A7 VI WW 5,24
+Praea_Euq US-U_d2-123 A5 V T_H-M 2,83
+Praea_Euq US-U_d2-123 A5 V T_WW 4,04
+Praea_Euq US-U_d2-123 A5 V T_H-M 5,27
+Praea_Euq VS-U_d2-106 A9 V T_WW 2,83 
+bleae_thaa gn-a_d1-2 F2 VI T_H-M 2,8
+chraufao dk-y_d1-5 F1 VI  T_H-M 1,94
+chraufao dk-y_d1-5 F1 VI WW 3,58
+chraufao jl-w_d2-7 G5 V T_H-M 0,92
+chraufao jl-w_d2-7 G5 V T_WW bin 1,3
+chraufao jl-w_d2-7 G5 V AW 4,45
+chraufao zt-z_d4 A7 V T_H-M 2,28
+chraufao zt-z_d4 A7 V T_H-M 4,07
+chraufao yt-z_d9 A5 VI T_H-M 2,84 
+chraufao yt-z_d9 A5 VI T_H-M 3,94
+chraufao zo-z_d5 A7 VI T_H-M 2,86 
+chraufao zo-z_d5 A7 VI T_WW 4,84
+Synuefe KI-A_b46-0 M0 V  E_L 0,30
+HIP 13414 A4 V T_H-M 4,71
+Synuefe GM-M_c23-4 K3 V T_H-M 0,51
+Synuefe GM-M_c23-4 K3 V T_WW 0,70
+Synuefe DS-Z_b46-0 M3 V T_WW 0,19
+Morotep M9 VI WW 0,05 
+Plio_Eurl KI-S_c4-2 K9 V WW 0,41 
+chraufao DV-X_d1-7 A8 V T_H-M bin 2,53 
+chraufao DV-X_d1-7 A8 V T_H-M bin 2,53 
+chraufao DV-X_d1-7 A8 V T_WW 3,1 
+chraufao DV-X_d1-7 A8 V WW 4,63
+chraufao dx-x_d1-6 A7 V T_H-M 2,56
+chraufao dx-x_d1-6 A7 V T_H-M 3,41
+chraufao dx-x_d1-6 A7 V T_H-M 4,33
+chraufao dx-x_d1-6 A7 V WW 6,41
+chraufao dv-x_d1-8 A9 V T_H-M 2,32
+chraufao dv-x_d1-8 A9 V WW 5,74
+chraufao gb-w_d2-10 A4 VI T_H-M 3,4
+chraufao gb-w_d2-10 A4 VI T_WW 4,3
+chraufao gb-w_d2-4 A7 VI T_H-M 3,22
+Synuefe NK-N_b52-1 M7 V T_H-M 0,08
+HIP 382 F0 V T_H-M bin 1,88
+HIP 382 F0 V T_H-M bin 1,88
+HIP 382 F0 V T_H-M 2,40
+HIP 382 F0 V T_WW 3,18
+Blanco_1_Sector NO-P_c6-4 G5 V T_H-M 0,62
+Blanco_1_Sector NO-P_c6-4 G5 V T_H-M 0,83
+Blanco_1_Sector NO-P_c6-4 G5 V AW 2,1
+Synuefe JJ-I_b54-0 M2 V WW 0,14 
+Swoiwns XG-D_c4 K3 V  T_H-M 0,37
+Swoiwns XG-D_c4 K3 V  T_H-M 0,64
+Blanco_1_Sector ER-V_d2-6 G9 V T_H-M 0,63
+Blanco_1_Sector WR-G_b12-0 M4 V T_WW 0,17
+Blanco_1_Sector SZ-O_c6-1 G6 V T_H-M 0,81
+Blanco_1_Sector SZ-O_c6-1 G6 V WW 1,00
+Blanco_1_Sector NT-Q_c5-1 K8 V T_H-M 0,50
+Blanco_1_Sector NT-Q_c5-1 M8 V T_H-M 0,14 
+Blanco_1_Sector NT-Q_c5-1 M8 V T_H-M 0,19
+Blanco_1_Sector BJ-E_b13-0 M4 V WW 0,25
+Swoiwns CQ-D_b1-0 M9 VI AW 0,11
+Swoiwns ZI-B_d9 G1 V T_WW 1,27
+Synuefai PR-F_b56-1 M0 V T_H-M 0,16
+Synuefai PR-F_b56-1 M0 V WW 0,27
+HIP 68402 F7 V T_H-M 2,6
+HIP 68402 F7 V AW 12,14
+HIP 70673 M4 V WW 0,27
+Praea_Euq BZ-S_c3-20 G4 V T_H-M 0,92
+Praea_Euq BZ-S_c3-20 G4 V T_H-M 1,18
+Praea_Euq CZ-S_c3-20 K3 V T_H-M 0,93
+Praea_Euq ML-P_c5-0 K8 V WW 0,31
+Praea_Euq TS-U_d2-17 K3 V T_WW 0,89
+Praea_Euq TS-U_d2-120 A8 V T_H-M 2,38
+Praea_Euq TS-U_d2-120 A8 V T_WW 4,21
+Praea_Euq US-U_d2-110 A8 VI T_H-M 2,1
+Praea_Euq US-U_d2-110 A8 VI T_H-M 2,62
+Praea_Euq US-U_d2-122 A6 VI T_H-M 2,33
+Flyae_Drye JI-Z_d1-1 G2 V T_WW 1,37 
+NGC_2232_Sector IH-V_d2-13 A8 V T_H-M 4,17 
+NGC_2232_Sector IH-V_d2-13 A8 V WW 5,39 
+Col_132_Sector MD-S_d4-18 F2 V T_H-M 2,18 
+Col_132_Sector MD-S_d4-18 F2 V T_H-M 1,79  
+Flyooe_Dryeia LF-L_d9-1 G2 V T_H-M 0,85 
+Flyooe_Dryeia LF-L_d9-1 G2 V T_H-M 1,23 
+Synuefe SP-G_d10-0 G4 V T_H-M 1,03 
+Synuefe SP-G_d10-0 G4 V T_WW 1,38 
+Synuefe SP-G_d10-0 G4 V WW 1,92 
+Synuefe PB-K_c22-0 K3 V T_H-M 0,78 
+Synuefe QU-G_d10-2 G4 V WW 0,8 
+Synuefai JB-F_d11-0 K0 V T_H-M 0,42 
+Synuefai JB-F_d11-0 K0 V T_H-M 0,58 
+Synuefe JI-K_c24-4 K3 V  T_WW 0,6 
+Synuefe LK-V_b48-1 M6 V AW 0,37
+phaa_ain ca-a_d59 F9 V AW 6,4
+phaa_ain ca-a_d59 F9 V E_L 2,14
+phaa_ain ca-a_d59 F9 V T_H-M 1,64
+byeia_thaa un-a_c14-5 M5 V E_L 0,16
+byeia_thaa nz-u_c17-3 M4 V WW 0,33
+byeia_thaa tc-c_c13-9 G6 V WW 1,48
+byeia_thaa oe-k_c8-26 G8 V T_WW 1,27
+byeia_thaa oe-k_c8-26 G8 V T_H-M 0,68
+smojue ms-u_d2-1 A7 VI E_L 3,98
+droju gv-j_b1-5 M2 V WW 0,31
+bleae_thua oo-z_d13-33 K5 V WW 0,66
+bleae_thua oo-z_d13-33 K5 V T_WW  0,66
+bleae_thua gw-e_d11-85 F5 V T_H-M 1,98
+blu_thua gx-l_d7-83 F9 V WW 1,86
+blu_thua gx-l_d7-83 F9 V T_RW  1,35
+aucoks zm-q_d6-18 F5 V T_H-M 1,44
+aucoks zm-q_d6-18 F5 V T_WW 2,46
+aucoks zm-q_d6-18 F5 V WW 3,37
+blu_thua ji-b_c13-26 G8 V T_H-M 0,6
+blu_thua ji-b_c13-26 G8 V T_H-M 1,14
+blu_thua ji-b_c13-26 G8 V T_WW 0,8
+blu_thua  fr-n_d6-106 G3 V T_H-M 0,87
+blu_thua  fr-n_d6-5  F2 V T_H-M 1,55
+blu_thua  fr-n_d6-5  F2 V T_WW 2,56
+blu_thua bl-p_d5-38 F8 V T_WW 1,66
+blu_thua bl-p_d5-88 F5 V T_WW 2,32
+blu_thua bl-p_d5-50 F3 V T_H-M 1,48
+blu_thua uy-s_d3-48 G0 V T_H-M 1,04
+blu_thua uy-s_d3-48 G0 V T_H-M 1,8
+wruethai fb-f_c11-4 K0 V WW 1,48
+wruethai fb-f_c11-4 K0 V T_H-M 1,04
+syivoae vj-i_d9-17 F1 V T_H-M 3,32
+syivoae vj-i_d9-17 F1 V T_H-M 1,7
+syivoae vj-i_d9-17 F1 V E_L 2,29
+preae_chruia xu-e_b41-1 M3 V E_L 0,26
+smootao sh-y_c28-30 K4 V E_L 1,07
+pyroo_eork wu-v_d3-6 F3 VI T_H-M 1,42
+pyroo_eork wu-v_d3-6 F3 VI E_L 1,76
+Fleya_Bli nd-z_d1-74 A9 V T_H-M 2,62
+Fleya_Bli kh-c_d22 G8 V T_H-M 0,7
+Fleya_Bli kh-c_d22 G8 V T_WW 1,01
+Fleya_Bli kh-c_d22 G8 V T_WW 1,39
+blau_auwsy pl-a_c15-0 K6 V T_WW 0,6
+blau_auwsy dg-x_d1-0 F8 V T_WW bin 1,86
+blau_auwsy dg-x_d1-0 F8 V T_WW bin 1,86
+byoi_aod fq-a_c28-1 M2 V E_L tri 0,55
+byoi_aod fq-a_c28-1 M2 V  T_H-M tri 0,55
+byoi_aod fq-a_c28-1 M2 V T_H-M tri 0,55
+byoi_aod jr-u_c3-2 K4 V T_H-M tri 1,46
+byoi_aod jr-u_c3-2 K4 V WW tri 1,46
+byoi_aod jr-u_c3-2 K4 V WW tri 1,46
+blau_aod rq-i_c24-0 G9 V T_WW 0,88 
+blau_aod rq-i_c24-0 G9 V T_WW bin 1,2
+blau_aod ds-p_c20-0 K8 V T_WW 0,4
+blau_aod ej-h_b40-0 M7 V T_WW 0,1
+blau_aod ej-h_b40-0 M7 V T_WW 0,13
+preae_auwsy ed-z_c27-5 G3 V E_L 1,44
+plio_auwsy hi-a_d14-15 A9 V T_WW 2,48
+pro_auwsy tn-t_d3-27 G0 V T_WW 1,64
+plio_auwsy ks-k_d8-18 F3 V WW 2,92
+plio_auwsy gm-m_d7-24 K9 V T_WW 1,77
+plio_auwsy si-t_d3-33 F5 VI T_WW 1,67
+plio_auwsy si-t_d3-33 F5 VI WW 4,04
+pro_aod io-x_c28-16 K7 V AW 1,77
+pro_aod wo-u_b44-0 M0 V WW 0,2
+pro_aod ui-m_b36-1 M4 V WW 0,38
+pro_aod px-k_d8-16 F0 V T_WW 3,34
+pro_aod px-k_d8-16 F0 V T_H-M 1,93
+pro_aod px-k_d8-16 F0 V WW 5,58
+pro_aod wd-h_c11-3 K1 V T_WW 1,22
+pro_aod wd-h_c11-0 K7 V T_H-M 0,61
+greeroi sz-b_c15-0 G5 V T_WW 0,94
+greeroi oy-p_d6-0 F0 V T_WW 2,89
+greeroi oy-p_d6-0 F0 V T_WW 3,61
+greeroi vp-m_d8-0 G6 V WW 1,52
+greeroi dm-h_c12-0 G9 V T_WW 0,86
+greeroi rz-n_d7-2 G8 V T_H-M 0,78
+greeroi rz-n_d7-2 G8 V WW 1,42
+ellaisms ki-h_d11-9 N E_L 5,07
+ellaisms no-f_d12-49 MS2 III T_H-M 10,56
+oochoss hq-z_b47-0 M6 V T_H-M 0,1
+outorst aa-a_e0 A1 V T_H-M 4,76
+outorst ba-a_d24 F0 V T_H-M bin 2,91
+outorst ba-a_d24 F0 V T_H-M bin 2,91
+outorst ba-a_d24 F0 V T_WW 3,74
+outorst da-a_d26 A7 V E_L 3,02
+outorst sf-f_d11-6 F2 V T_WW 2,05
+outorst ze-a_d9 F8 V T_WW 1,74
+aishain vr-n_d48-59 M2 V WW 0,28
+aemonz wx-g_b44-227 M8 V T_H-M 0,07
+aemonz vo-q_d5-3126 G0 VI WW 1,09
+aemonz qd-s_d4-2924 F5 V T_WW 2,46
+aemonz mh-v_d2-14 G8 V T_WW 1,18
+scheau_blao hj-f_c25-241 K3 V T_WW 1,28
+scheau_blao wk-f_d11-2319 F7 V WW 2,4
+scheau_blao wk-f_d11-2319 F7 V T_WW  2,4
+scheau_blao yf-f_d11-243 K7 V T_WW 0,83
+scheau_blao oy-i_d9-1907 A8 V WW 5,86
+scheau_blao oi-t_e3-1117 AeBe9 VI WW 0,26
+scheau_blao oi-t_e3-1117 AeBe9 VI AW 0,53
+scheau_blao jx-s_d4-471 F1 V E_L 3,47
+scheau_blao sk-k_c10-30 K4 V WW 0,77
+scheau_blao ko-v_c4-195 K3 V WW 1,02
+scheau_blao mi-a_d1-2761 A8 V AW 12,85
+braisoi eo-f_d12-3667 M1 V WW 0,91
+braisoi Wr-H_d11-8025 M3 V T_H-M 0,31
+braisoi Wr-H_d11-8025 M3 V T_WW 0,42
+braisoi Wr-H_d11-8025 M3 V T_H-M 0,59
+braisoi Wr-H_d11-8025 M3 V WW 0,95
+lyaisoo ni-t_e3-5025 N T_H-M 11,1 
+lyaisoo br-m_d7-222 A8 VI WW 5,4 
+lyaisoo gs-j_c9-362 K3 V T_WW 0,56 
+eembaisk uz-m_c21-186 K7 V T_WW 0,77
+eembaisk uz-m_c21-186 K9 V T_WW 0,44
+eembaisk ot-o_c20-1814 K5 V WW 0,59
+eembaisk ec-s_c18-1170 K1 V WW 1,18
+eembaisk jh-v_d2-5396 WW 4,49
+dryuae_chruia if-r_d4-4792 A7 VI WW 4,6
+dryuae_chruia if-r_d4-4792 A7 VI WW  4,6
+dryuae_chruia qk-i_c9-44-56 M0 V WW 0,36
+dryio_bli db-a_c3-4249 G9 V T_WW 1,14
+eoch_bli hh-v_f2-326 BH WW 1,78
+eoch_bli eq-g_c13-3317 K4 V T_WW 0,6
+eoch_bli eq-g_c13-3317 K4 V WW 0,85
+stuemeae kn-a_d14-112 G8 V WW 1,95
+stuemeae kn-a_d14-112 G8 V T_WW 1,11
+stuemeae lt-e_c26-3383 K2 V WW 1,16
+stuemeae qy-h_d10-1625 F2 VI W6,14
+stuemeae im-a_c15-4567 K0 V E_L 0,69
+stuemeae vn-r_c5-3910 K4 V T_WW 0,77
+stuemeae vi-r_c5-2295 K4 V T_WW 0,63
+stuemeae qc-u_c3-629 G5 V WW 2,15
+stuemeae qx-t_c3-4491 G5 V WW 1,24
+stuemeae qx-t_c3-4491 G5 V AW bin 4,04
+stuemeae qx-t_c3-4491 G5 V AW bin 4,04
+stuemeae mm-v_c2-8076 M3 V WW 0,5
+myrielk va-e_d12-5193 F3 V T_WW 2,26 
+myrielk va-e_d12-5193 F3 V WW 4,21
+myrielk la-k_c23-3103 K6 V WW 0,79
+myrielk sh-n_c22-1020 K1 V WW 1,44
+myrielk AX-I_d10-2940 K0 V WW 1,52
+myrielk AX-I_d10-2940 K0 V T_H-M 0,91
+myrielk AX-I_d10-2940 K0 V AW bin 3,0
+myrielk sp-m_d9-8161 F8 V WW 2,56
+myrielk mf-z_c13-211 K5 V T_WW 0,73
+myrielk hr-t_d3-6732 F2 V T_WW 2,89
+hypai_auscs d1-3549 A9 V WW 5,7
+hypai_auscs br-c_d58 CN5 III T_H-M 7,0
+hypai_auscs br-c_d58 CN5 III T_WW 9,25
+zunao su-m_d8-477 F9 V AW 6,24
+zunao jh-p_c8-88 K0 V WW 1,23
+eotchops bf-a_d577 A7 V WW 3,72
+hypoae_screia nf-d_c26-35 G8 V T_WW 1,07
+hypoae_screia sn-k_d8-1521 F7 V T_H-M 1,1
+hypoae_screia sn-k_d8-1521 F7 V E_L 1,49
+hypoae_screia sn-k_d8-1521 F7 V T_H-M 2,06
+dryi_aug uc-t_c17-64 K1 V 1,58
+dryi_aug vy-r_d4-492 K6 V T_WW 0,58
+dryi_aug qs-t_d3-362 K3 V E_L 1,37
+dryi_aug kl-y_d162 K2 V T_H-M 1,27
+dryi_aug kl-y_d162 K2 V T_H-M 1,71
+dryi_aug kl-y_d162 K2 V T_WW 2,41
+dryi_aoc ah-y_c16-385 K4 V T_WW 0,57
+dryi_aoc rd-b_e1807_b0 V WW 7,89
+eor_aoc lc-k_c25-93 M0 V T_WW 0,47
+eumorps nv-i_b37-3 M3 V WW 0,27
+eor_auscs co-m_b26-54 M1 V 0,28
+eor_auscs da-v_c4-477 M0 V WW 0,57
+dryi_aoc bh-b_d14-1441 F0 V T_WW 2,54
+dryi_aoc vv-q_c20-314 K8 V T_WW 0,44
+clookuia uu-c_b1-0 M9 VI WW 0,048
+clookuia jz-j_b11-1 M5 V E_L 0,16
+clookuia ho-g_d11-78 F9 V T_WW 1,83
+gru_hypai sm-n_c9-3 K3 V WW 0,58
+preia_phio mp-e_d12-37 F5 V WW 5,0
+preia_phio xg-r_c6-15 K9 V WW 0,44
+skaudao dm-c_b58-0 L8 V T_WW 0,03 
+skaudao dm-c_b58-0 L8 V WW 0,04
+skaude im-w_d1-16 N T_H-M 6,19
+skaude im-w_d1-16 N T_H-M 8,03
+skaude im-w_d1-16 N T_WW  8,03
+skaudao px-l_c23-3 K4 V E_L 0,66
+skaudao hi-r_d5-66 F0 V T_H-M 2,39
+skaudao jx-b_d39 F4 V T_H-M 1,34
+skaudao jx-b_d39 F4 V T_H-M 1,9
+skaudao jx-b_d39 F4 V T_WW bin 2,53
+skaudao jx-b_d39 F4 V T_WW bin 2,53
+preia_hypai he-f_d12-79  F9 V  AW 6,4
+preia_hypai hl-x_c17-3 M0 V_c17-3 WW 0,5
+preia_hypai hb-v_d3-24 F5 VI T_WW 1,71
+flyua_hype xl-l_d8-13 A7 VI T_WW 3,02
+flyua_hype eh-u_d3-5 F7 V T_H-M bin 1,6
+flyua_hype eh-u_d3-5 F7 V T_H-M bin 2,16
+flyua_hype eh-u_d3-5 F7 V T_WW bin 2,16
+flyua_hype se-y_d1-17 F4 V T_WW 2,56
+blau_eur ac-x_b58-2 M0 V T_WW 0,26
+blo_eurl ih-c_d13-58 A8 VI WW 3,76
+blo_eurl es-t_b46-1 M4 V WW 0,1
+blo_eurl es-t_b46-1 M4 V T_WW 0,18
+stuemeae xy-y_d1-575 DA0 VII T_H-M 0,18
+phylucs zr-z_c27-1 K8 V T_WW 0,38
+phylucs hk-m_b21-2 M2 V T_WW 0,22
+praea_euq vu-e_c25-2 G9 V T_WW 0,96
+praea_euq au-r_b4-4 M0 V 0,17
+Ellaisms bb-w_e2-2 N T_H-M 3,18
+Ellaisms bb-w_e2-2 N T_H-M 4,48
+Ellaisms bb-w_e2-2 N T_WW 5,92
+sleguae gh-q_c20-0 G3 V T_H-M bin 1,07
+sleguae gh-q_c20-0 G3 V T_WW 1,41
+sleguae qe-f_d12-7 F5 VI AW 7,13
+Oochoss qw-f_c3 K5 V E_L 0,46
+sleguae xu-t_c18-3 M1 V T_H-M 0,29
+sleguae xu-t_c18-3 M1 V T_H-M 0,38
+sleguae xu-t_c18-3 M1 V WW 0,54
+sleguae pz-d_d13-12 A7 VI T_H-M 2,03
+sleguae pz-d_d13-12 A7 VI T_H-M 3,51
+sleguae nk-i_c25-2 K0 V T_H-M bin 0,68 
+sleguae nk-i_c25-2 K0 V T_H-M bin 0,68
+sleguae nk-i_c25-2 K0 V T_H-M 1,0
+Ellaisms ii-q_d6-9 F8 V T_WW 1,38
+Ellaisms ci-v_b8-0 M8 V WW 0,05
+gehae ry-s_c3-0 K0 V T_WW 0,78
+Ellaisms bd-h_d11-1 G7 V T_WW 0,94
+Ellaisms bd-h_d11-1 G7 V WW 1,67
+Ellaisms zv-u_d3-17 A5 VI T_H-M 3,15
+Ellaisms zv-u_d3-17 A5 VI T_WW tri 4,22
+Ellaisms zv-u_d3-17 A5 VI T_H-M tri 4,22
+Ellaisms zv-u_d3-17 A5 VI T_H-M tri 4,22
+skaudai cc-k_c25-82 M0 V E_L 0,4
+skaudai cc-k_c25-82 M0 V T_H-M 0,24
+Ellaisms qk-k_b36-6  M5 V T_H-M 0,1
+Ellaisms qk-k_b36-6  M5 V T_WW 0,15
+Ellaisms qk-k_b36-6  M5 V AW 0,32
+Ellaisms dc-t_c17-128 G4 V T_WW 1,29
+Ellaisms qh-h_c24-7 K5 V T_WW 0,59
+Ellaisms eg-o_d6-251 A9 V T_WW bin 3,11
+Ellaisms eg-o_d6-251 A9 V T_H-M bin 3,11
+Ellaisms rd-k_d8-93 A6 VI WW bin 4,39
+Ellaisms jh-g_b52-7 M5 V T_WW 0,17
+preae_ain am-t_c4-39 K8 V WW 0,23
+Ellaisms te-g_d11-5 A5 VI WW 4,3
+Ellaisms lb-r_b36-2 M7 V WW 0,07
+Ellaisms py-v_c17-9 G9 V T_WW 0,97
+Ellaisms py-v_c17-9 G9 V WW 1,34
+Ellaisms ex-j_d9-64 F2 V T_H-M bin 1,85
+Ellaisms ex-j_d9-64 F2 V T_H-M bin 1,85
+Ellaisms ex-j_d9-64 F2 V T_WW bin 2,7
+Ellaisms ex-j_d9-64 F2 V T_WW bin 2,7
+Ellaisms vg-s_c18-1 M0 V T_WW 0,27
+Ellaisms vg-s_c18-1 M0 V T_WW 0,35
+Ellaisms vg-s_c18-1 M0 V T_H-M 0,2
+Ellaisms xm-h_c24-36 K1 V T_WW 0,84
+Ellaisms fs-k_d8-52 G9 V WW 1,68
+Ellaisms fs-k_d8-52 G9 V T_H-M 0,93
+Ellaisms fs-k_d8-52 G9 V T_WW 1,22
+ploea_aim dc-u_b58-4 M5 V WW 0,15
+Ellaisms vh-q_c19-68 K2 V T_H-M bin 0,94
+Ellaisms vh-q_c19-68 K2 V T_H-M bin 0,94
+Ellaisms vh-q_c19-68 K2 V WW 1,14
+ploea_aim  gd-a_d14-139 F3 V AW 6,95
+plio_aim cu-a_d5 F4 V T_WW 2,11
+prielu gw-w_b43-3 M0 V T_WW 0,2
+prielu gw-w_b43-3 M0 V AW 0,51
+prua_hypa fi-z_d1-137 F7 V T_H-M bin 1,7
+prua_hypa fi-z_d1-137 F7 V T_H-M bin 1,7
+synuefai qm-b_c14-0 G8 V T_WW 1,21
+synuefai qm-b_c14-0 G8 V T_H-M 0,87
+synuefai uc-b_c14-0 K4 V T_H-M 0,4
+synuefai jg-o_d6-2 M3 V T_H-M 0,26
+synuefai jg-o_d6-3 G1 V T_H-M 1,05
+synuefai jg-o_d6-4 F5 V T_WW bin 2,34
+synuefai kb-o_d6-2 G4 V WW 1,16
+synuefai nb-v_c16-0 K5 V T_H-M 0,93
+synuefai yi-r_c18-0 K2 V T_H-M 0,9
+synuefai ap-i_d9-1 G3 V T_H-M 1,44
+bleou_thoi li-r_c18-1 K2 V E_L 0,75
+pro_eurk sc-z_c27-2 G9 V T_H-M 0,54
+pro_eurk sc-z_c27-2 G9 V T_WW 0,81
+preae_eurk px-l_d7-14 F3 VI E_L 2,47
+swoilt ln-q_d6-5 A7 VI T_H-M 2,54
+swoilt ln-q_d6-5 A7 VI E_L 3,18
+swoirks hb-o_c9-0 K6 V AW 1,18
+swoirks an-f_c1 K5 V WW 0,71
+flyeia_dryiae kl-z_d1-0 A9 V WW 4,13
+flyeia_dryiae kl-z_d1-0 A9 V T_H-M 2,84
+flyeia_dryiae ex-w_c4-1 K7 V T_WW bin 0,85
+flyeia_dryiae kd-z_d1-10 A9 V T_WW 3,42
+swoiwns be-b_d10 F6 V T_H-M 1,56
+swoiwns be-b_d10 F6 V T_H-M 2,17
+swoiwns be-b_d10 F6 V T_WW 2,95
+swoiwns be-b_d10 K6 V T_H-M 0,58
+swoiwns be-b_d10 K6 V WW 1,43
