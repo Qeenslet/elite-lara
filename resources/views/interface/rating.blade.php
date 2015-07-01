@@ -4,4 +4,5 @@
     @foreach($pilots as $pilot)
         <tr><td width="90%">CMDR {{$pilot->user->name}}</td><td> <span class="white">{{$pilot->points}}</span></td></tr>
     @endforeach
+
 </table>

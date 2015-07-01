@@ -32,7 +32,7 @@ class Registrar implements RegistrarContract {
         $key=csrf_token();
         $key=md5($key);
         $token = "?inf=".$key;
-        $key='3D'.$key;
+        //$key='3D'.$key;
         \Mail::send('emails.confirmation', compact('token', 'data'), function($message) use($data) {
             $message->from('us@example.com', 'Laravel');
             $message->to($data['email'], $data['name'])->subject('Elite-Base registration confirmation');

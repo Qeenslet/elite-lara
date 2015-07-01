@@ -122,7 +122,7 @@ class AjaxController extends Controller {
         $sType=Arrays::allStarsArray();
         $sSize=Arrays::sizeTypeArray();
         $pNames=Arrays::planetsForCabinet();
-        $systemInfo=new \App\Myclasses\starSystemInfo($systemData->regionId);
+        $systemInfo=new \App\Myclasses\starSystemInfo($systemData->addressId);
         switch($target->type){
             case 'danger':
                 $explanation="Отклонение от границ коридора: ".$systemData->moderInfo['differ']." а.е.";
