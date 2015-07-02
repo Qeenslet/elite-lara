@@ -30,3 +30,16 @@
     </div>
     <button type="submit" class="btn btn-warning" id="change_b">Поиск</button>
 </form>
+<script>
+    $('#star_select').change(function(){
+        var select=$('#star_select').val();
+        if(select==15 || select==16){
+            $("#class_select").val(999).hide();
+            $("#size_select").val(999).hide();
+        }
+        else {
+            $("#class_select").show();
+            $("#size_select").show();
+        }
+    })
+</script>

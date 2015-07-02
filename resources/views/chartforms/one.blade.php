@@ -26,8 +26,8 @@
         </select>
     </div>
     <div class="form-group">
-        <label for="class_select">Размер</label>
-        <select id="class_select" name="size">
+        <label for="size_select">Размер</label>
+        <select id="size_select" name="size">
             <option value="100">не важно</option>
             <option value="5">V</option>
             <option value="4">IV</option>
@@ -60,3 +60,16 @@
     </div>
     <button type="submit" class="btn btn-warning">Поиск</button>
 </form>
+<script>
+    $('#star_select').change(function(){
+        var select=$('#star_select').val();
+        if(select==15 || select==16){
+            $("#class_select").val(100).hide();
+            $("#size_select").val(100).hide();
+        }
+        else {
+            $("#class_select").show();
+            $("#size_select").show();
+        }
+    })
+</script>
