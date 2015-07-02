@@ -4,7 +4,6 @@
     <div class="form-group">
         <label for="star_select">Тип звезды</label>
         <select id="star_select" name="star">
-            <option></option>
             @foreach ($count as $num => $one)
                 <option value="{{$num}}">{{$one}}</option>
             @endforeach

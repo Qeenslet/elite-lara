@@ -4,7 +4,6 @@
     <div class="form-group">
         <label for="style_select">Планеты</label>
         <select id="style_select" name="style" class="largeSelect">
-            <option selected="selected"></option>
             <option value="1">Все пригодные для жизни и ТФ</option>
             <option value="2">Т-металлик</option>
             <option value="3">Т-водные</option>

@@ -56,6 +56,12 @@ class AjaxController extends Controller {
         $data=$request->all();
         $colors=Arrays::colorList();
         if (isset($data['planet'])){
+            switch($data['star']){
+                case 15:
+                case 16:
+                    $data['size']=$data['class']=100;
+                    break;
+            }
             $chart = Charter::draw(1, $data);
 
             if($chart->anything==0) {
@@ -78,6 +84,12 @@ class AjaxController extends Controller {
             $newData['size']=$data['sizeOrb'];
             $newData['star']=$data['starOrb'];
             $newData['class']=$data['classOrb'];
+            switch($newData['star']){
+                case 15:
+                case 16:
+                    $newData['size']=$newData['class']=999;
+                    break;
+            }
             $chart=Charter::draw(3, $newData);
 
             if(!$chart->result) {
