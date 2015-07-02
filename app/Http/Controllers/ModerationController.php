@@ -74,4 +74,19 @@ class ModerationController extends Controller {
         return redirect(route('roles'));
     }
 
+    public function texts(){
+        $texts=\App\Maintext::all();
+        return view('moderation.texts', compact('texts'));
+    }
+
+    public function changer(Request $request){
+        $article=$request->all();
+        $text=\App\Maintext::find($article['id']);
+        $text->name=$article['name'];
+        $text->body=$article['body'];
+        $text->save();
+        return redirect(route('texts'));
+
+    }
+
 }

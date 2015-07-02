@@ -38,6 +38,8 @@ Route::get('moderation/reader', ['as'=>'reader', 'uses'=>'ModerationController@r
 Route::get('moderation/results', ['as'=>'reportResult', 'uses'=>'ModerationController@result']);
 Route::get('moderation/roles', ['as'=>'roles', 'uses'=>'ModerationController@roles']);
 Route::get('moderation/setrole', ['as'=>'setrole', 'uses'=>'ModerationController@setRoles']);
+Route::get('moderation/texts', ['as'=>'texts', 'uses'=>'ModerationController@texts']);
+
 
 Route::post('ajaform', ['as'=>'AjaxFormer', 'uses'=>'AjaxController@chartForms']);
 Route::post('ajachart', ['as'=>'AjaxCharter', 'uses'=>'AjaxController@chartBuilder']);
@@ -49,6 +51,7 @@ Route::post('ajacabin', 'AjaxController@cabinetInfo');
 Route::post('senmail', ['as'=>'sender', 'uses'=>'CabinetController@sender']);
 Route::post('sendmail', ['as'=>'senderAdmin', 'uses'=>'AdministrationController@sender']);
 Route::post('sendrep', ['as'=>'reportAccepter', 'uses'=>'ModerationController@reporter']);
+Route::post('changetext', ['as'=>'changeText', 'uses'=>'ModerationController@changer']);
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
