@@ -15,6 +15,13 @@
     @section('top-scripts')
     @show
 </head>
+@if(Auth::check())
+@unless(Auth::user()->isModerator())
+    <?php \Barryvdh\Debugbar\Facade::disable();?>
+@endunless
+@else
+    <?php \Barryvdh\Debugbar\Facade::disable();?>
+@endif
 <body>
     <div class="container">
         <h1><a href="/" id="header">{{$title}}</a></h1>

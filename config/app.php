@@ -196,6 +196,7 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
         'BBCode'    => 'Golonka\BBCode\Facades\BBCodeParser',
+        'Debugbar' => 'Barryvdh\Debugbar\Facade',
 
 	],
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Letter extends Model {
 
-    protected $fillable = ['reciever', 'header', 'body'];
+    protected $fillable = ['reciever', 'header', 'body', 'show'];
 
 	public function isSender(){
          return $this->belongsTo('\App\User', 'sender');

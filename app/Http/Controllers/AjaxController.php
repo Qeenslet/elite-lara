@@ -15,7 +15,9 @@ class AjaxController extends Controller {
 
 	public function chartForms(Request $request){
         $count = Arrays::allStarsArray();
-
+        if(\Auth::check()){
+            $userId=\Auth::user()->id;
+        }
         $formStyle=$request->input('form');
         switch($formStyle){
             case 0:
@@ -29,19 +31,19 @@ class AjaxController extends Controller {
             case 3:
                 return view('chartforms.three', compact('count'));
             case 4:
-                $letters= Auth::user()->hasInbox()->orderBy('id', 'desc')->get();
+                $letters= Auth::user()->hasInbox()->where('show_reciever', 'true')->orderBy('id', 'desc')->get();
                 return view('cabinet.inbox', compact('letters'));
             case 5:
-                $letters= Auth::user()->hasSent()->orderBy('id', 'desc')->get();
+                $letters= Auth::user()->hasSent()->where('show_sender', 'true')->orderBy('id', 'desc')->get();
                 return view('cabinet.sent', compact('letters'));
             case 6:
                 $users=\App\User::all();
                 return view('cabinet.newmail', compact('users'));
             case 7:
-                $letters= \App\User::find(1)->hasInbox()->orderBy('id', 'desc')->get();
+                $letters= \App\User::find(1)->hasInbox()->where('show_reciever', 'true')->orderBy('id', 'desc')->get();
                 return view('administration.inbox', compact('letters'));
             case 8:
-                $letters= \App\User::find(1)->hasSent()->orderBy('id', 'desc')->get();
+                $letters= \App\User::find(1)->hasSent()->where('show_sender', 'true')->orderBy('id', 'desc')->get();
                 return view('administration.sent', compact('letters'));
             case 9:
                 $users=\App\User::all();

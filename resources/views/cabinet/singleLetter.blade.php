@@ -14,6 +14,7 @@
         <button type="submit" class="btn btn-success" onclick="answer();">Ответить</button>
     @endif
     <button type="submit" class="btn btn-warning" onclick="window.history.back();">Назад</button>
+        <button type="button" class="btn btn-danger" onclick="someAction('{{route('cabMailDel', ['id'=>$letter->id])}}', 'Удалить?')">Удалить</button>
 </div>
 <div id="placeForAnswer" style="display: none;">
     <form class="form-horizontal" method="post" action="{{route('sender')}}">

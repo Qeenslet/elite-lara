@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Auth;
 use Golonka\BBCode\BBCodeParser;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,7 @@ class CabinetController extends Controller {
         if(isset($letterId)){
             $letter=\App\Letter::find($letterId);
             if ($letter) {
-                $id = \Auth::user()->id;
+                $id = Auth::user()->id;
                 if ($letter->reciever == $id) {
                     $letter->status='read';
                     $letter->save();
@@ -52,15 +53,33 @@ class CabinetController extends Controller {
             $pilot=\App\User::where('name', $filteredMess['reciever'])->first();
             $filteredMess['reciever']=$pilot->id;
         }
+
         $letter=new \App\Letter($filteredMess);
-        \Auth::user()->hasSent()->save($letter);
+        Auth::user()->hasSent()->save($letter);
         return redirect('/cabinet/mail');
 
     }
 
     public function discovery(){
-        $findings=\Auth::user()->findings()->groupBy('created_at')->orderBy('id', 'desc')->paginate(10);
+        $findings= Auth::user()->findings()->groupBy('created_at')->orderBy('id', 'desc')->paginate(10);
         return view('cabinet.discoveries', compact('findings'));
+    }
+
+    public function mailDelete(Request $request){
+        $id=$request->input('id');
+        $letter=\App\Letter::find($id);
+        if($letter->sender==Auth::user()->id){
+            $letter->show_sender='false';
+
+        }
+        else {
+            $letter->show_reciever='false';
+        }
+        $letter->save();
+        if($letter->show_sender=='false' && $letter->show_reciever=='false') {
+            $letter->delete();
+        }
+        return redirect(route('usermail'));
     }
 
 }

@@ -45,6 +45,7 @@ class AdministrationController extends Controller {
         $letter['body']="Добрый день, CMDR $name! К сожалению, нам недостаточно данных для одобрения добавленной вами планеты в системе $aim->address.
             Пришлите, если это возможно, скриншот карты системы. Для его включения в письмо можете воспользоваться любым сервисом хранения загруженных фотографий.
             С уважением, администратор $signature.";
+
         $carta=new \App\Letter($letter);
         \Auth::user()->hasSent()->save($carta);
         $aim->request='sent';
@@ -87,9 +88,27 @@ class AdministrationController extends Controller {
             $pilot=\App\User::where('name', $filteredMess['reciever'])->first();
             $filteredMess['reciever']=$pilot->id;
         }
+
         $letter=new \App\Letter($filteredMess);
         \App\User::find(1)->hasSent()->save($letter);
         return redirect('/administration/mail');
 
+    }
+
+    public function mailDelete(Request $request){
+        $id=$request->input('id');
+        $letter=\App\Letter::find($id);
+        if($letter->sender==1){
+            $letter->show_sender='false';
+
+        }
+        else {
+            $letter->show_reciever='false';
+        }
+        $letter->save();
+        if($letter->show_sender=='false' && $letter->show_reciever=='false') {
+            $letter->delete();
+        }
+        return redirect(route('adminmail'));
     }
 }

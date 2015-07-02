@@ -27,19 +27,24 @@
             if (first==4) {
                 var token = $('#navigation_bar').attr('data');
                 var data = 'form=' + navegator + '&_token=' + token;
-                $.ajax({
-                    type: 'POST',
-                    url: '/ajaform',
-                    data: data,
-                    success: function (html) {
-                        $('#2nd_selection').empty();
-                        $('#2nd_selection').append(html);
-                    },
-                    error: function (xhr, str) {
-                        alert('Возникла ошибка: ' + data);
-                    }
-                });
+                refresh(data);
+
             }
-        })
+        });
+
+        function refresh(data){
+            $.ajax({
+                type: 'POST',
+                url: '/ajaform',
+                data: data,
+                success: function (html) {
+                    $('#2nd_selection').empty();
+                    $('#2nd_selection').append(html);
+                },
+                error: function (xhr, str) {
+                    alert('Возникла ошибка');
+                }
+            });
+        }
     </script>
 @stop
