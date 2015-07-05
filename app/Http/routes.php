@@ -32,6 +32,7 @@ Route::get('administration/mail', ['as'=>'adminmail', 'uses'=>'AdministrationCon
 Route::get('administration/change', ['as'=>'del-o-prove', 'uses'=>'AdministrationController@delprove']);
 Route::get('administration/request', ['as'=>'screenRequest', 'uses'=>'AdministrationController@request']);
 Route::get('administration/deletemail', ['as'=>'admMailDel', 'uses'=>'AdministrationController@mailDelete']);
+Route::any('administration/search', ['as'=>'search', 'uses'=>'AdministrationController@search']);
 
 Route::get('moderation', ['as'=>'moderation', 'uses'=>'ModerationController@index']);
 Route::get('moderation/reader', ['as'=>'reader', 'uses'=>'ModerationController@reader']);

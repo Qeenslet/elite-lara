@@ -111,4 +111,26 @@ class AdministrationController extends Controller {
         }
         return redirect(route('adminmail'));
     }
+
+    public function search(Requests\SearchRequest $request){
+        $searchData=$request->only('region', 'code');
+        if($searchData['region']!=NULL && $searchData['code']!=NULL){
+
+            $address=\App\Region::where('name', $searchData['region'])->first()->addresses()->where('name', $searchData['code'])->first();
+            if($address){
+                return redirect(route('search'))->withInput()->with('something', $address->id);
+            }
+            return redirect(route('search'))->withInput()->with('nothing', 'nothing has been found');
+        }
+        else {
+            $regions=\App\Region::all();
+            $nothing = session('nothing');
+            $id=session('something');
+            if($id){
+                $systemD=new \App\Myclasses\starSystemInfo($id);
+                return view('administration.search', compact('regions', 'systemD'));
+            }
+            return view('administration.search', compact('regions', 'nothing'));
+        }
+    }
 }

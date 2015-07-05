@@ -28,7 +28,7 @@ class starSystemInfo {
     public function __construct($id_address, $id_user=null){
         $this->address=$id_address;
         $addr=\App\Address::find($id_address);
-        $this->fName=$addr->region->name.$addr->name;
+        $this->fName=$addr->region->name." ".$addr->name;
         if($id_user!=null) $this->user=$id_user;
         $this->selectStars();
     }
