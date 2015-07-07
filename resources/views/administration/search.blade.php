@@ -1,30 +1,26 @@
 @extends('administration.index')
 @section('locale')
     <h2>Поиск данных по системе</h2>
-    <form method="post" action="{{route('search')}}" class="form-inline">
-        <input type="hidden" value="{{csrf_token()}}" name="_token">
+    <form method="get" action="{{route('search')}}" class="form-inline">
+
         <div class="form-group">
-            <label for="region">Регион:</label>
-            <input type="text" class="form_add_1" id="region_add" name="region" placeholder="Plaa Trua" list="regions" autocomplete="on" value="{{ old('region') }}">
-            <datalist id="regions">
-                @foreach($regions as $one)
-                    <option>{{$one->name}}</option>
-                @endforeach
-            </datalist>
-        </div>
-        <div class="form-group">
-            <label for="code">Код:</label>
-            <input type="text" class="form_add_1" id="code" name="code" placeholder="EG-Y D76" value="{{ old('code') }}">
+            <label for="region">Адрес:</label>
+            <input type="text"
+                   class="form_add_1"
+                   id="region_add"
+                   name="address"
+                   value="@if(isset($searchData)){{$searchData['address']}}@endif">
         </div>
         <button type="submit" class="btn btn-warning">Поиск данных</button>
     </form>
     @if(isset($systemD))
         <div class="row" style="margin: 10px;">
-            <h2>Ранее в системе было найдено:</h2>
+            <h2>{{$systemD->fName}}</h2>
             @foreach($systemD->starsIn as $id=>$star)
                 <div class="col-md-{{12/count($systemD->starsIn)}}">
+                    <div class="panel-cabinet">
                     <img src="/media/stars/{{$systemD->starImages[$id]}}"> {{$star}}
-                    <br>
+                    </div>
                     @foreach($systemD->planetsIn[$id] as $pId=>$pDesc)
                         <div class="panel-cabinet">
                             <img src="/media/planets/{{$systemD->planetImages[$pId]}}"> {{$pDesc}}<br>
@@ -34,10 +30,16 @@
             @endforeach
 
         </div>
+        <button class="btn btn-danger" onclick="someAction('{{route('delete', ['target'=>$systemD->address])}}', 'Удалить?')">Удалить</button>
     @endif
     @if(isset($nothing))
         <script>
             alert('{{$nothing}}}')
+        </script>
+    @endif
+    @if(isset($selRep))
+        <script>
+            alert('{{$selRep}}}')
         </script>
     @endif
 @stop

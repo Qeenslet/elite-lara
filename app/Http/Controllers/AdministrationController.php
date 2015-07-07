@@ -113,24 +113,47 @@ class AdministrationController extends Controller {
     }
 
     public function search(Requests\SearchRequest $request){
-        $searchData=$request->only('region', 'code');
-        if($searchData['region']!=NULL && $searchData['code']!=NULL){
-
-            $address=\App\Region::where('name', $searchData['region'])->first()->addresses()->where('name', $searchData['code'])->first();
-            if($address){
-                return redirect(route('search'))->withInput()->with('something', $address->id);
+        $selRep=session('result');
+        $searchData=$request->only('address');
+        $regions=\App\Region::all();
+        $nothing = 'nothing has been found';
+        if($searchData['address']!=NULL) {
+            $search=new \App\Myclasses\searchSystem($searchData['address']);
+            if(!$search->id){
+                return view('administration.search', compact('regions', 'nothing', 'searchData'));
             }
-            return redirect(route('search'))->withInput()->with('nothing', 'nothing has been found');
+             else {
+                 $systemD=new \App\Myclasses\starSystemInfo($search->id);
+                 return view('administration.search', compact('regions', 'systemD', 'searchData'));
+             }
         }
-        else {
-            $regions=\App\Region::all();
-            $nothing = session('nothing');
-            $id=session('something');
-            if($id){
-                $systemD=new \App\Myclasses\starSystemInfo($id);
-                return view('administration.search', compact('regions', 'systemD'));
+        return view('administration.search', compact('regions', 'selRep'));
+    }
+
+    public function delete(Request $request){
+        $target=$request->only('target');
+        \DB::beginTransaction();
+        try {
+            $address = \App\Address::find($target['target']);
+            $stars = $address->stars()->get();
+            foreach ($stars as $star) {
+                $planets = $star->planets()->get();
+                foreach ($planets as $planet) {
+                    $planet->delete();
+                }
+                $star->delete();
             }
-            return view('administration.search', compact('regions', 'nothing'));
+            $findings = $address->discoveries()->get();
+            foreach ($findings as $one) {
+                $one->delete();
+            }
+            $address->delete();
+            \DB::commit();
+            return redirect(route('search'))->with('result', 'Система успешно удалена');
+        }
+        catch(\PDOException $e){
+            \DB::rollback();
+            return redirect(route('search'))->with('result', 'Возникла ошибка удаления');
         }
     }
 }

@@ -12,7 +12,7 @@ namespace App\Myclasses;
 use App\Myclasses\Arrays;
 
 class starSystemInfo {
-    protected $address;
+    public $address;
     protected $user;
 
     protected $stars;

@@ -25,8 +25,7 @@ class SearchRequest extends Request {
 	public function rules()
 	{
 		return [
-			'region'=>'regex:/^[-0-9a-zA-Z\s\.]+$/',
-            'code'=>'regex:/^[-0-9a-zA-Z\s\.\']+$/'
+			'address'=>'regex:/^[-0-9a-zA-Z\s\.\']+$/',
 		];
 	}
 

@@ -18,7 +18,11 @@ class Address extends Model {
     }
 
     public function discoveries(){
-        return $this->hasOne('\App\Finding');
+        return $this->hasMany('\App\Finding');
+    }
+
+    public function scopeSearch($query, $string){
+        return $query->where('name', $string);
     }
 
 }
