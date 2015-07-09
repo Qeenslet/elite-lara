@@ -89,4 +89,16 @@ class ModerationController extends Controller {
 
     }
 
+    public function multistars(){
+        $addresses=\App\Address::all();
+        $selected=[];
+        foreach($addresses as $address){
+            $num=$address->stars()->count();
+            if($num>1){
+                $selected[]=$address;
+            }
+        }
+        return view('moderation.multistars', compact('selected'));
+    }
+
 }

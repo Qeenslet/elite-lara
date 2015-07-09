@@ -41,6 +41,7 @@ Route::get('moderation/results', ['as'=>'reportResult', 'uses'=>'ModerationContr
 Route::get('moderation/roles', ['as'=>'roles', 'uses'=>'ModerationController@roles']);
 Route::get('moderation/setrole', ['as'=>'setrole', 'uses'=>'ModerationController@setRoles']);
 Route::get('moderation/texts', ['as'=>'texts', 'uses'=>'ModerationController@texts']);
+Route::get('moderation/multistars', ['as'=>'multi', 'uses'=>'ModerationController@multistars']);
 
 
 Route::post('ajaform', ['as'=>'AjaxFormer', 'uses'=>'AjaxController@chartForms']);

@@ -69,6 +69,6 @@ class Arrays {
         return ['administration'=>'Системы на модерацию', 'adminmail'=>'Почта', 'search'=>'Поиск по базе'];
     }
     public static function moderRouts(){
-        return ['moderation'=>'Главная', 'reader'=>'Пакетный ввод', 'roles'=>'Доступ пользователей', 'texts'=>'Тексты на сайт'];
+        return ['moderation'=>'Главная', 'reader'=>'Пакетный ввод', 'roles'=>'Доступ пользователей', 'texts'=>'Тексты на сайт', 'multi'=>'Многозвездные системы'];
     }
 }
