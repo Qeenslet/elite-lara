@@ -103,7 +103,6 @@ class AjaxController extends Controller {
     public function baseAdder(BaseAddRequest $request){
         $data=$request->except('_token', 'method', 'uri', 'ip');
         $checkResult=Checker::checkIt($data);
-
         if($checkResult->code==5) {
             $message=$checkResult->error;
             return view('errors.similarPlanet', compact('message'));

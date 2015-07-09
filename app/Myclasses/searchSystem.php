@@ -50,8 +50,6 @@ class searchSystem {
         switch($number){
             case 0:
                 return false;
-            case 1:
-                return $result->first();
             default:
                 $this->result=$result->get();
                 $single=($this->matchRegion());
@@ -68,6 +66,7 @@ class searchSystem {
     }
 
     private function checkRegion($name){
+        if($name='SPECIAL') return true;
         $result=stristr($this->string, $name);
         if(!$result) return false;
         else return true;

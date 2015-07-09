@@ -50,10 +50,9 @@ class Checker {
         }
         if(isset($data['planet'])) {
             $newData['mark'] = $data['mark'];
+            if($data['distance']<5 && $data['units']==500) $data['units']=1;
+            $newData['distance']=$data['distance']/$data['units'];
         }
-        if($data['distance']<5 && $data['units']==500) $data['units']=1;
-        $newData['distance']=$data['distance']/$data['units'];
-
         return $newData;
     }
 

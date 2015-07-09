@@ -85,7 +85,6 @@
         <div class="form-group">
             <label for="planet_sel">Тип планеты:</label>
             <select id="planet_sel" name="planet">
-                <option></option>
                 @foreach ($planets as $num => $one)
                     <option value="{{$num}}">{{$one}}</option>
                 @endforeach

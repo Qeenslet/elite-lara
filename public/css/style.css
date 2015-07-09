@@ -315,6 +315,12 @@ background-color: #9d4602;
     top:-1px;
     font-size:12px;
 }
+.modal-window>h2 {
+    font-size:150%;
+}
+.modal-window>.col-md-4{
+    max-height: 25%;
+}
 .mailLink{
     text-decoration: none;
     color: #FF6B00;
@@ -385,7 +391,9 @@ background-color: #9d4602;
     background-color: #ff6b00;
     transition: width 0.6s ease 0s;
 }
-
+.GreyWolfColor{
+color:#E6E6B8;
+}
 #footer {
 border-top: 3px solid #ff6b00;
 color: white;
@@ -400,4 +408,9 @@ flex-direction: column;
 #chartdiv {
 height: auto;
 }
+ .modal-window {
+  top: 25%;
+  left:25%;
+  transform: translate(-25%, -25%);
+ }
 }
