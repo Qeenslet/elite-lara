@@ -12,7 +12,8 @@ class ModerationController extends Controller {
     }
 
     public function index(){
-        return view('moderation.first');
+        $users=\App\User::all();
+        return view('moderation.first', compact('users'));
     }
     public function reader(){
         return view('moderation.reader');
