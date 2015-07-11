@@ -66,6 +66,7 @@ class dbSaver {
                 'class' => $this->systemData->data['class'],
                 'address_id' => $this->systemData->addressId,
                 'user_id' => $this->systemData->userId,
+                'code'=>$this->systemData->data['code'],
                 'stardata_id' => $this->systemData->starDataId];
         $star = \App\Star::create($array);
         $this->systemData->starId = $star->id;

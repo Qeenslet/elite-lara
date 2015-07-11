@@ -95,10 +95,36 @@ class ModerationController extends Controller {
         foreach($addresses as $address){
             $num=$address->stars()->count();
             if($num>1){
-                $selected[]=$address;
+                foreach($address->stars()->get() as $singleStar){
+                    if($singleStar->code!=NULL) continue;
+                    else {
+                        $selected[]=$address;
+                        break;
+                    }
+                }
+            }
+            else{
+                $star=$address->stars()->first();
+                if($star->code!=NULL) continue;
+                $star->code='A';
+                $star->save();
             }
         }
-        return view('moderation.multistars', compact('selected'));
+        $starNames=\App\Myclasses\Arrays::allStarsArray();
+        $sizeNames=\App\Myclasses\Arrays::sizeTypeArray();
+
+        return view('moderation.multistars', compact('selected', 'starNames', 'sizeNames'));
+    }
+
+    public function starpos(Request $request){
+        $data=$request->except('_token');
+        foreach($data as $key=>$value) {
+            $star = \App\Star::find($key);
+            $star->code = $value;
+            $star->save();
+        }
+        return redirect(route('multi'));
+
     }
 
 }

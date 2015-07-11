@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Star extends Model {
 
-    protected $fillable = ['star', 'size', 'class', 'address_id', 'user_id', 'stardata_id'];
+    protected $fillable = ['star', 'size', 'class', 'address_id', 'user_id', 'stardata_id', 'code'];
 
     public function address()
     {

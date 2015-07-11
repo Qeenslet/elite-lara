@@ -105,27 +105,45 @@ class AjaxController extends Controller {
         $checkResult=Checker::checkIt($data);
         if($checkResult->code==5) {
             $message=$checkResult->error;
-            return view('errors.similarPlanet', compact('message'));
+            $aId=$checkResult->addressId;
+            return view('errors.similarPlanet', compact('message', 'aId'));
         }
         if ($checkResult->code==4) {
             $message=$checkResult->message;
-            return view('errors.similarStar', compact('message'));
+            $aId=$checkResult->addressId;
+            return view('errors.similarStar', compact('message', 'aId'));
         }
         if($checkResult->smartCode!=1) {
-            $save=\App\Myclasses\moderationSaver::save($checkResult);
-            if ($save) return view('errors.moderation');
+            if(!$checkResult->smartCode) {
+               $save=\App\Myclasses\dbSaver::save($checkResult);
+                if ($save) {
+                    $aId=$save->addressId;
+                    return view('interface.added', compact('aId'));
+                }
+                else {
+                    $message = "К сожалению произошел сбой в базе данных. Попробуйте внести данные позже!";
+                    return view('errors.similarPlanet', compact('message'));
+                }
+            }
             else {
-                $message="К сожалению произошел сбой в базе данных. Попробуйте внести данные позже!";
-                return view('errors.similarPlanet', compact('message'));
+                $save = \App\Myclasses\moderationSaver::save($checkResult);
+                if ($save) {
+                    $aId=$save->addressId;
+                    return view('errors.moderation', compact('aId'));
+                }
+                else {
+                    $message = "К сожалению произошел сбой в базе данных. Попробуйте внести данные позже!";
+                    return view('errors.similarPlanet', compact('message'));
+                }
             }
         }
         $save=\App\Myclasses\dbSaver::save($checkResult);
         if ($save) {
-            return view('interface.added');
+            return view('interface.added', compact('aId'));
         }
         else {
             $message="К сожалению произошел сбой в базе данных. Попробуйте внести данные позже!";
-            return view('errors.similarPlanet', compact('message'));
+            return view('errors.similarPlanet', compact('message', 'aId'));
         }
     }
 
@@ -202,5 +220,11 @@ class AjaxController extends Controller {
         $info=new \App\Myclasses\starSystemInfo($data['address'], $data['user']);
         return view('cabinet.systemExtension', compact('info'));
 
+    }
+
+    public function statInfo(Request $request){
+        $addr=$request->input('id');
+        $address=new \App\Myclasses\starSystemInfo($addr);
+        return view('interface.systemStat', compact('address'));
     }
 }

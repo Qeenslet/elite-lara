@@ -52,6 +52,7 @@
         <div class="row-eq-height">
             <div id="grad">
                 <div class="col-md-4">
+                    @section('left-column')
                     @if(Auth::check())
                     <div class="left-top">
                         @include('interface.pilotRank')
@@ -63,6 +64,7 @@
                     <div class="left-top">
                         @include('interface.dbStat')
                     </div>
+                    @show
                 </div>
                 <div class="col-md-8">
                     @yield('content')

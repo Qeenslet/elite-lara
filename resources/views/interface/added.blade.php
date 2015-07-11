@@ -3,4 +3,6 @@
 </div>
 <script>
     document.getElementById("show_planet").reset();
+    var data='_token={{csrf_token()}}&id={{$aId}}';
+    loadSystem(data);
 </script>

@@ -7,6 +7,7 @@
         document.getElementById("show_planet").reset();
         document.getElementById('show_star').style.display='none';
         document.getElementById('show_planet').style.display='none';
+        document.getElementById('hereStat').innerHTML='';
     }
 </script>
 @stop
@@ -77,6 +78,10 @@
                     @endforeach
                 </select>
             </div>
+            <div class="form-group">
+                <label for="code_sel">Код в системе:</label>
+                <input type="text" id="code_sel" name="code" placeholder="A">
+            </div>
             <button type="submit" class="btn btn-warning" id="change_b_star">Добавить звезду</button>
         </div>
     </form>
@@ -123,4 +128,10 @@
     <script type="text/javascript" src="/js/baseadd.js"></script>
     <script type="text/javascript" src="/js/addstar.js"></script>
     <script type="text/javascript" src="/js/addplanet.js"></script>
+    <script type="text/javascript" src="/js/loadSystem.js"></script>
+@stop
+@section('left-column')
+    @parent
+    <div id="hereStat">
+    </div>
 @stop

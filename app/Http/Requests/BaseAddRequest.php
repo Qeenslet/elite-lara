@@ -31,6 +31,7 @@ class BaseAddRequest extends Request {
             'planet'=>'digits_between:0,5',
             'distance'=>'required_if:planet,0,1,2,3,4,5|numeric',
             'mark'=>'required_if:planet,0,1,2,3,4,5|in:sin,bin,tri,qua,sat',
+            'code'=>'required|max:3|alpha',
 		];
 	}
 

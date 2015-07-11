@@ -89,6 +89,7 @@ class Checker {
         $star=$this->address->stars()->where('star', $this->data['star'])
             ->where('size', $this->data['size'])
             ->where('class', $this->data['class'])
+            ->where('code', $this->data['code'])
             ->first();
         if($star){
             $this->star=$star;

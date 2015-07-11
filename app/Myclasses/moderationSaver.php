@@ -32,7 +32,7 @@ class moderationSaver {
 
     public static function save(CheckResult $result){
         $saver=new self($result);
-        if ($saver->result==2) return true;
+        if ($saver->result==2) return $saver->checkResult;
         else return false;
     }
 

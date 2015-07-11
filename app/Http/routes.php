@@ -43,18 +43,20 @@ Route::get('moderation/setrole', ['as'=>'setrole', 'uses'=>'ModerationController
 Route::get('moderation/texts', ['as'=>'texts', 'uses'=>'ModerationController@texts']);
 Route::get('moderation/multistars', ['as'=>'multi', 'uses'=>'ModerationController@multistars']);
 
-
 Route::post('ajaform', ['as'=>'AjaxFormer', 'uses'=>'AjaxController@chartForms']);
 Route::post('ajachart', ['as'=>'AjaxCharter', 'uses'=>'AjaxController@chartBuilder']);
 Route::post('ajaxadd', ['as'=>'AjaxAdder', 'uses'=>'AjaxController@baseAdder']);
 Route::post('ajamoder', ['as'=>'AjaxModeration', 'uses'=>'AjaxController@moderation']);
 Route::post('ajamoder/charts', ['as'=>'AjaxModerationCharts', 'uses'=>'AjaxController@moderationCharts']);
 Route::post('ajacabin', 'AjaxController@cabinetInfo');
+Route::post('ajaxstat', 'AjaxController@statInfo');
 
 Route::post('senmail', ['as'=>'sender', 'uses'=>'CabinetController@sender']);
 Route::post('sendmail', ['as'=>'senderAdmin', 'uses'=>'AdministrationController@sender']);
 Route::post('sendrep', ['as'=>'reportAccepter', 'uses'=>'ModerationController@reporter']);
 Route::post('changetext', ['as'=>'changeText', 'uses'=>'ModerationController@changer']);
+Route::post('starpos', ['as'=>'starpos', 'uses'=>'ModerationController@starpos']);
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
