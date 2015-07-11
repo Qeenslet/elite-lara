@@ -117,11 +117,7 @@ class Counter {
     }
 
     public static function todayStats(){
-        $today=\Carbon\Carbon::now()->toDateTimeString();
-        $yesterday=\Carbon\Carbon::now()->subDay()->toDateTimeString();
-        $stat['latest']=DB::table('planets')
-            ->whereBetween('created_at', [$yesterday, $today])
-            ->count();
+        $stat['latest']=\App\Planet::twentyFour()->count() + \App\Star::twentyFour()->count();
         $stat['total']=Planet::all()->count();
         $stat['sys']=\App\Address::all()->count();
         $stat['tf']=Planet::where('planet', '<', 4)->count();

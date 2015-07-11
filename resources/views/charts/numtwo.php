@@ -36,7 +36,7 @@
                 name: 'По типам звезд',
                 data: [
                     <?php foreach ($chart->d_1 as $key => $value) {
-                    if ($chart->d_2[$key]) {
+                    if (array_key_exists($key, $chart->d_2)) {
                     echo "{name: 'звезды $key', y: $value, drilldown: '$key', color: '$colors[$key]'},";
                     }
                     else echo "['звезды $key', $value],";

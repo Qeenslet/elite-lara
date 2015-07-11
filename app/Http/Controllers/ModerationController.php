@@ -127,5 +127,15 @@ class ModerationController extends Controller {
         return redirect(route('multi'));
 
     }
+    public function recent(){
+        $stars=\App\Star::twentyFour()->get();
+        $address=[];
+        $pilots=[];
+        foreach($stars as $star){
+            $address[]=$star->address->id;
+            $pilots[]=$star->user->name;
+        }
+        return view('moderation.recent', compact('address', 'pilots'));
+    }
 
 }

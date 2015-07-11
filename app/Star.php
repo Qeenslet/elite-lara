@@ -20,4 +20,10 @@ class Star extends Model {
         return $this->belongsTo('\App\User');
     }
 
+    public function scopeTwentyFour($query){
+        $today=\Carbon\Carbon::now()->toDateTimeString();
+        $yesterday=\Carbon\Carbon::now()->subDay()->toDateTimeString();
+        return $query->whereBetween('created_at', [$yesterday, $today]);
+    }
+
 }
