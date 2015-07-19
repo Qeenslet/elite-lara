@@ -18,7 +18,7 @@
 @stop
 @section('scripts')
     @parent
-    <script type="text/javascript" src="/js/moderationselect.js"></script>
+
     <script type="text/javascript" src="/js/modercharts.js"></script>
     <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
     <script type="text/javascript" src="/js/gray.js"></script>

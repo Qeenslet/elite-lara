@@ -6,3 +6,7 @@
         </div>
     @endforeach
 @stop
+@section('scripts')
+    @parent
+    <script type="text/javascript" src="/js/moderationselect.js"></script>
+@stop

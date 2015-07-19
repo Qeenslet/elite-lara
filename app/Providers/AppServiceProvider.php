@@ -12,8 +12,6 @@ class AppServiceProvider extends ServiceProvider {
 	public function boot()
 	{
         view()->share('title', 'elite base');
-        $latest=\App\Myclasses\Counter::todayStats();
-        view()->share('latest', $latest);
 	}
 
 	/**

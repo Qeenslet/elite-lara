@@ -25,4 +25,8 @@ class Address extends Model {
         return $query->where('name', $string);
     }
 
+    public function inside(){
+        return $this->hasOne('\App\Inside');
+    }
+
 }

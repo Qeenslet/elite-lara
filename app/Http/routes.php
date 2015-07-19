@@ -34,6 +34,7 @@ Route::get('administration/request', ['as'=>'screenRequest', 'uses'=>'Administra
 Route::get('administration/deletemail', ['as'=>'admMailDel', 'uses'=>'AdministrationController@mailDelete']);
 Route::get('administration/search', ['as'=>'search', 'uses'=>'AdministrationController@search']);
 Route::get('administration/delete', ['as'=>'delete', 'uses'=>'AdministrationController@delete']);
+Route::get('administration/cambiar', ['as'=>'changeObject', 'uses'=>'AdministrationController@cambiar']);
 
 Route::get('moderation', ['as'=>'moderation', 'uses'=>'ModerationController@index']);
 Route::get('moderation/reader', ['as'=>'reader', 'uses'=>'ModerationController@reader']);
@@ -42,7 +43,8 @@ Route::get('moderation/roles', ['as'=>'roles', 'uses'=>'ModerationController@rol
 Route::get('moderation/setrole', ['as'=>'setrole', 'uses'=>'ModerationController@setRoles']);
 Route::get('moderation/texts', ['as'=>'texts', 'uses'=>'ModerationController@texts']);
 Route::get('moderation/multistars', ['as'=>'multi', 'uses'=>'ModerationController@multistars']);
-Route::get('moderation/recent', ['as'=>'recent', 'uses'=>'ModerationController@recent']);
+Route::get('moderation/specials', ['as'=>'recent', 'uses'=>'ModerationController@recent']);
+Route::get('moderation/unite', ['as'=>'uniteSystems', 'uses'=>'ModerationController@unite']);
 
 Route::post('ajaform', ['as'=>'AjaxFormer', 'uses'=>'AjaxController@chartForms']);
 Route::post('ajachart', ['as'=>'AjaxCharter', 'uses'=>'AjaxController@chartBuilder']);
@@ -51,12 +53,16 @@ Route::post('ajamoder', ['as'=>'AjaxModeration', 'uses'=>'AjaxController@moderat
 Route::post('ajamoder/charts', ['as'=>'AjaxModerationCharts', 'uses'=>'AjaxController@moderationCharts']);
 Route::post('ajacabin', 'AjaxController@cabinetInfo');
 Route::post('ajaxstat', 'AjaxController@statInfo');
+Route::post('ajaxdbstat', 'AjaxController@showStats');
+Route::post('ajaxsearch', 'AjaxController@adminSearch');
 
 Route::post('senmail', ['as'=>'sender', 'uses'=>'CabinetController@sender']);
 Route::post('sendmail', ['as'=>'senderAdmin', 'uses'=>'AdministrationController@sender']);
 Route::post('sendrep', ['as'=>'reportAccepter', 'uses'=>'ModerationController@reporter']);
 Route::post('changetext', ['as'=>'changeText', 'uses'=>'ModerationController@changer']);
 Route::post('starpos', ['as'=>'starpos', 'uses'=>'ModerationController@starpos']);
+Route::post('changedata', ['as'=>'changeData', 'uses'=>'ModerationController@changeData']);
+
 
 
 Route::controllers([

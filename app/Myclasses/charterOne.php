@@ -56,7 +56,6 @@ class charterOne {
         $this->starHeader=$starsArray[$data['star']];
 
         ($data['step']==0) ? $this->step=0.25 : $this->step=$data['step'];
-
         switch($data['planet']){
             case 3:
                 $this->planet=[3];
@@ -105,11 +104,12 @@ class charterOne {
     }
 
     protected function queryAll(){
+        $result=[];
         for($i=0; $i<count($this->planetTypeArray); $i++){
             $planet=[$i];
             $query=$this->counter->queryDiapason($this->star, $planet, $this->step, $this->size, $this->class);
-            if(!$query) continue;
-            $result[$i]=$query;
+            if($query) $result[$i]=$query;
+            else continue;
         }
         if(!$result) $this->anything=0;
         else {

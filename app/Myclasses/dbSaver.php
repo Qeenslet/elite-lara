@@ -9,12 +9,15 @@
 namespace App\Myclasses;
 
 
+use App\Myclasses\PlanetInfo;
+use App\Myclasses\StarInfo;
 use DB;
 use League\Flysystem\Exception;
 
 class dbSaver {
     protected $systemData;
     protected $result;
+    protected $planetId;
 
     protected function __construct(CheckResult $data){
         $this->systemData=$data;
@@ -32,6 +35,8 @@ class dbSaver {
                     else break;
             }
             $this->savePoints();
+            $this->saveInsides();
+            $this->saveStats();
             DB::commit();
             $this->result = 1;
         }
@@ -80,7 +85,8 @@ class dbSaver {
                 'distance' => $this->systemData->data['distance'],
                 'user_id' => $this->systemData->userId,
                 'plandata_id' => $this->systemData->planDataId];
-        \App\Planet::create($array);
+        $planet=\App\Planet::create($array);
+        $this->planetId=$planet->id;
 
     }
 
@@ -110,5 +116,67 @@ class dbSaver {
              }
 
             }
+    }
+
+    protected function saveInsides(){
+        $insider=\App\Inside::where('address_id', $this->systemData->addressId)->first();
+        if(!$insider) {
+            $addr = $this->systemData->addressId;
+            $reg = $this->systemData->regionId;
+            $planets = [];
+            $stars[$this->systemData->starId] = new StarInfo($this->systemData->data['code'],
+                $this->systemData->data['star'],
+                $this->systemData->data['size'],
+                $this->systemData->data['class'],
+                $this->systemData->userId);
+            if (isset($this->systemData->data['planet'])) {
+                $planets[$this->systemData->starId][$this->planetId] = new PlanetInfo($this->systemData->data['planet'],
+                    $this->systemData->data['distance'],
+                    $this->systemData->data['mark'],
+                    $this->systemData->userId);
+            }
+            $data = new \App\Myclasses\SystemInsider($reg, $addr, $stars, $planets);
+            $sData = serialize($data);
+            \App\Inside::create(['address_id' => $addr, 'data' => $sData]);
+        }
+        else {
+            $data=unserialize($insider->data);
+            $data->stars[$this->systemData->starId] = new StarInfo($this->systemData->data['code'],
+                $this->systemData->data['star'],
+                $this->systemData->data['size'],
+                $this->systemData->data['class'],
+                $this->systemData->userId);
+            if (isset($this->systemData->data['planet'])) {
+                $data->planets[$this->systemData->starId][$this->planetId] = new PlanetInfo($this->systemData->data['planet'],
+                    $this->systemData->data['distance'],
+                    $this->systemData->data['mark'],
+                    $this->systemData->userId);
+            }
+            $sData=serialize($data);
+            $insider->data=$sData;
+            $insider->save();
+        }
+    }
+    protected function saveStats(){
+        $today=\Carbon\Carbon::today();
+        $now=\Carbon\Carbon::now();
+        $statistics=\App\Statcache::whereBetween('created_at', [$today, $now])->first();
+        switch($this->systemData->code){
+            case 0:
+                $statistics->latest_regions+=1;
+                $statistics->regions+=1;
+            case 1:
+                $statistics->latest_addresses+=1;
+                $statistics->addresses+=1;
+            case 2:
+                $statistics->latest_stars+=1;
+            case 3:
+                if(isset($this->systemData->data['planet'])){
+                    $statistics->latest_planets+=1;
+                    $statistics->planets+=1;
+                    if($this->systemData->data['planet']<4) $statistics->tf+=1;
+                }
+        }
+        $statistics->save();
     }
 }

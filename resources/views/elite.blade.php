@@ -15,13 +15,6 @@
     @section('top-scripts')
     @show
 </head>
-@if(Auth::check())
-@unless(Auth::user()->isModerator())
-    <?php \Barryvdh\Debugbar\Facade::disable();?>
-@endunless
-@else
-    <?php \Barryvdh\Debugbar\Facade::disable();?>
-@endif
 <body>
     <div class="container">
         <h1><a href="/" id="header">{{$title}}</a></h1>
@@ -61,8 +54,7 @@
                     <div class="left-top">
                         @include('interface.rating')
                     </div>
-                    <div class="left-top">
-                        @include('interface.dbStat')
+                    <div id="stats">
                     </div>
                     @show
                 </div>
@@ -78,10 +70,18 @@
     @section('scripts')
         <script type="text/javascript" src="/js/jquery-2.1.3.min.js"></script>
         <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
-
+        <script type="text/javascript" src="/js/dbStatUpdater.js"></script>
         <script type="text/javascript" src="/js/cabinet.js"></script>
         <script type="text/javascript" src="/js/jquery.wysibb.min.js"></script>
         <script type="text/javascript" src="/js/statUpdater.js"></script>
+        <script>
+            firstStat=1;
+            if(firstStat==1) {
+                data='_token={{csrf_token()}}';
+                updateStat(data);
+                firstStat++;
+            }
+        </script>
     @show
 </body>
 @if (isset($loginfo))

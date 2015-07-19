@@ -117,11 +117,28 @@ class Counter {
     }
 
     public static function todayStats(){
-        $stat['latest']=\App\Planet::twentyFour()->count() + \App\Star::twentyFour()->count();
-        $stat['total']=Planet::all()->count();
-        $stat['sys']=\App\Address::all()->count();
-        $stat['tf']=Planet::where('planet', '<', 4)->count();
-        $stat['reg']=\App\Region::all()->count();
+        $today=\Carbon\Carbon::today();
+        $now=\Carbon\Carbon::now();
+        $statistics=\App\Statcache::whereBetween('created_at', [$today, $now])->first();
+        if(!$statistics) {
+            $planets=Planet::all()->count();
+            $regions = \App\Region::all()->count();
+            $addresses=\App\Address::all()->count();
+            $tf=Planet::where('planet', '<', 4)->count();
+            $statistics=\App\Statcache::create(['planets'=>$planets,
+                'regions'=>$regions,
+                'tf'=>$tf,
+                'addresses'=>$addresses,
+                'latest_stars'=>0,
+                'latest_planets'=>0,
+                'latest_regions'=>0,
+                'latest_addresses'=>0]);
+        }
+        $stat['latest'] = $statistics->latest_stars+$statistics->latest_planets;
+        $stat['total'] = $statistics->planets;
+        $stat['sys'] = $statistics->addresses;
+        $stat['tf'] = $statistics->tf;
+        $stat['reg'] = $statistics->regions;
         return $stat;
     }
 

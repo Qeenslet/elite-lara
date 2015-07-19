@@ -11,10 +11,6 @@
 <h2>Всего пользователей в базе: {{\App\User::count()}}</h2>
 <h2>Всего писем: {{\App\Letter::count()}}</h2>
     <h2>Систем, ожидающих модерации: {{\App\Moderation::count()}}</h2>
-    <?php
-    $today=\Carbon\Carbon::now()->toDateTimeString();
-    $yesterday=\Carbon\Carbon::now()->subDay()->toDateTimeString();
-    ?>
     <h3>Пополнение базы за 24 часа</h3>
     <table class="table table-striped">
         <thead>
@@ -37,10 +33,10 @@
                 {{$user->name}}
                 </td>
                 <td>
-                    {{$user->stars()->whereBetween('created_at',[$yesterday, $today])->count()}}
+                    {{$user->stars()->twentyFour()->count()}}
                 </td>
                 <td>
-                    {{$user->planets()->whereBetween('created_at',[$yesterday, $today])->count()}}
+                    {{$user->planets()->twentyFour()->count()}}
                 </td>
             </tr>
             @endforeach

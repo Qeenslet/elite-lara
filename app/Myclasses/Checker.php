@@ -78,7 +78,7 @@ class Checker {
             $this->address=$address;
             $this->result->code=2;
             $this->result->addressId=$address->id;
-            $this->checkStar();
+            $this->checkCode();
         }
         if (isset($this->data['planet'])) {
             $this->smartCheck();
@@ -86,7 +86,8 @@ class Checker {
     }
 
     protected function checkStar() {
-        $star=$this->address->stars()->where('star', $this->data['star'])
+        $star=$this->address->stars()
+            ->where('star', $this->data['star'])
             ->where('size', $this->data['size'])
             ->where('class', $this->data['class'])
             ->where('code', $this->data['code'])
@@ -100,8 +101,18 @@ class Checker {
             }
             else $this->inside();
         }
-        if (isset($this->data['planet'])) {
-            $this->smartCheck();
+        else $this->inside();
+    }
+
+    protected function checkCode(){
+        $num=$this->address->stars()->where('code', $this->data['code'])->count();
+;        if($num==0){
+            if (isset($this->data['planet'])) {
+                $this->smartCheck();
+            }
+        }
+        else {
+            $this->checkStar();
         }
     }
 

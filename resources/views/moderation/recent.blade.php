@@ -1,5 +1,10 @@
 @extends('app')
 @section('content')
+    <datalist id="regions">
+        @foreach(\App\Region::all() as $one)
+            <option>{{$one->name}}</option>
+        @endforeach
+    </datalist>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -9,17 +14,23 @@
             <th>
                 Объекты
             </th>
-            <th>
-                Пилот
-            </th>
         </tr>
         <thead>
         <tbody>
-        @foreach($address as $key=>$id)
-            <?php $content=new \App\Myclasses\starSystemInfo($id); ?>
+        @foreach($address as $one)
+            <?php $content=new \App\Myclasses\starSystemInfo($one->id); ?>
             <tr>
                 <td>
-                    {{$content->fName}}
+                    <h4>{{$content->fName}}</h4>
+                    <form method="post" action="{{route('changeData')}}" class="form-horizontal">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                        <input type="hidden" name="adrId" value="{{$one->id}}">
+                        <input type="text" name="region" list="regions" autocomplete="on"
+                               class="form-control" value="{{$one->region->name}}">
+                        <input type="text" name="address" value="{{$one->name}}"
+                               class="form-control">
+                        <button type="submit" class="btn btn-success">Изменить</button>
+                    </form>
                 </td>
                 <td>
                     @foreach($content->starsIn as $num=>$value)
@@ -29,9 +40,6 @@
                             {{$planet}} <br>
                         @endforeach
                     @endforeach
-                </td>
-                <td>
-                    {{$pilots[$key]}}
                 </td>
             </tr>
         @endforeach

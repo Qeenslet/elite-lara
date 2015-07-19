@@ -11,10 +11,7 @@ class SearchRequest extends Request {
 	 */
 	public function authorize()
 	{
-        if(\Auth::user()->isAdmin()){
-            return true;
-        }
-        return false;
+        return true;
 	}
 
 	/**

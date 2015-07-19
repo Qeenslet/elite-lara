@@ -7,10 +7,10 @@
                  style="height: 25px; width: auto; float: left;"
                  title="{{$star}}"
                  class="leftStars pointed"
-                 dstar="{{\App\Star::find($id)->star}}"
-                    dsize="{{\App\Star::find($id)->size}}"
-                 dclass="{{\App\Star::find($id)->class}}"
-                    dcode="{{\App\Star::find($id)->code}}">
+                 dstar="{{$address->inside->stars[$id]->star}}"
+                    dsize="{{$address->inside->stars[$id]->size}}"
+                 dclass="{{$address->inside->stars[$id]->class}}"
+                    dcode="{{$address->inside->stars[$id]->code}}">
             @foreach($address->planetsIn[$id] as $pId=>$pDesc)
                     <img src="/media/planets/{{$address->planetImages[$pId]}}" style="height: 10px; width: auto; float: left" title="{{$pDesc}}">
             @endforeach

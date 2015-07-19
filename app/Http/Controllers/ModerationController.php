@@ -3,27 +3,34 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Region;
 use Illuminate\Http\Request;
 
 class ModerationController extends Controller {
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('moderator');
     }
 
-    public function index(){
+    public function index()
+    {
         $users=\App\User::all();
-        return view('moderation.first', compact('users'));
+        $latest=\App\Myclasses\Counter::todayStats();
+        return view('moderation.first', compact('users', 'latest'));
     }
-    public function reader(){
+    public function reader()
+    {
         return view('moderation.reader');
     }
-    public function reporter(Requests\FileRequest $request){
+    public function reporter(Requests\FileRequest $request)
+    {
         $request->file('filename')->move(storage_path(), 'report.txt');
         return redirect(route('reportResult'));
 
     }
-    public function result(){
+    public function result()
+    {
         $fp = fopen(storage_path().'\report.txt', 'r');
         $total=$fails=$oks=0;
         $repModer=[];
@@ -55,11 +62,14 @@ class ModerationController extends Controller {
         fclose($fp);
         return view('moderation.report', compact('total', 'repModer', 'repFails', 'repSim', 'fails', 'oks'));
     }
-    public function roles(){
+
+    public function roles()
+    {
         $users=\App\User::all();
         return view('moderation.roles', compact('users'));
     }
-    public function setRoles(Request $request){
+    public function setRoles(Request $request)
+    {
         $action=$request->input('action');
         $role=$request->input('role');
         $id=$request->input('user');
@@ -75,12 +85,14 @@ class ModerationController extends Controller {
         return redirect(route('roles'));
     }
 
-    public function texts(){
+    public function texts()
+    {
         $texts=\App\Maintext::all();
         return view('moderation.texts', compact('texts'));
     }
 
-    public function changer(Request $request){
+    public function changer(Request $request)
+    {
         $article=$request->all();
         $text=\App\Maintext::find($article['id']);
         $text->name=$article['name'];
@@ -90,7 +102,8 @@ class ModerationController extends Controller {
 
     }
 
-    public function multistars(){
+    public function multistars()
+    {
         $addresses=\App\Address::all();
         $selected=[];
         foreach($addresses as $address){
@@ -117,7 +130,8 @@ class ModerationController extends Controller {
         return view('moderation.multistars', compact('selected', 'starNames', 'sizeNames'));
     }
 
-    public function starpos(Request $request){
+    public function starpos(Request $request)
+    {
         $data=$request->except('_token');
         foreach($data as $key=>$value) {
             $star = \App\Star::find($key);
@@ -127,15 +141,86 @@ class ModerationController extends Controller {
         return redirect(route('multi'));
 
     }
-    public function recent(){
-        $stars=\App\Star::twentyFour()->get();
-        $address=[];
-        $pilots=[];
-        foreach($stars as $star){
-            $address[]=$star->address->id;
-            $pilots[]=$star->user->name;
+    public function recent()
+    {
+        $address=\App\Address::where('region_id', 15)->orderBy('id', 'desc')->get();
+        return view('moderation.recent', compact('address'));
+    }
+
+    public function changeData(Request $request)
+    {
+        $data=$request->except('_token');
+        $check=\App\Region::where('name', $data['region'])->first()
+            ->addresses()->where('name', $data['address'])->first();
+        if ($check){
+            $oldId=$check->id;
+            \App\Myclasses\Uniter::unite($oldId, $data['adrId']);
         }
-        return view('moderation.recent', compact('address', 'pilots'));
+        else{
+            $reg=\App\Region::where('name', $data['region'])->first();
+            if(!$reg){
+              $reg= new \App\Region;
+                $reg->name=$data['region'];
+                $reg->save();
+            }
+            $regId=$reg->id;
+            $address=\App\Address::find($data['adrId']);
+            $address->region_id=$regId;
+            $address->name=$data['address'];
+            $address->save();
+
+            $newData=\App\Myclasses\SystemInsider::rebuild($address->id);
+            $address->inside->data=serialize($newData);
+            $address->inside->save();
+        }
+        return redirect(route('recent'));
+
+    }
+
+    public function unite()
+    {
+        $bbb=\App\Inside::find(850);
+        $aa=unserialize($bbb->data);
+        dd($aa);
+        $aa=new\App\Myclasses\starSystemInfo(852);
+        dd($aa);
+        /*$addresses=\App\Address::all();
+        $count=0;
+        $fails=0;
+        foreach ($addresses as $address){
+            $addressId=$address->id;
+            $regionId=$address->region->id;
+            $rawStars=$address->stars()->get();
+            $stars=[];
+            $planets=[];
+            foreach($rawStars as $one){
+                $star=$one->star;
+                $size=$one->size;
+                $class=$one->class;
+                $code=$one->code;
+                $user=$one->user_id;
+                $stars[$one->id]=new \App\Myclasses\StarInfo($code, $star, $size, $class, $user);
+                $planetsInside=[];
+                foreach($one->planets()->get() as $ppp){
+                    $planet=$ppp->planet;
+                    $distance=$ppp->distance;
+                    $mark=$ppp->mark;
+                    $userP=$ppp->user_id;
+                    $planetsInside[$ppp->id]=new \App\Myclasses\PlanetInfo($planet, $distance, $mark, $userP);
+                }
+                $planets[$one->id]=$planetsInside;
+            }
+            $data=new \App\Myclasses\SystemInsider($regionId, $addressId, $stars, $planets);
+            $sData=serialize($data);
+            $save=\App\Inside::create(['address_id'=>$addressId, 'data'=>$sData]);
+            if($save) $count++;
+            else $fails++;
+        }
+        return view('moderation.unite', compact('count', 'fails'));
+
+        $first=\Session::pull('first');
+        $second=\Session::pull('second');
+        return view('moderation.unite', compact('first', 'second'));*/
     }
 
 }

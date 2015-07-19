@@ -13,7 +13,8 @@ use Illuminate\Http\Request;
 
 class AjaxController extends Controller {
 
-	public function chartForms(Request $request){
+	public function chartForms(Request $request)
+    {
         $count = Arrays::allStarsArray();
         if(\Auth::check()){
             $userId=\Auth::user()->id;
@@ -52,7 +53,8 @@ class AjaxController extends Controller {
         }
     }
 
-    public function chartBuilder(Request $request){
+    public function chartBuilder(Request $request)
+    {
         $data=$request->all();
         $colors=Arrays::colorList();
         if (isset($data['planet'])){
@@ -100,7 +102,8 @@ class AjaxController extends Controller {
         }
     }
 
-    public function baseAdder(BaseAddRequest $request){
+    public function baseAdder(BaseAddRequest $request)
+    {
         $data=$request->except('_token', 'method', 'uri', 'ip');
         $checkResult=Checker::checkIt($data);
         if($checkResult->code==5) {
@@ -139,15 +142,17 @@ class AjaxController extends Controller {
         }
         $save=\App\Myclasses\dbSaver::save($checkResult);
         if ($save) {
+            $aId=$save->addressId;
             return view('interface.added', compact('aId'));
         }
         else {
             $message="К сожалению произошел сбой в базе данных. Попробуйте внести данные позже!";
-            return view('errors.similarPlanet', compact('message', 'aId'));
+            return view('errors.similarPlanet', compact('message'));
         }
     }
 
-    public function moderation(Request $request){
+    public function moderation(Request $request)
+    {
         $target=Moderation::find($request->input('target'));
         $systemData=unserialize($target->data);
         $sType=Arrays::allStarsArray();
@@ -159,7 +164,7 @@ class AjaxController extends Controller {
                 $explanation="Отклонение от границ коридора: ".$systemData->moderInfo['differ']." а.е.";
                 break;
             case 'warning':
-                $explanation="В окрестностях планеты всего".$systemData->moderInfo['number']." планет из ".$systemData->moderInfo['total'].
+                $explanation="В окрестностях планеты всего ".$systemData->moderInfo['number']." планет из ".$systemData->moderInfo['total'].
                     ". Что составляет ".$systemData->moderInfo['percent']."% от общего числа.";
                 break;
         }
@@ -190,13 +195,13 @@ class AjaxController extends Controller {
         return view('administration.systemExtension', compact('target', 'systemInfo', 'explanation', 'fullName', 'chartData', 'step', 'stepKey'));
     }
 
-    public function moderationCharts(Request $request){
+    public function moderationCharts(Request $request)
+    {
         $data=$request->all();
         $colors=Arrays::colorList();
         if (isset($data['step'])){
             $data['planet']=543210;
             $chart = Charter::draw(1, $data);
-
             if($chart->anything==0) {
                 return "<h3>По данным типам звезд нет данных</h3>";
             }
@@ -208,23 +213,38 @@ class AjaxController extends Controller {
         else{
             $chart=Charter::draw(3, $data);
             if(!$chart->result) {
-                return "<h3>По данному типу звезд еще не собрано достаточно данных!</h3>h3>";
+                return "<h3>По данному типу звезд еще не собрано достаточно данных!</h3>";
             }
 
             return view('charts.threeModer', compact('chart', 'colors'));
         }
     }
 
-    public function cabinetInfo(Request $request){
+    public function cabinetInfo(Request $request)
+    {
         $data=$request->except('_token');
         $info=new \App\Myclasses\starSystemInfo($data['address'], $data['user']);
         return view('cabinet.systemExtension', compact('info'));
 
     }
 
-    public function statInfo(Request $request){
+    public function statInfo(Request $request)
+    {
         $addr=$request->input('id');
         $address=new \App\Myclasses\starSystemInfo($addr);
         return view('interface.systemStat', compact('address'));
+    }
+
+    public function showStats(Request $request)
+    {
+        $latest=\App\Myclasses\Counter::todayStats();
+        return view('interface.dbStat', compact('latest'));
+    }
+
+    public function adminSearch(Request $request)
+    {
+       $data=$request->except('_token');
+       return view('administration.objectData', compact('data'));
+
     }
 }

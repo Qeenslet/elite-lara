@@ -8,17 +8,20 @@ use Golonka\BBCode\BBCodeParser;
 
 class AdministrationController extends Controller {
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('admin');
     }
 
-    public function index(){
+    public function index()
+    {
         $forModeration=\App\Moderation::all();
         $status=\App\Myclasses\Arrays::moderationMarks();
         return view('administration.moderation', compact('forModeration', 'status'));
     }
 
-    public function delprove(Request $request){
+    public function delprove(Request $request)
+    {
         $todo=$request->all();
         switch($todo['action']){
             case 'delete':
@@ -35,7 +38,8 @@ class AdministrationController extends Controller {
         }
     }
 
-    public function request(Request $request){
+    public function request(Request $request)
+    {
         $data=$request->all();
         $signature=\Auth::user()->name;
         $aim=\App\Moderation::find($data['target']);
@@ -53,7 +57,8 @@ class AdministrationController extends Controller {
         return redirect('/administration');
     }
 
-    public function mail(Request $request){
+    public function mail(Request $request)
+    {
         $letterId=$request->input('letter');
         if(isset($letterId)){
             $letter=\App\Letter::find($letterId);
@@ -75,7 +80,8 @@ class AdministrationController extends Controller {
         }
     }
 
-    public function sender(Requests\LetterFilter $request){
+    public function sender(Requests\LetterFilter $request)
+    {
         $mess=$request->except('_token');
         $filteredMess=array_map(function($a){
             $a=str_replace(['<script>', 'javascript'],['<scrept>', 'jаvаscript'], $a);
@@ -95,7 +101,8 @@ class AdministrationController extends Controller {
 
     }
 
-    public function mailDelete(Request $request){
+    public function mailDelete(Request $request)
+    {
         $id=$request->input('id');
         $letter=\App\Letter::find($id);
         if($letter->sender==1){
@@ -112,7 +119,8 @@ class AdministrationController extends Controller {
         return redirect(route('adminmail'));
     }
 
-    public function search(Requests\SearchRequest $request){
+    public function search(Requests\SearchRequest $request)
+    {
         $selRep=session('result');
         $searchData=$request->only('address');
         $regions=\App\Region::all();
@@ -124,13 +132,14 @@ class AdministrationController extends Controller {
             }
              else {
                  $systemD=new \App\Myclasses\starSystemInfo($search->id);
-                 return view('administration.search', compact('regions', 'systemD', 'searchData'));
+                 return view('administration.search', compact('regions', 'systemD', 'searchData', 'selRep'));
              }
         }
         return view('administration.search', compact('regions', 'selRep'));
     }
 
-    public function delete(Request $request){
+    public function delete(Request $request)
+    {
         $target=$request->only('target');
         \DB::beginTransaction();
         try {
@@ -155,5 +164,56 @@ class AdministrationController extends Controller {
             \DB::rollback();
             return redirect(route('search'))->with('result', 'Возникла ошибка удаления');
         }
+    }
+    public function cambiar(Request $request)
+    {
+        $style=$request->input('action');
+        $object=$request->input('type');
+        $data=$request->except('action', 'type', '_token');
+        switch($style){
+            case 'change':
+                switch($object){
+                    case 'star':
+                        $star=\App\Star::find($data['id']);
+                        $star->star=$data['star'];
+                        $star->size=$data['size'];
+                        $star->class=$data['class'];
+                        $star->save();
+                        $addrId=$star->address->id;
+                        break;
+                    case 'planet':
+                        $planet=\App\Planet::find($data['id']);
+                        $planet->planet=$data['planet'];
+                        $planet->distance=$data['distance'];
+                        $planet->mark=$data['mark'];
+                        $planet->save();
+                        $addrId=$planet->star->address->id;
+                        break;
+                }
+                break;
+            case 'delete':
+                switch($object){
+                    case 'star':
+                        $star=\App\Star::find($data['id']);
+                        foreach($star->planets()->get() as $planet){
+                            $planet->delete();
+                        }
+                        $addrId=$star->address->id;
+                        $star->delete();
+                        break;
+                    case 'planet':
+                        $planet=\App\Planet::find($data['id']);
+                        $addrId=$planet->star->address->id;
+                        $planet->delete();
+                        break;
+                }
+                break;
+        }
+        $newData=\App\Myclasses\SystemInsider::rebuild($addrId);
+        $sData=serialize($newData);
+        $inside=\App\Inside::where('address_id', $addrId)->first();
+        $inside->data=$sData;
+        $inside->save();
+        return back()->with('result', 'Данные были изменены!');
     }
 }

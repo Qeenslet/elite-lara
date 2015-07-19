@@ -18,11 +18,11 @@
             <h2>{{$systemD->fName}}</h2>
             @foreach($systemD->starsIn as $id=>$star)
                 <div class="col-md-{{12/count($systemD->starsIn)}}">
-                    <div class="panel-cabinet">
+                    <div class="panel-cabinet pointed" data="_token={{csrf_token()}}&type=star&id={{$id}}">
                     <img src="/media/stars/{{$systemD->starImages[$id]}}"> {{$star}}
                     </div>
                     @foreach($systemD->planetsIn[$id] as $pId=>$pDesc)
-                        <div class="panel-cabinet">
+                        <div class="panel-cabinet pointed" data="_token={{csrf_token()}}&type=planet&id={{$pId}}">
                             <img src="/media/planets/{{$systemD->planetImages[$pId]}}"> {{$pDesc}}<br>
                         </div>
                     @endforeach
@@ -39,7 +39,11 @@
     @endif
     @if(isset($selRep))
         <script>
-            alert('{{$selRep}}}')
+            alert('{{$selRep}}')
         </script>
     @endif
+@stop
+@section('scripts')
+    @parent
+    <script type="text/javascript" src="/js/searchSelect.js"></script>
 @stop

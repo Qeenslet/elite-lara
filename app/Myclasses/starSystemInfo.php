@@ -16,6 +16,7 @@ class starSystemInfo {
     protected $user;
 
     protected $stars;
+    public $inside;
 
     public $starsIn;
     public $planetsIn;
@@ -27,48 +28,45 @@ class starSystemInfo {
 
     public function __construct($id_address, $id_user=null){
         $this->address=$id_address;
-        $addr=\App\Address::find($id_address);
-        $this->fName=$addr->region->name." ".$addr->name;
+        $inside=\App\Inside::find($id_address);
+        $this->inside=unserialize($inside->data);
+        $this->fName=$this->inside->fName;
         if($id_user!=null) $this->user=$id_user;
-        $this->selectStars();
+        $this->retrieve();
     }
 
-    protected function selectStars(){
-        $this->stars=\App\Address::find($this->address)->stars()->get();
-        $this->compile();
-    }
-
-    protected function compile(){
+    protected function retrieve(){
         $starName=Arrays::allStarsArray();
         $planetName=Arrays::planetsForCabinet();
         $sizeName=Arrays::sizeTypeArray();
-        foreach($this->stars as $star){
+        foreach($this->inside->stars as $id=>$star){
             $starDescription=$starName[$star->star].$star->class." ".$sizeName[$star->size];
-            $this->starsIn[$star->id]=$starDescription;
+            $this->starsIn[$id]=$starDescription;
             if(isset($this->user)) {
-               $planets = $star->planets()->where('user_id', $this->user)->get();
-
-                if ($star->user_id!=$this->user) {
-                    $this->marks[$star->id]='добавлена не вами';
-                    $this->starImages[$star->id]='def.png';
+                if ($star->user!=$this->user) {
+                    $this->marks[$id]='добавлена не вами';
+                    $this->starImages[$id]='def.png';
                 }
                 else {
-                    $this->marks[$star->id]='добавлена вами';
-                    $this->starImages[$star->id]=$starName[$star->star].".png";
+                    $this->marks[$id]='добавлена вами';
+                    $this->starImages[$id]=$starName[$star->star].".png";
                 }
-           }
+            }
             else {
-                $planets=$star->planets()->get();
-                $this->starImages[$star->id]=$starName[$star->star].".png";
+                $this->starImages[$id]=$starName[$star->star].".png";
             }
-            if (!$planets) continue;
             $array=[];
-            foreach ($planets as $planet){
-               $planetInfo=$planetName[$planet->planet]." - ".$planet->distance." ".$planet->mark;
-                $array[$planet->id]=$planetInfo;
-                $this->planetImages[$planet->id]=$planetName[$planet->planet].".png";
+            if (array_key_exists($id, $this->inside->planets)){
+                foreach($this->inside->planets[$id] as $pId=>$planet){
+                    if(isset($this->user)){
+                    if($planet->user!=$this->user) continue;
+                    }
+                    $planetInfo=$planetName[$planet->planet]." - ".$planet->distance." ".$planet->mark;
+                    $array[$pId]=$planetInfo;
+                    $this->planetImages[$pId]=$planetName[$planet->planet].".png";
+                }
             }
-            $this->planetsIn[$star->id]=$array;
+            $this->planetsIn[$id]=$array;
         }
     }
 
