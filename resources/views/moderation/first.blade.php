@@ -28,17 +28,20 @@
         <thead>
         <tbody>
             @foreach($users as $user)
+                @if($amount=$user->hasFindings($user->id))
             <tr>
+
                 <td>
                 {{$user->name}}
                 </td>
                 <td>
-                    {{$user->stars()->twentyFour()->count()}}
+                    {{$amount['stars']}}
                 </td>
                 <td>
-                    {{$user->planets()->twentyFour()->count()}}
+                    {{$amount['planets']}}
                 </td>
             </tr>
+                @endif
             @endforeach
         </tbody>
     </table>

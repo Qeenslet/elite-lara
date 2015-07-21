@@ -79,4 +79,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function hasSent(){
         return $this->hasMany('\App\Letter', 'sender');
     }
+
+    public function hasFindings($id) {
+        $user=User::find($id);
+        $stars=$user->stars()->twentyFour()->count();
+        $planets=$user->planets()->twentyFour()->count();
+        if($stars+$planets==0) return false;
+        else return ['stars'=>$stars, 'planets'=>$planets];
+    }
 }
