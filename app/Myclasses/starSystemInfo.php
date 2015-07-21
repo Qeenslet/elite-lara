@@ -28,7 +28,7 @@ class starSystemInfo {
 
     public function __construct($id_address, $id_user=null){
         $this->address=$id_address;
-        $inside=\App\Inside::find($id_address);
+        $inside=\App\Inside::where('address_id', $id_address)->first();
         $this->inside=unserialize($inside->data);
         $this->fName=$this->inside->fName;
         if($id_user!=null) $this->user=$id_user;

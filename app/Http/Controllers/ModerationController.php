@@ -179,11 +179,6 @@ class ModerationController extends Controller {
 
     public function unite()
     {
-        $bbb=\App\Inside::find(850);
-        $aa=unserialize($bbb->data);
-        dd($aa);
-        $aa=new\App\Myclasses\starSystemInfo(852);
-        dd($aa);
         /*$addresses=\App\Address::all();
         $count=0;
         $fails=0;

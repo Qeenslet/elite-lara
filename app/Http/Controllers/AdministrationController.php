@@ -123,6 +123,7 @@ class AdministrationController extends Controller {
     {
         $selRep=session('result');
         $searchData=$request->only('address');
+        $searchStats=$request->all();
         $regions=\App\Region::all();
         $nothing = 'nothing has been found';
         if($searchData['address']!=NULL) {
@@ -131,9 +132,26 @@ class AdministrationController extends Controller {
                 return view('administration.search', compact('regions', 'nothing', 'searchData'));
             }
              else {
-                 $systemD=new \App\Myclasses\starSystemInfo($search->id);
-                 return view('administration.search', compact('regions', 'systemD', 'searchData', 'selRep'));
+                 $systemDs=[];
+                 $systemDs[]=new \App\Myclasses\starSystemInfo($search->id);
+                 return view('administration.search', compact('regions', 'systemDs', 'searchData', 'selRep'));
              }
+        }
+        if(isset($searchStats['distance'])){
+            $systemDs=[];
+            $suitablePlanets=\App\Planet::where('planet', $searchStats['planet'])
+                ->whereBetween('distance', [$searchStats['distance']*0.99, $searchStats['distance']*1.01])
+                ->get();
+            foreach($suitablePlanets as $one){
+                $suitableStars=$one->star()->where('star', $searchStats['star'])
+                    ->where('size', $searchStats['size'])
+                    ->where('class', $searchStats['class'])
+                    ->get();
+                foreach($suitableStars as $oneStar){
+                    $systemDs[$oneStar->address->id]=new \App\Myclasses\starSystemInfo($oneStar->address->id);
+                }
+            }
+            return view('administration.search', compact('regions', 'systemDs', 'searchStats', 'selRep'));
         }
         return view('administration.search', compact('regions', 'selRep'));
     }
