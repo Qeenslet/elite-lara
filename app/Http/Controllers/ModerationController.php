@@ -141,10 +141,14 @@ class ModerationController extends Controller {
         return redirect(route('multi'));
 
     }
-    public function recent()
+    public function recent(Request $request)
     {
-        $address=\App\Address::where('region_id', 15)->orderBy('id', 'desc')->get();
-        return view('moderation.recent', compact('address'));
+        $name=$request->input('region');
+        if(isset($name)) {
+            $address = \App\Region::where('name', $name)->first()->addresses()->orderBy('id', 'desc')->get();
+            return view('moderation.recent', compact('address'));
+        }
+        return view('moderation.recent');
     }
 
     public function changeData(Request $request)
@@ -154,7 +158,9 @@ class ModerationController extends Controller {
             ->addresses()->where('name', $data['address'])->first();
         if ($check){
             $oldId=$check->id;
-            \App\Myclasses\Uniter::unite($oldId, $data['adrId']);
+            if($oldId!=$data['adrId']) {
+                \App\Myclasses\Uniter::unite($oldId, $data['adrId']);
+            }
         }
         else{
             $reg=\App\Region::where('name', $data['region'])->first();
@@ -173,7 +179,7 @@ class ModerationController extends Controller {
             $address->inside->data=serialize($newData);
             $address->inside->save();
         }
-        return redirect(route('recent'));
+        return back();
 
     }
 

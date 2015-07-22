@@ -5,6 +5,16 @@
             <option>{{$one->name}}</option>
         @endforeach
     </datalist>
+    <form method="get" action="{{route('recent')}}" class="form-inline">
+        <div class="form-group">
+
+            <label for="region_search">Регион</label>
+            <input type="text" class="form-control" name="region" id="region_search" list="regions" autocomplete="on">
+
+        </div>
+        <button type="submit" class="btn btn-default">Найти</button>
+    </form>
+    @if(isset($address))
     <table class="table table-striped">
         <thead>
         <tr>
@@ -45,4 +55,5 @@
         @endforeach
         </tbody>
     </table>
+    @endif
 @stop
