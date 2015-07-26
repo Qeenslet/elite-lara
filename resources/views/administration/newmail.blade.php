@@ -10,12 +10,11 @@
     <input type="hidden" name="_token" value="{{csrf_token()}}">
     <div class="form-group">
         <label for="whom">Кому:</label>
-        <input type="text" id="whom" name="reciever" list="pilots" autocomplete="on">
-        <datalist id="pilots">
+        <select name="recievers[]" multiple="multiple" id="whom">
             @foreach($users as $user)
                 <option>{{$user->name}}</option>
             @endforeach
-        </datalist>
+        </select>
     </div>
     <div class="form-group">
         <label for="subject">Тема:</label>

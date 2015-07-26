@@ -1,5 +1,5 @@
 <table width="100%">
-    <td width="30%"><span class="white">От кого</span></td>
+    <td width="30%"><span class="white">Кому</span></td>
     <td width="50%"><span class="white">Тема</span></td>
     <td width="20%"><span class="white">Дата</span></td></tr>
 </table>

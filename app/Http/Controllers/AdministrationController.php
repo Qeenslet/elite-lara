@@ -80,23 +80,28 @@ class AdministrationController extends Controller {
         }
     }
 
-    public function sender(Requests\LetterFilter $request)
+    public function sender(Request $request)
     {
         $mess=$request->except('_token');
+        if(isset($mess['recievers']))$addresses=$mess['recievers'];
         $filteredMess=array_map(function($a){
             $a=str_replace(['<script>', 'javascript'],['<scrept>', 'jаvаscript'], $a);
             return $a;
         }, $mess);
         $bbcode = new BBCodeParser;
         $filteredMess['body']=$bbcode->parse($filteredMess['body']);
-        $pilot=\App\User::find($filteredMess['reciever']);
-        if(!$pilot){
-            $pilot=\App\User::where('name', $filteredMess['reciever'])->first();
-            $filteredMess['reciever']=$pilot->id;
+        if(isset($filteredMess['reciever'])) {
+            $letter=new \App\Letter($filteredMess);
+            \App\User::find(1)->hasSent()->save($letter);
         }
-
-        $letter=new \App\Letter($filteredMess);
-        \App\User::find(1)->hasSent()->save($letter);
+        else{
+            foreach($addresses as $one) {
+                $pilot = \App\User::where('name', $one)->first();
+                $filteredMess['reciever'] = $pilot->id;
+                $letter=new \App\Letter($filteredMess);
+                \App\User::find(1)->hasSent()->save($letter);
+            }
+        }
         return redirect('/administration/mail');
 
     }
