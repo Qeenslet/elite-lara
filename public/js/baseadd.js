@@ -5,9 +5,12 @@ $(function() {
     var temp;
     var size;
     var select;
+    var counter=0;
     //функция отслеживает отображение поля именной звезды
-    $('#spec').change(function(){
-	if ($('#spec').prop('checked')){
+    $('#spec').click(function(e){
+        e.preventDefault();
+        ++counter;
+        if (counter%2>0){
             $('#off_normal').show();
             $('#region_add').val('');
             $('#code_name').val('');
@@ -17,13 +20,16 @@ $(function() {
             check_form();
             $('#if_normal_1').hide();
             $('#if_normal_2').hide();
+            $('#spec').html('Обычная звезда');
         }						
-	else {
+
+        else {
             $('#one_name').val('');
             $('#off_normal').hide();
             check_form();
             $('#if_normal_1').show();
             $('#if_normal_2').show();
+            $('#spec').html('Именная звезда');
         }
     });
     // функция прячет и показывает класс и размер в пункте свойств звезды для черных дыр и нейтронок
