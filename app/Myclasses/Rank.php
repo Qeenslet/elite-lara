@@ -21,7 +21,8 @@ class Rank {
     private $user;
     private $rankNumber;
 
-    private function __construct(){
+    private function __construct()
+    {
         $this->user=\Auth::user();
         if(!$this->user->points){
             ($this->user->id==1)?$this->rank='Ghost of Christmas Past':$this->rank='Не определен';
@@ -37,45 +38,47 @@ class Rank {
         }
     }
 
-    public static function getRank(){
+    public static function getRank()
+    {
         if (self::$instance==NULL) {
             self::$instance = new self();
         }
         return self::$instance;
     }
 
-    private function countRank(){
+    private function countRank()
+    {
         if($this->scores<54) {
             $this->rankNumber=0;
-            $this->progression=round($this->scores/54*100, 2);
+            $this->countProgression(0, 54);
         }
         elseif ($this->scores>=54 && $this->scores<109) {
             $this->rankNumber=1;
-            $this->progression=round($this->scores/109*100, 2);
+            $this->countProgression(54, 109);
         }
         elseif ($this->scores>=109 && $this->scores<218) {
             $this->rankNumber=2;
-            $this->progression=round($this->scores/218*100, 2);
+            $this->countProgression(109, 218);
         }
         elseif ($this->scores>=218 && $this->scores<438) {
             $this->rankNumber=3;
-            $this->progression=round($this->scores/438*100, 2);
+            $this->countProgression(218, 438);
         }
         elseif ($this->scores>=438 && $this->scores<875) {
             $this->rankNumber=4;
-            $this->progression=round($this->scores/875*100, 2);
+            $this->countProgression(438, 875);
         }
         elseif ($this->scores>=875 && $this->scores<1750) {
             $this->rankNumber=5;
-            $this->progression=round($this->scores/1750*100, 2);
+            $this->countProgression(875, 1750);
         }
         elseif ($this->scores>=1750 && $this->scores<2500) {
             $this->rankNumber=6;
-            $this->progression=round($this->scores/2500*100, 2);
+            $this->countProgression(1750, 2500);
         }
         elseif ($this->scores>=2500 && $this->scores<5000) {
             $this->rankNumber=7;
-            $this->progression=round($this->scores/5000*100, 2);
+            $this->countProgression(2500, 5000);
         }
         elseif ($this->scores>5000) {
             $this->rank=8;
@@ -83,11 +86,16 @@ class Rank {
         }
         $this->fillTheRest();
     }
-    private function fillTheRest(){
+    private function fillTheRest()
+    {
         $logos=\App\Myclasses\Arrays::rankLogo();
         $ranks=\App\Myclasses\Arrays::rankList();
         $this->logo=$logos[$this->rankNumber];
         $this->rank=$ranks[$this->rankNumber];
     }
 
+    private function countProgression($low, $high)
+    {
+        $this->progression=round(($this->scores-$low)/$high*100, 2);
+    }
 }

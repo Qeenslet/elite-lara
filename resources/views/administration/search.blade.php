@@ -55,6 +55,18 @@
         <button type="submit" class="btn btn-warning">Поиск по параметрам</button>
     </form>
     <hr>
+    <form class="form-inline" method="get" action="{{route('search')}}">
+        <div class="form-group">
+            <label for="user">Пользователь</label>
+            <input type="text"
+                   class="form_add_1 largeSelect"
+                   id="user"
+                   name="user"
+                   value="@if(isset($searchStats['user'])){{$searchStats['user']}}@endif">
+            <button type="submit" class="btn btn-warning">Поиск по пользователю</button>
+        </div>
+    </form>
+    <hr>
     @if(isset($systemDs))
         @foreach($systemDs as $systemD)
         <h3><a href="javascript:rolldown('{{$systemD->address}}')">{{$systemD->fName}}</a></h3>

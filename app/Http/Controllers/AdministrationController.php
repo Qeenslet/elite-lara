@@ -158,6 +158,19 @@ class AdministrationController extends Controller {
             }
             return view('administration.search', compact('regions', 'systemDs', 'searchStats', 'selRep'));
         }
+        if(isset($searchStats['user'])){
+            $userId=\App\User::where('name', $searchStats['user'])->first();
+            if($userId){
+                $findings=$userId->findings()->orderBy('id', 'desc')->get();
+                foreach($findings as $one){
+                    $systemDs[$one->address->id]=new \App\Myclasses\starSystemInfo($one->address->id);
+                }
+                return view('administration.search', compact('regions', 'systemDs', 'searchStats', 'selRep'));
+            }
+            else{
+                return view('administration.search', compact('regions', 'nothing', 'searchData'));
+            }
+        }
         return view('administration.search', compact('regions', 'selRep'));
     }
 
