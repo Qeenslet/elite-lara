@@ -68,7 +68,18 @@
     </form>
     <hr>
     @if(isset($systemDs))
+        <?php
+        $iterTotal=1;
+        $iterLocal=-9;
+        ?>
         @foreach($systemDs as $systemD)
+            @if($iterLocal==1)
+               <a href="javascript:showMore({{$iterTotal}})" class="btn btn-primary" id="btn{{$iterTotal}}"
+               @if($iterTotal>11)
+                   style="display:none"
+               @endif>Еще {{count($systemDs)-$iterTotal}}</a>
+                <article id="ammount{{$iterTotal}}" style="display:none">
+            @endif
         <h3><a href="javascript:rolldown('{{$systemD->address}}')">{{$systemD->fName}}</a></h3>
         <div id="addr_{{$systemD->address}}" style="display:none;">
         <div class="row" style="margin: 10px;">
@@ -87,6 +98,12 @@
         </div>
         <button class="btn btn-danger" onclick="someAction('{{route('delete', ['target'=>$systemD->address])}}', 'Удалить?')">Удалить</button>
         </div>
+            @if($iterLocal==10)
+                 </article>
+                <?php $iterLocal=0; ?>
+            @endif
+            <?php $iterTotal++;
+            $iterLocal++;?>
         @endforeach
     @endif
     @if(isset($nothing))
@@ -107,6 +124,13 @@
         function rolldown(id)
         {
             $('#addr_'+id).slideToggle();
+        }
+        function showMore(id)
+        {
+            $('#ammount'+id).slideDown();
+            $('#btn'+id).hide();
+            var next=id+10;
+            $('#btn'+next).show();
         }
     </script>
 @stop
