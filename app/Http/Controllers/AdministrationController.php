@@ -51,7 +51,7 @@ class AdministrationController extends Controller {
             С уважением, администратор $signature.";
 
         $carta=new \App\Letter($letter);
-        \Auth::user()->hasSent()->save($carta);
+        \App\User::find(1)->hasSent()->save($carta);
         $aim->request='sent';
         $aim->save();
         return redirect('/administration');
