@@ -11,7 +11,7 @@ namespace App\Myclasses;
 
 class Arrays {
     public static function allStarsArray() {
-        return array('A', 'F', 'G', 'K', 'M', 'B', 'AeBe', 'CN', 'D', 'MS', 'L', 'T', 'TTS', 'Y', 'W', 'N', 'BH', 'O');
+        return array('A', 'F', 'G', 'K', 'M', 'B', 'AeBe', 'CN', 'D', 'MS', 'L', 'T', 'TTS', 'Y', 'W', 'N', 'BH', 'O', 'S');
     }
 
     public static function planetTypeArray() {
@@ -27,7 +27,7 @@ class Arrays {
     }
 
     public static function stopList() {
-        return array(5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17);
+        return array(5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
     }
 
     public static function colorList() {
