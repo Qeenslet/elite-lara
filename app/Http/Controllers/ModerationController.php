@@ -17,7 +17,9 @@ class ModerationController extends Controller {
     {
         $users=\App\User::all();
         $latest=\App\Myclasses\Counter::todayStats();
-        return view('moderation.first', compact('users', 'latest'));
+        $locs=\App\Location::all();
+        $locations=new \App\Myclasses\Mapper($locs);
+        return view('moderation.first', compact('users', 'latest', 'locations'));
     }
     public function reader()
     {
@@ -154,6 +156,33 @@ class ModerationController extends Controller {
     public function changeData(Request $request)
     {
         $data=$request->except('_token');
+        $reg=\App\Region::where('name', $data['region'])->first();
+        if ($reg){
+            $addr=$reg->addresses()->where('name', $data['address'])->first();
+            if($addr){
+                $oldId=$addr->id;
+                if($oldId!=$data['adrId']) {
+                    \App\Myclasses\Uniter::unite($oldId, $data['adrId']);
+                }
+                return back();
+            }
+        }
+        else {
+            $reg= new \App\Region;
+            $reg->name=$data['region'];
+            $reg->save();
+        }
+        $regId=$reg->id;
+        $address=\App\Address::find($data['adrId']);
+        $address->region_id=$regId;
+        $address->name=$data['address'];
+        $address->save();
+
+        $newData=\App\Myclasses\SystemInsider::rebuild($address->id);
+        $address->inside->data=serialize($newData);
+        $address->inside->save();
+        return back();
+        /*
         $check=\App\Region::where('name', $data['region'])->first()
             ->addresses()->where('name', $data['address'])->first();
         if ($check){
@@ -179,12 +208,17 @@ class ModerationController extends Controller {
             $address->inside->data=serialize($newData);
             $address->inside->save();
         }
-        return back();
+        return back();*/
 
     }
 
     public function unite()
     {
+
+        $query=\App\Location::all();
+        $result=new \App\Myclasses\Mapper($query);
+        dd($result);
+        return view('moderation.test');
         /*$addresses=\App\Address::all();
         $count=0;
         $fails=0;

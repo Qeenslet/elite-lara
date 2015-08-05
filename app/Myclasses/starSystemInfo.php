@@ -40,7 +40,13 @@ class starSystemInfo {
         $planetName=Arrays::planetsForCabinet();
         $sizeName=Arrays::sizeTypeArray();
         foreach($this->inside->stars as $id=>$star){
-            $starDescription=$starName[$star->star].$star->class." ".$sizeName[$star->size];
+            if($star->size!='') {
+                $theSize=$sizeName[$star->size];
+            }
+            else {
+                $theSize='';
+            }
+            $starDescription=$starName[$star->star].$star->class." ".$theSize;
             $this->starsIn[$id]=$starDescription;
             if(isset($this->user)) {
                 if ($star->user!=$this->user) {

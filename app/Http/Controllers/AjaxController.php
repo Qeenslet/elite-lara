@@ -189,7 +189,17 @@ class AjaxController extends Controller {
                 $stepKey=5;
         }
 
-        $fullName=$sType[$systemData->data['star']].$systemData->data['class']." ".$sSize[$systemData->data['size']]." Планета: ".
+        if($systemData->data['size']!='') {
+            $theSize=$sSize[$systemData->data['size']];
+            $theClass=$systemData->data['class'];
+        }
+        else {
+            $theClass=$theSize='';
+            $systemData->data['class']=0;
+            $systemData->data['size']=0;
+        }
+
+        $fullName=$sType[$systemData->data['star']].$theClass." ".$theSize." Планета: ".
             $pNames[$systemData->data['planet']]." ".$systemData->data['distance']." а.е. ".$systemData->data['mark'];
         $chartData="star=".$systemData->data['star']."&class=".$systemData->data['class']."&size=".$systemData->data['size'];
         return view('administration.systemExtension', compact('target', 'systemInfo', 'explanation', 'fullName', 'chartData', 'step', 'stepKey'));

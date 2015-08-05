@@ -138,6 +138,7 @@ return [
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
         'Golonka\BBCode\BBCodeParserServiceProvider',
+        'Scriptixru\SypexGeo\SypexGeoServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -197,7 +198,9 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
         'BBCode'    => 'Golonka\BBCode\Facades\BBCodeParser',
         'Debugbar' => 'Barryvdh\Debugbar\Facade',
+        'SypexGeo' => 'Scriptixru\SypexGeo\SypexGeoFacade',
 
-	],
+
+    ],
 
 ];
