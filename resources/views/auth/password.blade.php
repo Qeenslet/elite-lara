@@ -3,7 +3,7 @@
 @section('content')
 
 			<div class="panel-elite">
-				<div class="panel-heading">Reset Password</div>
+				<div class="panel-heading">Сброс пароля</div>
 				<div class="panel-body">
 					@if (session('status'))
 						<div class="alert alert-success">
@@ -13,7 +13,7 @@
 
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
+							<strong>Ой!</strong> Похоже возникли проблемы.<br><br>
 							<ul>
 								@foreach ($errors->all() as $error)
 									<li>{{ $error }}</li>
@@ -26,7 +26,7 @@
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
+							<label class="col-md-4 control-label">Адрес электронной почты</label>
 							<div class="col-md-6">
 								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
 							</div>
@@ -35,7 +35,7 @@
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-primary">
-									Send Password Reset Link
+									Запросить сбро пароля
 								</button>
 							</div>
 						</div>
