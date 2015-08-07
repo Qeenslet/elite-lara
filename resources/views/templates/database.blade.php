@@ -3,9 +3,9 @@
 <script>
     var navegator=first=0;
     basenav={};
-    basenav[1]='Кривые распределения';
-    basenav[2]='Процентное распределение';
-    basenav[3]='Орбиты';
+    basenav[1]='Функциональные графики';
+    basenav[2]='Круговые диаграммы';
+    basenav[3]='Точечный график';
     basenav[0]='Работа с базой';
     basenav['func']='ajax';
     var toplimit=3;
@@ -16,6 +16,8 @@
     <div id="button_right"><a href="#"></a></div>
     <h3 id="db_head">Работа с базой данных</h3>
 </div>
+<p class="white">Этот раздел выводит различные типы графиков по обнаруженным планетам и звездам. Для перехода к другому типу графика нажимайте горизонтальные  стрелки влево-вправо на навигационной панели сверху. </p>
+<hr>
 <div id="2nd_selection">
 
 </div>
@@ -49,6 +51,10 @@
                     }
                 });
             }
-        })
+        });
+        function closeInfo()
+        {
+            $('#chartAbout').slideUp(300);
+        }
     </script>
 @stop

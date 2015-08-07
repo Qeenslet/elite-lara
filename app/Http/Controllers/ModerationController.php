@@ -214,10 +214,6 @@ class ModerationController extends Controller {
 
     public function unite()
     {
-
-        $query=\App\Location::all();
-        $result=new \App\Myclasses\Mapper($query);
-        dd($result);
         return view('moderation.test');
         /*$addresses=\App\Address::all();
         $count=0;

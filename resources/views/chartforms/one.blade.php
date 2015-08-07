@@ -1,4 +1,13 @@
-<p>Здесь можно посмотреть кривую распределения любого типа планет, имеющихся в базе по расстоянию от звезды. Можно выбрать тип звезды и ее размер. Разделения на температурные подклассы нет.</p>
+<div class="panel-cabinet" id="chartAbout">
+    <div style="margin: 5px; width:100%; height: 10%; position: relative; top:1px;"><a href="javascript:closeInfo();" class="info-close-btn"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></div>
+<br>
+    <p>Функциональный тип графика, демонстрирует размеры зоны обитания  различных типов планет у конкретного типа звезд.</p>
+<p>Для работы с графиком, укажите спектральный тип звезды, ее размер(класс светимости) и температурный подкласс, а также интересующий вас тип планеты.</p>
+<p>Шаг а.е.  - шаг орбиты. Крупный шаг хорошо показывает тенденцию типичных орбит, с ним четко видны пики обнаружения орбит, но теряется точность отображения в конкретных цифрах, тк данные округляются. Мелкий шаг хорошо выводит данные как есть, с ним четко видны границы зоны обитания, однако пики не такие выразительные.</p>
+<p>На графике будут видны предельные размеры орбит, а его пики покажут расстояние от звезды, на котором шанс встретить искомую экзопланету самый высокий.</p>
+
+    <hr>
+</div>
 <form class="form-inline" method="POST" id="d_query" onsubmit="send('d_query');" action="javascript:void(null);">
     <input type="hidden" value="{{csrf_token()}}" name="_token">
     <div class="form-group">
@@ -60,6 +69,7 @@
     </div>
     <button type="submit" class="btn btn-warning">Поиск</button>
 </form>
+<hr>
 <script>
     $('#star_select').change(function(){
         var select=$('#star_select').val();
@@ -71,5 +81,5 @@
             $("#class_select").show();
             $("#size_select").show();
         }
-    })
+    });
 </script>

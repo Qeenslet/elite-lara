@@ -33,8 +33,8 @@
 </div>
 <h4 class="white">Графики</h4>
 
-<button type="button" class="chart-builder btn btn-primary" id="chart1" data="{{$chartData}}&step={{$step}}&_token={{csrf_token()}}" onclick="sendChart('chart1')">Кривые распределения</button>
-<button type="button" class="chart-builder btn btn-primary" id="chart3" data="{{$chartData}}&_token={{csrf_token()}}" onclick="sendChart('chart3')">Орбиты</button>
+<button type="button" class="chart-builder btn btn-primary" id="chart1" data="{{$chartData}}&step={{$step}}&_token={{csrf_token()}}" onclick="sendChart('chart1')">Функциональный график</button>
+<button type="button" class="chart-builder btn btn-primary" id="chart3" data="{{$chartData}}&_token={{csrf_token()}}" onclick="sendChart('chart3')">Точечный график</button>
 <div id="result"></div>
 <div id="chartControl" style="display: none;">
     <p style="text-align: center;">Шаг: <a href="#" onclick="stepUp(0)"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a>

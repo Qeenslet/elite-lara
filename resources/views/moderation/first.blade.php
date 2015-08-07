@@ -10,7 +10,7 @@
         <div class="col-md-7">
             <div class="panel panel-warning">
                 <div class="panel-heading">География визитов за все время</div>
-                <div class="panel-body">
+                <div class="panel-body" id="mapBody">
                     <div id="mapdiv" style="width: 900px; height: 600px;"></div>
                 </div>
             </div>
@@ -80,6 +80,27 @@
 @section('scripts')
     @parent
     <script>
+        var w = window.innerWidth;
+        changeWidth(w);
+        setInterval(function(){
+            newW=window.innerWidth;
+            if(newW!=w) {
+                w=newW;
+                changeWidth(w);
+            }
+        }, 2);
+        function changeWidth(w) {
+            if (w < 768) {
+                wR = w * 0.85;
+            }
+            else {
+                wR = w * 0.45;
+            }
+            hR = wR / 1.5;
+            $('#mapdiv').css('width', wR).css('height', hR);
+        }
+    </script>
+    <script>
         AmCharts.ready(function() {
             // create AmMap object
             var map = new AmCharts.AmMap();
@@ -106,8 +127,8 @@
                     {latitude:{{$city['lat']}},
                         longitude:{{$city['lon']}},
                         type:"circle", color:"#6c00ff",
-                        scale:{{$locations->cityCounts[$city['id']]*0.5}},
-                        label:"{{$city['name_ru']}}",
+                        scale:{{$locations->cityCounts[$city['id']]*0.01+0.5}},
+
                         labelShiftY:2,
                         title:"{{$city['name_ru']}}",
                         description:"Количество уникальных пользователей: {{$locations->cityCounts[$city['id']]}}"},
