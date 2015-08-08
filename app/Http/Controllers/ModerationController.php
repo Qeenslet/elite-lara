@@ -254,4 +254,21 @@ class ModerationController extends Controller {
         return view('moderation.unite', compact('first', 'second'));*/
     }
 
+    public function deleteUser(Request $request)
+    {
+        $id=$request->input('id');
+        if($id==1) return redirect(route('roles'));
+        $user=\App\User::find($id);
+        if($user->confirmed!='confirmacion ha pasado' || $user->findings()->count()==0){
+            $user->points()->delete();
+            $user->roles()->detach(1);
+            $user->delete();
+            return redirect(route('roles'));
+        }
+        else {
+            $user->roles()->detach(1);
+            return redirect(route('roles'));
+        }
+    }
+
 }

@@ -44,6 +44,7 @@ Route::get('moderation/texts', ['as'=>'texts', 'uses'=>'ModerationController@tex
 Route::get('moderation/multistars', ['as'=>'multi', 'uses'=>'ModerationController@multistars']);
 Route::get('moderation/specials', ['as'=>'recent', 'uses'=>'ModerationController@recent']);
 Route::get('moderation/unite', ['as'=>'uniteSystems', 'uses'=>'ModerationController@unite']);
+Route::get('moderation/deluser', ['as'=>'deleteUser', 'uses'=>'ModerationController@deleteUser']);
 
 Route::post('ajaform', ['as'=>'AjaxFormer', 'uses'=>'AjaxController@chartForms']);
 Route::post('ajachart', ['as'=>'AjaxCharter', 'uses'=>'AjaxController@chartBuilder']);

@@ -16,6 +16,9 @@
             <th>
                 Модератор
             </th>
+            <th>
+                Удалить
+            </th>
         </tr>
         <thead>
         <tbody>
@@ -54,6 +57,9 @@
                     @else
                         <a href="{{route('setrole', ['action'=>'give', 'role'=>3, 'user'=>$user->id])}}" class="btn btn-success" >Назначить</a>
                     @endif
+                </td>
+                <td>
+                    <a href="{{route('deleteUser', ['id'=>$user->id])}}" class="btn btn-danger" >Стереть</a>
                 </td>
             </tr>
     @endforeach
