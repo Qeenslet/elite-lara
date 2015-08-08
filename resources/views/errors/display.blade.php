@@ -1,5 +1,5 @@
 <div class="alert alert-danger">
-    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+    <strong>Упс!</strong> Кажется, возникли проблемы с тем, что вы ввели.<br><br>
     <ul>
         @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>

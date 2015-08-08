@@ -19,7 +19,6 @@
 
 Route::get('/', 'FrontController@index');
 Route::get('dbase', ['as'=>'database', 'uses'=>'FrontController@database']);
-Route::get('home', 'HomeController@index');
 Route::get('adding', ['as'=>'add', 'middleware'=>'cabinet', 'uses'=>'FrontController@adding']);
 
 Route::get('cabinet', ['as'=>'cabinet', 'uses'=>'CabinetController@index']);

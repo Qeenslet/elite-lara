@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller {
 
@@ -36,5 +37,28 @@ class AuthController extends Controller {
 
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
+    public function getConfirm(Request $request){
+        $inf=$request->input('inf');
+        $user=\App\User::where('confirmed', $inf)->first();
+        if($user) {
+            $user->confirmed='confirmacion ha pasado';
+            $user->save();
+            \Auth::login($user);
+            $zeroPoints=['stars'=>0, 'planets'=>0, 'points'=>0];
+            $points=new \App\Point($zeroPoints);
+            $user->points()->save($points);
+            $user->roles()->attach(1);
+            return redirect('/')->with('loginfo', 'Ваш email подтвержден!');
+        }
+        else return redirect('/')->with('loginfo', 'Произошел сбой. Ваш email не был подтвержден!');
+    }
+
+    public function getBefore(){
+        return view('auth.before');
+    }
+    protected function getFailedLoginMessage()
+    {
+        return 'Что-то неправильно: либо емейл, либо пароль)';
+    }
 
 }
