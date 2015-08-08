@@ -59,12 +59,10 @@
     <div class="form-group">
         <label for="planet_select">Планеты</label>
         <select id="planet_select" name="planet" class="largeSelect">
+            <option value="543210">все возможные</option>
             <option value="3">земные</option>
             <option value="3210">земные и пригодные к ТФ</option>
-            <option value="210">пригодные к ТФ без земных</option>
-            <option value="4">водные не пригодные к ТФ</option>
-            <option value="5">аммиачные</option>
-            <option value="543210">все возможные</option>
+            <option value="14">водные всех типов</option>
         </select>
     </div>
     <button type="submit" class="btn btn-warning">Поиск</button>

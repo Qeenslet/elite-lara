@@ -69,21 +69,9 @@ class charterOne {
                 $this->charType=1;
                 $this->querySimple();
                 break;
-            case 210:
-                $this->planet=[0, 1, 2];
-                $this->inHeader="пригодные к ТФ без земных";
-                $this->charType=1;
-                $this->querySimple();
-                break;
-            case 4:
-                $this->planet=[4];
-                $this->inHeader="водные не пригодные к ТФ";
-                $this->charType=1;
-                $this->querySimple();
-                break;
-            case 5:
-                $this->planet=[5];
-                $this->inHeader="аммиачные";
+            case 14:
+                $this->planet=[1, 4];
+                $this->inHeader="водные всех типов";
                 $this->charType=1;
                 $this->querySimple();
                 break;

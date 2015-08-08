@@ -38,6 +38,7 @@
     </div>
     <button type="submit" class="btn btn-warning" id="change_b">Поиск</button>
 </form>
+<hr>
 <script>
     $('#star_select').change(function(){
         var select=$('#star_select').val();
