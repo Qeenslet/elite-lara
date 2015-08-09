@@ -54,6 +54,12 @@
             </div>
         </div>
         <div class="col-md-4">
+            <div class="panel panel-warning">
+
+                <div class="panel-body">
+                    <div id="littleChart" style="width: 100%; height: auto;"></div>
+                </div>
+            </div>
             <div class="panel panel-success">
                 <div class="panel-heading">Общие данные по сайту</div>
                 <div class="panel-body">
@@ -152,6 +158,69 @@
 
             // write the map to container div
             map.write("mapdiv");
+        });
+    </script>
+    <script>
+        $(function () {
+            $('#littleChart').highcharts({
+                chart: {
+                    type: 'spline'
+                },
+                title: {
+                    text: 'Наполнение базы данных за неделю'
+                },
+                credits: {
+                    enabled: false
+                },
+                xAxis: {
+                    categories: [
+                        @foreach($statData->getTotal() as $key=>$value)
+                        '{{$key}}',
+                        @endforeach
+                ]
+                },
+                yAxis: {
+                    title: {
+                        text: 'Кол-во'
+                    },
+                    min: 0
+                },
+                tooltip: {
+                    headerFormat: '<b>{series.name}</b><br>',
+                },
+
+                plotOptions: {
+                    spline: {
+                        marker: {
+                            enabled: true
+                        }
+                    }
+                },
+
+                series: [{
+                    name: "Всего",
+                    data: [
+                        @foreach($statData->getGrowth() as $value)
+                        [{{$value}}],
+                        @endforeach
+                    ]
+                }, {
+                        name: "Добвлено звезд",
+                        data: [
+                            @foreach($statData->getStars() as $value)
+                            [{{$value}}],
+                            @endforeach
+                        ]
+                    }, {
+                    name: "Добвлено планет",
+                    data: [
+                        @foreach($statData->getPlanets() as $value)
+                        [{{$value}}],
+                        @endforeach
+                    ]
+                }
+                ]
+            });
         });
     </script>
 @stop

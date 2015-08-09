@@ -19,7 +19,8 @@ class ModerationController extends Controller {
         $latest=\App\Myclasses\Counter::todayStats();
         $locs=\App\Location::all();
         $locations=new \App\Myclasses\Mapper($locs);
-        return view('moderation.first', compact('users', 'latest', 'locations'));
+        $statData=new \App\Myclasses\charterModer();
+        return view('moderation.first', compact('users', 'latest', 'locations', 'statData'));
     }
     public function reader()
     {
@@ -214,7 +215,8 @@ class ModerationController extends Controller {
 
     public function unite()
     {
-        return view('moderation.test');
+        $statData=new \App\Myclasses\charterModer();
+        return view('moderation.test', compact('statData'));
         /*$addresses=\App\Address::all();
         $count=0;
         $fails=0;

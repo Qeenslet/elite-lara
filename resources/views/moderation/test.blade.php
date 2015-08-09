@@ -5,10 +5,12 @@
     <link rel="stylesheet" href="{{ asset('/ammap/ammap.css') }}" type="text/css" media="all" />
     <script src="/ammap/maps/js/worldLow.js" type="text/javascript"></script>
     <script src="{{ asset('/ammap/responsive.min.js') }}" type="text/javascript"></script>
+
 @stop
 @section('content')
 
     <div id="mapdiv" style="width: 600px; height:400px"></div>
+    <div id="littleChart" style="width: 100%; height: auto;"></div>
 @stop
 @section('scripts')
     @parent
@@ -57,6 +59,61 @@
 
             // write the map to container div
             map.write("mapdiv");
+        });
+    </script>
+    <script>
+        $(function () {
+            $('#littleChart').highcharts({
+                chart: {
+                    type: 'spline'
+                },
+                title: {
+                    text: 'Наполнение базы данных'
+                },
+                xAxis: {
+                    categories: [
+                            @foreach($statData->getTotal() as $key=>$value)
+                            '{{$key}}',
+                            @endforeach
+                    ]
+                },
+                yAxis: {
+                    title: {
+                        text: 'Кол-во'
+                    },
+                    min: 0
+                },
+                tooltip: {
+                    headerFormat: '<b>{series.name}</b><br>',
+                },
+
+                plotOptions: {
+                    spline: {
+                        marker: {
+                            enabled: true
+                        }
+                    }
+                },
+
+                series: [{
+                    name: "Всего пригодных для ТФ",
+                    // Define the data points. All series have a dummy year
+                    // of 1970/71 in order to be compared on the same x axis. Note
+                    // that in JavaScript, months start at 0 for January, 1 for February etc.
+                    data: [
+                            @foreach($statData->getTf() as $value)
+                        [{{$value}}],
+                        @endforeach
+                    ]
+                }, {
+                    name: "Всего планет",
+                    data: [
+                        @foreach($statData->getTotal() as $value)
+                        [{{$value}}],
+                        @endforeach
+                    ]
+                }]
+            });
         });
     </script>
  @stop

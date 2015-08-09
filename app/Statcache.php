@@ -13,4 +13,11 @@ class Statcache extends Model {
         'latest_regions',
         'latest_addresses'];
 
+    public function scopeWeek($query)
+    {
+        $today=\Carbon\Carbon::now()->toDateTimeString();
+        $yesterday=\Carbon\Carbon::now()->subWeek()->toDateTimeString();
+        return $query->whereBetween('created_at', [$yesterday, $today]);
+    }
+
 }
