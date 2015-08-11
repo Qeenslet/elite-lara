@@ -1,5 +1,7 @@
 @extends('elite')
-
+@section('title')
+    Сброс пароля|@parent
+@stop
 @section('content')
 
 			<div class="panel-elite">
@@ -35,7 +37,7 @@
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-primary">
-									Запросить сбро пароля
+									Запросить сброс пароля
 								</button>
 							</div>
 						</div>

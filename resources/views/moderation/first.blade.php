@@ -205,14 +205,14 @@
                         @endforeach
                     ]
                 }, {
-                        name: "Добвлено звезд",
+                        name: "Добавлено звезд",
                         data: [
                             @foreach($statData->getStars() as $value)
                             [{{$value}}],
                             @endforeach
                         ]
                     }, {
-                    name: "Добвлено планет",
+                    name: "Добавлено планет",
                     data: [
                         @foreach($statData->getPlanets() as $value)
                         [{{$value}}],

@@ -1,4 +1,7 @@
 @extends('cabinet.cabinetMain')
+@section('title')
+    Находки|@parent
+@stop
 @section('local')
     <h3>Добавленные вами в базу данных системы</h3>
     @foreach($findings as $singleSystem)

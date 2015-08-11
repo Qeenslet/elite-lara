@@ -1,7 +1,11 @@
 <!Doctype html>
 <html lang="ru">
 <head>
-    <title><?=$title;?></title>
+    <title>
+        @section('title')
+        {{$title}}
+        @show
+    </title>
     <meta name="Description" content="">
     <meta charset = "utf-8">
     <meta name="keywords" content="">

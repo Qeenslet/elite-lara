@@ -1,4 +1,7 @@
 @extends('elite')
+@section('title')
+    Панель администрирования|@parent
+@stop
 @section('content')
     <h2>Панель администрирования</h2>
     <div class="cabmenu">

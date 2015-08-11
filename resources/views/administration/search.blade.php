@@ -1,4 +1,7 @@
 @extends('administration.index')
+@section('title')
+    Поиск систем|@parent
+@stop
 @section('locale')
     <h2>Поиск данных по системе</h2>
     <hr>
@@ -19,7 +22,7 @@
         <div class="form-group">
             <label for="star_select">Тип звезды</label>
             <select id="star_select" name="star">
-                @foreach (\App\Myclasses\Arrays::allStarsArray() as $num => $one)
+                @foreach ($arr=\App\Myclasses\Arrays::allStarsArray() as $num => $one)
                     <option value="{{$num}}">{{$one}}</option>
                 @endforeach
             </select>
@@ -64,6 +67,17 @@
                    name="user"
                    value="@if(isset($searchStats['user'])){{$searchStats['user']}}@endif">
             <button type="submit" class="btn btn-warning">Поиск по пользователю</button>
+        </div>
+    </form>
+    <hr>
+    <form class="form-inline" method="get" action="{{route('search')}}">
+        <div class="form-group">
+            <select id="rare_star_select" name="rare_star" value="@if(isset($searchStats['rare_star'])){{$searchStats['rare_star']}}@endif">>
+                @foreach (\App\Myclasses\Arrays::stopList() as $one)
+                    <option value="{{$one}}">{{$arr[$one]}}</option>
+                @endforeach
+            </select>
+            <button type="submit" class="btn btn-warning">Поиск по редким типам</button>
         </div>
     </form>
     <hr>

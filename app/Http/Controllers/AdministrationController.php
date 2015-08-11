@@ -156,6 +156,7 @@ class AdministrationController extends Controller {
                     $systemDs[$oneStar->address->id]=new \App\Myclasses\starSystemInfo($oneStar->address->id);
                 }
             }
+            if(!$systemDs) return view('administration.search', compact('regions', 'nothing', 'searchData'));
             return view('administration.search', compact('regions', 'systemDs', 'searchStats', 'selRep'));
         }
         if(isset($searchStats['user'])){
@@ -170,6 +171,17 @@ class AdministrationController extends Controller {
             else{
                 return view('administration.search', compact('regions', 'nothing', 'searchData'));
             }
+        }
+
+        if(isset($searchStats['rare_star'])){
+            $systemDs=[];
+            $suitableStars=\App\Star::where('star', $searchStats['rare_star'])->get();
+            if(!$suitableStars) return view('administration.search', compact('regions', 'nothing', 'searchData'));
+            foreach($suitableStars as $one){
+                $systemDs[$one->address->id]=new \App\Myclasses\starSystemInfo($one->address->id);
+            }
+            if(!$systemDs) return view('administration.search', compact('regions', 'nothing', 'searchData'));
+            return view('administration.search', compact('regions', 'systemDs', 'searchStats', 'selRep'));
         }
         return view('administration.search', compact('regions', 'selRep'));
     }

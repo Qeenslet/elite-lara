@@ -1,4 +1,7 @@
 @extends('administration.index')
+@section('title')
+    Почта|@parent
+@stop
 @section('locale')
     <script>
         var navegator=first=7;

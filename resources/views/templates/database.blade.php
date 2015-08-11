@@ -1,4 +1,7 @@
 @extends('elite')
+@section('title')
+    База данных|@parent
+@stop
 @section('content')
 <script>
     var navegator=first=0;

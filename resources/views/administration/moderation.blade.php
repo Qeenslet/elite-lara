@@ -1,4 +1,7 @@
 @extends('administration.index')
+@section('title')
+    Системы на модерацию|@parent
+@stop
 @section('locale')
     @foreach($forModeration as $one)
         <div class="pointed panel-cabinet" data="{{$one->id}}&_token={{csrf_token()}}">

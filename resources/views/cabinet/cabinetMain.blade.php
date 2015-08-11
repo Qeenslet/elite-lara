@@ -1,4 +1,7 @@
 @extends('elite')
+@section('title')
+    Кабинет|@parent
+@stop
 @section('content')
     <h2>Личный кабинет</h2>
     <div class="cabmenu">

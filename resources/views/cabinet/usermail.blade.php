@@ -1,4 +1,7 @@
 @extends('cabinet.cabinetMain')
+@section('title')
+    Почта|@parent
+@stop
 @section('local')
     <script>
         var navegator=first=4;

@@ -1,5 +1,7 @@
 @extends('elite')
-
+@section('title')
+    Регистрация|@parent
+@stop
 @section('content')
 <h2 class="white">Регистрация на сайте</h2>
 			<div class="panel-elite">

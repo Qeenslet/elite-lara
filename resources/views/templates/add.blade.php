@@ -1,5 +1,7 @@
 @extends('elite')
-
+@section('title')
+    Поплнение базы данных|@parent
+@stop
 @section('top-scripts')
 <script>
     function resetAll() {

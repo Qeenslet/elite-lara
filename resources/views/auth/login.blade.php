@@ -1,5 +1,7 @@
 @extends('elite')
-
+@section('title')
+    Вход на сайт|@parent
+@stop
 @section('content')
 
 			<div class="panel-elite">
