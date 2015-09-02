@@ -26,16 +26,26 @@ class AdministrationController extends Controller {
         switch($todo['action']){
             case 'delete':
                 $aim=\App\Moderation::find($todo['target']);
+                $reciever=$aim->user_id;
+                $addr=$aim->address;
+                $decision='внесенные вами данные не были одобрены администратором';
                 $aim->delete();
-                return redirect('/administration');
+                break;
             case 'approve':
                 $aim=\App\Moderation::find($todo['target']);
+                $reciever=$aim->user_id;
+                $addr=$aim->address;
+                $decision='внесенные вами данные были одобрены и добавлены в базу';
                 $data=unserialize($aim->data);
-                $save=\App\Myclasses\dbSaver::save($data);
-                if ($save) $aim->delete();
-
-                return redirect('/administration');
+                $save=new \App\Myclasses\Savers\planetSaver($data);
+                if ($save->getMessage()=='ok')
+                    $aim->delete();
+                break;
         }
+        $letter=\App\Myclasses\Arrays::moderationLetter($addr, $decision, $reciever);
+        $myMessage=new \App\Myclasses\localLetters\adminMail($letter);
+        $myMessage->send();
+        return redirect('/administration');
     }
 
     public function request(Request $request)
@@ -43,15 +53,9 @@ class AdministrationController extends Controller {
         $data=$request->all();
         $signature=\Auth::user()->name;
         $aim=\App\Moderation::find($data['target']);
-        $letter['reciever']=$aim->user_id;
-        $name=\App\User::find($aim->user_id)->name;
-        $letter['header']="Запрос на дополнительные данные по системе $aim->address";
-        $letter['body']="Добрый день, CMDR $name! К сожалению, нам недостаточно данных для одобрения добавленной вами планеты в системе $aim->address.
-            Пришлите, если это возможно, скриншот карты системы. Для его включения в письмо можете воспользоваться любым сервисом хранения загруженных фотографий.
-            С уважением, администратор $signature.";
-
-        $carta=new \App\Letter($letter);
-        \App\User::find(1)->hasSent()->save($carta);
+        $letter=\App\Myclasses\Arrays::moreInfoLetter($aim);
+        $myMessage=new \App\Myclasses\localLetters\adminMail($letter);
+        $myMessage->send();
         $aim->request='sent';
         $aim->save();
         return redirect('/administration');
@@ -91,15 +95,15 @@ class AdministrationController extends Controller {
         $bbcode = new BBCodeParser;
         $filteredMess['body']=$bbcode->parse($filteredMess['body']);
         if(isset($filteredMess['reciever'])) {
-            $letter=new \App\Letter($filteredMess);
-            \App\User::find(1)->hasSent()->save($letter);
+            $myMessage=new \App\Myclasses\localLetters\adminMail($filteredMess);
+            $myMessage->send();
         }
         else{
             foreach($addresses as $one) {
                 $pilot = \App\User::where('name', $one)->first();
                 $filteredMess['reciever'] = $pilot->id;
-                $letter=new \App\Letter($filteredMess);
-                \App\User::find(1)->hasSent()->save($letter);
+                $myMessage=new \App\Myclasses\localLetters\adminMail($filteredMess);
+                $myMessage->send();
             }
         }
         return redirect('/administration/mail');
@@ -127,61 +131,17 @@ class AdministrationController extends Controller {
     public function search(Requests\SearchRequest $request)
     {
         $selRep=session('result');
-        $searchData=$request->only('address');
-        $searchStats=$request->all();
+        $searchData=$request->all();
         $regions=\App\Region::all();
         $nothing = 'nothing has been found';
-        if($searchData['address']!=NULL) {
-            $search=new \App\Myclasses\searchSystem($searchData['address']);
-            if(!$search->id){
+        if($searchData) {
+            $searching = new \App\Myclasses\search\SearchEngine($searchData);
+            $systemDs = $searching->getResult();
+            if ($systemDs) {
+                return view('administration.search', compact('regions', 'systemDs', 'searchData', 'selRep'));
+            } else {
                 return view('administration.search', compact('regions', 'nothing', 'searchData'));
             }
-             else {
-                 $systemDs=[];
-                 $systemDs[]=new \App\Myclasses\starSystemInfo($search->id);
-                 return view('administration.search', compact('regions', 'systemDs', 'searchData', 'selRep'));
-             }
-        }
-        if(isset($searchStats['distance'])){
-            $systemDs=[];
-            $suitablePlanets=\App\Planet::where('planet', $searchStats['planet'])
-                ->whereBetween('distance', [$searchStats['distance']*0.99, $searchStats['distance']*1.01])
-                ->get();
-            foreach($suitablePlanets as $one){
-                $suitableStars=$one->star()->where('star', $searchStats['star'])
-                    ->where('size', $searchStats['size'])
-                    ->where('class', $searchStats['class'])
-                    ->get();
-                foreach($suitableStars as $oneStar){
-                    $systemDs[$oneStar->address->id]=new \App\Myclasses\starSystemInfo($oneStar->address->id);
-                }
-            }
-            if(!$systemDs) return view('administration.search', compact('regions', 'nothing', 'searchData'));
-            return view('administration.search', compact('regions', 'systemDs', 'searchStats', 'selRep'));
-        }
-        if(isset($searchStats['user'])){
-            $userId=\App\User::where('name', $searchStats['user'])->first();
-            if($userId){
-                $findings=$userId->findings()->orderBy('id', 'desc')->get();
-                foreach($findings as $one){
-                    $systemDs[$one->address->id]=new \App\Myclasses\starSystemInfo($one->address->id);
-                }
-                return view('administration.search', compact('regions', 'systemDs', 'searchStats', 'selRep'));
-            }
-            else{
-                return view('administration.search', compact('regions', 'nothing', 'searchData'));
-            }
-        }
-
-        if(isset($searchStats['rare_star'])){
-            $systemDs=[];
-            $suitableStars=\App\Star::where('star', $searchStats['rare_star'])->get();
-            if(!$suitableStars) return view('administration.search', compact('regions', 'nothing', 'searchData'));
-            foreach($suitableStars as $one){
-                $systemDs[$one->address->id]=new \App\Myclasses\starSystemInfo($one->address->id);
-            }
-            if(!$systemDs) return view('administration.search', compact('regions', 'nothing', 'searchData'));
-            return view('administration.search', compact('regions', 'systemDs', 'searchStats', 'selRep'));
         }
         return view('administration.search', compact('regions', 'selRep'));
     }
@@ -189,29 +149,10 @@ class AdministrationController extends Controller {
     public function delete(Request $request)
     {
         $target=$request->only('target');
-        \DB::beginTransaction();
-        try {
-            $address = \App\Address::find($target['target']);
-            $stars = $address->stars()->get();
-            foreach ($stars as $star) {
-                $planets = $star->planets()->get();
-                foreach ($planets as $planet) {
-                    $planet->delete();
-                }
-                $star->delete();
-            }
-            $findings = $address->discoveries()->get();
-            foreach ($findings as $one) {
-                $one->delete();
-            }
-            $address->delete();
-            \DB::commit();
-            return redirect(route('search'))->with('result', 'Система успешно удалена');
-        }
-        catch(\PDOException $e){
-            \DB::rollback();
-            return redirect(route('search'))->with('result', 'Возникла ошибка удаления');
-        }
+        if(!\Auth::user()->isModerator()) return redirect(route('search'))->with('result', 'У вас нет прав на удаление объектов');
+        if(\App\Myclasses\Insides\Terminator::deleteAddress($target))return redirect(route('search'))->with('result', 'Система успешно удалена');
+        else return redirect(route('search'))->with('result', 'Возникла ошибка удаления');
+
     }
     public function cambiar(Request $request)
     {
@@ -220,48 +161,25 @@ class AdministrationController extends Controller {
         $data=$request->except('action', 'type', '_token');
         switch($style){
             case 'change':
-                switch($object){
-                    case 'star':
-                        $star=\App\Star::find($data['id']);
-                        $star->star=$data['star'];
-                        $star->size=$data['size'];
-                        $star->class=$data['class'];
-                        $star->save();
-                        $addrId=$star->address->id;
-                        break;
-                    case 'planet':
-                        $planet=\App\Planet::find($data['id']);
-                        $planet->planet=$data['planet'];
-                        $planet->distance=$data['distance'];
-                        $planet->mark=$data['mark'];
-                        $planet->save();
-                        $addrId=$planet->star->address->id;
-                        break;
-                }
+                $result=new \App\Myclasses\Savers\Rewriter($object, $data);
                 break;
             case 'delete':
-                switch($object){
-                    case 'star':
-                        $star=\App\Star::find($data['id']);
-                        foreach($star->planets()->get() as $planet){
-                            $planet->delete();
-                        }
-                        $addrId=$star->address->id;
-                        $star->delete();
-                        break;
-                    case 'planet':
-                        $planet=\App\Planet::find($data['id']);
-                        $addrId=$planet->star->address->id;
-                        $planet->delete();
-                        break;
+                if(!\Auth::user()->isModerator())
+                {
+                    return back()->with('result', 'У вас нет прав на удаление объектов');
                 }
+                $result=new \App\Myclasses\Savers\Deleter($object, $data);
                 break;
         }
-        $newData=\App\Myclasses\SystemInsider::rebuild($addrId);
-        $sData=serialize($newData);
-        $inside=\App\Inside::where('address_id', $addrId)->first();
-        $inside->data=$sData;
-        $inside->save();
-        return back()->with('result', 'Данные были изменены!');
+        switch($result->getMessage())
+        {
+            case 'ok':
+                $response='Данные были изменены!';
+                break;
+            case 'fail':
+                $response='Произошел сбой при изменении';
+        }
+
+        return back()->with('result', $response);
     }
 }

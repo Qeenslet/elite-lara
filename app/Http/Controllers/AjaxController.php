@@ -3,11 +3,9 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Http\Requests\BaseAddRequest;
 use App\Moderation;
 use App\Myclasses\Arrays;
-use App\Myclasses\Charter;
-use App\Myclasses\Checker;
+use App\Myclasses\charters\Charter;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -102,73 +100,22 @@ class AjaxController extends Controller {
         }
     }
 
-    public function baseAdder(BaseAddRequest $request)
-    {
-        $data=$request->except('_token', 'method', 'uri', 'ip');
-        $checkResult=Checker::checkIt($data);
-        if($checkResult->code==5) {
-            $message=$checkResult->error;
-            $aId=$checkResult->addressId;
-            return view('errors.similarPlanet', compact('message', 'aId'));
-        }
-        if ($checkResult->code==4) {
-            $message=$checkResult->message;
-            $aId=$checkResult->addressId;
-            return view('errors.similarStar', compact('message', 'aId'));
-        }
-        if($checkResult->smartCode!=1) {
-            if(!$checkResult->smartCode) {
-               $save=\App\Myclasses\dbSaver::save($checkResult);
-                if ($save) {
-                    $aId=$save->addressId;
-                    return view('interface.added', compact('aId'));
-                }
-                else {
-                    $message = "К сожалению произошел сбой в базе данных. Попробуйте внести данные позже!";
-                    return view('errors.similarPlanet', compact('message'));
-                }
-            }
-            else {
-                $save = \App\Myclasses\moderationSaver::save($checkResult);
-                if ($save) {
-                    $aId=$save->addressId;
-                    return view('errors.moderation', compact('aId'));
-                }
-                else {
-                    $message = "К сожалению произошел сбой в базе данных. Попробуйте внести данные позже!";
-                    return view('errors.similarPlanet', compact('message'));
-                }
-            }
-        }
-        $save=\App\Myclasses\dbSaver::save($checkResult);
-        if ($save) {
-            $aId=$save->addressId;
-            return view('interface.added', compact('aId'));
-        }
-        else {
-            $message="К сожалению произошел сбой в базе данных. Попробуйте внести данные позже!";
-            return view('errors.similarPlanet', compact('message'));
-        }
-    }
-
     public function moderation(Request $request)
     {
         $target=Moderation::find($request->input('target'));
         $systemData=unserialize($target->data);
-        $sType=Arrays::allStarsArray();
-        $sSize=Arrays::sizeTypeArray();
+
+        $dataArray=$systemData->getData();
+        $star=$systemData->getCenterObject();
+
+        $messageE=$systemData->getSmartCheckMessage();
+        $explanation=$messageE['full'];
+
         $pNames=Arrays::planetsForCabinet();
-        $systemInfo=new \App\Myclasses\starSystemInfo($systemData->addressId);
-        switch($target->type){
-            case 'danger':
-                $explanation="Отклонение от границ коридора: ".$systemData->moderInfo['differ']." а.е.";
-                break;
-            case 'warning':
-                $explanation="В окрестностях планеты всего ".$systemData->moderInfo['number']." планет из ".$systemData->moderInfo['total'].
-                    ". Что составляет ".$systemData->moderInfo['percent']."% от общего числа.";
-                break;
-        }
-        switch($systemData->data['star']) {
+
+        $systemInfo=new \App\Myclasses\Insides\Converter($dataArray['address']);
+
+        switch($star->star) {
             case 3:
                 $step=0.1;
                 $stepKey=2;
@@ -188,20 +135,10 @@ class AjaxController extends Controller {
                 $step=1;
                 $stepKey=5;
         }
-
-        if($systemData->data['size']!='') {
-            $theSize=$sSize[$systemData->data['size']];
-            $theClass=$systemData->data['class'];
-        }
-        else {
-            $theClass=$theSize='';
-            $systemData->data['class']=0;
-            $systemData->data['size']=0;
-        }
-
-        $fullName=$sType[$systemData->data['star']].$theClass." ".$theSize." Планета: ".
-            $pNames[$systemData->data['planet']]." ".$systemData->data['distance']." а.е. ".$systemData->data['mark'];
-        $chartData="star=".$systemData->data['star']."&class=".$systemData->data['class']."&size=".$systemData->data['size'];
+        $starName=Arrays::nameStar($star);
+        $fullName=$starName." Планета: ".
+            $pNames[$dataArray['planet']]." ".$dataArray['distance']." а.е. ".$dataArray['mark'];
+        $chartData="star=".$star->star."&class=".$star->class."&size=".$star->size;
         return view('administration.systemExtension', compact('target', 'systemInfo', 'explanation', 'fullName', 'chartData', 'step', 'stepKey'));
     }
 
@@ -233,16 +170,9 @@ class AjaxController extends Controller {
     public function cabinetInfo(Request $request)
     {
         $data=$request->except('_token');
-        $info=new \App\Myclasses\starSystemInfo($data['address'], $data['user']);
+        $info=new \App\Myclasses\Insides\ConverterForUser($data['address'], $data['user']);
         return view('cabinet.systemExtension', compact('info'));
 
-    }
-
-    public function statInfo(Request $request)
-    {
-        $addr=$request->input('id');
-        $address=new \App\Myclasses\starSystemInfo($addr);
-        return view('interface.systemStat', compact('address'));
     }
 
     public function showStats(Request $request)

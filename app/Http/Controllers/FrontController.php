@@ -4,23 +4,27 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Maintext;
+use App\Myclasses\Checks\checkPlanet;
 use App\Myclasses\Counter;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller {
 
-	public function index(){
+	public function index()
+    {
         $content=Maintext::find(1);
         $loginfo=\Session::pull('loginfo');
         if(!$loginfo) $loginfo=null;
         return view('templates.content', compact('content', 'loginfo'));
     }
 
-    public function database(){
+    public function database()
+    {
         return view('templates.database');
     }
 
-    public function adding(){
+    public function adding()
+    {
         $regions=\App\Region::all();
         $stars=\App\Myclasses\Arrays::allStarsArray();
         $sizes=\App\Myclasses\Arrays::sizeTypeArray();
@@ -28,9 +32,160 @@ class FrontController extends Controller {
         return view('templates.add', compact('regions', 'stars', 'sizes', 'planets'));
     }
 
-    public function staticPage($url){
+    public function staticPage($url)
+    {
         $content= Maintext::where('url', $url)->firstOrFail();
         return view('templates.content', compact('content'));
+    }
+
+    public function extradd(Request $request, $address=null)
+    {
+        $result=session('result');
+        $addrGet=$request->all();
+        if(isset($addrGet['address'])){
+            $searching = new \App\Myclasses\search\SearchEngine($addrGet);
+            $systemDs = $searching->getResult();
+            if ($systemDs) return view('templates.test', compact('systemDs', 'result'));
+            else {
+                $nothing=1;
+                return view ('templates.test', compact('nothing'));
+            }
+        }
+        if(isset($address)){
+            $systemDs[$address]=new \App\Myclasses\Insides\Converter($address);
+            return view('templates.test', compact('systemDs', 'result'));
+        }
+        $welcome=true;
+        return view ('templates.test', compact('welcome'));
+    }
+
+    public function giveAddressAdder(Request $request)
+    {
+        $regions=\App\Region::all();
+        $action=$request->input('go');
+        if($action==1){
+            return view('templates.addAddr', compact('regions'));
+        }
+
+    }
+
+    public function giveStarAdder(Request $request)
+    {
+        $stars=\App\Myclasses\Arrays::allStarsArray();
+        $sizes=\App\Myclasses\Arrays::sizeTypeArray();
+        $addrId=$request->input('id');
+        if($addrId > 0){
+            return view('templates.addStar', compact('stars', 'sizes', 'addrId'));
+        }
+
+    }
+
+    public function givePlanetAdder(Request $request)
+    {
+        $addrId=$request->input('addr_id');
+        $objId=$request->input('id');
+        $type=$request->input('type');
+        $planets=\App\Myclasses\Arrays::planetsForCabinet();
+        if($addrId>0 && $objId>0){
+            return view('templates.addPlanet', compact('planets', 'objId', 'type', 'addrId'));
+        }
+
+    }
+
+    public function giveBaryAdder(Request $request)
+    {
+        $addrId=$request->input('id');
+        $stars=\App\Myclasses\Arrays::allStarsArray();
+        $sizes=\App\Myclasses\Arrays::sizeTypeArray();
+        if($addrId>0){
+            $converter=new \App\Myclasses\Insides\Converter($addrId);
+            return view('templates.addBary', compact('stars', 'sizes', 'addrId', 'converter'));
+        }
+
+    }
+
+    /**
+     * @param Requests\addrRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * saves address from the form if it does not exist and redirects to page to add more object data
+     */
+    public function addAddr(Requests\addrRequest $request)
+    {
+        //getting data from the form
+        $data=$request->except('_token');
+
+        //running check
+        $check=new \App\Myclasses\Checks\checkAddr($data);
+
+        //if the address is known redirecting
+        if($check->result){
+            return redirect(route('searchadd', ['address'=>$check->result]));
+        }
+
+        //else saving and redirecting
+
+        $saver=new \App\Myclasses\Savers\addrSaver($check);
+        return redirect(route('searchadd', ['address'=>$saver->getAddrId()]))->with('result', $saver->getMessage());
+    }
+
+    public function addStar(Requests\starRequest $request)
+    {
+        //getting data
+        $data=$request->except('_token');
+
+        //checking
+        $check=new \App\Myclasses\Checks\checkStar($data);
+        if($check->result)
+        {
+            return redirect(route('searchadd', ['address'=>$check->getAddressId()]))->with('result', 'sameStar');
+        }
+        else
+        {
+            //saving
+            $saver=new \App\Myclasses\Savers\starSaver($check);
+            //also the success message is necessary
+            return redirect(route('searchadd', ['address'=>$saver->getAddrId()]))->with('result', $saver->getMessage());
+        }
+        //redirect back to the page with adding
+    }
+
+    public function addPlanet(Requests\planetRequest $request)
+    {
+        //getting data
+        $data=$request->except('_token');
+        //checking data
+        $check=new \App\Myclasses\Checks\checkPlanet($data);
+        if($check->result)
+        {
+            return redirect(route('searchadd', ['address'=>$check->getAddressId()]))->with('result', 'samePlanet');
+        }
+        else
+        {
+            $saver=\App\Myclasses\Checks\smartChecker::check($check);
+            return redirect(route('searchadd', ['address'=>$saver->getAddrId()]))->with('result', $saver->getMessage());
+            //also the success message is necessary
+        }
+
+        //do smth to check and save planet data if it is new to the database
+        //redirect back to the page with adding
+    }
+
+    public function addBary(Requests\baryRequest $request)
+    {
+        $data=$request->except('_token');
+        //checking
+        $check= new \App\Myclasses\Checks\checkMulti($data);
+        if($check->result)
+        {
+            return redirect(route('searchadd', ['address'=>$check->getAddressId()]))->with('result', 'sameBary');
+        }
+        else
+        {
+            $saver = new \App\Myclasses\Savers\multiSaver($check);
+            return redirect(route('searchadd', ['address'=>$saver->getAddrId()]));
+
+        }
+
     }
 
 }

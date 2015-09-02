@@ -3,6 +3,7 @@ background-color: black;
 color: #ff6b01;
 background-image: url(../media/back.png);
 background-repeat: no-repeat;
+background-attachment: fixed;
 }
 button {
 margin: 10px;
@@ -145,10 +146,8 @@ outline: none;
 font-family: 'Play';
 text-transform: uppercase;
 }
-#grad {
-background-image: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,1));
-position:relative;
-min-height: 1000px;
+.container {
+background-color: rgba(0,0,0,0.4);
 }
 .rank {
 font-family: Jura;

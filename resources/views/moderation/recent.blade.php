@@ -28,10 +28,10 @@
         <thead>
         <tbody>
         @foreach($address as $one)
-            <?php $content=new \App\Myclasses\starSystemInfo($one->id); ?>
+            <?php $content=new \App\Myclasses\Insides\Converter($one->id); ?>
             <tr>
                 <td>
-                    <h4>{{$content->fName}}</h4>
+                    <h4>{{$content->getSystemName()}}</h4>
                     <form method="post" action="{{route('changeData')}}" class="form-horizontal">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <input type="hidden" name="adrId" value="{{$one->id}}">
@@ -43,11 +43,13 @@
                     </form>
                 </td>
                 <td>
-                    @foreach($content->starsIn as $num=>$value)
-                        Звезда: {{$value}} <br>
+                    @foreach($content->getAllCenters() as $center)
+                        @foreach ($content->getOneCenter($center) as $centerObject)
+                            Звезда:{{$centerObject['name']}}<br>
+                        @endforeach
                         Планеты:<br>
-                        @foreach($content->planetsIn[$num] as $planet)
-                            {{$planet}} <br>
+                        @foreach($content->getCenterPlanets($center) as $planet)
+                            {{$planet['name']}} <br>
                         @endforeach
                     @endforeach
                 </td>

@@ -19,7 +19,11 @@
 
 Route::get('/', 'FrontController@index');
 Route::get('dbase', ['as'=>'database', 'uses'=>'FrontController@database']);
-Route::get('adding', ['as'=>'add', 'middleware'=>'cabinet', 'uses'=>'FrontController@adding']);
+Route::get('adding/{address?}', ['as'=>'searchadd', 'middleware'=>'cabinet', 'uses'=>'FrontController@extradd']);
+Route::post('addaddr', ['as'=>'addAddress', 'uses'=>'FrontController@addAddr']);
+Route::post('addstar', ['as'=>'addStar', 'uses'=>'FrontController@addStar']);
+Route::post('addplanet', ['as'=>'addPlanet', 'uses'=>'FrontController@addPlanet']);
+Route::post('addbarycenter', ['as'=>'addBary', 'uses'=>'FrontController@addBary']);
 
 Route::get('cabinet', ['as'=>'cabinet', 'uses'=>'CabinetController@index']);
 Route::get('cabinet/discoveries', ['as'=>'discovery', 'uses'=>'CabinetController@discovery']);
@@ -48,13 +52,15 @@ Route::get('moderation/deluser', ['as'=>'deleteUser', 'uses'=>'ModerationControl
 
 Route::post('ajaform', ['as'=>'AjaxFormer', 'uses'=>'AjaxController@chartForms']);
 Route::post('ajachart', ['as'=>'AjaxCharter', 'uses'=>'AjaxController@chartBuilder']);
-Route::post('ajaxadd', ['as'=>'AjaxAdder', 'uses'=>'AjaxController@baseAdder']);
 Route::post('ajamoder', ['as'=>'AjaxModeration', 'uses'=>'AjaxController@moderation']);
 Route::post('ajamoder/charts', ['as'=>'AjaxModerationCharts', 'uses'=>'AjaxController@moderationCharts']);
 Route::post('ajacabin', 'AjaxController@cabinetInfo');
-Route::post('ajaxstat', 'AjaxController@statInfo');
 Route::post('ajaxdbstat', 'AjaxController@showStats');
 Route::post('ajaxsearch', 'AjaxController@adminSearch');
+Route::get('getaddr', 'FrontController@giveAddressAdder');
+Route::get('getstar', 'FrontController@giveStarAdder');
+Route::get('getplanet', 'FrontController@givePlanetAdder');
+Route::get('getbary', 'FrontController@giveBaryAdder');
 
 Route::post('senmail', ['as'=>'sender', 'uses'=>'CabinetController@sender']);
 Route::post('sendmail', ['as'=>'senderAdmin', 'uses'=>'AdministrationController@sender']);

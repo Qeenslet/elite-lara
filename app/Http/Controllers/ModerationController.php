@@ -19,7 +19,7 @@ class ModerationController extends Controller {
         $latest=\App\Myclasses\Counter::todayStats();
         $locs=\App\Location::all();
         $locations=new \App\Myclasses\Mapper($locs);
-        $statData=new \App\Myclasses\charterModer();
+        $statData=new \App\Myclasses\charters\charterModer();
         return view('moderation.first', compact('users', 'latest', 'locations', 'statData'));
     }
     public function reader()
@@ -107,7 +107,8 @@ class ModerationController extends Controller {
 
     public function multistars()
     {
-        $addresses=\App\Address::all();
+        return redirect(route('texts'));
+        /*$addresses=\App\Address::all();
         $selected=[];
         foreach($addresses as $address){
             $num=$address->stars()->count();
@@ -130,7 +131,7 @@ class ModerationController extends Controller {
         $starNames=\App\Myclasses\Arrays::allStarsArray();
         $sizeNames=\App\Myclasses\Arrays::sizeTypeArray();
 
-        return view('moderation.multistars', compact('selected', 'starNames', 'sizeNames'));
+        return view('moderation.multistars', compact('selected', 'starNames', 'sizeNames'));*/
     }
 
     public function starpos(Request $request)
@@ -179,81 +180,46 @@ class ModerationController extends Controller {
         $address->name=$data['address'];
         $address->save();
 
-        $newData=\App\Myclasses\SystemInsider::rebuild($address->id);
+        $newData=new \App\Myclasses\Insides\Insider($address->id);
         $address->inside->data=serialize($newData);
         $address->inside->save();
         return back();
-        /*
-        $check=\App\Region::where('name', $data['region'])->first()
-            ->addresses()->where('name', $data['address'])->first();
-        if ($check){
-            $oldId=$check->id;
-            if($oldId!=$data['adrId']) {
-                \App\Myclasses\Uniter::unite($oldId, $data['adrId']);
-            }
-        }
-        else{
-            $reg=\App\Region::where('name', $data['region'])->first();
-            if(!$reg){
-              $reg= new \App\Region;
-                $reg->name=$data['region'];
-                $reg->save();
-            }
-            $regId=$reg->id;
-            $address=\App\Address::find($data['adrId']);
-            $address->region_id=$regId;
-            $address->name=$data['address'];
-            $address->save();
-
-            $newData=\App\Myclasses\SystemInsider::rebuild($address->id);
-            $address->inside->data=serialize($newData);
-            $address->inside->save();
-        }
-        return back();*/
-
     }
 
     public function unite()
     {
+        $array=['id'=>15];
+        $object='star';
+        $aa=new\App\Myclasses\Savers\Rewriter($object, $array);
+        dd($aa);
+
+        $addrs=\App\Address::all();
+        $fuckup=[];
+        foreach($addrs as $addr){
+            if (!$addr->inside()->first()){
+                $fuckup[]=$addr->region->name." ".$addr->name;
+            }
+        }
+        return $fuckup;
         $statData=new \App\Myclasses\charterModer();
         return view('moderation.test', compact('statData'));
-        /*$addresses=\App\Address::all();
+
+       /*$addresses=\App\Address::all();
         $count=0;
         $fails=0;
         foreach ($addresses as $address){
             $addressId=$address->id;
-            $regionId=$address->region->id;
-            $rawStars=$address->stars()->get();
-            $stars=[];
-            $planets=[];
-            foreach($rawStars as $one){
-                $star=$one->star;
-                $size=$one->size;
-                $class=$one->class;
-                $code=$one->code;
-                $user=$one->user_id;
-                $stars[$one->id]=new \App\Myclasses\StarInfo($code, $star, $size, $class, $user);
-                $planetsInside=[];
-                foreach($one->planets()->get() as $ppp){
-                    $planet=$ppp->planet;
-                    $distance=$ppp->distance;
-                    $mark=$ppp->mark;
-                    $userP=$ppp->user_id;
-                    $planetsInside[$ppp->id]=new \App\Myclasses\PlanetInfo($planet, $distance, $mark, $userP);
-                }
-                $planets[$one->id]=$planetsInside;
-            }
-            $data=new \App\Myclasses\SystemInsider($regionId, $addressId, $stars, $planets);
+            $data=new \App\Myclasses\Insides\Insider($address);
             $sData=serialize($data);
             $save=\App\Inside::create(['address_id'=>$addressId, 'data'=>$sData]);
             if($save) $count++;
             else $fails++;
         }
-        return view('moderation.unite', compact('count', 'fails'));
+        return view('moderation.unite', compact('count', 'fails'));*/
 
         $first=\Session::pull('first');
         $second=\Session::pull('second');
-        return view('moderation.unite', compact('first', 'second'));*/
+        return view('moderation.unite', compact('first', 'second'));
     }
 
     public function deleteUser(Request $request)

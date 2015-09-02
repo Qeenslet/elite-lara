@@ -122,12 +122,14 @@ class Counter {
         $statistics=\App\Statcache::whereBetween('created_at', [$today, $now])->first();
         if(!$statistics) {
             $planets=Planet::all()->count();
+            $bPlanets=\App\Bariplanet::all()->count();
             $regions = \App\Region::all()->count();
             $addresses=\App\Address::all()->count();
             $tf=Planet::where('planet', '<', 4)->count();
-            $statistics=\App\Statcache::create(['planets'=>$planets,
+            $bTf=\App\Bariplanet::where('planet', '<', 4)->count();
+            $statistics=\App\Statcache::create(['planets'=>$planets+$bPlanets,
                 'regions'=>$regions,
-                'tf'=>$tf,
+                'tf'=>$tf+$bTf,
                 'addresses'=>$addresses,
                 'latest_stars'=>0,
                 'latest_planets'=>0,

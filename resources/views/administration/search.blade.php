@@ -13,7 +13,7 @@
                    class="form_add_1 largeSelect"
                    id="region_add"
                    name="address"
-                   value="@if(isset($searchData)){{$searchData['address']}}@endif">
+                   value="@if(isset($searchData['address'])){{$searchData['address']}}@endif">
         </div>
         <button type="submit" class="btn btn-warning">Поиск по адресу</button>
     </form>
@@ -65,14 +65,15 @@
                    class="form_add_1 largeSelect"
                    id="user"
                    name="user"
-                   value="@if(isset($searchStats['user'])){{$searchStats['user']}}@endif">
+                   value="@if(isset($searchData['user'])){{$searchData['user']}}@endif">
             <button type="submit" class="btn btn-warning">Поиск по пользователю</button>
         </div>
     </form>
     <hr>
     <form class="form-inline" method="get" action="{{route('search')}}">
         <div class="form-group">
-            <select id="rare_star_select" name="rare_star" value="@if(isset($searchStats['rare_star'])){{$searchStats['rare_star']}}@endif">>
+            <select id="rare_star_select" name="rare_star" value="@if(isset($searchData['rare_star'])){{$searchData['rare_star']}}@endif">
+                @if(isset($searchData['rare_star']))<option value="{{$searchData['rare_star']}}">{{$arr[$searchData['rare_star']]}}</option>@endif
                 @foreach (\App\Myclasses\Arrays::stopList() as $one)
                     <option value="{{$one}}">{{$arr[$one]}}</option>
                 @endforeach
@@ -91,26 +92,39 @@
                <a href="javascript:showMore({{$iterTotal}})" class="btn btn-primary" id="btn{{$iterTotal}}"
                @if($iterTotal>11)
                    style="display:none"
-               @endif>Еще {{count($systemDs)-$iterTotal}}</a>
+               @endif>Еще {{count($systemDs)+1-$iterTotal}}</a>
                 <article id="ammount{{$iterTotal}}" style="display:none">
             @endif
-        <h3><a href="javascript:rolldown('{{$systemD->address}}')">{{$systemD->fName}}</a></h3>
-        <div id="addr_{{$systemD->address}}" style="display:none;">
-        <div class="row" style="margin: 10px;">
-            @foreach($systemD->starsIn as $id=>$star)
-                <div class="col-md-{{12/count($systemD->starsIn)}}">
-                    <div class="panel-cabinet pointed" data="_token={{csrf_token()}}&type=star&id={{$id}}">
-                    <img src="/media/stars/{{$systemD->starImages[$id]}}"> {{$star}}
-                    </div>
-                    @foreach($systemD->planetsIn[$id] as $pId=>$pDesc)
-                        <div class="panel-cabinet pointed" data="_token={{csrf_token()}}&type=planet&id={{$pId}}">
-                            <img src="/media/planets/{{$systemD->planetImages[$pId]}}"> {{$pDesc}}<br>
-                        </div>
-                    @endforeach
-                </div>
+        <h3><a href="javascript:rolldown('{{$systemD->getAddrId()}}')">{{$systemD->getSystemName()}}</a></h3>
+        <div id="addr_{{$systemD->getAddrId()}}" style="display:none;">
+        <div class="row panel-cabinet" style="margin: 10px;">
+            @if(!$systemD->getAllCenters())
+                <h4>Система пуста!</h4>
+            @else
+            <table style="width: 100%">
+            @foreach($systemD->getAllCenters() as $center)
+                 <tr>
+                        <td style="width: 40%">
+                        @foreach ($systemD->getOneCenter($center) as $centerObject)
+                            <div class="panel-cabinet pointed" data="_token={{csrf_token()}}&type={{$centerObject['type']}}&id={{$centerObject['id']}}">
+                                <img src="/media/stars/{{$centerObject['image']}}"> {{$centerObject['name']}}
+                            </div>
+                        @endforeach
+                       </td>
+                       <td style="width: 60%">
+                         @foreach($systemD->getCenterPlanets($center) as $id=>$planet)
+                               <div class="panel-cabinet pointed" data="_token={{csrf_token()}}&type={{$planet['type']}}&id={{$id}}">
+                                   <img src="/media/planets/{{$planet['image']}}"> {{$planet['name']}}<br>
+                               </div>
+                         @endforeach
+                       </td>
+
+
             @endforeach
+            </table>
+            @endif
         </div>
-        <button class="btn btn-danger" onclick="someAction('{{route('delete', ['target'=>$systemD->address])}}', 'Удалить?')">Удалить</button>
+        <button class="btn btn-danger" onclick="someAction('{{route('delete', ['target'=>$systemD->getAddrId()])}}', 'Удалить?')">Удалить</button>
         </div>
             @if($iterLocal==10)
                  </article>
@@ -122,7 +136,7 @@
     @endif
     @if(isset($nothing))
         <script>
-            alert('{{$nothing}}}')
+            alert('{{$nothing}}')
         </script>
     @endif
     @if(isset($selRep))

@@ -1,6 +1,6 @@
 @extends('elite')
 @section('title')
-    База данных|@parent
+    Графики|@parent
 @stop
 @section('content')
 <script>
@@ -9,7 +9,7 @@
     basenav[1]='Функциональные графики';
     basenav[2]='Круговые диаграммы';
     basenav[3]='Точечный график';
-    basenav[0]='Работа с базой';
+    basenav[0]='Общие данные';
     basenav['func']='ajax';
     var toplimit=3;
     var lowlimit=0;
@@ -17,7 +17,7 @@
 <div id="navigation_bar" data="{{csrf_token()}}">
     <div id="button_left"><a href="#"></a></div>
     <div id="button_right"><a href="#"></a></div>
-    <h3 id="db_head">Работа с базой данных</h3>
+    <h3 id="db_head">Общие данные</h3>
 </div>
 <p class="white">Этот раздел выводит различные типы графиков по обнаруженным планетам и звездам. Для перехода к другому типу графика нажимайте горизонтальные  стрелки влево-вправо на навигационной панели сверху. </p>
 <hr>

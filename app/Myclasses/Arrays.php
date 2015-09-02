@@ -9,6 +9,8 @@
 namespace App\Myclasses;
 
 
+use App\Moderation;
+
 class Arrays {
     public static function allStarsArray() {
         return array('A', 'F', 'G', 'K', 'M', 'B', 'AeBe', 'CN', 'D', 'MS', 'L', 'T', 'TTS', 'Y', 'W', 'N', 'BH', 'O', 'S');
@@ -72,4 +74,38 @@ class Arrays {
     public static function moderRouts(){
         return ['moderation'=>'Главная', 'recent'=>'Особые регионы', 'reader'=>'Пакетный ввод', 'roles'=>'Доступ пользователей', 'texts'=>'Тексты на сайт', 'multi'=>'Многозвездные системы'];
     }
+    public static function moreInfoLetter(Moderation $aim)
+    {
+        $signature=\Auth::user()->name;
+        $letter['reciever']=$aim->user_id;
+        $name=\App\User::find($aim->user_id)->name;
+        $letter['header']="Запрос на дополнительные данные по системе $aim->address";
+        $letter['body']="Добрый день, CMDR $name! К сожалению, нам недостаточно данных для одобрения добавленной вами планеты в системе $aim->address.
+            Пришлите, если это возможно, скриншот карты системы. Для его включения в письмо можете воспользоваться любым сервисом хранения загруженных фотографий.
+            С уважением, администратор $signature.";
+        return $letter;
+    }
+    public static function moderationLetter($addr, $decision, $reciever)
+    {
+        $signature=\Auth::user()->name;
+        $letter['reciever']=$reciever;
+        $letter['header']="Решение по системе $addr";
+        $letter['body']="Добрый день! В результате модерации объекта в системе $addr, $decision. С уважением, администратор $signature.";
+        return $letter;
+
+    }
+
+    public static function nameStar(\App\Star $star)
+    {
+        $starName=self::allStarsArray();
+        $sizeName=self::sizeTypeArray();
+
+        if($star->star == 15 || $star->star==16) {
+            return $starName[$star->star];
+        }
+        else {
+            return $starName[$star->star].$star->class." ".$sizeName[$star->size];
+        }
+    }
+
 }

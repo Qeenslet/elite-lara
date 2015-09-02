@@ -41,7 +41,9 @@ class CabinetController extends Controller {
     }
 
     public function sender(Requests\LetterFilter $request){
+        //recieving letter details from the form
         $mess=$request->except('_token');
+        //filtering
         $filteredMess=array_map(function($a){
             $a=str_replace(['<script>', 'javascript'],['<scrept>', 'jаvаscript'], $a);
             return $a;
@@ -53,9 +55,10 @@ class CabinetController extends Controller {
             $pilot=\App\User::where('name', $filteredMess['reciever'])->first();
             $filteredMess['reciever']=$pilot->id;
         }
-
-        $letter=new \App\Letter($filteredMess);
-        Auth::user()->hasSent()->save($letter);
+        //sending letter
+        $myLetter=new \App\Myclasses\localLetters\userMail($filteredMess);
+        $myLetter->send();
+        //redirecting
         return redirect('/cabinet/mail');
 
     }

@@ -47,8 +47,7 @@
         @show
         </div>
         <div class="row-eq-height">
-            <div id="grad">
-                <div class="col-md-4">
+            <div class="col-md-4">
                     @section('left-column')
                     @if(Auth::check())
                     <div class="left-top">
@@ -64,7 +63,6 @@
                 </div>
                 <div class="col-md-8">
                     @yield('content')
-                </div>
             </div>
         </div>
         <div id="footer">
@@ -77,7 +75,6 @@
         <script type="text/javascript" src="/js/dbStatUpdater.js"></script>
         <script type="text/javascript" src="/js/cabinet.js"></script>
         <script type="text/javascript" src="/js/jquery.wysibb.min.js"></script>
-        <script type="text/javascript" src="/js/statUpdater.js"></script>
         <script>
             firstStat=1;
             if(firstStat==1) {

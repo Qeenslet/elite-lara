@@ -16,6 +16,10 @@ class Address extends Model {
     {
         return $this->hasMany('App\Star');
     }
+    public function centers()
+    {
+        return $this->hasMany('App\Baricenter');
+    }
 
     public function discoveries(){
         return $this->hasMany('\App\Finding');

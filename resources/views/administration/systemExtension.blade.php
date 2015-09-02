@@ -14,11 +14,13 @@
 <div class="row">
     <div class="col-md-4">
 <h3>Ранее было обнаружено:</h3>
-@foreach($systemInfo->starsIn as $key=>$value)
-    Звезда: {{$value}} <br>
+@foreach($systemInfo->getAllCenters() as $center)
+    @foreach ($systemInfo->getOneCenter($center) as $centerObject)
+        Звезда:{{$centerObject['name']}}<br>
+    @endforeach
     Планеты:<br>
-    @foreach($systemInfo->planetsIn[$key] as $planet)
-        {{$planet}} <br>
+    @foreach($systemInfo->getCenterPlanets($center) as $planet)
+        {{$planet['name']}} <br>
     @endforeach
 @endforeach
     </div>
