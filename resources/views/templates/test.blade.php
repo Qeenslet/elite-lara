@@ -1,6 +1,6 @@
 @extends('elite')
 @section('title')
-    Работа с базой данных|@parent
+    Work with database|@parent
 @stop
 @section('content')
     @if (count($errors) > 0)
@@ -27,31 +27,31 @@
             @include('responses.sameBary')
         @endif
     @endif
-    <h2 class="inside_headers_white">Работа с базой данных</h2>
+    <h2 class="inside_headers_white">Work with database</h2>
     @if(isset($welcome))
     <div class="panel-cabinet" id="localAbout">
         <div style="margin: 5px; width:100%; height: 10%; position: relative; top:1px;"><a href="javascript:closeInfo();" class="info-close-btn"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></div>
         <br>
-        <p>Привет, <span class="white">{{Auth::user()->name}}</span>! Добро пожаловать на страницу работы с нашей базой данных!</p>
-        <p>Можно искать информацию о системах, которые уже есть в базе, а можно дополнить информацию об этих системах или внести данные о совершенно новых звездах и планетах</p>
-        <p>Сначала нужно добавить адрес системы, для этого нужно ввести имя региона и код в регионе. Каталожные звезды типа HIP, HD, HR заносятся по той же схеме, что и обычные. Имя каталога вносится в поле <span class="white">регион</span>, цифровой код в в поле <span class="white">код</span>.</p>
-        <p>Для добавления звезд, имеющих собственное имя, необходимо нажать соответствующую кнопку и внести данные о названии звезды.</p>
+        <p>Hi, <span class="white">{{Auth::user()->name}}</span>! Welcome to the core page of our database</p>
+        <p>Here you can search data about the current systems or you can add data about the stars and planets you've discovered during your journeys.</p>
+        <p>First you are to add the system's name, you should input the region's name and the code in this region of the star system. The systems from the catalogs like HIP, HD, HR are entered according to the same scheme. The catalog name is <span class="white">the region name</span>, digital code or number in the field <span class="white">code</span>.</p>
+        <p>To add the star's that has there own personal name which is not the catalog code but something like constellation plus number or other type of name press the button 'named star' to enter it.</p>
     </div>
     @endif
     <hr>
     <form method="get" action="{{route('searchadd')}}" class="form-inline">
 
         <div class="form-group">
-            <label for="region">Адрес:</label>
+            <label for="region">System name:</label>
             <input type="text"
                    class="form_add_1 largeSelect"
                    id="region"
                    name="address">
         </div>
-        <button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-search"></span> Поиск в базе</button>
+        <button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-search"></span> Search</button>
     </form>
     <hr>
-        <button class="btn btn-success" id="addNew"><span class="glyphicon glyphicon-plus"></span> Новый адрес</button>
+        <button class="btn btn-success" id="addNew"><span class="glyphicon glyphicon-plus"></span> New system</button>
     @if(isset($systemDs))
         @foreach($systemDs as $systemD)
             <h3>{{$systemD->getSystemName()}}</h3>
@@ -78,15 +78,15 @@
                             <td>
                                 <button class="btn btn-warning addNewPlanet" data="addr_id={{$systemD->getAddrId()}}&id={{$systemD->getCenterId($center)}}&type={{$systemD->getType($center)}}">
                                     <span class="glyphicon glyphicon-plus"></span>
-                                    Новая планета</button>
+                                    New planet</button>
                             </td>
                         </tr>
                     @endforeach
                 </table>
             @endif
-            <button class="btn btn-danger" id="addNewStar" data="id={{$systemD->getAddrId()}}"><span class="glyphicon glyphicon-plus"></span> Новая звезда</button>
+            <button class="btn btn-danger" id="addNewStar" data="id={{$systemD->getAddrId()}}"><span class="glyphicon glyphicon-plus"></span> New star</button>
             @if(count($systemD->getAllCenters())>1)
-                <button class="btn btn-primary" id="addBarycenter" data="id={{$systemD->getAddrId()}}"><span class="glyphicon glyphicon-plus"></span> Новый барицентр</button>
+                <button class="btn btn-primary" id="addBarycenter" data="id={{$systemD->getAddrId()}}"><span class="glyphicon glyphicon-plus"></span> New barycenter</button>
             @endif
         @endforeach
     @endif
@@ -100,7 +100,7 @@
             $('#form-error').fadeOut(1000);
         },5000);
         @if(isset($nothing))
-            alert('Ничего не было найдено');
+            alert('Nothing has been found!');
         @endif
 
         function closeInfo()

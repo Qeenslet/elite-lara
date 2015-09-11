@@ -1,9 +1,9 @@
 @extends('elite')
 @section('title')
-    Кабинет|@parent
+    Cabinet|@parent
 @stop
 @section('content')
-    <h2>Личный кабинет</h2>
+    <h2>Personal page</h2>
     <div class="cabmenu">
         <?php $cabRouts=\App\Myclasses\Arrays::cabinetRouts();
               $curRoute = \Route::currentRouteName();

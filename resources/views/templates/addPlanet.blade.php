@@ -3,9 +3,9 @@
     <input type="hidden" name="address" value="{{$addrId}}">
     <input type="hidden" name="object" value="{{$type}}">
     <input type="hidden" name="objectId" value="{{$objId}}">
-    <h3>Данные по планете</h3>
+    <h3>Planet data</h3>
     <div class="form-group">
-        <label for="planet_sel">Тип планеты:</label>
+        <label for="planet_sel">Planet type:</label>
         <select id="planet_sel" name="planet">
             @foreach ($planets as $num => $one)
                 <option value="{{$num}}">{{$one}}</option>
@@ -13,26 +13,26 @@
         </select>
     </div>
     <div class="form-group">
-        <label for="unit_sel">Расстояние:</label>
+        <label for="unit_sel">Distance:</label>
         <select id="unit_sel" name="units">
-            <option value="1">а.е.</option>
-            <option value="500">св. сек.</option>
+            <option value="1">AU</option>
+            <option value="500">LS</option>
         </select>
     </div>
     <div class="form-group">
         <input type="text" id="distance_sel" name="distance">
     </div>
     <div class="form-group">
-        <label for="position_sel">Орбита:</label>
+        <label for="position_sel">Orbit</label>
         <select name="mark">
-            <option value="sin">одиночная</option>
-            <option value="bin">в паре</option>
-            <option value="tri">тройная</option>
-            <option value="sat">спутник</option>
-            <option value="qua">4-е и более</option>
+            <option value="sin">single</option>
+            <option value="bin">binary</option>
+            <option value="tri">triple</option>
+            <option value="sat">sattelite</option>
+            <option value="qua">quadruple</option>
 
         </select>
     </div>
 
-    <button type="submit" class="btn btn-warning" id="change_b_planet">Добавить планету</button>
+    <button type="submit" class="btn btn-warning" id="change_b_planet">Add planet</button>
 </form>

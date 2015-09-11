@@ -1,26 +1,26 @@
 @extends('administration.index')
 @section('title')
-    Поиск систем|@parent
+    Search|@parent
 @stop
 @section('locale')
-    <h2>Поиск данных по системе</h2>
+    <h2>Search system's data</h2>
     <hr>
     <form method="get" action="{{route('search')}}" class="form-inline">
 
         <div class="form-group">
-            <label for="region">Адрес:</label>
+            <label for="region">Address:</label>
             <input type="text"
                    class="form_add_1 largeSelect"
                    id="region_add"
                    name="address"
                    value="@if(isset($searchData['address'])){{$searchData['address']}}@endif">
         </div>
-        <button type="submit" class="btn btn-warning">Поиск по адресу</button>
+        <button type="submit" class="btn btn-warning">Search by the address</button>
     </form>
     <hr>
     <form class="form-inline" method="get" action="{{route('search')}}">
         <div class="form-group">
-            <label for="star_select">Тип звезды</label>
+            <label for="star_select">Star type</label>
             <select id="star_select" name="star">
                 @foreach ($arr=\App\Myclasses\Arrays::allStarsArray() as $num => $one)
                     <option value="{{$num}}">{{$one}}</option>
@@ -28,7 +28,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="class_select">Температура</label>
+            <label for="class_select">Class</label>
             <select id="class_select" name="class">
                 @for($i=0; $i<10; $i++)
                     <option value="{{$i}}">{{$i}}</option>
@@ -36,7 +36,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="size_select">Размер</label>
+            <label for="size_select">Size</label>
             <select id="size_select" name="size">
                 @foreach(\App\Myclasses\Arrays::sizeTypeArray() as $key=>$value)
                     <option value="{{$key}}">{{$value}}</option>
@@ -44,7 +44,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="planet_select">Планета</label>
+            <label for="planet_select">Planet</label>
             <select id="planet_select" name="planet">
                 @foreach(\App\Myclasses\Arrays::planetsForCabinet() as $key=>$value)
                     <option value="{{$key}}">{{$value}}</option>
@@ -52,21 +52,21 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="distance_sel">Расстояние:</label>
+            <label for="distance_sel">Distance:</label>
             <input type="text" id="distance_sel" name="distance">
         </div>
-        <button type="submit" class="btn btn-warning">Поиск по параметрам</button>
+        <button type="submit" class="btn btn-warning">Search by parameters</button>
     </form>
     <hr>
     <form class="form-inline" method="get" action="{{route('search')}}">
         <div class="form-group">
-            <label for="user">Пользователь</label>
+            <label for="user">User</label>
             <input type="text"
                    class="form_add_1 largeSelect"
                    id="user"
                    name="user"
                    value="@if(isset($searchData['user'])){{$searchData['user']}}@endif">
-            <button type="submit" class="btn btn-warning">Поиск по пользователю</button>
+            <button type="submit" class="btn btn-warning">Search by username</button>
         </div>
     </form>
     <hr>
@@ -78,7 +78,7 @@
                     <option value="{{$one}}">{{$arr[$one]}}</option>
                 @endforeach
             </select>
-            <button type="submit" class="btn btn-warning">Поиск по редким типам</button>
+            <button type="submit" class="btn btn-warning">Search by rare types</button>
         </div>
     </form>
     <hr>
@@ -99,7 +99,7 @@
         <div id="addr_{{$systemD->getAddrId()}}" style="display:none;">
         <div class="row panel-cabinet" style="margin: 10px;">
             @if(!$systemD->getAllCenters())
-                <h4>Система пуста!</h4>
+                <h4>System is empty!</h4>
             @else
             <table style="width: 100%">
             @foreach($systemD->getAllCenters() as $center)
@@ -124,7 +124,7 @@
             </table>
             @endif
         </div>
-        <button class="btn btn-danger" onclick="someAction('{{route('delete', ['target'=>$systemD->getAddrId()])}}', 'Удалить?')">Удалить</button>
+        <button class="btn btn-danger" onclick="someAction('{{route('delete', ['target'=>$systemD->getAddrId()])}}', 'Are you sure you want to delete it?')">Delete</button>
         </div>
             @if($iterLocal==10)
                  </article>

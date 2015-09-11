@@ -8,7 +8,7 @@
                 enabled: false
             },
             title: {
-                text: 'Статистика по звезде {{$chart->starHeader}} {{$chart->tempHeader}} {{$chart->sizeHeader}}. Планеты: {{$chart->inHeader}}'
+                text: 'Statistics about the star {{$chart->starHeader}} {{$chart->tempHeader}} {{$chart->sizeHeader}}. Planets: {{$chart->inHeader}}'
             },
             xAxis: {
                 labels: {
@@ -24,7 +24,7 @@
             },
             tooltip: {
                 headerFormat: '<b>{series.name}</b><br/>',
-                pointFormat: '{point.x} а.е.: {point.y} шт.'
+                pointFormat: '{point.x} AU: {point.y} pieces.'
             },
             plotOptions: {
                 line: {
@@ -35,7 +35,7 @@
                 }
             },
             series: [{
-                name: 'количество: {{$chart->inHeader}}',
+                name: 'amount: {{$chart->inHeader}}',
                 color: '{{$colors[$chart->inHeader]}}',
                 data: [
                     @foreach ($chart->result as $key=>$value)

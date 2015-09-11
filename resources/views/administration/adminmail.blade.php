@@ -6,9 +6,9 @@
     <script>
         var navegator=first=7;
         basenav={};
-        basenav[7]='Входящие';
-        basenav[8]='Исходящие';
-        basenav[9]='Новое письмо';
+        basenav[7]='Inbox';
+        basenav[8]='Sent';
+        basenav[9]='New letter';
         basenav['func']='ajax';
         var toplimit=9;
         var lowlimit=7;
@@ -16,7 +16,7 @@
     <div id="navigation_bar" data="{{csrf_token()}}">
         <div id="button_left"><a href="#"></a></div>
         <div id="button_right"><a href="#"></a></div>
-        <h3 id="db_head">Входящие</h3>
+        <h3 id="db_head">Inbox</h3>
     </div>
     <div id="2nd_selection">
 
@@ -45,7 +45,7 @@
                     $('#2nd_selection').append(html);
                 },
                 error: function (xhr, str) {
-                    alert('Возникла ошибка');
+                    alert('An error has occurred. Please contact the webmaster');
                 }
             });
         }

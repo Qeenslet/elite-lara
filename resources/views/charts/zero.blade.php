@@ -14,7 +14,7 @@
                     enabled: false
                 },
                 title: {
-                    text: 'Статистика по планетам в базе'
+                    text: 'All planets in the database'
                 },
                 tooltip: {
                     pointFormat: '<b>{point.percentage:.1f}%</b>'
@@ -35,7 +35,7 @@
                 },
                 series: [{
                     type: 'pie',
-                    name: 'Статисика планет',
+                    name: 'Planets statistics',
                     data: [
                             @foreach($charter->result as $key=>$value)
                         {name: '{{$key}}',

@@ -8,16 +8,27 @@ use Golonka\BBCode\BBCodeParser;
 
 class AdministrationController extends Controller {
 
+    protected $localeDir;
+
     public function __construct()
     {
         $this->middleware('admin');
+
+        switch(\App::getLocale())
+        {
+            case 'ru':
+                $this->localeDir = 'ru.';
+                break;
+            default:
+                $this->localeDir = '';
+        }
     }
 
     public function index()
     {
         $forModeration=\App\Moderation::all();
         $status=\App\Myclasses\Arrays::moderationMarks();
-        return view('administration.moderation', compact('forModeration', 'status'));
+        return view($this->localeDir.'administration.moderation', compact('forModeration', 'status'));
     }
 
     public function delprove(Request $request)
@@ -28,21 +39,21 @@ class AdministrationController extends Controller {
                 $aim=\App\Moderation::find($todo['target']);
                 $reciever=$aim->user_id;
                 $addr=$aim->address;
-                $decision='внесенные вами данные не были одобрены администратором';
+                $decision=\App\Myclasses\Response::moderationResultMessage('no', $reciever);
                 $aim->delete();
                 break;
             case 'approve':
                 $aim=\App\Moderation::find($todo['target']);
                 $reciever=$aim->user_id;
                 $addr=$aim->address;
-                $decision='внесенные вами данные были одобрены и добавлены в базу';
+                $decision=\App\Myclasses\Response::moderationResultMessage('yes', $reciever);
                 $data=unserialize($aim->data);
                 $save=new \App\Myclasses\Savers\planetSaver($data);
                 if ($save->getMessage()=='ok')
                     $aim->delete();
                 break;
         }
-        $letter=\App\Myclasses\Arrays::moderationLetter($addr, $decision, $reciever);
+        $letter=\App\Myclasses\Response::moderationLetter($addr, $decision, $reciever);
         $myMessage=new \App\Myclasses\localLetters\adminMail($letter);
         $myMessage->send();
         return redirect('/administration');
@@ -53,7 +64,7 @@ class AdministrationController extends Controller {
         $data=$request->all();
         $signature=\Auth::user()->name;
         $aim=\App\Moderation::find($data['target']);
-        $letter=\App\Myclasses\Arrays::moreInfoLetter($aim);
+        $letter=\App\Myclasses\Response::moreInfoLetter($aim);
         $myMessage=new \App\Myclasses\localLetters\adminMail($letter);
         $myMessage->send();
         $aim->request='sent';
@@ -70,17 +81,17 @@ class AdministrationController extends Controller {
                 if ($letter->reciever == 1) {
                     $letter->status='read';
                     $letter->save();
-                    return view('administration.singleLetter', compact('letter'));
+                    return view($this->localeDir.'administration.singleLetter', compact('letter'));
                 }
                 elseif ($letter->sender == 1) {
-                    return view('administration.singleLetter', compact('letter'));
+                    return view($this->localeDir.'administration.singleLetter', compact('letter'));
                 }
                 return redirect('/administration/mail');
             }
             else return redirect('/administration/mail');
         }
         else {
-            return view('administration.adminmail');
+            return view($this->localeDir.'administration.adminmail');
         }
     }
 
@@ -133,25 +144,25 @@ class AdministrationController extends Controller {
         $selRep=session('result');
         $searchData=$request->all();
         $regions=\App\Region::all();
-        $nothing = 'nothing has been found';
+        $nothing = \App\Myclasses\Response::requestResult('nothing');
         if($searchData) {
             $searching = new \App\Myclasses\search\SearchEngine($searchData);
             $systemDs = $searching->getResult();
             if ($systemDs) {
-                return view('administration.search', compact('regions', 'systemDs', 'searchData', 'selRep'));
+                return view($this->localeDir.'administration.search', compact('regions', 'systemDs', 'searchData', 'selRep'));
             } else {
-                return view('administration.search', compact('regions', 'nothing', 'searchData'));
+                return view($this->localeDir.'administration.search', compact('regions', 'nothing', 'searchData'));
             }
         }
-        return view('administration.search', compact('regions', 'selRep'));
+        return view($this->localeDir.'administration.search', compact('regions', 'selRep'));
     }
 
     public function delete(Request $request)
     {
         $target=$request->only('target');
-        if(!\Auth::user()->isModerator()) return redirect(route('search'))->with('result', 'У вас нет прав на удаление объектов');
-        if(\App\Myclasses\Insides\Terminator::deleteAddress($target))return redirect(route('search'))->with('result', 'Система успешно удалена');
-        else return redirect(route('search'))->with('result', 'Возникла ошибка удаления');
+        if(!\Auth::user()->isModerator()) return redirect(route('search'))->with('result', \App\Myclasses\Response::requestResult('noright'));
+        if(\App\Myclasses\Insides\Terminator::deleteAddress($target))return redirect(route('search'))->with('result', \App\Myclasses\Response::requestResult('delok'));
+        else return redirect(route('search'))->with('result', \App\Myclasses\Response::requestResult('delfail'));
 
     }
     public function cambiar(Request $request)
@@ -166,7 +177,7 @@ class AdministrationController extends Controller {
             case 'delete':
                 if(!\Auth::user()->isModerator())
                 {
-                    return back()->with('result', 'У вас нет прав на удаление объектов');
+                    return back()->with('result', \App\Myclasses\Response::requestResult('noright'));
                 }
                 $result=new \App\Myclasses\Savers\Deleter($object, $data);
                 break;
@@ -174,10 +185,10 @@ class AdministrationController extends Controller {
         switch($result->getMessage())
         {
             case 'ok':
-                $response='Данные были изменены!';
+                $response=\App\Myclasses\Response::requestResult('changeok');
                 break;
             case 'fail':
-                $response='Произошел сбой при изменении';
+                $response=\App\Myclasses\Response::requestResult('changefail');
         }
 
         return back()->with('result', $response);

@@ -34,7 +34,8 @@ class UserTableSeeder extends Seeder {
             ['star'=>14, 'value'=>8,'modifier'=>1],
             ['star'=>15, 'value'=>5,'modifier'=>1],
             ['star'=>16, 'value'=>7,'modifier'=>1],
-            ['star'=>17, 'value'=>5,'modifier'=>1],]);
+            ['star'=>17, 'value'=>5,'modifier'=>1],
+            ['star'=>18, 'value'=>5,'modifier'=>1],]);
         DB::table('users')->insert(['name'=>'Elite Base',
                                     'email'=>'cspook@rambler.ru',
                                     'password'=>bcrypt('123456789'),
@@ -47,6 +48,8 @@ class UserTableSeeder extends Seeder {
         DB::table('role_user')->insert([['user_id'=>1, 'role_id'=>3],
                                         ['user_id'=>1, 'role_id'=>2],
                                         ['user_id'=>1, 'role_id'=>1],]);
+        DB::table('locales')->insert([['lang'=>'ru'],
+            ['lang'=>'en'],]);
 
     }
 }

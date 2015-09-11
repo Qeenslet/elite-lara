@@ -19,9 +19,22 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="nameen_{{$text->id}}" class="col-sm-2 control-label">Header</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nameen_{{$text->id}}" name="en_name" value="{{$text->en_name}}">
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label for="body_{{$text->id}}" class="col-sm-2 control-label">Содержание</label>
                 <div class="col-sm-10">
                     <textarea class="form-control" rows="10" id="body_{{$text->id}}" name="body">{!!$text->body!!}</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="bodyen_{{$text->id}}" class="col-sm-2 control-label">Content</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" rows="10" id="bodyen_{{$text->id}}" name="en_body">{!!$text->en_body!!}</textarea>
                 </div>
             </div>
             <div class="form-group">

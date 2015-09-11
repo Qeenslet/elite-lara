@@ -17,7 +17,7 @@ class Charter {
     protected function __construct($type, $data=null){
        if(!$this->checkStamp($type, $data)){
 
-            switch($type){
+           switch($type){
                 case 1:
                     $charter=new charterOne($data);
                     break;
@@ -37,6 +37,7 @@ class Charter {
     }
     public static function draw($type, $data=null){
         $result=new self($type, $data);
+        $result->checkLocale();
         return $result->chart;
     }
 
@@ -67,7 +68,7 @@ class Charter {
         if($search){
             $created=new Carbon($search->created_at);
             $now=Carbon::now();
-            if($created->diffInMinutes($now)>60){
+            if($created->diffInMinutes($now)>180){
                 $search->delete();
                 return false;
             }
@@ -93,5 +94,11 @@ class Charter {
                 \App\Zerocache::create($data);
                 break;
         }
+    }
+
+    public function checkLocale()
+    {
+        $locale=\App::getLocale();
+        if ($this->chart->locale!=$locale) $this->chart->changeLocale($locale);
     }
 }

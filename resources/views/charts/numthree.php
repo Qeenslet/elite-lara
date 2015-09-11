@@ -14,7 +14,7 @@
             xAxis: {
                 title: {
                     enabled: true,
-                    text: 'Расстояние а.е.'
+                    text: 'Distance AU.'
                 },
                 startOnTick: true,
                 endOnTick: true,
@@ -22,7 +22,7 @@
             },
             yAxis: {
                 title: {
-                    text: 'Категории'
+                    text: 'Categories'
                 },
                 categories: [
                     <?php 
@@ -30,10 +30,10 @@
                     $cicle=1;
 
                     foreach ($chart->result as $key=>$value) {
-                                  echo "'$key; обнаружено (".$chart->total["$key"].")'";
+                                  echo "'$key; discovered (".$chart->total["$key"].")'";
                                   if($cicle!=$max_axis) echo ",";
                                   $cicle++;
-                    }?>,'Планеты:']
+                    }?>,'Planetsы:']
             },
 
             plotOptions: {
@@ -56,7 +56,7 @@
                     },
                     tooltip: {
                         headerFormat: '<b>{series.name}</b><br>',
-                        pointFormat: '{point.x} а.е.'
+                        pointFormat: '{point.x} AU'
                     }
                 }
             },
@@ -81,4 +81,3 @@
     });
 </script>
 <div id='chartdiv'></div>
-<p>Любую зону на графике можно увеличить выделив область и удерживая при этом нажатой левую клавишу мыши.</p>

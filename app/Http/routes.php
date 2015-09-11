@@ -18,8 +18,10 @@
 			'age'=>'[0-9]+']);*/
 
 Route::get('/', 'FrontController@index');
-Route::get('dbase', ['as'=>'database', 'uses'=>'FrontController@database']);
+Route::get('charts', ['as'=>'database', 'uses'=>'FrontController@database']);
 Route::get('adding/{address?}', ['as'=>'searchadd', 'middleware'=>'cabinet', 'uses'=>'FrontController@extradd']);
+Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
+
 Route::post('addaddr', ['as'=>'addAddress', 'uses'=>'FrontController@addAddr']);
 Route::post('addstar', ['as'=>'addStar', 'uses'=>'FrontController@addStar']);
 Route::post('addplanet', ['as'=>'addPlanet', 'uses'=>'FrontController@addPlanet']);

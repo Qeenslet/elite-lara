@@ -11,10 +11,10 @@
 <hr>
 <div id="answerButton">
     @if($letter->sender!=Auth::user()->id)
-        <button type="submit" class="btn btn-success" onclick="answer();">Ответить</button>
+        <button type="submit" class="btn btn-success" onclick="answer();">Respond</button>
     @endif
-    <button type="submit" class="btn btn-warning" onclick="window.history.back();">Назад</button>
-        <button type="button" class="btn btn-danger" onclick="someAction('{{route('cabMailDel', ['id'=>$letter->id])}}', 'Удалить?')">Удалить</button>
+    <button type="submit" class="btn btn-warning" onclick="window.history.back();">Back</button>
+        <button type="button" class="btn btn-danger" onclick="someAction('{{route('cabMailDel', ['id'=>$letter->id])}}', 'Delete it?')">Delete</button>
 </div>
 <div id="placeForAnswer" style="display: none;">
     <form class="form-horizontal" method="post" action="{{route('sender')}}">
@@ -28,7 +28,7 @@
         <div>
             <textarea id="editor" name="body"></textarea>
         </div>
-        <button type="submit" class="btn btn-warning">Отправить</button>
+        <button type="submit" class="btn btn-warning">Send</button>
     </form>
 </div>
 </div>

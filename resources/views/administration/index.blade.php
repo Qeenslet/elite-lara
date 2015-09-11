@@ -1,9 +1,9 @@
 @extends('elite')
 @section('title')
-    Панель администрирования|@parent
+    Control panel|@parent
 @stop
 @section('content')
-    <h2>Панель администрирования</h2>
+    <h2>Control panel</h2>
     <div class="cabmenu">
         <?php $admRouts=\App\Myclasses\Arrays::adminRouts();
         $curRoute = \Route::currentRouteName();

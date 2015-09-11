@@ -1,4 +1,4 @@
 <div id="result-response" class="alert alert-warning">
-    <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span></strong> Данная планета уже была внесена в базу! Возможно вы указали неверное расстояние, а так же неверную метку.
-    На одной орбите может быть только одна одиночная планета, две двойные, три тройные и т.д.
+    <strong><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span></strong> This planet has already been added to the database! Probably you've entered incorrect distance or the orbit.
+    On the single orbit only one single planet is available, two binary, three triple and so on. Please, check your data!
 </div>

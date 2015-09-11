@@ -1,5 +1,5 @@
-<a href="/">главная</a>
-<a href="{{url('habitable_zone')}}">зона жизни</a>
-<a href="{{route('database')}}">графики</a>
+<a href="/">main</a>
+<a href="{{url('habitable_zone')}}">habitable zone</a>
+<a href="{{route('database')}}">charts</a>
 <a href="{{url('faq')}}">faq</a>
-<a href="{{url('contacts')}}">контакты</a>
+<a href="{{url('contacts')}}">contacts</a>

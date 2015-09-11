@@ -55,6 +55,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasMany('\App\Moderation');
     }
 
+    public function locales(){
+        return $this->belongsToMany('App\Locale');
+    }
+
     public function mayEnterCabinet(){
         $enter=\Auth::user()->roles()->where('id', 1)->first();
         if($enter) return true;
@@ -86,5 +90,18 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         $planets=$user->planets()->twentyFour()->count();
         if($stars+$planets==0) return false;
         else return ['stars'=>$stars, 'planets'=>$planets];
+    }
+
+    public function hasLocale($locale)
+    {
+        $localeId=\Auth::user()->locales()->where('lang', $locale)->first();
+        if($localeId) return true;
+        else return false;
+    }
+
+    public function addLocale($locale)
+    {
+        $localeId=\App\Locale::where('lang', $locale)->first()->id;
+        \Auth::user()->locales()->attach($localeId);
     }
 }

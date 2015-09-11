@@ -45,7 +45,7 @@ class checkMulti extends Checker{
                 else continue;
             }
         }
-        if ($match>1) $this->result=true;
+        if ($match==count($this->data['stars'])) $this->result=true;
         else $this->result=false;
     }
 

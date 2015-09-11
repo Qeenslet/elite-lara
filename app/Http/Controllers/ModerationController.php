@@ -8,9 +8,21 @@ use Illuminate\Http\Request;
 
 class ModerationController extends Controller {
 
+    protected $localeDir;
+
     public function __construct()
     {
         $this->middleware('moderator');
+
+        /*switch(\App::getLocale())
+        {
+            case 'ru':
+                $this->localeDir = 'ru.';
+                break;
+            default:
+                $this->localeDir = '';
+        }*/
+        $this->localeDir = '';
     }
 
     public function index()
@@ -20,11 +32,11 @@ class ModerationController extends Controller {
         $locs=\App\Location::all();
         $locations=new \App\Myclasses\Mapper($locs);
         $statData=new \App\Myclasses\charters\charterModer();
-        return view('moderation.first', compact('users', 'latest', 'locations', 'statData'));
+        return view($this->localeDir.'moderation.first', compact('users', 'latest', 'locations', 'statData'));
     }
     public function reader()
     {
-        return view('moderation.reader');
+        return view($this->localeDir.'moderation.reader');
     }
     public function reporter(Requests\FileRequest $request)
     {
@@ -63,13 +75,13 @@ class ModerationController extends Controller {
             $total++;
         }
         fclose($fp);
-        return view('moderation.report', compact('total', 'repModer', 'repFails', 'repSim', 'fails', 'oks'));
+        return view($this->localeDir.'moderation.report', compact('total', 'repModer', 'repFails', 'repSim', 'fails', 'oks'));
     }
 
     public function roles()
     {
         $users=\App\User::all();
-        return view('moderation.roles', compact('users'));
+        return view($this->localeDir.'moderation.roles', compact('users'));
     }
     public function setRoles(Request $request)
     {
@@ -91,7 +103,7 @@ class ModerationController extends Controller {
     public function texts()
     {
         $texts=\App\Maintext::all();
-        return view('moderation.texts', compact('texts'));
+        return view($this->localeDir.'moderation.texts', compact('texts'));
     }
 
     public function changer(Request $request)
@@ -100,6 +112,8 @@ class ModerationController extends Controller {
         $text=\App\Maintext::find($article['id']);
         $text->name=$article['name'];
         $text->body=$article['body'];
+        $text->name=$article['en_name'];
+        $text->body=$article['en_body'];
         $text->save();
         return redirect(route('texts'));
 
@@ -150,9 +164,9 @@ class ModerationController extends Controller {
         $name=$request->input('region');
         if(isset($name)) {
             $address = \App\Region::where('name', $name)->first()->addresses()->orderBy('id', 'desc')->get();
-            return view('moderation.recent', compact('address'));
+            return view($this->localeDir.'moderation.recent', compact('address'));
         }
-        return view('moderation.recent');
+        return view($this->localeDir.'moderation.recent');
     }
 
     public function changeData(Request $request)
@@ -188,7 +202,7 @@ class ModerationController extends Controller {
 
     public function unite()
     {
-        $array=['id'=>15];
+        /*$array=['id'=>15];
         $object='star';
         $aa=new\App\Myclasses\Savers\Rewriter($object, $array);
         dd($aa);
@@ -202,9 +216,9 @@ class ModerationController extends Controller {
         }
         return $fuckup;
         $statData=new \App\Myclasses\charterModer();
-        return view('moderation.test', compact('statData'));
+        return view('moderation.test', compact('statData'));*/
 
-       /*$addresses=\App\Address::all();
+       $addresses=\App\Address::all();
         $count=0;
         $fails=0;
         foreach ($addresses as $address){
@@ -215,11 +229,11 @@ class ModerationController extends Controller {
             if($save) $count++;
             else $fails++;
         }
-        return view('moderation.unite', compact('count', 'fails'));*/
+        return view($this->localeDir.'moderation.unite', compact('count', 'fails'));
 
         $first=\Session::pull('first');
         $second=\Session::pull('second');
-        return view('moderation.unite', compact('first', 'second'));
+        return view($this->localeDir.'moderation.unite', compact('first', 'second'));
     }
 
     public function deleteUser(Request $request)

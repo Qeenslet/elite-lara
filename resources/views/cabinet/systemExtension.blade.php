@@ -1,4 +1,4 @@
-<h2 class="white">Система: {{$info->getSystemName()}}</h2>
+<h2 class="white">System: {{$info->getSystemName()}}</h2>
 <table style="width: 100%">
     @foreach($info->getAllCenters() as $center)
         <tr>

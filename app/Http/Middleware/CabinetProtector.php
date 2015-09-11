@@ -16,6 +16,7 @@ class CabinetProtector {
 	{
 		if (Auth::check()) {
             if($request->user()->mayEnterCabinet()) {
+                if (!$request->user()->hasLocale(\App::getLocale())) $request->user()->addLocale(\App::getLocale());
                 return $next($request);
             }
         }

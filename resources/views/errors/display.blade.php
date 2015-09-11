@@ -1,5 +1,5 @@
 <div class="alert alert-danger" id="form-error">
-    <strong>Упс!</strong> Кажется, возникли проблемы с тем, что вы ввели.<br><br>
+    <strong>Ups! </strong> It seems there is something wrong with your input.<br><br>
     <ul>
         @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>

@@ -1,7 +1,7 @@
 <table width="100%">
-    <td width="30%"><span class="white">Кому</span></td>
-    <td width="50%"><span class="white">Тема</span></td>
-    <td width="20%"><span class="white">Дата</span></td></tr>
+    <td width="30%"><span class="white">To whom</span></td>
+    <td width="50%"><span class="white">Topic</span></td>
+    <td width="20%"><span class="white">Date</span></td></tr>
 </table>
 @foreach($letters as $letter)
     <div class="letterLine">

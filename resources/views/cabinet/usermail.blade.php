@@ -1,14 +1,14 @@
 @extends('cabinet.cabinetMain')
 @section('title')
-    Почта|@parent
+    Mail|@parent
 @stop
 @section('local')
     <script>
         var navegator=first=4;
         basenav={};
-        basenav[4]='Входящие';
-        basenav[5]='Исходящие';
-        basenav[6]='Новое письмо';
+        basenav[4]='Inbox';
+        basenav[5]='Sent';
+        basenav[6]='New letter';
         basenav['func']='ajax';
         var toplimit=6;
         var lowlimit=4;
@@ -16,7 +16,7 @@
     <div id="navigation_bar" data="{{csrf_token()}}">
         <div id="button_left"><a href="#"></a></div>
         <div id="button_right"><a href="#"></a></div>
-        <h3 id="db_head">Входящие</h3>
+        <h3 id="db_head">Inbox</h3>
     </div>
     <div id="2nd_selection">
 

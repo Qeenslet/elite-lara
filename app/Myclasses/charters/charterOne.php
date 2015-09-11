@@ -12,7 +12,7 @@ namespace App\Myclasses\charters;
 use App\Myclasses\Arrays;
 use App\Myclasses\Counter;
 
-class charterOne {
+class charterOne extends charterParent{
     public $inHeader;
     public $tempHeader;
     public $result;
@@ -28,27 +28,33 @@ class charterOne {
     protected $class;
     protected $planet;
     protected $step;
+    protected $nameSize;
+    protected $nameClass;
+    protected $chartSelection;
 
     public function __construct($data){
+        parent::__construct();
         $this->counter = new Counter();
         $this->planetTypeArray=Arrays::planetTypeArray();
         $starsArray=Arrays::allStarsArray();
         $sizeArray=Arrays::sizeTypeArray();
 
         if ($data['size']==100) {
-            $this->sizeHeader="все размеры";
+            $this->nameSize='size-all';
             $this->size=[0,1,2,3,4,5,6,7];
         }
         else {
+            $this->nameSize='size-one';
             $this->sizeHeader=$sizeArray[$data['size']];
             $this->size=[$data['size']];
         }
         if($data['class']==100) {
-            $this->tempHeader="все температурные подклассы";
+            $this->nameClass='class-all';
             $this->class=array(0,1,2,3,4,5,6,7,8,9);
         }
         else {
             $this->tempHeader=$data['class'];
+            $this->nameClass='class-one';
             $this->class=[$data['class']];
         }
 
@@ -59,27 +65,28 @@ class charterOne {
         switch($data['planet']){
             case 3:
                 $this->planet=[3];
-                $this->inHeader="земные";
+                $this->chartSelection='el';
                 $this->charType=1;
                 $this->querySimple();
                 break;
             case 3210:
                 $this->planet=[0, 1, 2, 3];
-                $this->inHeader="земные и пригодные к ТФ";
+                $this->chartSelection='eltf';
                 $this->charType=1;
                 $this->querySimple();
                 break;
             case 14:
                 $this->planet=[1, 4];
-                $this->inHeader="водные всех типов";
+                $this->chartSelection='ww';
                 $this->charType=1;
                 $this->querySimple();
                 break;
             case 543210:
-                $this->inHeader="все возможные";
+                $this->chartSelection='all';
                 $this->charType=2;
                 $this->queryAll();
         }
+        $this->headerName($this->locale);
     }
 
     protected function querySimple(){
@@ -93,7 +100,7 @@ class charterOne {
 
     protected function queryAll(){
         $result=[];
-        for($i=0; $i<count($this->planetTypeArray); $i++){
+        for($i=0, $n=count($this->planetTypeArray); $i<$n; $i++){
             $planet=[$i];
             $query=$this->counter->queryDiapason($this->star, $planet, $this->step, $this->size, $this->class);
             if($query) $result[$i]=$query;
@@ -104,5 +111,31 @@ class charterOne {
             $this->result=$result;
             $this->anything=1;
         }
+    }
+
+    protected function headerName($locale)
+    {
+        $ru=['el'=>'земные', 'eltf'=>'земные и пригодные к ТФ', 'ww'=>'водные всех типов', 'all'=>'все возможные'];
+        $en=['el'=>'Earth-likes planets', 'eltf'=>'Earth-likes and TF suitable', 'ww'=>'water worlds of all types', 'all'=>'all available'];
+        if($locale=='en')
+        {
+            if ($this->nameClass == 'class-all') $this->tempHeader = 'all temperature classes';
+            if ($this->nameSize == 'size-all') $this->sizeHeader = 'all sizes';
+            $this->inHeader=$en[$this->chartSelection];
+        }
+        if($locale=='ru')
+        {
+            if ($this->nameClass == 'class-all') $this->tempHeader = 'все температурные подклассы';
+            if ($this->nameSize == 'size-all') $this->sizeHeader = 'все размеры';
+            $this->inHeader=$ru[$this->chartSelection];
+
+        }
+    }
+
+    function changeLocale($locale)
+    {
+        $this->headerName($locale);
+        $this->planetTypeArray=Arrays::planetTypeArray();
+
     }
 }

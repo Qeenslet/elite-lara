@@ -1,2 +1,2 @@
-<p>Это запрос подтверждения регистрации на Elite-Base.net.</p>
-<p>Чтобы начать добавлять свои открытия в базу планет, перейдите по <a href="{{url('auth/confirm'.$token)}}"> ссылке</a></p>
+<p>This is a confirmation letter from the Elite-Base.net.</p>
+<p>To join our space discoverers team, follow the <a href="{{url('auth/confirm'.$token)}}"> link</a></p>

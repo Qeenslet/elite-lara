@@ -1,11 +1,11 @@
 @extends('elite')
 @section('title')
-    Новый пароль|@parent
+    New password|@parent
 @stop
 @section('content')
 
 			<div class="panel-elite">
-				<div class="panel-heading">Сброс пароля</div>
+				<div class="panel-heading">New password</div>
 				<div class="panel-body">
 					@if (count($errors) > 0)
 						@include('errors.display')
@@ -16,21 +16,21 @@
 						<input type="hidden" name="token" value="{{ $token }}">
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Адрес электронной почты</label>
+							<label class="col-md-4 control-label">Email</label>
 							<div class="col-md-6">
 								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Пароль</label>
+							<label class="col-md-4 control-label">Password</label>
 							<div class="col-md-6">
 								<input type="password" class="form-control" name="password">
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Подтвердите пароль</label>
+							<label class="col-md-4 control-label">Confirm password</label>
 							<div class="col-md-6">
 								<input type="password" class="form-control" name="password_confirmation">
 							</div>
@@ -39,7 +39,7 @@
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-primary">
-									Изменить пароль
+									Change password
 								</button>
 							</div>
 						</div>

@@ -26,16 +26,19 @@
             @if(Auth::check())
                 <p>CMDR: <span class="white">{{Auth::user()->name}}</span></p>
                 @if(Auth::user()->isModerator())
-                    <a href="{{route('moderation')}}">Модерация </a> |
+                    <a href="{{route('moderation')}}">Moderation panel </a> |
                 @endif
                 @if(Auth::user()->isAdmin())
-                    <a href="{{route('administration')}}">Администрирование </a> |
+                    <a href="{{route('administration')}}">Control panel </a> |
                 @endif
-                <a href="{{route('cabinet')}}">Кабинет </a> | <a href="{{url('auth/logout')}}"> Выход</a>
+                <a href="{{route('cabinet')}}">Cabinet </a> | <a href="{{url('auth/logout')}}"> Exit</a>
             @else
-                <a href="{{url('auth/login')}}">Вход </a> | <a href="{{url('auth/register')}}"> Регистрация</a>
+                <a href="{{url('auth/login')}}">Sign in </a> | <a href="{{url('auth/register')}}"> Registration</a>
             @endif
         @show
+        <div style="float: right;">
+            <a href="{{route('lang.switch', 'ru')}}">EN <span class="glyphicon glyphicon-arrow-right"></span> RU</a>
+        </div>
         <div class="topmenu">
         @section ('top-menu')
             @if(Auth::check())
@@ -66,7 +69,7 @@
             </div>
         </div>
         <div id="footer">
-            <p>Все права защищены. Обязанности тоже. Звоните, пишите. На телефон и телеграф. Грузите апельсины бочками! &copy; 2015</p>
+            <p>All rights reserved &copy; 2015</p>
         </div>
     </div>
     @section('scripts')

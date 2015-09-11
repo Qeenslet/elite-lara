@@ -71,12 +71,12 @@ class smartChecker {
             if ($this->distance > $this->maxDistance)
             {
                 $differ['main'] = $this->distance - $this->maxDistance;
-                $differ['sub']= 'Превышает зону распределения на ';
+                $differ['sub']= 'high';
             }
             else
             {
                 $differ['main'] = $this->minDistance - $this->distance;
-                $differ['sub']= 'Меньше зоны распределения на ';
+                $differ['sub']= 'less';
             }
             $this->generateModerationReason(1, $differ);
         }
@@ -102,8 +102,10 @@ class smartChecker {
 
         if ($percentage < 10)
         {
-            $differ['main']=$percentage;
-            $differ['sub']=$number.' планет на '.($step*2).' а.е. в округе из '.$total.' для данного типа звезд';
+            $differ['percentage']=$percentage;
+            $differ['step']=$step;
+            $differ['total']=$total;
+            $differ['number']=$number;
             $this->generateModerationReason(2, $differ);
         }
         else
@@ -118,11 +120,11 @@ class smartChecker {
         switch ($reason)
         {
             case 1:
-                $message['full']='Превышение зоны распределения: '.$data['sub'].$data['main'].' а.е.';
+                $message['full']= serialize(new \App\Myclasses\Checks\Responses\excessResponse($data));
                 $message['type']='danger';
                 break;
             case 2:
-                $message['full']='Мало соседей: '.$data['sub'].', что составляет '.$data['main'].'%';
+                $message['full']=serialize(new \App\Myclasses\Checks\Responses\neighboursResponse($data));
                 $message['type']='warning';
                 break;
         }

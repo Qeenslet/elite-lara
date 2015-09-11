@@ -8,7 +8,7 @@
                 enabled: false
             },
             title: {
-                text: 'Статистика по звезде {{$chart->starHeader}} {{$chart->tempHeader}} {{$chart->sizeHeader}}. Планеты: {{$chart->inHeader}}'
+                text: 'Star {{$chart->starHeader}} {{$chart->tempHeader}} {{$chart->sizeHeader}}. Planets: {{$chart->inHeader}}'
             },
             xAxis: {
                 labels: {
@@ -19,12 +19,12 @@
             },
             yAxis: {
                 title: {
-                    text: 'Количество'
+                    text: 'Amount'
                 }
             },
             tooltip: {
                 headerFormat: '<b>{series.name}</b><br/>',
-                pointFormat: '{point.x} а.е.: {point.y} шт.'
+                pointFormat: '{point.x} AU: {point.y} pieces'
             },
             plotOptions: {
                 line: {

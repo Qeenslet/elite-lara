@@ -9,12 +9,23 @@ use Illuminate\Http\Request;
 
 class CabinetController extends Controller {
 
+    protected $localeDir;
+
     public function __construct(){
         $this->middleware('cabinet');
+
+        switch(\App::getLocale())
+        {
+            case 'ru':
+                $this->localeDir = 'ru.';
+                break;
+            default:
+                $this->localeDir = '';
+        }
     }
 	public function index(){
         $myRank=\App\Myclasses\Rank::getRank();
-        return view('cabinet.stats', compact('myRank'));
+        return view($this->localeDir.'cabinet.stats', compact('myRank'));
     }
 
     public function mail(Request $request){
@@ -26,17 +37,17 @@ class CabinetController extends Controller {
                 if ($letter->reciever == $id) {
                     $letter->status='read';
                     $letter->save();
-                    return view('cabinet.singleLetter', compact('letter'));
+                    return view($this->localeDir.'cabinet.singleLetter', compact('letter'));
                 }
                 elseif ($letter->sender == $id) {
-                    return view('cabinet.singleLetter', compact('letter'));
+                    return view($this->localeDir.'cabinet.singleLetter', compact('letter'));
                 }
                 return redirect('/cabinet/mail');
             }
             else return redirect('/cabinet/mail');
         }
         else {
-            return view('cabinet.usermail');
+            return view($this->localeDir.'cabinet.usermail');
         }
     }
 
@@ -65,7 +76,7 @@ class CabinetController extends Controller {
 
     public function discovery(){
         $findings= Auth::user()->findings()->groupBy('created_at')->orderBy('id', 'desc')->paginate(10);
-        return view('cabinet.discoveries', compact('findings'));
+        return view($this->localeDir.'cabinet.discoveries', compact('findings'));
     }
 
     public function mailDelete(Request $request){

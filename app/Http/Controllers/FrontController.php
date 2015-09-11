@@ -10,17 +10,31 @@ use Illuminate\Http\Request;
 
 class FrontController extends Controller {
 
-	public function index()
+    protected $localeDir;
+
+	public function __construct()
+    {
+        switch(\App::getLocale())
+        {
+            case 'ru':
+                $this->localeDir = 'ru.';
+                break;
+            default:
+                $this->localeDir = '';
+        }
+    }
+
+    public function index()
     {
         $content=Maintext::find(1);
         $loginfo=\Session::pull('loginfo');
         if(!$loginfo) $loginfo=null;
-        return view('templates.content', compact('content', 'loginfo'));
+        return view($this->localeDir.'templates.content', compact('content', 'loginfo'));
     }
 
     public function database()
     {
-        return view('templates.database');
+        return view($this->localeDir.'templates.database');
     }
 
     public function adding()
@@ -29,13 +43,13 @@ class FrontController extends Controller {
         $stars=\App\Myclasses\Arrays::allStarsArray();
         $sizes=\App\Myclasses\Arrays::sizeTypeArray();
         $planets=\App\Myclasses\Arrays::planetsForCabinet();
-        return view('templates.add', compact('regions', 'stars', 'sizes', 'planets'));
+        return view($this->localeDir.'templates.add', compact('regions', 'stars', 'sizes', 'planets'));
     }
 
     public function staticPage($url)
     {
         $content= Maintext::where('url', $url)->firstOrFail();
-        return view('templates.content', compact('content'));
+        return view($this->localeDir.'templates.content', compact('content'));
     }
 
     public function extradd(Request $request, $address=null)
@@ -45,18 +59,18 @@ class FrontController extends Controller {
         if(isset($addrGet['address'])){
             $searching = new \App\Myclasses\search\SearchEngine($addrGet);
             $systemDs = $searching->getResult();
-            if ($systemDs) return view('templates.test', compact('systemDs', 'result'));
+            if ($systemDs) return view($this->localeDir.'templates.test', compact('systemDs', 'result'));
             else {
                 $nothing=1;
-                return view ('templates.test', compact('nothing'));
+                return view ($this->localeDir.'templates.test', compact('nothing'));
             }
         }
         if(isset($address)){
             $systemDs[$address]=new \App\Myclasses\Insides\Converter($address);
-            return view('templates.test', compact('systemDs', 'result'));
+            return view($this->localeDir.'templates.test', compact('systemDs', 'result'));
         }
         $welcome=true;
-        return view ('templates.test', compact('welcome'));
+        return view ($this->localeDir.'templates.test', compact('welcome'));
     }
 
     public function giveAddressAdder(Request $request)
@@ -64,7 +78,7 @@ class FrontController extends Controller {
         $regions=\App\Region::all();
         $action=$request->input('go');
         if($action==1){
-            return view('templates.addAddr', compact('regions'));
+            return view($this->localeDir.'templates.addAddr', compact('regions'));
         }
 
     }
@@ -75,7 +89,7 @@ class FrontController extends Controller {
         $sizes=\App\Myclasses\Arrays::sizeTypeArray();
         $addrId=$request->input('id');
         if($addrId > 0){
-            return view('templates.addStar', compact('stars', 'sizes', 'addrId'));
+            return view($this->localeDir.'templates.addStar', compact('stars', 'sizes', 'addrId'));
         }
 
     }
@@ -87,7 +101,7 @@ class FrontController extends Controller {
         $type=$request->input('type');
         $planets=\App\Myclasses\Arrays::planetsForCabinet();
         if($addrId>0 && $objId>0){
-            return view('templates.addPlanet', compact('planets', 'objId', 'type', 'addrId'));
+            return view($this->localeDir.'templates.addPlanet', compact('planets', 'objId', 'type', 'addrId'));
         }
 
     }
@@ -99,7 +113,7 @@ class FrontController extends Controller {
         $sizes=\App\Myclasses\Arrays::sizeTypeArray();
         if($addrId>0){
             $converter=new \App\Myclasses\Insides\Converter($addrId);
-            return view('templates.addBary', compact('stars', 'sizes', 'addrId', 'converter'));
+            return view($this->localeDir.'templates.addBary', compact('stars', 'sizes', 'addrId', 'converter'));
         }
 
     }

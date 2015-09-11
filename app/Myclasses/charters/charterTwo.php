@@ -12,7 +12,7 @@ namespace App\Myclasses\charters;
 use App\Myclasses\Arrays;
 use App\Myclasses\Counter;
 
-class charterTwo {
+class charterTwo extends charterParent{
     public $title;
     public $d_1;
     public $d_2;
@@ -26,34 +26,43 @@ class charterTwo {
     protected $counter;
     protected $starsArray;
     protected $sizeArray;
+    protected $chartSelection;
 
     public function __construct($data){
+        parent::__construct();
         switch ($data['style']) {
             case 1:
                 $this->planets = [0, 1, 2, 3];
-                $this->title="Распределение всех пригодных для жизни планет по типам звезд";
+                $this->chartSelection='life';
+
                 break;
             case 2:
                 $this->planets = [0];
-                $this->title="Распределение т-металлик планет по типам звезд";
+                $this->chartSelection='metal';
+
                 break;
             case 3:
                 $this->planets = [1];
-                $this->title="Распределение т-водных планет по типам звезд";
+                $this->chartSelection='tw';
+
                 break;
             case 4:
                 $this->planets = [4];
-                $this->title="Распределение водных планет по типам звезд";
+                $this->chartSelection='w';
+
                 break;
             case 5:
                 $this->planets = [5];
-                $this->title="Распределение аммиачных планет по типам звезд";
+                $this->chartSelection='aw';
+
                 break;
             case 6:
                 $this->planets = [3];
-                $this->title="Распределение планет земного типа по типам звезд";
+                $this->chartSelection='el';
+
                 break;
         }
+        $this->chartName($this->locale);
         $this->counter=new Counter();
 
         $this->sizeList=$this->counter->starSelect('size');
@@ -93,5 +102,36 @@ class charterTwo {
             $Sname=$this->starsArray[$star];
             $this->d_2['редкие'][$Sname]=$this->counter->countPlanets($star, $this->planets, $this->total);
         }
+    }
+
+    protected function chartName($locale)
+    {
+        $ru=['life'=>'Распределение всех пригодных для жизни планет по типам звезд',
+            'metal'=>'Распределение т-металлик планет по типам звезд',
+            'tw'=>'Распределение т-водных планет по типам звезд',
+            'w'=>'Распределение водных планет по типам звезд',
+            'aw'=>'Распределение аммиачных планет по типам звезд',
+            'el'=>'Распределение планет земного типа по типам звезд'];
+        $en=['life'=>'Spreading of all life-suitable planets by star types',
+            'metal'=>'Spreading of T-high metal planets by star types',
+            'tw'=>'Spreading of T-water worlds by star types',
+            'w'=>'Spreading of water worlds by star types',
+            'aw'=>'Spreading of ammonia worlds by star types',
+            'el'=>'Spreading of Earth-like planets by star types'];
+        switch($locale)
+        {
+            case 'ru':
+                $this->title=$ru[$this->chartSelection];
+                break;
+            case 'en':
+                $this->title=$en[$this->chartSelection];
+                break;
+        }
+
+    }
+
+    function changeLocale($locale)
+    {
+        $this->chartName($locale);
     }
 }

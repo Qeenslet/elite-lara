@@ -1,4 +1,4 @@
-<h2 class="inside_headers_orange">топ пилотов</h2>
+<h2 class="inside_headers_orange">top pilots</h2>
 <table style="width:100%;">
     <?php $pilots=\App\Point::take(5)->orderBy('points', 'desc')->get();?>
     @foreach($pilots as $pilot)

@@ -11,6 +11,20 @@ use Illuminate\Http\Request;
 
 class AjaxController extends Controller {
 
+    protected $localeDir;
+
+    public function __construct()
+    {
+        switch(\App::getLocale())
+        {
+            case 'ru':
+                $this->localeDir = 'ru.';
+                break;
+            default:
+                $this->localeDir = '';
+        }
+    }
+
 	public function chartForms(Request $request)
     {
         $count = Arrays::allStarsArray();
@@ -22,31 +36,31 @@ class AjaxController extends Controller {
             case 0:
                 $charter=Charter::draw(0);
                 $colors=Arrays::colorList();
-                return view('charts.zero', compact('charter', 'colors'));
+                return view($this->localeDir.'charts.zero', compact('charter', 'colors'));
             case 1:
-                return view('chartforms.one', compact('count'));
+                return view($this->localeDir.'chartforms.one', compact('count'));
             case 2:
-                return view('chartforms.two');
+                return view($this->localeDir.'chartforms.two');
             case 3:
-                return view('chartforms.three', compact('count'));
+                return view($this->localeDir.'chartforms.three', compact('count'));
             case 4:
                 $letters= Auth::user()->hasInbox()->where('show_reciever', 'true')->orderBy('id', 'desc')->get();
-                return view('cabinet.inbox', compact('letters'));
+                return view($this->localeDir.'cabinet.inbox', compact('letters'));
             case 5:
                 $letters= Auth::user()->hasSent()->where('show_sender', 'true')->orderBy('id', 'desc')->get();
-                return view('cabinet.sent', compact('letters'));
+                return view($this->localeDir.'cabinet.sent', compact('letters'));
             case 6:
                 $users=\App\User::all();
-                return view('cabinet.newmail', compact('users'));
+                return view($this->localeDir.'cabinet.newmail', compact('users'));
             case 7:
                 $letters= \App\User::find(1)->hasInbox()->where('show_reciever', 'true')->orderBy('id', 'desc')->get();
-                return view('administration.inbox', compact('letters'));
+                return view($this->localeDir.'administration.inbox', compact('letters'));
             case 8:
                 $letters= \App\User::find(1)->hasSent()->where('show_sender', 'true')->orderBy('id', 'desc')->get();
-                return view('administration.sent', compact('letters'));
+                return view($this->localeDir.'administration.sent', compact('letters'));
             case 9:
                 $users=\App\User::all();
-                return view('administration.newmail', compact('users'));
+                return view($this->localeDir.'administration.newmail', compact('users'));
 
         }
     }
@@ -65,20 +79,20 @@ class AjaxController extends Controller {
             $chart = Charter::draw(1, $data);
 
             if($chart->anything==0) {
-                return "<h3>По данному запросу в базе недостаточно данных</h3>";
+                return \App\Myclasses\Response::noData();
             }
             else {
                 if ($chart->charType == 1) {
-                    return view('charts.first', compact('chart', 'colors'));
+                    return view($this->localeDir.'charts.first', compact('chart', 'colors'));
                 } else {
-                    return view('charts.firstB', compact('chart', 'colors'));
+                    return view($this->localeDir.'charts.firstB', compact('chart', 'colors'));
                 }
             }
         }
         if (isset($data['style'])){
             $chart = Charter::draw(2, $data);
 
-            return view('charts.numtwo', compact('chart', 'colors'));
+            return view($this->localeDir.'charts.numtwo', compact('chart', 'colors'));
         }
         if (isset($data['sizeOrb'])){
             $newData['size']=$data['sizeOrb'];
@@ -93,10 +107,10 @@ class AjaxController extends Controller {
             $chart=Charter::draw(3, $newData);
 
             if(!$chart->result) {
-                return "<h3>По данному типу звезд еще не собрано достаточно данных!</h3>h3>";
+                return \App\Myclasses\Response::noData();
             }
 
-            return view('charts.numthree', compact('chart', 'colors'));
+            return view($this->localeDir.'charts.numthree', compact('chart', 'colors'));
         }
     }
 
@@ -109,7 +123,8 @@ class AjaxController extends Controller {
         $star=$systemData->getCenterObject();
 
         $messageE=$systemData->getSmartCheckMessage();
-        $explanation=$messageE['full'];
+        $messageObj=unserialize($messageE['full']);
+        $explanation=$messageObj->getMessage();
 
         $pNames=Arrays::planetsForCabinet();
 
@@ -136,10 +151,10 @@ class AjaxController extends Controller {
                 $stepKey=5;
         }
         $starName=Arrays::nameStar($star);
-        $fullName=$starName." Планета: ".
-            $pNames[$dataArray['planet']]." ".$dataArray['distance']." а.е. ".$dataArray['mark'];
+        $fullName=$starName." ".
+            $pNames[$dataArray['planet']]." ".$dataArray['distance']." ".$dataArray['mark'];
         $chartData="star=".$star->star."&class=".$star->class."&size=".$star->size;
-        return view('administration.systemExtension', compact('target', 'systemInfo', 'explanation', 'fullName', 'chartData', 'step', 'stepKey'));
+        return view($this->localeDir.'administration.systemExtension', compact('target', 'systemInfo', 'explanation', 'fullName', 'chartData', 'step', 'stepKey'));
     }
 
     public function moderationCharts(Request $request)
@@ -150,20 +165,20 @@ class AjaxController extends Controller {
             $data['planet']=543210;
             $chart = Charter::draw(1, $data);
             if($chart->anything==0) {
-                return "<h3>По данным типам звезд нет данных</h3>";
+                return \App\Myclasses\Response::noData();
             }
             else {
-                return view('charts.firstModeration', compact('chart', 'colors'));
+                return view($this->localeDir.'charts.firstModeration', compact('chart', 'colors'));
             }
 
         }
         else{
             $chart=Charter::draw(3, $data);
             if(!$chart->result) {
-                return "<h3>По данному типу звезд еще не собрано достаточно данных!</h3>";
+                return \App\Myclasses\Response::noData();
             }
 
-            return view('charts.threeModer', compact('chart', 'colors'));
+            return view($this->localeDir.'charts.threeModer', compact('chart', 'colors'));
         }
     }
 
@@ -171,20 +186,20 @@ class AjaxController extends Controller {
     {
         $data=$request->except('_token');
         $info=new \App\Myclasses\Insides\ConverterForUser($data['address'], $data['user']);
-        return view('cabinet.systemExtension', compact('info'));
+        return view($this->localeDir.'cabinet.systemExtension', compact('info'));
 
     }
 
     public function showStats(Request $request)
     {
         $latest=\App\Myclasses\Counter::todayStats();
-        return view('interface.dbStat', compact('latest'));
+        return view($this->localeDir.'interface.dbStat', compact('latest'));
     }
 
     public function adminSearch(Request $request)
     {
        $data=$request->except('_token');
-       return view('administration.objectData', compact('data'));
+       return view($this->localeDir.'administration.objectData', compact('data'));
 
     }
 }

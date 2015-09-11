@@ -8,7 +8,7 @@
                 enabled: false
             },
             title: {
-                text: 'Статистика по звезде {{$chart->starHeader}} {{$chart->tempHeader}} {{$chart->sizeHeader}}. Планеты: {{$chart->inHeader}}'
+                text: 'Statistics about the star {{$chart->starHeader}} {{$chart->tempHeader}} {{$chart->sizeHeader}}. Planets: {{$chart->inHeader}}'
             },
             xAxis: {
                 labels: {
@@ -19,12 +19,12 @@
             },
             yAxis: {
                 title: {
-                    text: 'Количество'
+                    text: 'Amount'
                 }
             },
             tooltip: {
                 headerFormat: '<b>{series.name}</b><br/>',
-                pointFormat: '{point.x} а.е.: {point.y} шт.'
+                pointFormat: '{point.x} AU: {point.y} pieces'
             },
             plotOptions: {
                 line: {
@@ -52,4 +52,4 @@
     });
 </script>
 <div id='chartdiv'></div>
-<p>На графике можно включать и отключать данные по разным типам планет. Для этого нужно кликнуть по символу выборки в легенде.</p>
+<p>You can turn on and off different series in the chart. Just click it's name in the legend.</p>

@@ -1,11 +1,11 @@
 @extends('elite')
 @section('title')
-    Сброс пароля|@parent
+    Password reset|@parent
 @stop
 @section('content')
 
 			<div class="panel-elite">
-				<div class="panel-heading">Сброс пароля</div>
+				<div class="panel-heading">Password reset</div>
 				<div class="panel-body">
 					@if (session('status'))
 						<div class="alert alert-success">
@@ -15,7 +15,7 @@
 
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
-							<strong>Ой!</strong> Похоже возникли проблемы.<br><br>
+							<strong>Ups!</strong> We have some problems.<br><br>
 							<ul>
 								@foreach ($errors->all() as $error)
 									<li>{{ $error }}</li>
@@ -28,7 +28,7 @@
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Адрес электронной почты</label>
+							<label class="col-md-4 control-label">Email</label>
 							<div class="col-md-6">
 								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
 							</div>
@@ -37,7 +37,7 @@
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-primary">
-									Запросить сброс пароля
+									Request password reset
 								</button>
 							</div>
 						</div>

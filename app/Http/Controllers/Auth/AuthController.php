@@ -22,6 +22,7 @@ class AuthController extends Controller {
 	use AuthenticatesAndRegistersUsers;
 
     protected $redirectTo = '/';
+    protected $localeDir;
 
 	/**
 	 * Create a new authentication controller instance.
@@ -36,7 +37,27 @@ class AuthController extends Controller {
 		$this->registrar = $registrar;
 
 		$this->middleware('guest', ['except' => 'getLogout']);
+
+        switch(\App::getLocale())
+        {
+            case 'ru':
+                $this->localeDir = 'ru.';
+                break;
+            default:
+                $this->localeDir = '';
+        }
 	}
+
+    public function getRegister()
+    {
+        return view($this->localeDir.'auth.register');
+    }
+
+    public function getLogin()
+    {
+        return view($this->localeDir.'auth.login');
+    }
+
     public function getConfirm(Request $request){
         $inf=$request->input('inf');
         $user=\App\User::where('confirmed', $inf)->first();
@@ -48,17 +69,17 @@ class AuthController extends Controller {
             $points=new \App\Point($zeroPoints);
             $user->points()->save($points);
             $user->roles()->attach(1);
-            return redirect('/')->with('loginfo', 'Ваш email подтвержден!');
+            return redirect('/')->with('loginfo', \App\Myclasses\Response::requestResult('confirm'));
         }
-        else return redirect('/')->with('loginfo', 'Произошел сбой. Ваш email не был подтвержден!');
+        else return redirect('/')->with('loginfo', \App\Myclasses\Response::requestResult('unconfirm'));
     }
 
     public function getBefore(){
-        return view('auth.before');
+        return view($this->localeDir.'auth.before');
     }
     protected function getFailedLoginMessage()
     {
-        return 'Что-то неправильно: либо емейл, либо пароль)';
+        return \App\Myclasses\Response::requestResult('faillogin');
     }
 
 }

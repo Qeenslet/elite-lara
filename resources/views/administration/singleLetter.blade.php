@@ -1,8 +1,8 @@
 @extends('administration.index')
 @section('locale')
 <div class="panel-cabinet">
-<h4>тема: <span class="white">{{$letter->header}}</span></h4>
-<h4>от кого: <span class="white">{{$letter->isSender->name}}</span></h4>
+<h4>topic: <span class="white">{{$letter->header}}</span></h4>
+<h4>from: <span class="white">{{$letter->isSender->name}}</span></h4>
 <hr>
 <div id="letterItself">
   {!!$letter->body!!}
@@ -11,10 +11,10 @@
 <hr>
 <div id="answerButton">
     @if($letter->reciever==1)
-        <button type="submit" class="btn btn-success" onclick="answer();">Ответить</button>
+        <button type="submit" class="btn btn-success" onclick="answer();">Respond</button>
     @endif
-    <button type="submit" class="btn btn-warning" onclick="window.history.back();">Назад</button>
-    <button type="button" class="btn btn-danger" onclick="someAction('{{route('admMailDel', ['id'=>$letter->id])}}', 'Удалить?')">Удалить</button>
+    <button type="submit" class="btn btn-warning" onclick="window.history.back();">Back</button>
+    <button type="button" class="btn btn-danger" onclick="someAction('{{route('admMailDel', ['id'=>$letter->id])}}', 'Удалить?')">Delete</button>
 </div>
 <div id="placeForAnswer" style="display: none;">
     <form class="form-horizontal" method="post" action="{{route('senderAdmin')}}">
@@ -28,7 +28,7 @@
         <div>
             <textarea id="editor" name="body"></textarea>
         </div>
-        <button type="submit" class="btn btn-warning">Отправить</button>
+        <button type="submit" class="btn btn-warning">Send</button>
     </form>
 </div>
 </div>
