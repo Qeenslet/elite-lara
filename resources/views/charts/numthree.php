@@ -33,7 +33,7 @@
                                   echo "'$key; discovered (".$chart->total["$key"].")'";
                                   if($cicle!=$max_axis) echo ",";
                                   $cicle++;
-                    }?>,'Planetsы:']
+                    }?>,'Planets:']
             },
 
             plotOptions: {

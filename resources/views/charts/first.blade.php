@@ -19,7 +19,7 @@
             },
             yAxis: {
                 title: {
-                    text: 'Количество'
+                    text: 'Amount'
                 }
             },
             tooltip: {

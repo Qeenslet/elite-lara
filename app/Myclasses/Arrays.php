@@ -13,7 +13,7 @@ use App\Moderation;
 
 class Arrays {
     public static function allStarsArray() {
-        return array('A', 'F', 'G', 'K', 'M', 'B', 'AeBe', 'CN', 'D', 'MS', 'L', 'T', 'TTS', 'Y', 'W', 'N', 'BH', 'O', 'S');
+        return array('A', 'F', 'G', 'K', 'M', 'B', 'AeBe', 'C', 'D', 'MS', 'L', 'T', 'TTS', 'Y', 'W', 'N', 'BH', 'O', 'S');
     }
 
     public static function planetTypeArray() {

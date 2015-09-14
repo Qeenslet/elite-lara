@@ -110,7 +110,14 @@ class Converter {
 
     protected function makeMulti(array $data)
     {
-        $centerData['name']='Барицентр: ';
+        switch(\App::getLocale())
+        {
+            case 'ru':
+                $centerData['name']='Барицентр: ';
+                break;
+            default:
+                $centerData['name']='Barycenter: ';
+        }
         foreach($data as $key=>$oneStar)
         {
             if($key=='self') continue;
