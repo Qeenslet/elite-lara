@@ -112,8 +112,8 @@ class ModerationController extends Controller {
         $text=\App\Maintext::find($article['id']);
         $text->name=$article['name'];
         $text->body=$article['body'];
-        $text->name=$article['en_name'];
-        $text->body=$article['en_body'];
+        $text->en_name=$article['en_name'];
+        $text->en_body=$article['en_body'];
         $text->save();
         return redirect(route('texts'));
 

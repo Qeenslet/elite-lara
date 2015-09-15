@@ -20,7 +20,7 @@ function moveNav(a) {
         $('#2nd_selection').append(html);
 		},
         error:  function(xhr, str){
-	alert('Возникла ошибка: ' + data);
+	alert('Internal server error. Please try your request later!');
 		}
     });
   };
