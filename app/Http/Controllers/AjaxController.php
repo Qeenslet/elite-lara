@@ -25,46 +25,6 @@ class AjaxController extends Controller {
         }
     }
 
-	public function chartForms(Request $request)
-    {
-        $count = Arrays::allStarsArray();
-        if(\Auth::check()){
-            $userId=\Auth::user()->id;
-        }
-        $formStyle=$request->input('form');
-        switch($formStyle){
-            case 0:
-                $charter=Charter::draw(0);
-                $colors=Arrays::colorList();
-                return view($this->localeDir.'charts.zero', compact('charter', 'colors'));
-            case 1:
-                return view($this->localeDir.'chartforms.one', compact('count'));
-            case 2:
-                return view($this->localeDir.'chartforms.two');
-            case 3:
-                return view($this->localeDir.'chartforms.three', compact('count'));
-            case 4:
-                $letters= Auth::user()->hasInbox()->where('show_reciever', 'true')->orderBy('id', 'desc')->get();
-                return view($this->localeDir.'cabinet.inbox', compact('letters'));
-            case 5:
-                $letters= Auth::user()->hasSent()->where('show_sender', 'true')->orderBy('id', 'desc')->get();
-                return view($this->localeDir.'cabinet.sent', compact('letters'));
-            case 6:
-                $users=\App\User::all();
-                return view($this->localeDir.'cabinet.newmail', compact('users'));
-            case 7:
-                $letters= \App\User::find(1)->hasInbox()->where('show_reciever', 'true')->orderBy('id', 'desc')->get();
-                return view($this->localeDir.'administration.inbox', compact('letters'));
-            case 8:
-                $letters= \App\User::find(1)->hasSent()->where('show_sender', 'true')->orderBy('id', 'desc')->get();
-                return view($this->localeDir.'administration.sent', compact('letters'));
-            case 9:
-                $users=\App\User::all();
-                return view($this->localeDir.'administration.newmail', compact('users'));
-
-        }
-    }
-
     public function chartBuilder(Request $request)
     {
         $data=$request->all();

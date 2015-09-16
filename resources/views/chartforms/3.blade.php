@@ -1,3 +1,5 @@
+@extends('templates.database')
+@section('chartforms')
 <div class="panel-cabinet" id="chartAbout">
     <div style="margin: 5px; width:100%; height: 10%; position: relative; top:1px;"><a href="javascript:closeInfo();" class="info-close-btn"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></div>
     <br>
@@ -37,16 +39,20 @@
     <button type="submit" class="btn btn-warning" id="change_b">Search</button>
 </form>
 <hr>
-<script>
-    $('#star_select').change(function(){
-        var select=$('#star_select').val();
-        if(select==15 || select==16){
-            $("#class_select").val(999).hide();
-            $("#size_select").val(999).hide();
-        }
-        else {
-            $("#class_select").show();
-            $("#size_select").show();
-        }
-    })
-</script>
+@stop
+@section('scripts')
+    @parent
+    <script>
+        $('#star_select').change(function(){
+            var select=$('#star_select').val();
+            if(select==15 || select==16){
+                $("#class_select").val(999).hide();
+                $("#size_select").val(999).hide();
+            }
+            else {
+                $("#class_select").show();
+                $("#size_select").show();
+            }
+        })
+    </script>
+@stop

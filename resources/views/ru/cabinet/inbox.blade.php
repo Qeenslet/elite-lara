@@ -1,3 +1,5 @@
+@extends('ru.cabinet.usermail')
+@section('mailbox')
 @if (count($errors) > 0)
     @include('errors.display')
 @endif
@@ -10,7 +12,7 @@
 <div class="letterLine">
     <table width="100%" class="{{$letter->status}}">
         <a href="#">
-            <tr onclick="window.location.href='{{route('usermail', ['letter'=>$letter->id])}}'; return false">
+            <tr onclick="window.location.href='{{url('cabinet/mail?letter='.$letter->id)}}'; return false">
                 <td width="25%">{{$letter->isSender->name}}</td>
                 <td width="50%">{{$letter->header}}</td>
                 <td width="20%">{{\Carbon\Carbon::parse($letter->created_at)->toDayDateTimeString()}}</td></tr>
@@ -18,3 +20,4 @@
     </table>
 </div>
 @endforeach
+    @stop

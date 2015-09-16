@@ -1,9 +1,9 @@
 @extends('elite')
 @section('title')
-    Control panel|@parent
+    Moderation panel|@parent
 @stop
 @section('content')
-    <h2>Control panel</h2>
+    <h2>Moderation panel</h2>
     <div class="cabmenu">
         <?php $admRouts=\App\Myclasses\Arrays::adminRouts();
         $curRoute = \Route::currentRouteName();

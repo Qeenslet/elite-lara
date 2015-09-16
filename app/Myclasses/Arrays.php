@@ -173,5 +173,58 @@ class Arrays {
         }
     }
 
+    public static function chartNav()
+    {
+        switch(\App::getLocale())
+        {
+            case 'ru':
+                return ['Общие данные', 'Функциональные графики', 'Круговые диаграммы', 'Точечный график'];
+            default:
+                return ['Common data', 'Functional charts', 'Pie charts', 'Dotted charts'];
+        }
+    }
+
+    public static function mailNavNames()
+    {
+        switch(\App::getLocale())
+        {
+            case 'ru':
+                return ['inbox'=>'Входящие', 'sent'=>'Исходящие', 'new'=>'Новое письмо'];
+            default:
+                return ['inbox'=>'Inbox', 'sent'=>'Sent', 'new'=>'New letter'];
+        }
+    }
+
+    public static function mailNav($folder)
+    {
+        $name_num=['inbox'=>0, 'sent'=>1, 'new'=>2];
+        $num_name=['inbox', 'sent', 'new'];
+        $names = self::mailNavNames();
+
+        $currentN = $name_num[$folder];
+        $left = $currentN - 1;
+        $right = $currentN + 1;
+        if($left < 0) $left = 2;
+        if ($right > 2) $right = 0;
+
+        $result['current']=$names[$folder];
+        $result['left']=$num_name[$left];
+        $result['right']=$num_name[$right];
+
+        return $result;
+    }
+
+
+    public static function prepareNavigation($total, $current)
+    {
+        $left = $current - 1;
+        $right = $current + 1;
+        if ($left < 0)
+            $left = $total - 1;
+        if ($right > $total - 1)
+            $right = 0;
+        return ['left'=>$left, 'right'=>$right];
+    }
+
 
 }

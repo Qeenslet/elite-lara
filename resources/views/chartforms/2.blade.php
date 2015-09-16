@@ -1,3 +1,5 @@
+@extends('templates.database')
+@section('chartforms')
 <div class="panel-cabinet" id="chartAbout">
     <div style="margin: 5px; width:100%; height: 10%; position: relative; top:1px;"><a href="javascript:closeInfo();" class="info-close-btn"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></div>
     <br>
@@ -23,3 +25,4 @@
     <button type="submit" class="btn btn-warning" id="change_b">Search</button>
 </form>
 <hr>
+    @stop

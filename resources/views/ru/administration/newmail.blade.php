@@ -1,11 +1,5 @@
-<script>
-    var wbbOpt = {
-        buttons: "bold,italic,underline,|,img,link,|,quote"
-    }
-    $(function() {
-        $("#editor").wysibb(wbbOpt);
-    })
-</script>
+@extends('ru.administration.adminmail')
+@section('mailbox')
 <form class="form-horizontal" method="post" action="{{route('senderAdmin')}}">
     <input type="hidden" name="_token" value="{{csrf_token()}}">
     <div class="form-group">
@@ -25,3 +19,15 @@
     </div>
     <button type="submit" class="btn btn-warning">Отправить</button>
 </form>
+@stop
+@section('scripts')
+    @parent
+    <script>
+        var wbbOpt = {
+            buttons: "bold,italic,underline,|,img,link,|,quote"
+        }
+        $(function() {
+            $("#editor").wysibb(wbbOpt);
+        })
+    </script>
+@stop

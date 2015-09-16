@@ -22,7 +22,5 @@
 @section('scripts')
     @parent
     <script type="text/javascript" src="/js/cabinetselect.js"></script>
-    <script type="text/javascript" src="/js/navigation.js"></script>
     <script type="text/javascript" src="/js/someAction.js"></script>
-
 @stop

@@ -23,21 +23,20 @@
     <div class="container">
         <h1><a href="/" id="header">{{$title}}</a></h1>
         @section ('auth-contol')
-            @if(Auth::check())
-                <p>CMDR: <span class="white">{{Auth::user()->name}}</span></p>
-                @if(Auth::user()->isModerator())
-                    <a href="{{route('moderation')}}">Moderation panel </a> |
-                @endif
-                @if(Auth::user()->isAdmin())
-                    <a href="{{route('administration')}}">Control panel </a> |
-                @endif
-                <a href="{{route('cabinet')}}">Cabinet </a> | <a href="{{url('auth/logout')}}"> Exit</a>
-            @else
-                <a href="{{url('auth/login')}}">Sign in </a> | <a href="{{url('auth/register')}}"> Registration</a>
+            @if(!Auth::check())
+                <a href="{{url('auth/login')}}" class="btn bttn btn-success">Sign in </a> <a href="{{url('auth/register')}}" class="btn bttn btn-primary"> Registration</a>
             @endif
         @show
         <div style="float: right;">
-            <a href="{{route('lang.switch', 'ru')}}">EN <span class="glyphicon glyphicon-arrow-right"></span> RU</a>
+            <div class="dropdown">
+                <button class="btn langs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    English
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="background-color: #d95e21">
+                    <li><a href="{{route('lang.switch', 'ru')}}">Русский</a></li>
+                </ul>
+            </div>
         </div>
         <div class="topmenu">
         @section ('top-menu')
@@ -69,7 +68,26 @@
             </div>
         </div>
         <div id="footer">
-            <p>All rights reserved &copy; 2015</p>
+            <div class="col-sm-4">
+                <h4>ED Exoplanets</h4>
+                <p>The idea and realisation: </p>
+                <p>CMDR <span class="white">Hamster Libre </span></p>
+                <p>CMDR <span class="white">Grey Wolfhound</span></p>
+                <p>&copy; 2015</p>
+            </div>
+            <div class="col-sm-5">
+                <h4>Help us get better</h4>
+                <script src="/js/paypal-button.min.js?merchant=admin@ed-exoplanets.net"
+                    data-button="donate"
+                    data-name="My product"
+                    data-amount="2.00"
+                    async
+                    ></script>
+             </div>
+            <div class="col-sm-3">
+                <h4>Contact us</h4>
+                <p>Email: <a href="mailto:admin@ed-exoplanets.net" class="white">admin@ed-exoplanets.net</a></p>
+            </div>
         </div>
     </div>
     @section('scripts')

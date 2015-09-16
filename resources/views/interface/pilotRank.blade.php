@@ -6,7 +6,16 @@
         | <a class="mailLink" href="{{route('usermail')}}"><span class="glyphicon glyphicon-envelope"></span> ({{$messNum}})</a>
 @endif
 </h2>
-<hr>
+<div class="cabmenu pilotRank">
+    @if(Auth::user()->isModerator())
+        <a href="{{route('moderation')}}">Control</a>
+    @endif
+    @if(Auth::user()->isAdmin())
+        <a href="{{route('administration')}}">Moderation</a>
+    @endif
+    <a href="{{route('cabinet')}}">Cabinet </a>
+    <a href="{{url('auth/logout')}}"> Exit</a>
+</div>
     <div id="personalStat">
     <img src="/media/{{$myRank->logo}}" alt="rank" style="float:right; width: 100px; height:auto;">
     <h4 class="rank">{{$myRank->rank}}</h4>

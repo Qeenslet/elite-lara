@@ -13,7 +13,7 @@
     @if($letter->reciever==1)
         <button type="submit" class="btn btn-success" onclick="answer();">Respond</button>
     @endif
-    <button type="submit" class="btn btn-warning" onclick="window.history.back();">Back</button>
+    <button type="submit" class="btn btn-warning" onclick="window.location.href='{{$_SERVER['HTTP_REFERER']}}';">Back</button>
     <button type="button" class="btn btn-danger" onclick="someAction('{{route('admMailDel', ['id'=>$letter->id])}}', 'Удалить?')">Delete</button>
 </div>
 <div id="placeForAnswer" style="display: none;">

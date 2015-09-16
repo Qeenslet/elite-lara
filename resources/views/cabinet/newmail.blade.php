@@ -1,11 +1,5 @@
-<script>
-    var wbbOpt = {
-        buttons: "bold,italic,underline,|,img,link,|,quote"
-    }
-    $(function() {
-        $("#editor").wysibb(wbbOpt);
-    })
-</script>
+@extends('cabinet.usermail')
+@section('mailbox')
 <form class="form-horizontal" method="post" action="{{route('sender')}}">
     <input type="hidden" name="_token" value="{{csrf_token()}}">
     <div class="form-group">
@@ -26,3 +20,15 @@
     </div>
     <button type="submit" class="btn btn-warning">Send</button>
 </form>
+@stop
+@section('scripts')
+    @parent
+    <script>
+        var wbbOpt = {
+            buttons: "bold,italic,underline,|,img,link,|,quote"
+        }
+        $(function() {
+            $("#editor").wysibb(wbbOpt);
+        })
+    </script>
+    @stop

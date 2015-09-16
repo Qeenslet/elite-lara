@@ -32,9 +32,25 @@ class FrontController extends Controller {
         return view($this->localeDir.'templates.content', compact('content', 'loginfo'));
     }
 
-    public function database()
+    public function database($chart=0)
     {
-        return view($this->localeDir.'templates.database');
+        $navBar=\App\Myclasses\Arrays::chartNav();
+        $total = count($navBar);
+        $navigator=\App\Myclasses\Arrays::prepareNavigation($total, $chart);
+        $count = \App\Myclasses\Arrays::allStarsArray();
+        switch ($chart)
+        {
+            case 0:
+                $charter=\App\Myclasses\charters\Charter::draw(0);
+                $colors=\App\Myclasses\Arrays::colorList();
+                return view ($this->localeDir.'chartforms.0', compact('chart', 'navBar', 'navigator', 'charter', 'colors'));
+            case 1:
+                return view ($this->localeDir.'chartforms.1', compact('chart', 'navBar', 'navigator', 'count'));
+            case 2:
+                return view ($this->localeDir.'chartforms.2', compact('chart', 'navBar', 'navigator'));
+            case 3:
+                return view ($this->localeDir.'chartforms.3', compact('chart', 'navBar', 'navigator', 'count'));
+        }
     }
 
     public function adding()

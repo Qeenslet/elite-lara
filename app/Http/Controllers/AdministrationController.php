@@ -72,25 +72,46 @@ class AdministrationController extends Controller {
         return redirect('/administration');
     }
 
-    public function mail(Request $request)
+    public function mail(Request $request, $folder='inbox')
     {
         $letterId=$request->input('letter');
-        if(isset($letterId)){
+        if(isset($letterId))
+        {
             $letter=\App\Letter::find($letterId);
-            if ($letter) {
-                if ($letter->reciever == 1) {
+            if ($letter)
+            {
+                if ($letter->reciever == 1)
+                {
                     $letter->status='read';
                     $letter->save();
                     return view($this->localeDir.'administration.singleLetter', compact('letter'));
                 }
-                elseif ($letter->sender == 1) {
+                elseif ($letter->sender == 1)
+                {
                     return view($this->localeDir.'administration.singleLetter', compact('letter'));
                 }
                 return redirect('/administration/mail');
             }
             else return redirect('/administration/mail');
         }
-        else {
+        else
+        {
+            $navigation = \App\Myclasses\Arrays::mailNav($folder);
+
+            switch($folder)
+            {
+                case 'inbox':
+                    $letters= \App\User::find(1)->hasInbox()->where('show_reciever', 'true')->orderBy('id', 'desc')->get();
+                    return view ($this->localeDir.'administration.inbox', compact('letters', 'navigation'));
+
+                case 'sent':
+                    $letters= \App\User::find(1)->hasSent()->where('show_sender', 'true')->orderBy('id', 'desc')->get();
+                    return view ($this->localeDir.'administration.sent', compact('letters', 'navigation'));
+
+                case 'new':
+                    $users=\App\User::all();
+                    return view($this->localeDir.'administration.newmail', compact('users', 'navigation'));
+            }
             return view($this->localeDir.'administration.adminmail');
         }
     }
