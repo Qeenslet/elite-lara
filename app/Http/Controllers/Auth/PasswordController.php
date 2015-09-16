@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PasswordController extends Controller {
 
@@ -20,6 +21,7 @@ class PasswordController extends Controller {
 
 	use ResetsPasswords;
     protected $redirectTo = '/';
+    protected $localeDir;
 
 	/**
 	 * Create a new password controller instance.
@@ -34,6 +36,30 @@ class PasswordController extends Controller {
 		$this->passwords = $passwords;
 
 		$this->middleware('guest');
+
+        switch(\App::getLocale())
+        {
+            case 'ru':
+                $this->localeDir = 'ru.';
+                break;
+            default:
+                $this->localeDir = '';
+        }
 	}
+
+    public function getEmail()
+    {
+        return view($this->localeDir.'auth.password');
+    }
+
+    public function getReset($token = null)
+    {
+        if (is_null($token))
+        {
+            throw new NotFoundHttpException;
+        }
+
+        return view($this->localeDir.'auth.reset')->with('token', $token);
+    }
 
 }

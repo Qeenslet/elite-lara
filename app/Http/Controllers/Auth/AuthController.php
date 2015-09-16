@@ -58,6 +58,21 @@ class AuthController extends Controller {
         return view($this->localeDir.'auth.login');
     }
 
+    public function postRegister(Request $request)
+    {
+        $validator = $this->registrar->validator($request->all());
+
+        if ($validator->fails())
+        {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+        $this->registrar->create($request->all());
+
+        return redirect($this->localeDir.'auth/before');
+    }
+
     public function getConfirm(Request $request){
         $inf=$request->input('inf');
         $user=\App\User::where('confirmed', $inf)->first();
