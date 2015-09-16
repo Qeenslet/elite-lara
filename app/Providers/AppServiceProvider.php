@@ -11,7 +11,7 @@ class AppServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-        view()->share('title', 'ED Exoplanets');
+        view()->share('siteTitle', 'ED Exoplanets');
 	}
 
 	/**

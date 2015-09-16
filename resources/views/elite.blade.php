@@ -3,7 +3,7 @@
 <head>
     <title>
         @section('title')
-        {{$title}}
+        ED Exoplanets
         @show
     </title>
     <meta name="Description" content="">
@@ -21,7 +21,7 @@
 </head>
 <body>
     <div class="container">
-        <h1><a href="/" id="header">{{$title}}</a></h1>
+        <h1><a href="/" id="header">ED Exoplanets</a></h1>
         @section ('auth-contol')
             @if(!Auth::check())
                 <a href="{{url('auth/login')}}" class="btn bttn btn-success">Sign in </a> <a href="{{url('auth/register')}}" class="btn bttn btn-primary"> Registration</a>
