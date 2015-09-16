@@ -96,6 +96,6 @@ class Rank {
 
     private function countProgression($low, $high)
     {
-        $this->progression=round(($this->scores-$low)/$high*100, 2);
+        $this->progression=round(($this->scores-$low)/($high - $low)*100, 2);
     }
 }
