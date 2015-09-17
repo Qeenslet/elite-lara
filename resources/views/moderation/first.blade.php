@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-7">
             <div class="panel panel-warning">
-                <div class="panel-heading">География визитов за все время</div>
+                <div class="panel-heading">География визитов за последнюю неделю</div>
                 <div class="panel-body" id="mapBody">
                     <div id="mapdiv" style="width: 900px; height: 600px;"></div>
                 </div>

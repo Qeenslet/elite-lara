@@ -70,7 +70,7 @@ class AuthController extends Controller {
         }
         $this->registrar->create($request->all());
 
-        return redirect($this->localeDir.'auth/before');
+        return redirect('auth/before');
     }
 
     public function getConfirm(Request $request){

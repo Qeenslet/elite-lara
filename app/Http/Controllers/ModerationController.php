@@ -29,15 +29,17 @@ class ModerationController extends Controller {
     {
         $users=\App\User::all();
         $latest=\App\Myclasses\Counter::todayStats();
-        $locs=\App\Location::all();
+        $locs=\App\Location::week()->get();
         $locations=new \App\Myclasses\Mapper($locs);
         $statData=new \App\Myclasses\charters\charterModer();
         return view($this->localeDir.'moderation.first', compact('users', 'latest', 'locations', 'statData'));
     }
+
     public function reader()
     {
         return view($this->localeDir.'moderation.reader');
     }
+
     public function reporter(Requests\FileRequest $request)
     {
         $request->file('filename')->move(storage_path(), 'report.txt');
@@ -239,9 +241,9 @@ class ModerationController extends Controller {
     public function deleteUser(Request $request)
     {
         $id=$request->input('id');
-        if($id==1) return redirect(route('roles'));
+        if($id == 1) return redirect(route('roles'));
         $user=\App\User::find($id);
-        if($user->confirmed!='confirmacion ha pasado' || $user->findings()->count()==0){
+        if($user->confirmed != 'confirmacion ha pasado' || $user->findings()->count() == 0){
             $user->points()->delete();
             $user->roles()->detach(1);
             $user->delete();

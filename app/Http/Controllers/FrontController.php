@@ -64,7 +64,8 @@ class FrontController extends Controller {
 
     public function staticPage($url)
     {
-        $content= Maintext::where('url', $url)->firstOrFail();
+        $content= Maintext::where('url', $url)->first();
+        if (!$content) abort(404);
         return view($this->localeDir.'templates.content', compact('content'));
     }
 
