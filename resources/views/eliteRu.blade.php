@@ -11,17 +11,18 @@
     <meta name="keywords" content="">
     <meta name="">
     @section ('styles')
-    <link type="text/css" href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="/css/style.css" rel="stylesheet" />
-    <link type="text/css" href="http://fonts.googleapis.com/css?family=Jura|Play&amp;subset=latin,cyrillic-ext,cyrillic" rel="stylesheet" />
-    <link type="text/css" href="/css/default/wbbtheme.css" rel="stylesheet" />
+        <link type="text/css" href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link type="text/css" href="/css/style.css" rel="stylesheet" />
+        <link type="text/css" href="http://fonts.googleapis.com/css?family=Jura|Play&amp;subset=latin,cyrillic-ext,cyrillic" rel="stylesheet" />
+        <link type="text/css" href="/css/default/wbbtheme.css" rel="stylesheet" />
+        <link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon" />
     @show
     @section('top-scripts')
     @show
 </head>
 <body>
     <div class="container">
-        <h1><a href="/" id="header">ED Exoplanets</a></h1>
+        <img src="/media/site_logo.png" style="float:left; margin: 5px;"><h1><a href="/" id="header">ED Exoplanets</a></h1>
         @section ('auth-contol')
             @if(!Auth::check())
                 <a href="{{url('auth/login')}}" class="btn bttn btn-success">Вход </a> <a href="{{url('auth/register')}}" class="btn bttn btn-primary"> Регистрация</a>
@@ -77,7 +78,7 @@
             </div>
             <div class="col-sm-5">
                 <h4>Подкиньте на хостинг</h4>
-                <script src="/js/paypal-button.min.js?merchant=admin@ed-exoplanets.net"
+                <script src="/js/paypal-button.min.js?merchant=koi_1@mail.ru"
                         data-button="donate"
                         data-name="My product"
                         data-amount="2.00"
