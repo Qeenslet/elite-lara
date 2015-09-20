@@ -37,7 +37,7 @@ class FrontController extends Controller {
         $navBar=\App\Myclasses\Arrays::chartNav();
         $total = count($navBar);
         $navigator=\App\Myclasses\Arrays::prepareNavigation($total, $chart);
-        $count = \App\Myclasses\Arrays::allStarsArray();
+        $count = \App\Myclasses\Arrays::allStarsArray(1);
         switch ($chart)
         {
             case 0:
@@ -56,7 +56,7 @@ class FrontController extends Controller {
     public function adding()
     {
         $regions=\App\Region::all();
-        $stars=\App\Myclasses\Arrays::allStarsArray();
+        $stars=\App\Myclasses\Arrays::allStarsArray(true);
         $sizes=\App\Myclasses\Arrays::sizeTypeArray();
         $planets=\App\Myclasses\Arrays::planetsForCabinet();
         return view($this->localeDir.'templates.add', compact('regions', 'stars', 'sizes', 'planets'));
@@ -102,7 +102,7 @@ class FrontController extends Controller {
 
     public function giveStarAdder(Request $request)
     {
-        $stars=\App\Myclasses\Arrays::allStarsArray();
+        $stars=\App\Myclasses\Arrays::allStarsArray(true);
         $sizes=\App\Myclasses\Arrays::sizeTypeArray();
         $addrId=$request->input('id');
         if($addrId > 0){
@@ -126,7 +126,7 @@ class FrontController extends Controller {
     public function giveBaryAdder(Request $request)
     {
         $addrId=$request->input('id');
-        $stars=\App\Myclasses\Arrays::allStarsArray();
+        $stars=\App\Myclasses\Arrays::allStarsArray(true);
         $sizes=\App\Myclasses\Arrays::sizeTypeArray();
         if($addrId>0){
             $converter=new \App\Myclasses\Insides\Converter($addrId);

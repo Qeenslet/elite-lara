@@ -22,7 +22,7 @@
         <div class="form-group">
             <label for="star_select">Star type</label>
             <select id="star_select" name="star">
-                @foreach ($arr=\App\Myclasses\Arrays::allStarsArray() as $num => $one)
+                @foreach ($arr=\App\Myclasses\Arrays::allStarsArray(true) as $num => $one)
                     <option value="{{$num}}">{{$one}}</option>
                 @endforeach
             </select>

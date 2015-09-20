@@ -2,7 +2,7 @@
 @if($data['type']=='star')
     <?php
     $starData=\App\Myclasses\StarInfo::getFromDb($data['id']);
-    $stars=\App\Myclasses\Arrays::allStarsArray();
+    $stars=\App\Myclasses\Arrays::allStarsArray(true);
     $sizes=\App\Myclasses\Arrays::sizeTypeArray();
     ?>
     <h4 class="white">Изменение</h4>

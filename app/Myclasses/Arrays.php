@@ -12,8 +12,18 @@ namespace App\Myclasses;
 use App\Moderation;
 
 class Arrays {
-    public static function allStarsArray() {
-        return array('A', 'F', 'G', 'K', 'M', 'B', 'AeBe', 'C', 'D', 'MS', 'L', 'T', 'TTS', 'Y', 'W', 'N', 'BH', 'O', 'S');
+    public static function allStarsArray($sort = false)
+    {
+        $array=['A', 'F', 'G', 'K', 'M', 'B', 'AeBe', 'C', 'D', 'MS', 'L', 'T', 'TTS', 'Y', 'W', 'N', 'BH', 'O', 'S'];
+
+        //don't use asort in order to save server resources. This array doesn't change frequently
+        $sortArray=[0 => "A", 6 => "AeBe", 5 => "B", 16 => "BH", 7 => "C", 8 => "D", 1 => "F", 2 => "G", 3 => "K", 10 => "L", 4 => "M", 9 => "MS", 15 => "N", 17 => "O", 18 => "S", 11 => "T", 12 => "TTS", 14 => "W", 13 => "Y"];
+
+        if($sort)
+            return $sortArray;
+
+        else
+            return $array;
     }
 
     public static function planetTypeArray() {
