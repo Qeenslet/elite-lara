@@ -119,8 +119,8 @@ class charterOne extends charterParent{
         $en=['el'=>'Earth-likes planets', 'eltf'=>'Earth-likes and TF suitable', 'ww'=>'water worlds of all types', 'all'=>'all available'];
         if($locale=='en')
         {
-            if ($this->nameClass == 'class-all') $this->tempHeader = 'all temperature classes';
-            if ($this->nameSize == 'size-all') $this->sizeHeader = 'all sizes';
+            if ($this->nameClass == 'class-all') $this->tempHeader = '';
+            if ($this->nameSize == 'size-all') $this->sizeHeader = '';
             $this->inHeader=$en[$this->chartSelection];
         }
         if($locale=='ru')

@@ -52,6 +52,15 @@ class AdministrationController extends Controller {
                 if ($save->getMessage()=='ok')
                     $aim->delete();
                 break;
+            default:
+                $aim=\App\Moderation::find($todo['target']);
+                $reciever=$aim->user_id;
+                $addr=$aim->address;
+                $decision=\App\Myclasses\Response::moderationResultMessage('restrict', $reciever);
+                $data=unserialize($aim->data);
+                $save=new \App\Myclasses\Savers\planetSaver($data, 'restrict');
+                if ($save->getMessage()=='ok')
+                    $aim->delete();
         }
         $letter=\App\Myclasses\Response::moderationLetter($addr, $decision, $reciever);
         $myMessage=new \App\Myclasses\localLetters\adminMail($letter);

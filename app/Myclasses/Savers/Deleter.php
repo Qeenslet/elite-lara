@@ -29,4 +29,18 @@ class Deleter extends Rewriter{
     {
         $this->toChange->delete();
     }
+
+    protected function changeMulti()
+    {
+        foreach($this->toChange->stars()->get() as $star)
+        {
+            $this->toChange->stars()->detach($star->id);
+        }
+        foreach ($this->toChange->planets()->get() as $planet)
+        {
+            $planet->delete();
+        }
+        $this->toChange->delete();
+
+    }
 }

@@ -7,6 +7,7 @@
             @endif
             onclick="someAction('{{route('screenRequest', ['target'=>$target->id])}}', 'Request a screenshot?')"><span class='glyphicon glyphicon-envelope' aria-hidden='true'></span> Request a screenshot</button>
     <button type="button" class="btn btn-danger" onclick="someAction('{{route('del-o-prove', ['action'=>'delete', 'target'=>$target->id ])}}', 'Delete?')"><span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Do not approve</button>
+    <button type="button" class="btn btn-warning" onclick="someAction('{{route('del-o-prove', ['action'=>'restrict', 'target'=>$target->id ])}}', 'Approve with restrictions?')"><span class='glyphicon glyphicon-warning-sign' aria-hidden='true'></span> Approve with restrictions</button>
     <button type="button" class="btn btn-success" onclick="someAction('{{route('del-o-prove', ['action'=>'approve', 'target'=>$target->id ])}}', 'Approve?')"><span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Approve</button>
 </div>
 <h2 class="white">System: {{$target->address}}</h2>

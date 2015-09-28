@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Maintext;
 use App\Myclasses\Checks\checkPlanet;
 use App\Myclasses\Counter;
+use App\Myclasses\Response;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller {
@@ -135,6 +136,45 @@ class FrontController extends Controller {
 
     }
 
+    public function giveStarData(Request $request)
+    {
+       $type = $request->input('type');
+        $starId = $request->input('id');
+        if($type == 'star')
+        {
+            $star = \App\Star::find($starId);
+            $sData = $star->starData()->first();
+            if($sData)
+            {
+                return view ($this->localeDir.'templates.addStarData', compact('starId', 'sData'));
+            }
+            return view ($this->localeDir.'templates.addStarData', compact('starId'));
+        }
+        return 'its not a star';
+    }
+
+    public function givePlanetData(Request $request)
+    {
+        $type = $request->input('type');
+        $pId = $request->input('id');
+        switch($type)
+        {
+            case 'planet':
+                $planet = \App\Planet::find($pId);
+                $pData = $planet->planetData()->first();
+                break;
+            default:
+                $planet = \App\Bariplanet::find($pId);
+                $pData = $planet->planetData()->first();
+        }
+
+        if ($pData)
+        {
+            return view ($this->localeDir.'templates.addPlanetData', compact('pId', 'type', 'pData'));
+        }
+        return view ($this->localeDir.'templates.addPlanetData', compact('pId', 'type'));
+    }
+
     /**
      * @param Requests\addrRequest $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
@@ -143,10 +183,10 @@ class FrontController extends Controller {
     public function addAddr(Requests\addrRequest $request)
     {
         //getting data from the form
-        $data=$request->except('_token');
+        $data = $request->except('_token');
 
         //running check
-        $check=new \App\Myclasses\Checks\checkAddr($data);
+        $check = new \App\Myclasses\Checks\checkAddr($data);
 
         //if the address is known redirecting
         if($check->result){
@@ -155,17 +195,17 @@ class FrontController extends Controller {
 
         //else saving and redirecting
 
-        $saver=new \App\Myclasses\Savers\addrSaver($check);
+        $saver = new \App\Myclasses\Savers\addrSaver($check);
         return redirect(route('searchadd', ['address'=>$saver->getAddrId()]))->with('result', $saver->getMessage());
     }
 
     public function addStar(Requests\starRequest $request)
     {
         //getting data
-        $data=$request->except('_token');
+        $data = $request->except('_token');
 
         //checking
-        $check=new \App\Myclasses\Checks\checkStar($data);
+        $check = new \App\Myclasses\Checks\checkStar($data);
         if($check->result)
         {
             return redirect(route('searchadd', ['address'=>$check->getAddressId()]))->with('result', 'sameStar');
@@ -173,7 +213,7 @@ class FrontController extends Controller {
         else
         {
             //saving
-            $saver=new \App\Myclasses\Savers\starSaver($check);
+            $saver = new \App\Myclasses\Savers\starSaver($check);
             //also the success message is necessary
             return redirect(route('searchadd', ['address'=>$saver->getAddrId()]))->with('result', $saver->getMessage());
         }
@@ -183,16 +223,16 @@ class FrontController extends Controller {
     public function addPlanet(Requests\planetRequest $request)
     {
         //getting data
-        $data=$request->except('_token');
+        $data = $request->except('_token');
         //checking data
-        $check=new \App\Myclasses\Checks\checkPlanet($data);
+        $check = new \App\Myclasses\Checks\checkPlanet($data);
         if($check->result)
         {
             return redirect(route('searchadd', ['address'=>$check->getAddressId()]))->with('result', 'samePlanet');
         }
         else
         {
-            $saver=\App\Myclasses\Checks\smartChecker::check($check);
+            $saver = \App\Myclasses\Checks\smartChecker::check($check);
             return redirect(route('searchadd', ['address'=>$saver->getAddrId()]))->with('result', $saver->getMessage());
             //also the success message is necessary
         }
@@ -203,9 +243,9 @@ class FrontController extends Controller {
 
     public function addBary(Requests\baryRequest $request)
     {
-        $data=$request->except('_token');
+        $data = $request->except('_token');
         //checking
-        $check= new \App\Myclasses\Checks\checkMulti($data);
+        $check = new \App\Myclasses\Checks\checkMulti($data);
         if($check->result)
         {
             return redirect(route('searchadd', ['address'=>$check->getAddressId()]))->with('result', 'sameBary');
@@ -216,6 +256,23 @@ class FrontController extends Controller {
             return redirect(route('searchadd', ['address'=>$saver->getAddrId()]));
 
         }
+
+    }
+
+    public function addStarExtra(Requests\StarExtraRequest $request)
+    {
+        $data = $request->except('_token');
+        $saver = new \App\Myclasses\Savers\starExtraSaver($data);
+
+        return redirect(route('searchadd', ['address'=>$saver->getAddrId()]));
+    }
+
+    public function addPlanetExtra(Requests\planetExtrasAddRequest $request)
+    {
+        $data = $request->except('_token', 'ignoreMe');
+        $saver = new \App\Myclasses\Savers\planetExtraSaver($data);
+
+        return redirect(route('searchadd', ['address'=>$saver->getAddrId()]));
 
     }
 

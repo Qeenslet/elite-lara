@@ -19,7 +19,7 @@
     <div id="personalStat">
     <img src="/media/{{$myRank->logo}}" alt="rank" style="float:right; width: 100px; height:auto;">
     <h4 class="rank">{{$myRank->rank}}</h4>
-    <h5>Progression up to the next rank:</h5>
+    <h5>Progression towards the next rank:</h5>
     <div class="progress">
         <div class="progress-bar" role="progressbar" aria-valuenow="{{$myRank->progression}}" aria-valuemin="0" aria-valuemax="100" style="width:{{$myRank->progression}}%;">
             <span class="sr-only">{{$myRank->progression}}% Complete</span>

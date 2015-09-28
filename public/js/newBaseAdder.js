@@ -75,4 +75,17 @@ $(function(){
         data=$('#addBarycenter').attr('data');
         sendTo('/getbary');
     });
+    $('.starsS').click(function(cc){
+        cc.preventDefault();
+        openModal();
+        data=$(this).attr('data');
+        sendTo('/getstardata');
+    });
+
+    $('.planetsS').click(function(cc){
+        cc.preventDefault();
+        openModal();
+        data=$(this).attr('data');
+        sendTo('/getplanetdata');
+    });
 })

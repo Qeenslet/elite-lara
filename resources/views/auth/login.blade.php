@@ -30,11 +30,10 @@
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="remember"> remember me
-									</label>
-								</div>
+                                <div class="elite-checkbox">
+                                    <input type="checkbox" name="remember" id="remMe">
+                                    <label for="remMe">remember me</label>
+                                </div>
 							</div>
 						</div>
 

@@ -16,8 +16,7 @@ class barySaver extends planetSaver{
             'planet' => $this->data['planet'],
             'mark' => $this->data['mark'],
             'distance' => $this->data['distance'],
-            'user_id' => $this->user,
-            'plandata_id' => 0];
+            'user_id' => $this->user];
         $planet=\App\Bariplanet::create($array);
         $this->planetId=$planet->id;
 

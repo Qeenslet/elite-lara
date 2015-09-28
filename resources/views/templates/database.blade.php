@@ -9,7 +9,7 @@
     <div id="button_right"><a href="{{route('database', ['chart'=>$navigator['right']])}}"></a></div>
     <h3 id="db_head">{{$navBar[$chart]}}</h3>
 </div>
-<p class="white">Here you can find different charts based on our database. To choose other types of charts press left/right buttons on the navigation panel.</p>
+<p class="white">Here you can find different charts based on information from our database. To choose different types of charts press left or right on the navigation panel.</p>
 <hr>
 @section('chartforms')
 @show

@@ -17,7 +17,25 @@ class Arrays {
         $array=['A', 'F', 'G', 'K', 'M', 'B', 'AeBe', 'C', 'D', 'MS', 'L', 'T', 'TTS', 'Y', 'W', 'N', 'BH', 'O', 'S'];
 
         //don't use asort in order to save server resources. This array doesn't change frequently
-        $sortArray=[0 => "A", 6 => "AeBe", 5 => "B", 16 => "BH", 7 => "C", 8 => "D", 1 => "F", 2 => "G", 3 => "K", 10 => "L", 4 => "M", 9 => "MS", 15 => "N", 17 => "O", 18 => "S", 11 => "T", 12 => "TTS", 14 => "W", 13 => "Y"];
+        $sortArray=[0 => "A",
+                    6 => "AeBe Herbig",
+                    5 => "B",
+                    16 => "BH black hole",
+                    7 => "C carbon",
+                    8 => "D white dwarf",
+                    1 => "F",
+                    2 => "G",
+                    3 => "K",
+                    10 => "L",
+                    4 => "M",
+                    9 => "MS zircon",
+                    15 => "N neutron",
+                    17 => "O",
+                    18 => "S zircon",
+                    11 => "T brown dwarf",
+                    12 => "TTS tauri",
+                    14 => "W Wolf–Rayet",
+                    13 => "Y cool brown dwarf"];
 
         if($sort)
             return $sortArray;
@@ -30,28 +48,33 @@ class Arrays {
         switch(\App::getLocale())
         {
             case 'ru':
-                return array('Т-металлик', 'Т-водные', 'Т-каменистые', 'Землеподобные', 'Водные', 'Аммиачные');
+                return ['Т-металлик', 'Т-водные', 'Т-каменистые', 'Землеподобные', 'Водные', 'Аммиачные'];
             default:
-                return array('T-high metal', 'T-water world', 'T-rocky world', 'Earth-likes', 'Water worlds', 'Ammonia worlds');
+                return ['T-high metal',
+                            'T-water world',
+                            'T-rocky world',
+                            'Earth-likes',
+                            'Water worlds',
+                            'Ammonia worlds'];
         }
     }
 
     public static function planetsForCabinet(){
-        return array('T-HM', 'T-WW', 'T-RW', 'EL', 'WW', 'AW');
+        return ['T-HM', 'T-WW', 'T-RW', 'EL', 'WW', 'AW'];
     }
 
     public static function sizeTypeArray() {
-        return array('0', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII');
+        return ['0', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
     }
 
     public static function stopList() {
-        return array(5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
+        return [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
     }
 
     public static function colorList() {
         switch(\App::getLocale()) {
             case 'ru':
-                return array('Т-металлик'=>'rgb(255, 107, 1)',
+                return ['Т-металлик'=>'rgb(255, 107, 1)',
                     'Т-водные' =>'rgb(0, 209, 242)',
                     'Т-каменистые'=>'rgb(163, 82, 0)',
                     'Землеподобные'=>'rgb(0, 132, 0)',
@@ -68,9 +91,9 @@ class Arrays {
                     'пригодные к ТФ без земных'=>'rgb(0, 255, 255)',
                     'земные и пригодные к ТФ'=>'rgb(102, 255, 153)',
                     'водные всех типов'=>'rgb(0,0,255)',
-                    'земные'=>'rgb(0, 132, 0)');
+                    'земные'=>'rgb(0, 132, 0)'];
             default:
-                return array('T-high metal' => 'rgb(255, 107, 1)',
+                return ['T-high metal' => 'rgb(255, 107, 1)',
                     'T-water world' => 'rgb(0, 209, 242)',
                     'T-rocky world' => 'rgb(163, 82, 0)',
                     'Earth-likes' => 'rgb(0, 132, 0)',
@@ -87,7 +110,7 @@ class Arrays {
                     'пригодные к ТФ без земных' => 'rgb(0, 255, 255)',
                     'Earth-likes and TF suitable' => 'rgb(102, 255, 153)',
                     'water worlds of all types' => 'rgb(0,0,255)',
-                    'Earth-likes planets' => 'rgb(0, 132, 0)');
+                    'Earth-likes planets' => 'rgb(0, 132, 0)'];
         }
     }
 
@@ -95,14 +118,38 @@ class Arrays {
         switch(\App::getLocale())
         {
             case 'ru':
-                return array('Новичок', 'Почти новичок', 'Разведчик', 'Инспектор', 'Пионер', 'Следопыт', 'Рейнджер', 'Первопроходец', 'Элита');
+                return ['Новичок',
+                    'Почти новичок',
+                    'Разведчик',
+                    'Инспектор',
+                    'Пионер',
+                    'Следопыт',
+                    'Рейнджер',
+                    'Первопроходец',
+                    'Элита'];
             default:
-                return array('Aimless', 'Mostly-Aimless', 'Scout', 'Surveyor', 'Trailblazer', 'Pathfinder', 'Ranger', 'Pioneer', 'Elite');
+                return ['Aimless',
+                    'Mostly-Aimless',
+                    'Scout',
+                    'Surveyor',
+                    'Trailblazer',
+                    'Pathfinder',
+                    'Ranger',
+                    'Pioneer',
+                    'Elite'];
         }
 
     }
     public static function rankLogo() {
-        return array('Aimless.png', 'Mostly-Aimless.png', 'Scout.png', 'Surveyor.png', 'Trailblazer.png', 'Pathfinder.png', 'Ranger.png', 'Pioneer.png', 'Elite.png');
+        return ['Aimless.png',
+            'Mostly-Aimless.png',
+            'Scout.png',
+            'Surveyor.png',
+            'Trailblazer.png',
+            'Pathfinder.png',
+            'Ranger.png',
+            'Pioneer.png',
+            'Elite.png'];
 
     }
 
@@ -137,9 +184,19 @@ class Arrays {
         switch(\App::getLocale())
         {
             case 'ru':
-                return ['moderation'=>'Главная', 'recent'=>'Особые регионы', 'reader'=>'Пакетный ввод', 'roles'=>'Доступ пользователей', 'texts'=>'Тексты на сайт', 'multi'=>'Многозвездные системы'];
+                return ['moderation'=>'Главная',
+                    'recent'=>'Особые регионы',
+                    'reader'=>'Пакетный ввод',
+                    'roles'=>'Доступ пользователей',
+                    'texts'=>'Тексты на сайт',
+                    'multi'=>'Многозвездные системы'];
             default:
-                return ['moderation'=>'Main', 'recent'=>'Regions', 'reader'=>'Downloads', 'roles'=>'Users', 'texts'=>'Texts', 'multi'=>'Multistars'];
+                return ['moderation'=>'Main',
+                    'recent'=>'Regions',
+                    'reader'=>'Downloads',
+                    'roles'=>'Users',
+                    'texts'=>'Texts',
+                    'multi'=>'Multistars'];
         }
     }
 
@@ -234,6 +291,183 @@ class Arrays {
         if ($right > $total - 1)
             $right = 0;
         return ['left'=>$left, 'right'=>$right];
+    }
+
+    public static function atmosphereType()
+    {
+        switch(\App::getLocale())
+        {
+            case 'ru':
+                return ['без атмосферы',
+                        'аммиак',
+                        'аммиак и кислород',
+                        'азот',
+                        'вода',
+                        'высокое содержание аммиака',
+                        'высокое содержание аргона',
+                        'высокое содержание воды',
+                        'высокое содержание диоксида углерода',
+                        'высокое содержание метана',
+                        'гелий',
+                        'диоксид серы',
+                        'диоксид углерода',
+                        'кислород',
+                        'металлические пары',
+                        'подходит для жизни на основе воды',
+                        'силикатные пары'];
+            default:
+                return ['no atmosphere',
+                        'ammonia',
+                        'ammonia and oxygen',
+                        'nitrogen',
+                        'water',
+                        'ammonia-rich',
+                        'argon-rich',
+                        'water-rich',
+                        'carbon dioxide-rich',
+                        'methane-rich',
+                        'helium',
+                        'sulphur dioxide',
+                        'carbon dioxide',
+                        'oxygen',
+                        'metallic vapour',
+                        'suitable for water based life',
+                        'silicate vapour'];
+        }
+    }
+
+    public static function atmosphereComposition()
+    {
+        switch(\App::getLocale())
+        {
+            case 'ru':
+                return ['amm'=>'аммиак',
+                    'oxy'=>'кислород',
+                    'nit'=>'азот',
+                    'arg'=>'аргон',
+                    'hel'=>'гелий',
+                    'wat'=>'вода',
+                    'hyd'=>'водород',
+                    'sud'=>'диоксид серы',
+                    'cad'=>'диоксид углерода',
+                    'irn'=>'железо',
+                    'met'=>'метан',
+                    'neo'=>'неон',
+                    'sil'=>'силикаты'];
+            default:
+                return ['amm'=>'ammonia',
+                    'oxy'=>'oxygen',
+                    'nit'=>'nitrogen',
+                    'arg'=>'argon',
+                    'hel'=>'helium',
+                    'wat'=>'water',
+                    'hyd'=>'hydrogen',
+                    'sud'=>'sulphur doixide',
+                    'cad'=>'carbon dioxide',
+                    'irn'=>'iron',
+                    'met'=>'methane',
+                    'neo'=>'neon',
+                    'sil'=>'silicates'];
+        }
+    }
+
+    public static function planetComposition()
+    {
+        switch(\App::getLocale())
+        {
+            case 'ru':
+                return ['ice'=>'лед', 'rock'=>'камень', 'metal'=>'металл'];
+            default:
+                return ['ice'=>'ice', 'rock'=>'rock', 'metal'=>'metal'];
+        }
+    }
+
+    public static function volcanism()
+    {
+        switch(\App::getLocale())
+        {
+            case 'ru':
+                return ['без вулканизма',
+                        'гейзеры с силикатными парами',
+                        'железная магма',
+                        'водяная магма',
+                        'силикатная магма',
+                        'углекислотные гейзеры',
+                        'водяные гейзеры'];
+            default:
+                return ['no volcanism',
+                        'silicate vapour geysers',
+                        'iron magma',
+                        'water magma',
+                        'silicate magma',
+                        'carbon dioxide geysers',
+                        'water geysers'];
+        }
+    }
+
+    public static function commonExtraNames()
+    {
+        switch(\App::getLocale())
+        {
+            case 'ru':
+                return ['mass'=>'земных масс: ',
+                    'radius'=>'радиус, км:',
+                    'temperature'=>'температура поверхности, K: ',
+                    'pressure'=>'давление у поверхности, атмосфер: ',
+                    'volcanism'=>'вулканизм: ',
+                    'atm_type'=>'тип атмосферы: ',
+                    'price'=>'цена в кредитах: '];
+            default:
+                return ['mass'=>'mass, earth masses: ',
+                    'radius'=>'radius, km: ',
+                    'temperature'=>'surface temperature, K: ',
+                    'pressure'=>'surface pressure, atm: ',
+                    'volcanism'=>'volcanism: ',
+                    'atm_type'=>'atmosphere type:',
+                    'price'=>'price, credits:'];
+        }
+    }
+
+    public static function orbitExtraNames()
+    {
+        switch(\App::getLocale())
+        {
+            case 'ru':
+                return ['orbP'=>'Сидерический период обращения, дн: ',
+                        'mAxis'=>'Большая полуось: а.е.: ',
+                        'ecce'=>'Эксцентриситет орбиты: ',
+                        'incl'=>'наклонение орбиты, град: ',
+                        'peri'=>'Аргумент перицентра, град:',
+                        'rotP'=>'Период обращения, дн: ',
+                        'aTilt'=>'Наклон оси вращения, град: ',
+                        'locked'=>'Приливный захват'];
+            default:
+                return ['orbP'=>'Orbital period, D: ',
+                        'mAxis'=>'Semi major axis, AU: ',
+                        'ecce'=>'Orbital eccentricity: ',
+                        'incl'=>'Orbital inclination, deg: ',
+                        'peri'=>'Arg of periapsis, deg: ',
+                        'rotP'=>'Rotational period, D: ',
+                        'aTilt'=>'Axial tilt, deg: ',
+                        'locked'=>'Tidally locked'];
+        }
+    }
+
+    public static function starParams()
+    {
+        switch(\App::getLocale())
+        {
+            case 'ru':
+                return ['age'=>'Возраст, миллионы лет:',
+                        'smass'=>'Масса, в массах Солнца:',
+                        'srad'=>'Радиус в радиусах Солнца:',
+                        'temperature'=>'Температура, K'];
+            default:
+                return ['age'=>'Age, million years:',
+                        'smass'=>'Solar masses:',
+                        'srad'=>'Solar radius:',
+                        'temperature'=>'Temperature, K:'];
+        }
     }
 
 

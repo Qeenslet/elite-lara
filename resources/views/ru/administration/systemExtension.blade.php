@@ -7,6 +7,7 @@
             @endif
             onclick="someAction('{{route('screenRequest', ['target'=>$target->id])}}', 'Запросить скриншот?')"><span class='glyphicon glyphicon-envelope' aria-hidden='true'></span> Запросить скриншот</button>
     <button type="button" class="btn btn-danger" onclick="someAction('{{route('del-o-prove', ['action'=>'delete', 'target'=>$target->id ])}}', 'Удалить?')"><span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Отклонить</button>
+    <button type="button" class="btn btn-warning" onclick="someAction('{{route('del-o-prove', ['action'=>'restrict', 'target'=>$target->id ])}}', 'Добавить с ограничениями?')"><span class='glyphicon glyphicon-warning-sign' aria-hidden='true'></span> Без индексации</button>
     <button type="button" class="btn btn-success" onclick="someAction('{{route('del-o-prove', ['action'=>'approve', 'target'=>$target->id ])}}', 'Одобрить?')"><span class='glyphicon glyphicon-ok' aria-hidden='true'></span> Одобрить</button>
 </div>
 <h2 class="white">Система: {{$target->address}}</h2>

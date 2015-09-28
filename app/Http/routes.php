@@ -26,6 +26,8 @@ Route::post('addaddr', ['as'=>'addAddress', 'uses'=>'FrontController@addAddr']);
 Route::post('addstar', ['as'=>'addStar', 'uses'=>'FrontController@addStar']);
 Route::post('addplanet', ['as'=>'addPlanet', 'uses'=>'FrontController@addPlanet']);
 Route::post('addbarycenter', ['as'=>'addBary', 'uses'=>'FrontController@addBary']);
+Route::post('addstarextra', ['as'=>'addStarExtra', 'uses'=>'FrontController@addStarExtra']);
+Route::post('addplanetextra', ['as'=>'addPlanetExtra', 'uses'=>'FrontController@addPlanetExtra']);
 
 Route::get('cabinet', ['as'=>'cabinet', 'uses'=>'CabinetController@index']);
 Route::get('cabinet/discoveries', ['as'=>'discovery', 'uses'=>'CabinetController@discovery']);
@@ -62,6 +64,8 @@ Route::get('getaddr', 'FrontController@giveAddressAdder');
 Route::get('getstar', 'FrontController@giveStarAdder');
 Route::get('getplanet', 'FrontController@givePlanetAdder');
 Route::get('getbary', 'FrontController@giveBaryAdder');
+Route::get('getstardata', 'FrontController@giveStarData');
+Route::get('getplanetdata', 'FrontController@givePlanetData');
 
 Route::post('senmail', ['as'=>'sender', 'uses'=>'CabinetController@sender']);
 Route::post('sendmail', ['as'=>'senderAdmin', 'uses'=>'AdministrationController@sender']);

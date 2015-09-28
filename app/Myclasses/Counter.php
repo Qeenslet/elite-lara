@@ -44,6 +44,7 @@ class Counter {
     protected function starsAndPlanets($star, $planets, $class, $size){
         return DB::table('stars')->join('planets', 'stars.id', '=', 'planets.star_id')
             ->where('stars.star', $star)
+            ->where('planets.show', 'true')
             ->whereIn('stars.size', $size)
             ->whereIn('stars.class', $class)
             ->whereIn('planets.planet', $planets);

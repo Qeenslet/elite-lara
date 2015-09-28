@@ -20,7 +20,7 @@
         <input type="text" class="form_add_1" id="code_name" name="code_name" placeholder="EG-Y D76">
     </div>
     <div class="form-group">
-        <button class="btn btn-primary" id="spec">Именная звезда / обычная система</button>
+        <button class="btn btn-primary" id="spec">Именная звезда</button>
     </div>
     <div>
         <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Добавить</button>
@@ -33,5 +33,11 @@
         $('#if_normal_1').toggle();
         $('#off_normal').toggle();
         $('#address_adder').trigger( 'reset' );
+        if ($('#off_normal').is(':visible') )
+        {
+            $('#spec').html('Обычная звезда');
+        }
+        else
+            $('#spec').html('Именная звезда');
     });
 </script>

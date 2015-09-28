@@ -8,7 +8,18 @@ class Bariplanet extends Model {
 
     public function center()
     {
-        return $this->belongsTo('App\Baricenter');
+        return $this->belongsTo('App\Baricenter', 'baricenter_id');
     }
+
+    public function planetData()
+    {
+        return $this->hasOne('\App\Plandata');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('\App\User');
+    }
+
 
 }

@@ -27,6 +27,30 @@ height: 1px;
 label {
 margin-right: 10px;
 }
+
+.elite-checkbox
+{
+    position:relative;
+    padding-left:25px;
+}
+.elite-checkbox input[type=checkbox] {
+    display:none;
+}
+.elite-checkbox label:after {
+    content:'';
+    display:block;
+    height:14px;
+    width:14px;
+    outline:1px solid #d95e21;
+    position:absolute;
+    top:0;
+    left:0;
+}
+.elite-checkbox input[type=checkbox]:checked + label:after {
+    background-image: url(/media/checked.png);
+    background-repeat: no-repeat;
+}
+
 #header {
 color: white;
 text-decoration: none;
@@ -239,6 +263,7 @@ text-decoration: none;
 .pointed {
 cursor: pointer
 }
+
 .letterLine {
 cursor: pointer;
 }
@@ -285,6 +310,10 @@ background-color: #9d4602;
 }
 .largeSelect{
     min-width: 220px;
+
+}
+.middleSelect{
+    min-width: 150px;
 
 }
 .checkbox {

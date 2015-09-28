@@ -16,6 +16,7 @@ class starInfo extends objectInfo {
     public $class;
     public $code;
     public $user;
+    public $extra;
 
     public function __construct(\App\Star $star)
     {
@@ -25,5 +26,10 @@ class starInfo extends objectInfo {
         $this->class=$star->class;
         $this->code=$star->code;
         $this->user=$star->user_id;
+
+        if($star->starData)
+        {
+            $this->extra = $star->starData->toArray();
+        }
     }
 }

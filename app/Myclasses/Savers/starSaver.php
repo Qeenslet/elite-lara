@@ -37,8 +37,7 @@ class starSaver extends Saver{
             'class' => $this->data['class'],
             'address_id' => $this->data['address'],
             'user_id' => $this->user,
-            'code'=>$this->data['code'],
-            'stardata_id' => 0];
+            'code'=>$this->data['code']];
         $star = \App\Star::create($array);
         $this->starId = $star->id;
 

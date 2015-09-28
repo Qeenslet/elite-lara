@@ -35,9 +35,21 @@ class ConverterForUser extends Converter{
                 $name = $this->makePlanetName($planet);
                 $image = $this->makePlanetImage($planet);
                 $type = $planet->type;
-                $result[$planet->id] = ['name' => $name,
-                    'image' => $image,
-                    'type' => $type];
+
+                if (isset ($planet->extra))
+                {
+                    $extraD = $this->makePlanetExtras($planet->extra);
+                    $result[$planet->id] = ['name' => $name,
+                        'image' => $image,
+                        'type' => $type,
+                        'extra' => $extraD];
+                }
+                else
+                {
+                    $result[$planet->id] = ['name' => $name,
+                        'image' => $image,
+                        'type' => $type];
+                }
             }
         }
         return $result;

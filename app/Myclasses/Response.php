@@ -78,6 +78,10 @@ class Response {
                 $resp['ru']='внесенные вами данные не были одобрены администратором';
                 $resp['en']="has not been approved by the administrator";
                 break;
+            case 'restrict':
+                $resp['ru']='внесенные вами данные были одобрены без права индексации';
+                $resp['en']="has been approved with indexation restrictions";
+                break;
             default:
                 $resp['ru']='внесенные вами данные были одобрены и добавлены в базу';
                 $resp['en']="has been approved by the administrator";

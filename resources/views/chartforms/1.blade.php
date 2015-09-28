@@ -3,9 +3,10 @@
 <div class="panel-cabinet" id="chartAbout">
     <div style="margin: 5px; width:100%; height: 10%; position: relative; top:1px;"><a href="javascript:closeInfo();" class="info-close-btn"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></div>
 <br>
-    <p>It's a functional type of a chart that represents the habitable zone of a different planets and star types.</p>
-<p>To work with the chart mark the spectral type fo the star, it's size and temperature class, choose the preferable type of planet</p>
-<p>Step in AU  is the step of the orbits. Large step represents the trend of typical orbits. The peaks are clearly visible but you lose somehow in accuracy due to the approximation. Lower step represents data as it is, the limits of the habitable zone are clearly visible, but the peaks are not that significant.</p>
+    <p>This is a chart that represents the habitable zones of different planets and star types.</p>
+<p>To work with the chart select the spectral type of the star, its size and temperature class, and choose you desired type of planet.</p>
+<p>Step AU represent the resolution of the horizontal scale which displays the distance of a planet from its star. A large step represents the trend of typical orbits.
+    The peaks are clearly visible but you lose granularity due to the smoothing. A lower step represents data as it is, the limits of the habitable zone are clearly visible, but the peaks are not that pronounced.</p>
 
     <hr>
 </div>
@@ -13,7 +14,7 @@
     <input type="hidden" value="{{csrf_token()}}" name="_token">
     <div class="form-group">
         <label for="star_select">Star type</label>
-        <select id="star_select" name="star">
+        <select id="star_select" name="star" class="middleSelect">
             @foreach ($count as $num => $one)
                 <option value="{{$num}}">{{$one}}</option>
             @endforeach

@@ -4,27 +4,27 @@
 @stop
 @section('content')
     @if (count($errors) > 0)
-        @include('errors.display')
+        @include('ru.errors.display')
     @endif
 
     @if(isset($result))
         @if($result=='ok')
-            @include('responses.success')
+            @include('ru.responses.success')
         @endif
         @if($result=='moder')
-            @include('responses.moderation')
+            @include('ru.responses.moderation')
         @endif
         @if($result=='fail')
-            @include('responses.dbfail')
+            @include('ru.responses.dbfail')
         @endif
         @if($result=='sameStar')
-            @include('responses.sameStar')
+            @include('ru.responses.sameStar')
         @endif
         @if($result=='samePlanet')
-            @include('responses.samePlanet')
+            @include('ru.responses.samePlanet')
         @endif
         @if($result=='sameBary')
-            @include('responses.sameBary')
+            @include('ru.responses.sameBary')
         @endif
     @endif
     <h2 class="inside_headers_white">Работа с базой данных</h2>
@@ -63,14 +63,14 @@
                         <tr>
                             <td style="width: 40%">
                                 @foreach ($systemD->getOneCenter($center) as $centerObject)
-                                    <div class="panel-cabinet pointed" data="_token={{csrf_token()}}&type={{$centerObject['type']}}&id={{$centerObject['id']}}">
+                                    <div class="panel-cabinet pointed starsS" data="_token={{csrf_token()}}&type={{$centerObject['type']}}&id={{$centerObject['id']}}">
                                         <img src="/media/stars/{{$centerObject['image']}}"> {{$centerObject['name']}}
                                     </div>
                                 @endforeach
                             </td>
                             <td style="width: 40%">
                                 @foreach($systemD->getCenterPlanets($center) as $id=>$planet)
-                                    <div class="panel-cabinet pointed" data="_token={{csrf_token()}}&type={{$planet['type']}}&id={{$id}}">
+                                    <div class="panel-cabinet pointed planetsS" data="_token={{csrf_token()}}&type={{$planet['type']}}&id={{$id}}">
                                         <img src="/media/planets/{{$planet['image']}}"> {{$planet['name']}}<br>
                                     </div>
                                 @endforeach

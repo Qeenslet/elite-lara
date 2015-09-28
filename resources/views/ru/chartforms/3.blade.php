@@ -13,7 +13,7 @@
     <input type="hidden" value="{{csrf_token()}}" name="_token">
     <div class="form-group">
         <label for="star_select">Тип звезды</label>
-        <select id="star_select" name="starOrb">
+        <select id="star_select" name="starOrb" class="middleSelect">
             @foreach ($count as $num => $one)
                 <option value="{{$num}}">{{$one}}</option>
             @endforeach

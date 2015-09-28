@@ -25,6 +25,11 @@ class Star extends Model {
         return $this->belongsToMany('App\Baricenter');
     }
 
+    public function starData()
+    {
+        return $this->hasOne('App\Stardata');
+    }
+
     public function scopeTwentyFour($query){
         $today=\Carbon\Carbon::now()->toDateTimeString();
         $yesterday=\Carbon\Carbon::now()->subDay()->toDateTimeString();

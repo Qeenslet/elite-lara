@@ -28,15 +28,14 @@
 							</div>
 						</div>
 
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="remember"> запомнить меня
-									</label>
-								</div>
-							</div>
-						</div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <div class="elite-checkbox">
+                                    <input type="checkbox" name="remember" id="remMe">
+                                    <label for="remMe">запомнить меня</label>
+                                </div>
+                            </div>
+                        </div>
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">

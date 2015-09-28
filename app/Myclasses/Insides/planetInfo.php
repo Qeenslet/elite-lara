@@ -18,6 +18,8 @@ class planetInfo extends objectInfo{
     public $user;
     public $type;
 
+    public $extra;
+
     public function __construct(\Illuminate\Database\Eloquent\Model $planet)
     {
         $this->id=$planet->id;
@@ -29,5 +31,8 @@ class planetInfo extends objectInfo{
             $this->type='planet';
         }
         else $this->type='bari';
+
+        if ($planet->planetData)
+            $this->extra = new planetExtraInfo($planet->planetData);
     }
 }

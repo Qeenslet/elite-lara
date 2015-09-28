@@ -32,6 +32,18 @@ class Rewriter extends Saver {
                     $this->changePlanet();
                     $this->finalize();
                     break;
+                case 'bari':
+                    $this->toChange = \App\Bariplanet::find($data['id']);
+                    $this->address = $this->toChange->center->address;
+                    $this->changePlanet();
+                    $this->finalize();
+                    break;
+                case 'multi':
+                    $this->toChange = \App\Baricenter::find($data['id']);
+                    $this->address = $this->toChange->address;
+                    $this->changeMulti();
+                    $this->finalize();
+                    break;
             }
         }
         catch (\PDOException $e){
@@ -41,18 +53,36 @@ class Rewriter extends Saver {
 
     protected function changeStar()
     {
-        $this->toChange->star=$this->data['star'];
-        $this->toChange->size=$this->data['size'];
-        $this->toChange->class=$this->data['class'];
+        $this->toChange->star = $this->data['star'];
+        $this->toChange->size = $this->data['size'];
+        $this->toChange->class = $this->data['class'];
+        $this->toChange->code = $this->data['code'];
         $this->toChange->save();
     }
 
     protected function changePlanet()
     {
-        $this->toChange->planet=$this->data['planet'];
-        $this->toChange->distance=$this->data['distance'];
-        $this->toChange->mark=$this->data['mark'];
+        if ($this->toChange instanceof \App\Planet)
+        {
+            $this->toChange->show = $this->data['show'];
+        }
+        $this->toChange->planet = $this->data['planet'];
+        $this->toChange->distance = $this->data['distance'];
+        $this->toChange->mark = $this->data['mark'];
         $this->toChange->save();
+    }
+
+    protected function changeMulti()
+    {
+        foreach($this->toChange->stars()->get() as $star)
+        {
+            $this->toChange->stars()->detach($star->id);
+        }
+
+        foreach($this->data['stars'] as $one)
+        {
+            $this->toChange->stars()->attach($one);
+        }
     }
 
     protected function finalize()

@@ -1,6 +1,6 @@
 @extends('administration.index')
 @section('title')
-    Почта|@parent
+    Mail|@parent
 @stop
 @section('locale')
     <div id="navigation_bar">

@@ -196,7 +196,7 @@ class ModerationController extends Controller {
         $address->name=$data['address'];
         $address->save();
 
-        $newData=new \App\Myclasses\Insides\Insider($address->id);
+        $newData=new \App\Myclasses\Insides\Insider($address);
         $address->inside->data=serialize($newData);
         $address->inside->save();
         return back();
@@ -204,6 +204,7 @@ class ModerationController extends Controller {
 
     public function unite()
     {
+        //return ('Get lost out of here!!!');
         /*$array=['id'=>15];
         $object='star';
         $aa=new\App\Myclasses\Savers\Rewriter($object, $array);
@@ -220,8 +221,13 @@ class ModerationController extends Controller {
         $statData=new \App\Myclasses\charterModer();
         return view('moderation.test', compact('statData'));*/
 
-       $addresses=\App\Address::all();
-        $count=0;
+        /*$insider = new \App\Myclasses\Insides\Converter(1114);
+        dd($insider);*/
+       $addresses=\App\Address::find(1114);
+        $newData=new \App\Myclasses\Insides\Insider($addresses);
+        $addresses->inside->data=serialize($newData);
+        if($addresses->inside->save()) return 'coll';
+        /*$count=0;
         $fails=0;
         foreach ($addresses as $address){
             $addressId=$address->id;
@@ -231,11 +237,12 @@ class ModerationController extends Controller {
             if($save) $count++;
             else $fails++;
         }
-        return view($this->localeDir.'moderation.unite', compact('count', 'fails'));
+        return view($this->localeDir.'moderation.unite', compact('count', 'fails'));*/
 
-        $first=\Session::pull('first');
+
+        /*$first=\Session::pull('first');
         $second=\Session::pull('second');
-        return view($this->localeDir.'moderation.unite', compact('first', 'second'));
+        return view($this->localeDir.'moderation.unite', compact('first', 'second'));*/
     }
 
     public function deleteUser(Request $request)

@@ -42,6 +42,11 @@
                         <button type="submit" class="btn btn-success">Изменить</button>
                     </form>
                 </td>
+                @if(!$content->getAllCenters())
+                    <td>
+                        <h4>System is empty!</h4>
+                    </td>
+                @else
                 <td>
                     @foreach($content->getAllCenters() as $center)
                         @foreach ($content->getOneCenter($center) as $centerObject)
@@ -53,6 +58,7 @@
                         @endforeach
                     @endforeach
                 </td>
+                @endif
             </tr>
         @endforeach
         </tbody>

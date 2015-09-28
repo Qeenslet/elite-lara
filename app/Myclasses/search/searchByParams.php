@@ -15,6 +15,7 @@ class searchByParams extends SearchEngine{
     public function __construct($data)
     {
         $this->data=$data;
+        $this->data['distance'] = str_replace(',', '.', $data['distance']);
         $this->search();
     }
     private function search()

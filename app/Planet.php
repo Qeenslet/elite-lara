@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Planet extends Model {
 
-    protected $fillable = ['star_id', 'planet', 'mark', 'distance', 'user_id', 'plandata_id'];
+    protected $fillable = ['star_id', 'planet', 'mark', 'distance', 'user_id'];
 
     public function star()
     {
@@ -13,6 +13,11 @@ class Planet extends Model {
 
     public function user() {
         return $this->belongsTo('\App\User');
+    }
+
+    public function planetData()
+    {
+        return $this->hasOne('\App\Plandata');
     }
 
     public function scopeTwentyFour($query){

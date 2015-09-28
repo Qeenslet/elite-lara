@@ -106,14 +106,26 @@
                  <tr>
                         <td style="width: 40%">
                         @foreach ($systemD->getOneCenter($center) as $centerObject)
-                            <div class="panel-cabinet pointed" data="_token={{csrf_token()}}&type={{$centerObject['type']}}&id={{$centerObject['id']}}">
+                            <div class="panel-cabinet pointed extra"
+                            @if(isset($centerObject['extra']))
+                                 data-tooltip="@include('ru.interface.starInsides')"
+                                 @else
+                                 data-tooltip="<h4>Нет данных об объекте!</h4>"
+                                 @endif
+                                 data="_token={{csrf_token()}}&type={{$centerObject['type']}}&id={{$centerObject['id']}}">
                                 <img src="/media/stars/{{$centerObject['image']}}"> {{$centerObject['name']}}
                             </div>
                         @endforeach
                        </td>
                        <td style="width: 60%">
                          @foreach($systemD->getCenterPlanets($center) as $id=>$planet)
-                               <div class="panel-cabinet pointed" data="_token={{csrf_token()}}&type={{$planet['type']}}&id={{$id}}">
+                               <div class="panel-cabinet pointed extra"
+                               @if (isset($planet['extra']))
+                                    data-tooltip="@include('ru.interface.planetInsides')"
+                                    @else
+                                    data-tooltip="<h4>Нет данных об объекте!</h4>"
+                                    @endif
+                                    data="_token={{csrf_token()}}&type={{$planet['type']}}&id={{$id}}">
                                    <img src="/media/planets/{{$planet['image']}}"> {{$planet['name']}}<br>
                                </div>
                          @endforeach
@@ -148,6 +160,7 @@
 @section('scripts')
     @parent
     <script type="text/javascript" src="/js/searchSelect.js"></script>
+    <script type="text/javascript" src="/js/showTooltip.js"></script>
     <script>
         function rolldown(id)
         {

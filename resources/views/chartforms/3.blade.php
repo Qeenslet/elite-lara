@@ -3,15 +3,15 @@
 <div class="panel-cabinet" id="chartAbout">
     <div style="margin: 5px; width:100%; height: 10%; position: relative; top:1px;"><a href="javascript:closeInfo();" class="info-close-btn"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></div>
     <br>
-    <p>This plot represents each discovered planet with a dot. It's color represents the type of the planet. </p>
-    <p>You can zoom in any area mark it with the left button of the mouse pressed.</p>
+    <p>This plot represents each discovered planet with a dot. Its color represents the type of planet. </p>
+    <p>You can zoom in any area by holding the left mouse button and dragging the mouse before releasing</p>
     <hr>
 </div>
 <form class="form-inline" method="POST" id="orbit_query" onsubmit="send('orbit_query');" action="javascript:void(null);">
     <input type="hidden" value="{{csrf_token()}}" name="_token">
     <div class="form-group">
         <label for="star_select">Star type</label>
-        <select id="star_select" name="starOrb">
+        <select id="star_select" name="starOrb" class="middleSelect">
             @foreach ($count as $num => $one)
                 <option value="{{$num}}">{{$one}}</option>
             @endforeach

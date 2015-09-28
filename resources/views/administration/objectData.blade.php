@@ -1,12 +1,12 @@
 <h3 class="white">Editing the object</h3>
+<h4 class="white">Changes</h4>
 @if($data['type']=='star')
     <?php
     $starData=\App\Myclasses\StarInfo::getFromDb($data['id']);
     $stars=\App\Myclasses\Arrays::allStarsArray(true);
     $sizes=\App\Myclasses\Arrays::sizeTypeArray();
     ?>
-    <h4 class="white">Changes</h4>
-    <h5>Gave the data: <span class="white">{{$starData->user->name}}</span></h5>
+    <h5>Provided the data: <span class="white">{{$starData->user->name}}</span></h5>
     <form class="form-inline" method="get" action="{{route('changeObject')}}">
         <input type="hidden" value="{{$data['id']}}" name="id">
         <input type="hidden" value="star" name="type">
@@ -44,16 +44,57 @@
         <button type="submit" class="btn btn-danger">Delete</button>
     </form>
 @endif
-@if($data['type']=='planet')
+
+@if($data['type'] == 'multi')
     <?php
-    $planetData=\App\Myclasses\PlanetInfo::getFromDb($data['id']);
-    $planets=\App\Myclasses\Arrays::planetsForCabinet();
+    $centerData=\App\Baricenter::find($data['id']);
+    $markedStars = $centerData->stars()->get();
+    $allStars = $centerData->address->stars()->get();
     ?>
-    <h4 class="white">Changes</h4>
-    <h5>Gave the data: <span class="white">{{$planetData->user->name}}</span></h5>
     <form class="form-inline" method="get" action="{{route('changeObject')}}">
         <input type="hidden" value="{{$data['id']}}" name="id">
-        <input type="hidden" value="planet" name="type">
+        <input type="hidden" value="{{$data['type']}}" name="type">
+        <input type="hidden" value="change" name="action">
+        <p>Barycenter of the stars</p>
+        <ul>
+            @foreach($markedStars as $star)
+                <li>{{\App\Myclasses\Arrays::nameStar($star)}}</li>
+            @endforeach
+        </ul>
+        <label for="stars">Select stars in the system to assign</label>
+        <select name="stars[]" id="stars" multiple="multiple">
+            @foreach($allStars as $star)
+                <option value="{{$star->id}}">{{\App\Myclasses\Arrays::nameStar($star)}}</option>
+            @endforeach
+        </select>
+        <button type="submit" class="btn btn-warning">Change</button>
+    </form>
+    <h4 class="white">Delete</h4>
+    <form method="get" action="{{route('changeObject')}}">
+        <input type="hidden" value="{{$data['id']}}" name="id">
+        <input type="hidden" value="{{$data['type']}}" name="type">
+        <input type="hidden" value="delete" name="action">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+@endif
+
+@if($data['type'] == 'planet' || $data['type'] == 'bari')
+    <?php
+            switch($data['type'])
+            {
+                case 'planet':
+                    $planetData=\App\Planet::find($data['id']);
+                    break;
+                default:
+                    $planetData=\App\Bariplanet::find($data['id']);
+                    break;
+            }
+    $planets=\App\Myclasses\Arrays::planetsForCabinet();
+    ?>
+    <h5>Provided the data: <span class="white">{{$planetData->user->name}}</span></h5>
+    <form class="form-inline" method="get" action="{{route('changeObject')}}">
+        <input type="hidden" value="{{$data['id']}}" name="id">
+        <input type="hidden" value="{{$data['type']}}" name="type">
         <input type="hidden" value="change" name="action">
         <label for="planetD">Planet</label>
         <select name="planet" id="planetD">
@@ -73,12 +114,25 @@
                  <option>qua</option>
                  <option>sat</option>
         </select>
+        @if($data['type'] == 'planet')
+            <label for="showHide">Indexation scope</label>
+            <select name="show" id="showHide" class="middleSelect">
+                @if($planetData->show == 'true')
+                    <option value="true">Keep displaying it</option>
+                    <option value="false">Hide it</option>
+                @else
+                    <option value="false">Keep hiding it</option>
+                    <option value="true">Display it</option>
+                @endif
+
+            </select>
+        @endif
         <button type="submit" class="btn btn-warning">Change</button>
     </form>
     <h4 class="white">Delete</h4>
     <form method="get" action="{{route('changeObject')}}">
         <input type="hidden" value="{{$data['id']}}" name="id">
-        <input type="hidden" value="planet" name="type">
+        <input type="hidden" value="{{$data['type']}}" name="type">
         <input type="hidden" value="delete" name="action">
         <button type="submit" class="btn btn-danger">Delete</button>
     </form>

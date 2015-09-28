@@ -4,7 +4,7 @@
     <input type="hidden" name="address" value="{{$addrId}}">
     <div class="form-group">
         <label for="star_sel">Star type:</label>
-        <select id="star_sel" name="star">
+        <select id="star_sel" name="star" class="middleSelect">
             <option></option>
             @foreach ($stars as $num => $one)
                 <option value="{{$num}}">{{$one}}</option>

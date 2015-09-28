@@ -15,10 +15,15 @@ class planetSaver extends Saver {
 
     protected $star;
     protected $planetId;
+    protected $ignore;
 
-    public function __construct(checkPlanet $checker)
+    public function __construct(checkPlanet $checker, $ignore = false)
     {
         parent::__construct($checker);
+        if($ignore)
+            $this->ignore = 1;
+        else
+            $this->ignore = 0;
         $this->address=$checker->getAddress();
         $this->addrId=$this->address->id;
         if(isset($this->data['user'])) $this->user=$this->data['user'];
@@ -40,10 +45,14 @@ class planetSaver extends Saver {
             'planet' => $this->data['planet'],
             'mark' => $this->data['mark'],
             'distance' => $this->data['distance'],
-            'user_id' => $this->user,
-            'plandata_id' => 0];
+            'user_id' => $this->user];
         $planet=\App\Planet::create($array);
         $this->planetId=$planet->id;
+        if ($this->ignore == 1)
+        {
+            $planet->show = 'false';
+            $planet->save();
+        }
 
     }
 

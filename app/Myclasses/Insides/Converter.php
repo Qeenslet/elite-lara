@@ -69,9 +69,21 @@ class Converter {
                 $name = $this->makePlanetName($planet);
                 $image = $this->makePlanetImage($planet);
                 $type = $planet->type;
-                $result[$planet->id] = ['name' => $name,
-                    'image' => $image,
-                    'type' => $type];
+
+                if (isset ($planet->extra))
+                {
+                    $extraD = $this->makePlanetExtras($planet->extra);
+                    $result[$planet->id] = ['name' => $name,
+                        'image' => $image,
+                        'type' => $type,
+                        'extra' => $extraD];
+                }
+                else
+                {
+                    $result[$planet->id] = ['name' => $name,
+                        'image' => $image,
+                        'type' => $type];
+                }
             }
         }
         return $result;
@@ -99,7 +111,8 @@ class Converter {
         $starData['image']=$this->makeStarImage($star);
         $starData['id']=$star->id;
         $starData['type']='star';
-
+        if (isset($star->extra))
+            $starData['extra'] = $this->makeStarExtras($star);
         return $starData;
     }
 
@@ -143,6 +156,72 @@ class Converter {
     protected function makeStarImage(starInfo $star)
     {
         return $this->starName[$star->star].'.png';
+    }
+
+
+    //returns star extras in user-firendly manner
+    protected function makeStarExtras(starInfo $star)
+    {
+        $array=[];
+        $starParams = \App\Myclasses\Arrays::starParams();
+        foreach ($star->extra as $key=>$value)
+        {
+            $newKey = $starParams[$key];
+            $array[$newKey] = $value;
+        }
+        return $array;
+    }
+
+
+    //returns planet extras in user-firendly manner
+    protected function makePlanetExtras(planetExtraInfo $extra)
+    {
+        $array = [];
+        $atmosphere = [];
+        $composition = [];
+
+        $commonNames = \App\Myclasses\Arrays::commonExtraNames();
+        $volcanism = \App\Myclasses\Arrays::volcanism();
+        $atmType = \App\Myclasses\Arrays::atmosphereType();
+
+        foreach ($extra->common as $key=>$value)
+        {
+            if ($key == 'volcanism')
+                $value = $volcanism[$value];
+            if ($key == 'atm_type')
+                $value = $atmType[$value];
+            $newKey = $commonNames[$key];
+            $array[$newKey] = $value;
+        }
+        $compName = \App\Myclasses\Arrays::planetComposition();
+
+        foreach ($extra->composition as $key=>$value)
+        {
+            $newKey = $compName[$key];
+            $composition[$newKey] = $value.' %';
+        }
+        $array['composition'] = $composition;
+
+        $atmNames = \App\Myclasses\Arrays::atmosphereComposition();
+
+        foreach ($extra->atmosphere as $key=>$value)
+        {
+            if($value == 0)
+                continue;
+            $newKey = $atmNames[$key];
+            $atmosphere[$newKey] = $value.' %';
+        }
+
+        $array['atmosphereC'] = $atmosphere;
+
+        $orbitNames = \App\Myclasses\Arrays::orbitExtraNames();
+
+        foreach ($extra->orbit as $key=>$value)
+        {
+            $newKey = $orbitNames[$key];
+            $array[$newKey] = $value;
+        }
+        return $array;
     }
 
     public function getAddrId()

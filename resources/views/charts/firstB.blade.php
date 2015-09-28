@@ -8,7 +8,7 @@
                 enabled: false
             },
             title: {
-                text: 'Statistics about the star {{$chart->starHeader}} {{$chart->tempHeader}} {{$chart->sizeHeader}}. Planets: {{$chart->inHeader}}'
+                text: 'Statistics about {{$chart->starHeader}} {{$chart->tempHeader}} {{$chart->sizeHeader}} type stars. Planets: {{$chart->inHeader}}'
             },
             xAxis: {
                 labels: {
