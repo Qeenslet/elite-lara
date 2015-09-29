@@ -338,7 +338,7 @@ background-color: #9d4602;
     box-shadow: 1px 1px 1px black;
     padding:10px;
     border-radius:5px;
-    min-width: 50%;
+    min-width: 80%;
     max-height: 100%;
     z-index:99;
     left:50%;
@@ -441,6 +441,10 @@ background-color: #9d4602;
 }
 .GreyWolfColor{
 color:#E6E6B8;
+}
+#tooltip {
+    position: relative;
+    width: 100%;
 }
 
 .info-close-btn {
