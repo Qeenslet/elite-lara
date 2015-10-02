@@ -39,6 +39,7 @@ class ConverterForUser extends Converter{
                 if (isset ($planet->extra))
                 {
                     $extraD = $this->makePlanetExtras($planet->extra);
+                    $name = $name.' / '.$this->addGravity($planet->extra);
                     $result[$planet->id] = ['name' => $name,
                         'image' => $image,
                         'type' => $type,

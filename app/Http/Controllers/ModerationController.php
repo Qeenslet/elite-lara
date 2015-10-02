@@ -204,6 +204,9 @@ class ModerationController extends Controller {
 
     public function unite()
     {
+        $pilot = \App\User::where('name', 'techcat')->first();
+        dd($pilot);
+
         //return ('Get lost out of here!!!');
         /*$array=['id'=>15];
         $object='star';
@@ -223,10 +226,10 @@ class ModerationController extends Controller {
 
         /*$insider = new \App\Myclasses\Insides\Converter(1114);
         dd($insider);*/
-       $addresses=\App\Address::find(1114);
+       /*$addresses=\App\Address::find(1114);
         $newData=new \App\Myclasses\Insides\Insider($addresses);
         $addresses->inside->data=serialize($newData);
-        if($addresses->inside->save()) return 'coll';
+        if($addresses->inside->save()) return 'coll';*/
         /*$count=0;
         $fails=0;
         foreach ($addresses as $address){

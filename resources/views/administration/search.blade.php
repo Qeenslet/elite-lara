@@ -3,7 +3,7 @@
     Search|@parent
 @stop
 @section('locale')
-    <h2>Search system's data</h2>
+    <h2>Search for system data</h2>
     <hr>
     <form method="get" action="{{route('search')}}" class="form-inline">
 

@@ -137,7 +137,7 @@
         <div class="form-group">
             <label for="eccentricity" class="col-md-4 control-label">Orbital eccentricity</label>
             <div class="col-md-6">
-                <input id="eccentricity" name="ecce" type="text" value="@if(isset($pData) && $pData->orbit->ecce > 0){{$pData->orbit->ecce}}@endif" class="digits">
+                <input id="eccentricity" name="ecce" type="text" value="@if(isset($pData) && isset($pData->orbit->ecce)){{$pData->orbit->ecce}}@endif" class="digits">
             </div>
         </div>
 

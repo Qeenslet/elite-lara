@@ -30,6 +30,7 @@ function checkPercentsGas()
             percent += value;
         }
     );
+    percent = looseRound(percent);
     if (percent > 100)
     {
         lockerGas = 1;
@@ -52,6 +53,7 @@ function checkPercentsRock()
             percent += value;
         }
     );
+    percent = looseRound(percent);
     if (percent > 100)
     {
         lockerRock = 1;
@@ -85,6 +87,13 @@ function locker()
         blockKey();
     else
         releaseKey();
+}
+
+function looseRound(number)
+{
+    number *= 1000;
+    number = Math.round(number);
+    return number / 1000;
 }
 
 $( "#multiple_gas" ).change( displayVals );

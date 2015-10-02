@@ -27,6 +27,9 @@ $(function(){
                 $('#jquery-overlay').remove();
             })
             .appendTo(modal);
+        coord = $(this).offset();
+        $('.modal-window').css('top', coord.top);
+
 
 
         $.ajax({

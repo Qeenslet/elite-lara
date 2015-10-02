@@ -11,10 +11,17 @@
 <hr>
 <div id="answerButton">
     @if($letter->reciever==1)
+        <?php
+            $back = 'inbox';
+        ?>
         <button type="submit" class="btn btn-success" onclick="answer();">Respond</button>
+    @else
+        <?php
+            $back = 'sent';
+        ?>
     @endif
     <button type="submit" class="btn btn-warning" onclick="window.location.href='{{$_SERVER['HTTP_REFERER']}}';">Back</button>
-    <button type="button" class="btn btn-danger" onclick="someAction('{{route('admMailDel', ['id'=>$letter->id])}}', 'Удалить?')">Delete</button>
+    <button type="button" class="btn btn-danger" onclick="someAction('{{route('admMailDel', ['id'=>$letter->id, 'back'=>$back])}}', 'Delete it?')">Delete</button>
 </div>
 <div id="placeForAnswer" style="display: none;">
     <form class="form-horizontal" method="post" action="{{route('senderAdmin')}}">

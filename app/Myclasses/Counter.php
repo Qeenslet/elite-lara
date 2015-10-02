@@ -145,4 +145,13 @@ class Counter {
         return $stat;
     }
 
+    public static function gravity($mass, $radius)
+    {
+        $earthMass = 5.97219E+24;
+        $y = 6.67E-11;
+        $r = $radius * 1000;
+        $gravitation = $earthMass * $y * $mass / ($r * $r);
+        return round($gravitation / 9.807, 2);
+    }
+
 }

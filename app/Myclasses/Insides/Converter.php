@@ -73,6 +73,7 @@ class Converter {
                 if (isset ($planet->extra))
                 {
                     $extraD = $this->makePlanetExtras($planet->extra);
+                    $name = $name.' / '.$this->addGravity($planet->extra);
                     $result[$planet->id] = ['name' => $name,
                         'image' => $image,
                         'type' => $type,
@@ -222,6 +223,15 @@ class Converter {
             $array[$newKey] = $value;
         }
         return $array;
+    }
+
+    protected function addGravity(planetExtraInfo $extra)
+    {
+        $mass = $extra->common['mass'];
+        $radius = $extra->common['radius'];
+        $gravity = \App\Myclasses\Counter::gravity($mass, $radius);
+        return 'G = '.$gravity.' g';
+
     }
 
     public function getAddrId()

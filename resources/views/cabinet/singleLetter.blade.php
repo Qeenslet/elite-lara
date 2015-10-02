@@ -11,10 +11,17 @@
 <hr>
 <div id="answerButton">
     @if($letter->sender!=Auth::user()->id)
+        <?php
+        $back = 'inbox';
+        ?>
         <button type="submit" class="btn btn-success" onclick="answer();">Respond</button>
+    @else
+        <?php
+        $back = 'sent';
+        ?>
     @endif
     <button type="submit" class="btn btn-warning" onclick="window.location.href='{{$_SERVER['HTTP_REFERER']}}';">Back</button>
-        <button type="button" class="btn btn-danger" onclick="someAction('{{route('cabMailDel', ['id'=>$letter->id])}}', 'Delete it?')">Delete</button>
+        <button type="button" class="btn btn-danger" onclick="someAction('{{route('cabMailDel', ['id'=>$letter->id, 'back'=>$back])}}', 'Delete it?')">Delete</button>
 </div>
 <div id="placeForAnswer" style="display: none;">
     <form class="form-horizontal" method="post" action="{{route('sender')}}">

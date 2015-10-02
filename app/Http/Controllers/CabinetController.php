@@ -99,26 +99,37 @@ class CabinetController extends Controller {
 
     }
 
-    public function discovery(){
+    public function discovery()
+    {
         $findings= Auth::user()->findings()->groupBy('created_at')->orderBy('id', 'desc')->paginate(10);
         return view($this->localeDir.'cabinet.discoveries', compact('findings'));
     }
 
-    public function mailDelete(Request $request){
+    public function mailDelete(Request $request)
+    {
         $id=$request->input('id');
-        $letter=\App\Letter::find($id);
-        if($letter->sender==Auth::user()->id){
-            $letter->show_sender='false';
+        $redirect = $request->input('back');
+        $deleter = new \App\Myclasses\localLetters\mailDeleter($id);
+        return redirect(route('usermail', ['folder'=>$redirect]));
+    }
 
+    public function massDelete(Request $request)
+    {
+        $idArray = $request->all();
+        foreach ($idArray as $id => $status)
+        {
+            if ($status != 'on')
+                continue;
+            $deleter = new \App\Myclasses\localLetters\mailDeleter($id);
         }
-        else {
-            $letter->show_reciever='false';
-        }
-        $letter->save();
-        if($letter->show_sender=='false' && $letter->show_reciever=='false') {
-            $letter->delete();
-        }
-        return redirect(route('usermail'));
+        return redirect()->back();
+    }
+
+    public function totalStats()
+    {
+        $points = \App\Point::orderBy('points', 'desc')->get();
+        return view ($this->localeDir.'cabinet.totalStats', compact('points'));
+
     }
 
 }

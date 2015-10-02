@@ -154,19 +154,21 @@ class AdministrationController extends Controller {
     public function mailDelete(Request $request)
     {
         $id=$request->input('id');
-        $letter=\App\Letter::find($id);
-        if($letter->sender==1){
-            $letter->show_sender='false';
+        $redirect = $request->input('back');
+        $deleter = new \App\Myclasses\localLetters\mailDeleter($id, 1);
+        return redirect(route('adminmail', ['folder'=>$redirect]));
+    }
 
+    public function massDelete(Request $request)
+    {
+        $idArray = $request->all();
+        foreach ($idArray as $id => $status)
+        {
+            if ($status != 'on')
+                continue;
+            $deleter = new \App\Myclasses\localLetters\mailDeleter($id, 1);
         }
-        else {
-            $letter->show_reciever='false';
-        }
-        $letter->save();
-        if($letter->show_sender=='false' && $letter->show_reciever=='false') {
-            $letter->delete();
-        }
-        return redirect(route('adminmail'));
+        return redirect()->back();
     }
 
     public function search(Requests\SearchRequest $request)

@@ -266,6 +266,7 @@ cursor: pointer
 
 .letterLine {
 cursor: pointer;
+margin: 5px;
 }
 .unread {
 font-weight: bold;

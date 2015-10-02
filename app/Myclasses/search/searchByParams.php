@@ -24,10 +24,13 @@ class searchByParams extends SearchEngine{
             ->whereBetween('distance', [$this->data['distance']*0.99, $this->data['distance']*1.01])
             ->get();
         foreach($suitablePlanets as $one){
-            $suitableStars=$one->star()->where('star', $this->data['star'])
-                ->where('size', $this->data['size'])
-                ->where('class', $this->data['class'])
-                ->get();
+            if ($one->star->star != $this->data['star'])
+                continue;
+            if($one->star->class != $this->data['class'])
+                continue;
+            if ($one->star->size !=$this->data['size'])
+                continue;
+            $suitableStars[]=$one->star;
         }
         foreach($suitableStars as $oneStar){
             $this->ids[]=$oneStar->address->id;

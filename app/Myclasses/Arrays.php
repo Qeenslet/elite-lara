@@ -166,9 +166,9 @@ class Arrays {
         switch(\App::getLocale())
         {
             case 'ru':
-                return ['cabinet'=>'Статистика', 'discovery'=>'Журнал систем', 'usermail'=>'Почта'];
+                return ['cabinet'=>'Статистика', 'discovery'=>'Журнал систем', 'usermail'=>'Почта', 'totalStats'=>'Рейтинг пилотов'];
             default:
-                return ['cabinet'=>'Statistics', 'discovery'=>'Discovery log', 'usermail'=>'Mail'];
+                return ['cabinet'=>'Statistics', 'discovery'=>'Discovery log', 'usermail'=>'Mail', 'totalStats'=>'Pilot rating'];
         }
     }
     public static function adminRouts(){

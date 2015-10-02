@@ -33,6 +33,8 @@ Route::get('cabinet', ['as'=>'cabinet', 'uses'=>'CabinetController@index']);
 Route::get('cabinet/discoveries', ['as'=>'discovery', 'uses'=>'CabinetController@discovery']);
 Route::get('cabinet/mail/{folder?}', ['as'=>'usermail', 'uses'=>'CabinetController@mail']);
 Route::get('cabinet/deletemail', ['as'=>'cabMailDel', 'uses'=>'CabinetController@mailDelete']);
+Route::get('cabinet/total_stats', ['as'=>'totalStats', 'uses'=>'CabinetController@totalStats']);
+Route::get('cabinet/massdelete', ['as'=>'massDeleteCabinet', 'uses'=>'CabinetController@massDelete']);
 
 Route::get('administration', ['as'=>'administration', 'uses'=>'AdministrationController@index']);
 Route::get('administration/mail/{folder?}', ['as'=>'adminmail', 'uses'=>'AdministrationController@mail']);
@@ -42,6 +44,7 @@ Route::get('administration/deletemail', ['as'=>'admMailDel', 'uses'=>'Administra
 Route::get('administration/search', ['as'=>'search', 'uses'=>'AdministrationController@search']);
 Route::get('administration/delete', ['as'=>'delete', 'uses'=>'AdministrationController@delete']);
 Route::get('administration/cambiar', ['as'=>'changeObject', 'uses'=>'AdministrationController@cambiar']);
+Route::get('administration/massdelete', ['as'=>'massDeleteAdmin', 'uses'=>'AdministrationController@massDelete']);
 
 Route::get('moderation', ['as'=>'moderation', 'uses'=>'ModerationController@index']);
 Route::get('moderation/reader', ['as'=>'reader', 'uses'=>'ModerationController@reader']);
