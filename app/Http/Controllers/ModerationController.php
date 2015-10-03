@@ -98,6 +98,8 @@ class ModerationController extends Controller {
             case 'give':
                 \App\User::find($id)->roles()->attach($role);
                 break;
+            case 'looselang':
+                \App\User::find($id)->locales()->detach($role);
         }
         return redirect(route('roles'));
     }
@@ -124,30 +126,6 @@ class ModerationController extends Controller {
     public function multistars()
     {
         return redirect(route('texts'));
-        /*$addresses=\App\Address::all();
-        $selected=[];
-        foreach($addresses as $address){
-            $num=$address->stars()->count();
-            if($num>1){
-                foreach($address->stars()->get() as $singleStar){
-                    if($singleStar->code!=NULL) continue;
-                    else {
-                        $selected[]=$address;
-                        break;
-                    }
-                }
-            }
-            else{
-                $star=$address->stars()->first();
-                if($star->code!=NULL) continue;
-                $star->code='A';
-                $star->save();
-            }
-        }
-        $starNames=\App\Myclasses\Arrays::allStarsArray();
-        $sizeNames=\App\Myclasses\Arrays::sizeTypeArray();
-
-        return view('moderation.multistars', compact('selected', 'starNames', 'sizeNames'));*/
     }
 
     public function starpos(Request $request)
@@ -256,6 +234,15 @@ class ModerationController extends Controller {
         if($user->confirmed != 'confirmacion ha pasado' || $user->findings()->count() == 0){
             $user->points()->delete();
             $user->roles()->detach(1);
+
+            foreach($user->hasSent()->get() as $letter)
+            {
+                $letter->delete();
+            }
+            foreach($user->hasInbox()->get() as $letter)
+            {
+                $letter->delete();
+            }
             $user->delete();
             return redirect(route('roles'));
         }

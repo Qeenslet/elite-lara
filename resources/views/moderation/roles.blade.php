@@ -8,6 +8,9 @@
                 Имя
             </th>
             <th>
+                Локали
+            </th>
+            <th>
                 Допуск к базе
             </th>
             <th>
@@ -25,6 +28,12 @@
     @foreach($users as $user)
             <tr>
                 <td>{{$user->name}}</td>
+                <td>
+                    @foreach ($user->locales()->get() as $locale)
+                        <p>{{$locale->lang}}
+                            <a style="color:red" href="{{route('setrole', ['action'=>'looselang', 'role'=>$locale->id, 'user'=>$user->id])}}"><span class="glyphicon glyphicon-remove"></span></a></p>
+                    @endforeach
+                </td>
                 <td>
                     @if($user->roles()->where('id', 1)->first())
                         @if($user->id==1)
