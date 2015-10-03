@@ -78,6 +78,8 @@ $(function(){
     $('.starsS').click(function(cc){
         cc.preventDefault();
         openModal();
+        coord = $(this).offset();
+        $('.modal-window').css('top', coord.top);
         data=$(this).attr('data');
         sendTo('/getstardata');
     });
@@ -85,6 +87,8 @@ $(function(){
     $('.planetsS').click(function(cc){
         cc.preventDefault();
         openModal();
+        coord = $(this).offset();
+        $('.modal-window').css('top', coord.top);
         data=$(this).attr('data');
         sendTo('/getplanetdata');
     });

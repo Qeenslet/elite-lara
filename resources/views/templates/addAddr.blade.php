@@ -3,7 +3,7 @@
     <h2>Adding new star system</h2>
     <h3>System name</h3>
     <div class="form-group" id="off_normal" style="display: none;">
-        <label for="one_name">The star name:</label>
+        <label for="one_name">The system name:</label>
         <input type="text" class="form_add_1" id="one_name" name="one_name" placeholder="Monocerotis 20">
     </div>
     <div class="form-group" id="if_normal_1">
@@ -20,7 +20,7 @@
         <input type="text" class="form_add_1" id="code_name" name="code_name" placeholder="EG-Y D76">
     </div>
     <div class="form-group">
-        <button class="btn btn-primary" id="spec">The named star</button>
+        <button class="btn btn-primary" id="spec">The named system</button>
     </div>
     <div>
         <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Add</button>
@@ -35,9 +35,9 @@
         $('#address_adder').trigger( 'reset' );
         if ($('#off_normal').is(':visible') )
         {
-            $('#spec').html('Ordinary star');
+            $('#spec').html('Ordinary systemr');
         }
         else
-            $('#spec').html('The named star');
+            $('#spec').html('The named system');
     });
 </script>
