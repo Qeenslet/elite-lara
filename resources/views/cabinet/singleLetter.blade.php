@@ -38,7 +38,6 @@
         <button type="submit" class="btn btn-warning">Send</button>
     </form>
 </div>
-</div>
 @stop
 @section('scripts')
     @parent
