@@ -130,7 +130,7 @@
         <div class="form-group">
             <label for="mAxis" class="col-md-4 control-label">Semi major axis</label>
             <div class="col-md-6">
-                <input id="mAxis" name="mAxis" type="text" value="@if(isset($pData) && $pData->orbit->mAxis > 0){{$pData->orbit->mAxis}}@endif" class="digits">
+                <input id="mAxis" name="mAxis" type="text" value="@if(isset($pData) && isset($pData->orbit->mAxis)){{$pData->orbit->mAxis}}@endif" class="digits">
             </div>
         </div>
 
