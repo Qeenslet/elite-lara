@@ -23,6 +23,7 @@ class searchByParams extends SearchEngine{
         $suitablePlanets=\App\Planet::where('planet', $this->data['planet'])
             ->whereBetween('distance', [$this->data['distance']*0.99, $this->data['distance']*1.01])
             ->get();
+        $suitableStars = [];
         foreach($suitablePlanets as $one){
             if ($one->star->star != $this->data['star'])
                 continue;
