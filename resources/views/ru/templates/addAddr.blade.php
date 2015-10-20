@@ -1,5 +1,5 @@
 <form class="form-inline" method="POST" action="{{route('addAddress')}}" id="address_adder">
-    <input type="hidden" name="_token" value="{{csrf_token()}}">
+    <input type="hidden" name="_token" value="{{csrf_token()}}" id="_token">
     <h2>Добавление новой системы в базу данных</h2>
     <h3>Координаты</h3>
     <div class="form-group" id="off_normal" style="display: none;">
@@ -10,9 +10,6 @@
         <label for="region_add">Регион:</label>
         <input type="text" class="form_add_1" id="region_add" name="region" placeholder="Plaa Trua" list="regions" autocomplete="on">
         <datalist id="regions">
-            @foreach($regions as $one)
-                <option>{{$one->name}}</option>
-            @endforeach
         </datalist>
     </div>
     <div class="form-group" id="if_normal_2">
@@ -41,3 +38,4 @@
             $('#spec').html('Именная система');
     });
 </script>
+<script type="text/javascript" src="/js/regionTracker.js"></script>

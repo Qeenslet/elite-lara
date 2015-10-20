@@ -67,6 +67,29 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+    <script>
+        $('#region_search').keypress(function()
+        {
+            string = $('#region_search').val();
+            if(string.length > 1 && string.length < 3)
+            {
+                data = 'string='+string;
+                token = $("#_token").attr('data');
+                data += '&_token='+token;
+                $.ajax({
+                    'type':'POST',
+                    'url':'/getregionletter',
+                    'data':data,
+                    'success':function(data){
+                        $('#regions').append(data);
+
+                    },
+                    'error':function(msg){
+                        $('#result').append(msg)}
+                });
+            }
+        });
+    </script>
     @show
 </body>
 </html>

@@ -69,6 +69,7 @@ Route::get('getplanet', 'FrontController@givePlanetAdder');
 Route::get('getbary', 'FrontController@giveBaryAdder');
 Route::get('getstardata', 'FrontController@giveStarData');
 Route::get('getplanetdata', 'FrontController@givePlanetData');
+Route::post('getregionletter', 'AjaxController@regionSearch');
 
 Route::post('senmail', ['as'=>'sender', 'uses'=>'CabinetController@sender']);
 Route::post('sendmail', ['as'=>'senderAdmin', 'uses'=>'AdministrationController@sender']);

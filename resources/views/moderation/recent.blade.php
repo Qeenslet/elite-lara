@@ -1,10 +1,8 @@
 @extends('app')
 @section('content')
     <datalist id="regions">
-        @foreach(\App\Region::all() as $one)
-            <option>{{$one->name}}</option>
-        @endforeach
     </datalist>
+    <span style="display: none;" data="{{csrf_token()}}" id="_token"></span>
     <form method="get" action="{{route('recent')}}" class="form-inline">
         <div class="form-group">
 

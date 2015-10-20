@@ -93,10 +93,9 @@ class FrontController extends Controller {
 
     public function giveAddressAdder(Request $request)
     {
-        $regions=\App\Region::all();
         $action=$request->input('go');
         if($action==1){
-            return view($this->localeDir.'templates.addAddr', compact('regions'));
+            return view($this->localeDir.'templates.addAddr');
         }
 
     }

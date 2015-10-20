@@ -162,4 +162,11 @@ class AjaxController extends Controller {
        return view($this->localeDir.'administration.objectData', compact('data'));
 
     }
+
+    public function regionSearch(Request $request)
+    {
+        $string = $request->input('string');
+        $regions = \App\Region::where('name', 'LIKE', $string.'%')->get();
+        return view('responses.regions', compact('regions'));
+    }
 }

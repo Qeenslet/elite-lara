@@ -125,7 +125,21 @@ class ModerationController extends Controller {
 
     public function multistars()
     {
-        return redirect(route('texts'));
+        $els = \App\Planet::where('planet', 1)->wherePlandataPrice()->get();
+        $first = $els[0];
+        $firstG = \App\Myclasses\Counter::gravity($first->mass, $first->radius);
+        foreach($els as $el)
+        {
+            $gravity = \App\Myclasses\Counter::gravity($el->mass, $el->radius);
+            $gDiffer = round($gravity / ($firstG / 100) / 100, 2);
+            $pDiffer = round($el->price / ($first->price / 100) / 100, 2);
+            $oxyDiffer = round($el->oxy / ($first->oxy / 100) / 100, 2);
+            $tempDiffer = round($el->temperature  /($first->temperature / 100) / 100, 2);
+            $pressDiff = round($el->pressure / ($first->pressure / 100) / 100, 2);
+            $dayDiff = round($el->rotP / ($first->rotP / 100) / 100, 2);
+            $array[] = $gDiffer.'G'.'+'.$dayDiff.'Day'.'+'.$oxyDiffer.'O2'.'+'.$tempDiffer.'T'.'+'.$pressDiff.'Pa = '.$pDiffer;
+        }
+        dd($array);
     }
 
     public function starpos(Request $request)
