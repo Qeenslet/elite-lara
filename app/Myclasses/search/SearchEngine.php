@@ -25,7 +25,8 @@ class SearchEngine {
         if (isset($data['address'])) $this->object=new searchSystem($this->data);
         if (isset($data['distance'])) $this->object=new searchByParams($this->data);
         if (isset($data['user'])) $this->object=new searchByUser($this->data);
-        if(isset($data['rare_star'])) $this->object=new searchRare($this->data);
+        if (isset($data['rare_star'])) $this->object=new searchRare($this->data);
+        if (isset($data['user_search'])) $this->object = new cabinetSearch($this->data);
 
         $this->doSearch();
     }

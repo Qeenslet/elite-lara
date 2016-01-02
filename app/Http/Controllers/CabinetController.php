@@ -99,10 +99,56 @@ class CabinetController extends Controller {
 
     }
 
-    public function discovery()
+    public function discovery(Request $request)
     {
-        $findings= Auth::user()->findings()->groupBy('created_at')->orderBy('id', 'desc')->paginate(10);
-        return view($this->localeDir.'cabinet.discoveries', compact('findings'));
+        $s = $request->input('start');
+        $e = $request->input('end');
+        if (isset($s))
+        {
+            if (preg_match('/^(\d{2})\.(\d{2})\.(\d{4})$/', $s, $match))
+            {
+                if ($match[1] > 31 || $match[2] > 12) abort(404);
+                $start = \Carbon\Carbon::parse($s);
+                if (isset($e))
+                {
+                    if (preg_match('/^(\d{2})\.(\d{2})\.(\d{4})$/', $e, $match))
+                    {
+                        if ($match[1] > 31 || $match[2] > 12) abort(404);
+                        $end = \Carbon\Carbon::parse($e);
+                    }
+                    else
+                    {
+                        abort(404);
+                    }
+                }
+                else
+                {
+                    $end = \Carbon\Carbon::now();
+                }
+                $findings= Auth::user()->findings()
+                    ->whereBetween('created_at', [$start, $end])
+                    ->groupBy('created_at')
+                    ->orderBy('id', 'desc')
+                    ->paginate(10);
+                $s = $start->format('d.m.Y');
+                $e = $end->format('d.m.Y');
+                $findings->appends(['start' => $s, 'end' => $e]);
+            }
+            else
+            {
+                abort(404);
+            }
+        }
+        else
+        {
+            $findings= Auth::user()->findings()
+                ->groupBy('created_at')
+                ->orderBy('id', 'desc')
+                ->paginate(10);
+            $s = '';
+            $e = '';
+        }
+        return view($this->localeDir.'cabinet.discoveries', compact('findings', 's', 'e'));
     }
 
     public function mailDelete(Request $request)
@@ -130,6 +176,26 @@ class CabinetController extends Controller {
         $points = \App\Point::orderBy('points', 'desc')->get();
         return view ($this->localeDir.'cabinet.totalStats', compact('points'));
 
+    }
+
+    public function cabinetSearch(Request $request)
+    {
+        $selRep=session('result');
+        $searchData=$request->all();
+        $regions=\App\Region::all();
+        $nothing = \App\Myclasses\Response::requestResult('nothing');
+        if(isset ($searchData['star']) && isset($searchData['planet']) )
+        {
+            $searchData['user_search'] = 1;
+            $searching = new \App\Myclasses\search\SearchEngine($searchData);
+            $systemDs = $searching->getResult();
+            if ($systemDs) {
+                return view($this->localeDir.'cabinet.search', compact('regions', 'systemDs', 'searchData', 'selRep'));
+            } else {
+                return view($this->localeDir.'cabinet.search', compact('regions', 'nothing', 'searchData'));
+            }
+        }
+        return view($this->localeDir.'cabinet.search', compact('regions', 'selRep'));
     }
 
 }

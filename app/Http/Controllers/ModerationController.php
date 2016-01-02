@@ -196,8 +196,8 @@ class ModerationController extends Controller {
 
     public function unite()
     {
-        $pilot = \App\User::where('name', 'techcat')->first();
-        dd($pilot);
+        $pilot = \App\User::where('name', 'Qeenslet')->first();
+        dd($pilot->locales()->where('lang', 'en')->first());
 
         //return ('Get lost out of here!!!');
         /*$array=['id'=>15];

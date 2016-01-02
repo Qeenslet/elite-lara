@@ -35,6 +35,7 @@ Route::get('cabinet/mail/{folder?}', ['as'=>'usermail', 'uses'=>'CabinetControll
 Route::get('cabinet/deletemail', ['as'=>'cabMailDel', 'uses'=>'CabinetController@mailDelete']);
 Route::get('cabinet/total_stats', ['as'=>'totalStats', 'uses'=>'CabinetController@totalStats']);
 Route::get('cabinet/massdelete', ['as'=>'massDeleteCabinet', 'uses'=>'CabinetController@massDelete']);
+Route::get('cabinet/search', ['as'=>'cabinetSearch', 'uses' => 'CabinetController@cabinetSearch']);
 
 Route::get('administration', ['as'=>'administration', 'uses'=>'AdministrationController@index']);
 Route::get('administration/mail/{folder?}', ['as'=>'adminmail', 'uses'=>'AdministrationController@mail']);

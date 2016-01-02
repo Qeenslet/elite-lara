@@ -2,6 +2,10 @@
 @section('title')
     Cabinet|@parent
 @stop
+@section('styles')
+    @parent
+    <link href="/time/styles/glDatePicker.default.css" rel="stylesheet" type="text/css">
+@stop
 @section('content')
     <h2>Personal page</h2>
     <div class="cabmenu">
@@ -23,4 +27,5 @@
     @parent
     <script type="text/javascript" src="/js/cabinetselect.js"></script>
     <script type="text/javascript" src="/js/someAction.js"></script>
+    <script src="/time/glDatePicker.min.js"></script>
 @stop

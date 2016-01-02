@@ -96,6 +96,17 @@ function looseRound(number)
     return number / 1000;
 }
 
+function checkPositiveInt (evt)
+{
+    var keycode;
+    keycode = evt.which;
+    var av = new Array(8, 35, 36, 37, 38, 39, 40, 45, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57);
+    for (var i = 0; i < av.length; i++) {
+        if (av[i] == keycode) return true;
+    }
+    return false;
+}
+
 $( "#multiple_gas" ).change( displayVals );
 $('.resetMe').change( checkPercentsGas );
 $('.rockSolid').change( checkPercentsRock );

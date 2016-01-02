@@ -23,7 +23,7 @@ class addrRequest extends Request {
 	{
 		return [
             'one_name'=>'required_without_all:code_name,region|regex:/^[-0-9a-zA-Z\s\.\']+$/',
-            'code_name'=>'required_with:region|regex:/^[-0-9a-zA-Z\s\.]+$/',
+            'code_name'=>'required_with:region|regex:/^[-0-9a-zA-Z\s\.\+]+$/',
             'region'=>'required_with:code_name|regex:/^[-0-9a-zA-Z\s\.]+$/',
 		];
 	}

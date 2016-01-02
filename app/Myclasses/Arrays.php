@@ -162,13 +162,14 @@ class Arrays {
                 return ['danger'=>'Excesses spreading zone', 'warning'=>'Not sufficient neighbours'];
         }
     }
-    public static function cabinetRouts(){
+    public static function cabinetRouts()
+    {
         switch(\App::getLocale())
         {
             case 'ru':
-                return ['cabinet'=>'Статистика', 'discovery'=>'Журнал систем', 'usermail'=>'Почта', 'totalStats'=>'Рейтинг пилотов'];
+                return ['cabinet'=>'Статистика', 'discovery'=>'Журнал систем', 'cabinetSearch' => 'Поиск', 'usermail'=>'Почта', 'totalStats'=>'Рейтинг'];
             default:
-                return ['cabinet'=>'Statistics', 'discovery'=>'Discovery log', 'usermail'=>'Mail', 'totalStats'=>'Pilot rating'];
+                return ['cabinet'=>'Statistics', 'discovery'=>'Discovery log', 'cabinetSearch' => 'Search', 'usermail'=>'Mail', 'totalStats'=>'Pilot rating'];
         }
     }
     public static function adminRouts(){

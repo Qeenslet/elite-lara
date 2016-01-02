@@ -17,7 +17,7 @@ class Response {
         $letter['reciever']=$aim->user_id;
         $reciever=\App\User::find($aim->user_id);
         $name=$reciever->name;
-        if($reciever->hasLocale('ru'))
+        if($reciever->locales()->where('lang','ru')->first())
         {
             $letter['header'] = "Запрос на дополнительные данные по системе $aim->address";
             $letter['body'] = "Добрый день, CMDR $name! К сожалению, нам недостаточно данных для одобрения добавленной вами планеты в системе $aim->address.
@@ -37,7 +37,7 @@ class Response {
     public static function moderationLetter($addr, $decision, $reciever)
     {
         $user=\App\User::find($reciever);
-        if($user->hasLocale('ru')) $locale='ru';
+        if($user->locales()->where('lang','ru')->first()) $locale='ru';
         else $locale='en';
         $signature=\Auth::user()->name;
         $letter['reciever'] = $reciever;
@@ -70,7 +70,7 @@ class Response {
     public static function moderationResultMessage($answer, $id)
     {
         $user=\App\User::find($id);
-        if($user->hasLocale('ru')) $locale='ru';
+        if($user->locales()->where('lang','ru')->first()) $locale='ru';
         else $locale='en';
         switch ($answer)
         {
