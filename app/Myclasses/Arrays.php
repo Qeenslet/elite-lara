@@ -315,7 +315,8 @@ class Arrays {
                         'кислород',
                         'металлические пары',
                         'подходит для жизни на основе воды',
-                        'силикатные пары'];
+                        'силикатные пары',
+                        'аргон'];
             default:
                 return ['no atmosphere',
                         'ammonia',
@@ -333,7 +334,8 @@ class Arrays {
                         'oxygen',
                         'metallic vapour',
                         'suitable for water based life',
-                        'silicate vapour'];
+                        'silicate vapour',
+                        'argon'];
         }
     }
 

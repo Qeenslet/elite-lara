@@ -51,6 +51,8 @@ $(function(){
     $('#addNew').click(function(cc){
         cc.preventDefault();
         openModal();
+        coord = $(this).offset();
+        $('.modal-window').css('top', coord.top);
         sendTo('/getaddr');
 
     });
@@ -58,6 +60,8 @@ $(function(){
     $('#addNewStar').click(function(cc){
         cc.preventDefault();
         openModal();
+        coord = $(this).offset();
+        $('.modal-window').css('top', coord.top);
         data=$('#addNewStar').attr('data');
         sendTo('/getstar');
     });
@@ -65,6 +69,8 @@ $(function(){
     $('.addNewPlanet').click(function(cc){
         cc.preventDefault();
         openModal();
+        coord = $(this).offset();
+        $('.modal-window').css('top', coord.top);
         data=$(this).attr('data');
         sendTo('/getplanet');
     });
@@ -72,6 +78,8 @@ $(function(){
     $('#addBarycenter').click(function(cc){
         cc.preventDefault();
         openModal();
+        coord = $(this).offset();
+        $('.modal-window').css('top', coord.top);
         data=$('#addBarycenter').attr('data');
         sendTo('/getbary');
     });

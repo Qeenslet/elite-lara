@@ -71,7 +71,7 @@ class searchSystem extends SearchEngine{
 
     private function checkRegion($name)
     {
-        if($name='SPECIAL') return true;
+        if($name == 'SPECIAL') return true;
         $result=stristr($this->string, $name);
         if(!$result) return false;
         else return true;

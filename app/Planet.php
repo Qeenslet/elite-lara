@@ -32,6 +32,7 @@ class Planet extends Model {
         return $query->join('plandatas', 'planets.id', '=', 'plandatas.planet_id')
             ->join('atmospheres', 'plandatas.id', '=', 'atmospheres.plandata_id')
             ->join('orbits', 'plandatas.id', '=', 'orbits.plandata_id')
+            ->join('compositions', 'plandatas.id', '=', 'compositions.plandata_id')
             ->where('plandatas.price', '>', 0)
             ->orderBy('plandatas.price', 'desc');
     }

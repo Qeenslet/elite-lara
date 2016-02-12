@@ -57,6 +57,7 @@ Route::get('moderation/multistars', ['as'=>'multi', 'uses'=>'ModerationControlle
 Route::get('moderation/specials', ['as'=>'recent', 'uses'=>'ModerationController@recent']);
 Route::get('moderation/unite', ['as'=>'uniteSystems', 'uses'=>'ModerationController@unite']);
 Route::get('moderation/deluser', ['as'=>'deleteUser', 'uses'=>'ModerationController@deleteUser']);
+Route::post('moderation/uniter', ['as' => 'uniterTest', 'uses' => 'ModerationController@unitePost']);
 
 Route::post('ajachart', ['as'=>'AjaxCharter', 'uses'=>'AjaxController@chartBuilder']);
 Route::post('ajamoder', ['as'=>'AjaxModeration', 'uses'=>'AjaxController@moderation']);
@@ -78,7 +79,7 @@ Route::post('sendrep', ['as'=>'reportAccepter', 'uses'=>'ModerationController@re
 Route::post('changetext', ['as'=>'changeText', 'uses'=>'ModerationController@changer']);
 Route::post('starpos', ['as'=>'starpos', 'uses'=>'ModerationController@starpos']);
 Route::post('changedata', ['as'=>'changeData', 'uses'=>'ModerationController@changeData']);
-
+Route::post('express', ['as' => 'express', 'uses' => 'FrontController@express']);
 
 
 Route::controllers([

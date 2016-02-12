@@ -196,8 +196,19 @@ class ModerationController extends Controller {
 
     public function unite()
     {
-        $pilot = \App\User::where('name', 'Qeenslet')->first();
-        dd($pilot->locales()->where('lang', 'en')->first());
+        $planets = \App\Planet::where('planet', 0)->wherePlandataPrice()->get();
+        $array = [];
+        //dd($planets);
+        foreach ($planets as $planet)
+        {
+            $gravity = \App\Myclasses\Counter::gravity($planet->mass, $planet->radius);
+            $gravity = $planet->sud;
+            $array[] = ['grav' => $gravity, 'price' => $planet->price];
+        }
+        return view('moderation.charts', compact('array'));
+
+        //$pilot = \App\User::where('name', 'Qeenslet')->first();
+        //dd($pilot->locales()->where('lang', 'en')->first());
 
         //return ('Get lost out of here!!!');
         /*$array=['id'=>15];
@@ -238,6 +249,73 @@ class ModerationController extends Controller {
         /*$first=\Session::pull('first');
         $second=\Session::pull('second');
         return view($this->localeDir.'moderation.unite', compact('first', 'second'));*/
+    }
+
+    public function unitePost(Request $request)
+    {
+        $data = $request->except('_token');
+        $planets = \App\Planet::where('planet', $data['planet'])->wherePlandataPrice()->get();
+        $array = [];
+        $name = '';
+        $axis = '';
+        $axisNames = [];
+        foreach ($planets as $planet)
+        {
+            $param = '';
+            switch ($data['type'])
+            {
+                case 'g':
+                    $param = \App\Myclasses\Counter::gravity($planet->mass, $planet->radius);
+                    $name = 'Цена от гравитации';
+                    $axis = 'G';
+                    break;
+                case 's':
+                    $param = $planet->radius;
+                    $name = 'Цена от радиуса';
+                    $axis = 'радиус км';
+                    break;
+                case 't':
+                    $param = $planet->temperature;
+                    $name = 'Цена от температуры';
+                    $axis = 'температура K';
+                    break;
+                case 'm':
+                    $param = $planet->mass;
+                    $name = 'Цена от массы';
+                    $axis = 'Массы Земли';
+                    break;
+                case 'p':
+                    $param = $planet->pressure;
+                    $name = 'Цена от давления';
+                    $axis = 'Атмосферы';
+                    break;
+                case 'a':
+                    $param = $planet->atm_type;
+                    $name = 'Цена от типа атмосферы';
+                    $axis = 'Тип атмосферы';
+                    $axisNames = \App\Myclasses\Arrays::atmosphereType();
+                    break;
+                case 'sg':
+                    $param = $planet->$data['gas'];
+                    $name = 'Цена от состава атмосферы';
+                    $axis = 'Концентрация %';
+                    break;
+                case 'so':
+                    $param = $planet->$data['orbit'];
+                    $name = 'Цена от параметров орбиты';
+                    $axis = 'Значение';
+                    break;
+                case 'v':
+                    $param = $planet->volcanism;
+                    $name = 'Цена от вулканизма';
+                    $axis = 'Тип вулканизма';
+                    $axisNames = \App\Myclasses\Arrays::volcanism();
+                    break;
+            }
+            $array[] = ['param' => $param, 'price' => $planet->price];
+        }
+        return view('moderation.graph', compact('array', 'name', 'axis', 'axisNames'));
+
     }
 
     public function deleteUser(Request $request)

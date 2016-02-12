@@ -486,5 +486,6 @@ height: auto;
   top: 25%;
   left:25%;
   transform: translate(-25%, -25%);
+  border: none;
  }
 }
