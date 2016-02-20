@@ -28,9 +28,10 @@ class FrontController extends Controller {
     public function index()
     {
         $content=Maintext::find(1);
+        $express = session('express');
         $loginfo=\Session::pull('loginfo');
         if(!$loginfo) $loginfo=null;
-        return view($this->localeDir.'templates.content', compact('content', 'loginfo'));
+        return view($this->localeDir.'templates.content', compact('content', 'loginfo', 'express'));
     }
 
     public function database($chart=0)
@@ -279,13 +280,8 @@ class FrontController extends Controller {
     public function express(Request $request)
     {
         $data = $request->except('_token');
-        $low = $data['distance'] / $data['units'] * 0.8;
-        $high = $data['distance'] / $data['units'] * 1.2;
-        $counter = new \App\Myclasses\Counter();
-        $total = $counter->countPlanets([$data['star']], [0,1,2,3], 100, [0,1,2,3,4,5,6,7], [0,1,2,3,4,5,6,7,8,9]);
-        $number = $counter->countDiapason($low, $high, [$data['star']], [0,1,2,3], [0,1,2,3,4,5,6,7], [0,1,2,3,4,5,6,7,8,9]);
-        $percentage = $number / $total * 100;
-        dd($percentage);
+        $searching = new \App\Myclasses\search\fastSearch($data);
+        return redirect()->back()->with('express', $searching);
     }
 
 }

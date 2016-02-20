@@ -23,6 +23,10 @@ class Language {
         if (Session::has('applocale') AND array_key_exists(Session::get('applocale'), Config::get('languages'))) {
             \App::setLocale(Session::get('applocale'));
         }
+        elseif (strpos($_SERVER['HTTP_ACCEPT_LANGUAGE'], 'ru') !== false)
+        {
+            \App::setLocale('ru');
+        }
         return $next($request);
 	}
 
